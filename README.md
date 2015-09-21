@@ -1,2 +1,4 @@
-# beer_collection
+# Beer Collection
 The Beer Collection Project
+
+## A propos
