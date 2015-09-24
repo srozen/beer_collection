@@ -3,7 +3,7 @@
 ## Installation
 Je présume que vous travaillez sous Windows, si pas vous savez certainement mieux que moi comment installer des paquets sur votre \*NIX.   
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/master/images/install_git.jpg)
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/install_git.jpg)
 
 Pour commencer pas de SourceTree ou autre crapulerie, Git fournit un programme formidable que vous pourrez vous procurer ici :  
 [http://git-scm.com/downloads]  
@@ -12,7 +12,8 @@ Installez-le tout en gardant les paramètres par défaut.
 ## Initialisation
 Une fois installé, lors d'un clic droit daes votre espace de travail, le menu contextuel doit vous présenter les options suivantes :  
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitbash.png)   
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitbash.png)  
+
 
 L'option Git Bash vous fera apparaître une console Git positionnée à l'endroit où vous avez lancé ce Bash.  
 (Vous pouvez utiliser "cd" pour naviguer dans l'arborescence.)   
@@ -22,7 +23,7 @@ Avant toute chose il faut configurer Git avec votre identité, entrez les comman
     git config --global user.name "John McKek"
 	git config --global user.email johnkek@example.com
 
-![alt text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitconfig.PNG)
+![alt text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitconfig.PNG)
 
 Positionnez-vous dans un dossier qui va accueillir le dossier du projet, "Documents" par exemple.  
 
@@ -30,7 +31,7 @@ Pour récupèrer le projet, il faut le cloner dans votre espace personnel avec l
 
     git clone https://github.com/srozen/tvid_app2_1415
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitclone.PNG)
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitclone.PNG)
 
 Vous voilà avec le repo dans votre espace personnel !
 
@@ -54,7 +55,7 @@ Pour savoir sur quelle branche vous êtes:
 
     git branch
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitbranch.PNG)
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitbranch.PNG)
 
 Pourchanger de branche et vous déplacer sur Master (Le tronc commun), faites :   
     
@@ -64,7 +65,7 @@ Ensuite, pour télécharger la toute dernière version de Master :
     
 	git pull
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitupdate.PNG)
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitupdate.PNG)
 
 ## Créer votre branche
 
@@ -85,7 +86,7 @@ temps de la mettre en ligne sur Github :
 
     git push origin nom_de_votre_branche
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitcreatebranch.PNG)
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitcreatebranch.PNG)
 
 Voilà, vous êtes prêts à travailler !
 
@@ -122,7 +123,7 @@ Dans tout les cas, vous aurez à acter vos changements via un **commit** :
 Ceci fait, un **git status** vous dira que tout est clean et qu'il n'y a plus rien à commit, reste plus qu'à soumettre votre travail.
 
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitcommit.png)
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitcommit.png)
 
 
 ## Soumettre votre travail
@@ -133,7 +134,7 @@ que je puisse les intégrer au tronc commun :
 
     git push origin votre_branche
 
-![alt_text](https://github.com/srozen/tvid_app2_1415/blob/work_srozen/images/gitcommitpush.PNG)
+![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitcommitpush.PNG)
 
 Voilà, vous avez les bases pour faire du bon travail avec Git.
 
