@@ -67,26 +67,15 @@ Ensuite, pour télécharger la toute dernière version de Master :
 
 ![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitupdate.PNG)
 
-## Créer votre branche
+## Naviguer sur les branches
 
-Voilà maintenant venu le temps de créer votre branche à vous pour effectuer votre travail !   
+Maintenant que vous savez tout cela, il est nécéssaire que vous travailliez sur la bonne branche de la feature en cours de développement !   
 
-Relancez un prompt dans le dossier du projet, vous êtes normalement sur Master.
+Par exemple vous devez vous occuper de l'implémentation du core de l'application, avec l'interface de login et inscription. On pourrait iaginer que le nom de la branche soit __app_core__ .
 
-Vous allez créer votre branche via la commande : 
+Une fois la branche identifiée, il faut vous positionner dessus :   
 
-    git branch nom_de_votre_branche
-
-Maintenant votre branche est créée, il faut vous positionner dessus :   
-
-    git checkout nom_de_votre_branche
-
-À présent, votre branche est locale, et contient normalement une copie exacte de Master, il est
-temps de la mettre en ligne sur Github :
-
-    git push origin nom_de_votre_branche
-
-![alt_text](https://github.com/srozen/beer_collection/blob/documentation/documents/gituto/images/gitcreatebranch.PNG)
+    git checkout nom_de_la_branche
 
 Voilà, vous êtes prêts à travailler !
 
