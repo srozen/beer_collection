@@ -1,0 +1,113 @@
+\documentclass{report}
+\usepackage{filecontents}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{listings}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[toc, page]{appendix}
+\usepackage{url}
+
+\definecolor{xcodekw}{rgb}{0.75, 0.22, 0.60}
+\definecolor{xcodestr}{rgb}{0.89, 0.27, 0.30}
+\definecolor{xcodecmt}{rgb}{0.31, 0.73, 0.35}
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\geometry{hscale=0.75,vscale=0.85,centering}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand\appendixtocname{Annexes}
+\renewcommand\appendixname{Annexes}
+\renewcommand\appendixpagename{Annexes}
+
+\title{
+\parbox{15cm}
+{ %\includegraphics[width=4cm]{foxhound.png} \\
+  \vspace{3cm}
+	\begin{center}\sf\bfseries\Huge
+		\rule{15cm}{1pt}
+		\medskip
+		Beer Collection \\
+		\huge Description du Projet d'Intégration\\
+		\vspace{.5cm}
+		\rule{15cm}{1pt}
+	\end{center}
+	\vspace{3cm}
+ }} 
+\author{Michaël \bsc{Riffon}, Maxime \bsc{Grenier}, Christophe \bsc{Henry}\\
+Rémy \bsc{Voet}, Cyril \bsc{Pierret}, Samuel \bsc{Monroe}, Florian \bsc{Faingnaert}}
+
+\date{23 Septembre 2015}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\section{Description du Projet}
+
+	\textbf{Beer Collection} est une application centrée autour de la zythologie (étude de la bière), et ayant également pour but de créer un petit réseau social entre ses utilisateurs.\\
+
+	Le projet sera décomposé en trois axes, une application Androïd, un site web de présentation du produit, d'administration et communautaire à plus long terme, et enfin de l'infrastructure réseau.\\
+
+	\subsection{Aspect Zythologie}
+
+		L'application permettra à chaque utilisateur de se créer un profil, et à partir de là, de commencer la "collection" des bières goûtées.\\
+
+		Une large base de données sera créée dans le but de collecter les informations sur toutes les bières du monde, et celles à venir.\\
+		On y retrouvera toutes les informations possibles sur une bière donnée, jusqu'à son historique, région de production, note de la team, note globale des utilisateurs, aspects gustatifs, etc...\\
+
+		L'utilisateur pourra agrandir sa collection de bières bues via un scan d'étiquette de bouteille par appareil photo du smartphone.\\
+		Il pourra également noter cette bière, et lui attribuer un commentaire.\\
+
+		Dans le cas où la bière ne serait pas présente dans la base de données, l'utilisateur sera invité à remplir certains champs à propos de celle-ci et la nouvelle bière devra être validée par l'équipe, ce afin de proposer un moyen collaboratif de construire une base de donnée complète des bières du monde.\\
+
+		Le site internet proposera également de consulter librement ce catalogue de bières construit par la communauté, et aussi par exemple de pouvoir voir quelles bières sont les plus plebiscitées par la communauté.\\
+
+	\subsection{Aspect Communautaire}
+
+		L'utilisateur inscrit disposera d'un profil, dans lequel il pourra renseigner ses préférences en termes de bières, et obtenir des informations tirées de son activité bibitive.\\
+
+		Il aura également un intérêt ludique à essayer de compléter un maximum sa collection via un système d'achievement (ex : avoir goûté toutes les trappistes belges, les trappistes internationales, etc...).\\
+		Sa collection sera évaluée par rapport au catalogue existant, et il obtiendra un niveau et un avatar qui évoluera suivant la complétion de sa quête.\\
+
+		Les utilisateurs pourront s'ajouter en ami, afin de consulter leurs profils respectifs, pouvoir voir quelles sont les dernières découvertes de leurs amis, conseiller des bières à ceux-ci, etc...\\
+
+	\subsection{Fonctionnalités Application}
+
+		\begin{itemize}
+			\item Scanner de bière
+			\item Profil
+			\item Catalogue
+			\item Ma Collection
+			\item Mes amis
+			\item Bons Plans
+			\item (Jeux Bibitifs)
+		\end{itemize}
+
+	\subsection{Fonctionnalités Site Web}
+
+		\begin{itemize}
+			\item Présentation du produit
+			\item Consultation du catalogue
+			\item Administration
+			\item Bons Plans
+			\item Communauté
+		\end{itemize}
+
+\end{document}
+
+
