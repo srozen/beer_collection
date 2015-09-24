@@ -1,0 +1,121 @@
+\documentclass{report}
+\usepackage{filecontents}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{listings}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[toc, page]{appendix}
+\usepackage{url}
+
+\definecolor{xcodekw}{rgb}{0.75, 0.22, 0.60}
+\definecolor{xcodestr}{rgb}{0.89, 0.27, 0.30}
+\definecolor{xcodecmt}{rgb}{0.31, 0.73, 0.35}
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\geometry{hscale=0.75,vscale=0.85,centering}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand\appendixtocname{Annexes}
+\renewcommand\appendixname{Annexes}
+\renewcommand\appendixpagename{Annexes}
+
+\title{
+\parbox{15cm}
+{ %\includegraphics[width=4cm]{foxhound.png} \\
+  \vspace{3cm}
+	\begin{center}\sf\bfseries\Huge
+		\rule{15cm}{1pt}
+		\medskip
+		Beer Collection \\
+		\huge Composition du groupe\\
+		\vspace{.5cm}
+		\rule{15cm}{1pt}
+	\end{center}
+	\vspace{3cm}
+ }} 
+\author{Michaël \bsc{Riffon}, Maxime \bsc{Grenier}, Christophe \bsc{Henry}\\
+Rémy \bsc{Voet}, Cyril \bsc{Pierret}, Samuel \bsc{Monroe}, Florian \bsc{Faingnaert}}
+
+\date{23 Septembre 2015}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+
+	\section{Description de l'organisation}
+
+		Le projet a été dés le départ divisé en trois domaines de travail qui aillaient devoir être assurés : \\
+		\begin{itemize}
+			\item Une application Java
+			\item Une plateforme Web
+			\item Une infrastructure réseau gérée par nos soins
+		\end{itemize}
+
+		Ces trois axes présentant leurs caractéristiques propres et relativement différentes (Dev Applicatif, WebDev et Configuration réseau), notre équipe a pu se répartir dans ces domaines selon les affinités personnelles avec ces matières, ce qui devrait entraîner une implication plus profonde de chacun des membres.\\
+
+
+		\subsection{\textbf{SCRUM Master : } Rémy Voet}
+
+			Rémy Voet a été sélectionné pour ce rôle de gestion de notre fonctionnement Agile pour sa facilité à tenir un discours décontracté avec tout le monde, sa bonne humeur constante et son implication assurée dans cette responsabilité.\\
+			De plus, ayant déjà un bon background en Java et souhaitant s'investir dans le développement de l'application Androïd.\\
+			Ce rôle lui conviendra parfaitement puisque le temps consacrer à mettre en marche la machine SCRUM sera dégressif, et lui permettra de travailler à un bon rythme sur l'application après le premier ou deuxième sprint.\\
+
+		\subsection{\textbf{Product Owner : } Samuel Monroe}
+
+			Samuel Monroe a été choisi en tant que Product Owner pour plusieurs raisons.\\
+			Premièrement, c'est de lui qu'émane l'idée de base du projet et c'est donc dans son esprit que repose la vision la plus claire du produit fini et vers quoi notre équipe doit se diriger.\\
+			Enfin, en plus de son accord à occuper cette responsabilité, nous pensons que c'est la personne du groupe la plus apte à assurer ce rôle, rôle qui demande une grosse implication tout au long du projet.\\
+			Samuel souhaite également s'investir dans le développement Web et soutenir Michaël dans la mise en place de l'infrastructure réseau.\\
+
+		\subsection{\textbf{Web Developers}}
+
+			\subsubsection{Maxime Grenier}
+
+				Maxime Grenier a souhaité rejoindre l'équipe de développement Web car c'est le domaine qui l'intéresse le plus dans ce projet d'intégration.\\
+				Il a déjà présenté de bonnes idées de design, et souhaite progresser dans cette voie en apprenant de nouvelles matières pour mener à bien notre futur site Web.\\
+				La partie réseau est son point noir, ayant eu une deuxième session en réseau, il préfère s'en tenir aux cours, sachant qu'il ne continuera pas dans cette voie dans le futur.\\
+
+			\subsubsection{Christophe Henry}
+
+				Christophe a tout de suite souhaité s'investir dans l'équipe de WebDev, Androïd le rebutant un peu, et la partie réseau ne le tentant pas trop non plus.\\
+				La partie Web pouvant devenir plus sérieuse au cours du temps, il sera un appui précieux dans l'équipe.
+
+		\subsection{\textbf{Android Developers}}
+
+			\subsubsection{Cyril Pierret}
+
+				Cyril aimerait se lancer dans le développement Androïd et a donc souhaité rejoindre la team Androïd, il est motivé et disposé à apprendre le plus vite afin d'assurer le développement de notre application.\\
+
+			\subsubsection{Florian Faingnaert - Crédit Anticipé}
+
+				Florian a souhaité anticiper le cours d'intégration, étant actuellement "bloqué" en deuxième année de TI.\\
+				Intéressé et motivé par notre aventure dans BeerCollection, Florian a voulu nous rejoindre en nous informant qu'il possède déjà un background en technologie Android, et s'est porté volontaire pour travailler avec l'équipe Androïd.\\
+				La programmation applicative est selon lui son point fort, le Web et les réseaux l'intéressent moins.\\
+
+		\subsection{\textbf{System Engineer}}
+
+			\subsubsection{Michaël Riffon}
+
+				Michaël Riffon souhaiterait faire son stage et poursuivre sa carrière dans le domaine des réseaux.\\
+				Le fait d'être System Engineer dans ce projet lui permettra d'aiguiser ses connaissances dans le domaine, et d'améliorer ses connaissances du monde Linux, de l'administration système, de la mise en place de serveurs Web, SQL, SSH et enfin dans la mise en ligne et la sécurisation de cette infrastructure.\\
+				Selon lui, la programmation en général n'est pas son domaine privilégié, mais il se tient prêt à appuyer une des équipes de développement si besoin.\\
+
+\end{document}
+
+
