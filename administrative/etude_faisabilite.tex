@@ -1,0 +1,127 @@
+\documentclass{report}
+\usepackage{filecontents}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{listings}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[toc, page]{appendix}
+\usepackage{url}
+
+\definecolor{xcodekw}{rgb}{0.75, 0.22, 0.60}
+\definecolor{xcodestr}{rgb}{0.89, 0.27, 0.30}
+\definecolor{xcodecmt}{rgb}{0.31, 0.73, 0.35}
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\geometry{hscale=0.75,vscale=0.85,centering}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand\appendixtocname{Annexes}
+\renewcommand\appendixname{Annexes}
+\renewcommand\appendixpagename{Annexes}
+
+\title{
+\parbox{15cm}
+{ %\includegraphics[width=4cm]{foxhound.png} \\
+  \vspace{3cm}
+	\begin{center}\sf\bfseries\Huge
+		\rule{15cm}{1pt}
+		\medskip
+		Beer Collection \\
+		\huge Etude de faisabilité - rentabilité\\
+		\vspace{.5cm}
+		\rule{15cm}{1pt}
+	\end{center}
+	\vspace{3cm}
+ }} 
+\author{Michaël \bsc{Riffon}, Maxime \bsc{Grenier}, Christophe \bsc{Henry}\\
+Rémy \bsc{Voet}, Cyril \bsc{Pierret}, Samuel \bsc{Monroe}, Florian \bsc{Faingnaert}}
+
+\date{27 Septembre 2015}
+
+\begin{document}
+
+\maketitle
+	
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\section{Introduction}
+	
+	Ce document fait état de notre étude de faisabilité et de rentabilité du produit que nous allons développer, ainsi qu'une petite étude de marché précédent l'étude détaillée qui sera donnée dans le rapport final.
+
+\section{Etude de marché}
+
+	\subsection{Utilisateurs potentiels}
+
+		La bière est une fierté nationale dans notre pays, nous comptons un nombre innombrables de bières différentes, brassées par des gros groupes jusqu'à des petits producteurs locaux.\\
+
+		On constate également que le phénomène de la bière est un peu comparable à celui du vin, si ce n'est le publique qui est différent.\\
+		Sans être zythologue, en simple amateur de bière on aime faire des découvertes, apprécier les subtilités de telle ou telle bière, développer ses goûts et ses préférences.\\
+
+		A l'inverse du vin, la bière se distingue de ses concurrentes par la forme de la bouteille, une étiquette très spéciale, un verre propre à celle-ci, etc...\\
+
+		L'engouement pour la bière spéciale (d'un point de vue positif) est un phénomène qui touche le public dont nous faisons partie, et nous souhaitons donc trouver nos utilisateurs dans cettre tranche d'âge estudiantinne, en âge d'apprécier la bière, et née avec la technologie que nous estimerons de 17 à 26 ans.\\
+
+	\subsection{Concurrence et produits similaire}
+
+		A l'heure où nous écrivons ces lignes, pas mal de produits similaires existent sur le marché.\\
+
+		Le produit qui ressemble le plus à ce que nous voulons créer est \textbf{Beer Citizen} en ce qui concerne l'aspect collection et classification des bières et qui base son business sur une boutique, on peut également citer \textbf{BeerBuddy} qui reprend ce que nous avions pensé en terme de scan mais ici juste pour le code bar, enfin je citerai également l'appli \textbf{Beer?!} qui propose une façon très simple de proposer à un ami d'aller boire une bière.\\
+
+		Voici cependant les critères où nous souhaitons nous démarquer : \\
+		\begin{itemize}
+		 	\item L'application est totalement gratuite, sans publicité invasive
+		 	\item L'interface sera ergonomique et très simple d'utilisation
+		 	\item Notre scan de bière se fera sur base de l'\textbf{étiquette}
+		 	\item Le scan sera nécéssaire pour ajouter une bière à sa collection
+		 	\item Pas de leaderboard d'utilisateurs, donc pas de triche à réguler
+		 	\item Le cercle social se limite aux amis qu'on décide d'ajouter
+		 	\item Notre système de géolocalisation des bars \textbf{et} des amis, avec VoIP et messagerie pour les inviter à boire une bière
+		 	\item Notre business-model est unique et contribuera à plusieurs secteurs en relation avec la bière
+		 	\item Notre application sort du cadre purement virtuel en amenant des contacts entre nous et les intervenant du secteurs, et en amenant les utilisateurs à fréquenter les établissement recommandés.
+		 \end{itemize} 
+
+\section{Rentabilité}
+
+	\subsection{Business-Model}
+
+		Ici sont décrites les idées de business-model que nous avons établies pour BeerCollection, ces idées se basent pour la plupart sur un modèle Win-Win et pouvant conduire à un bénéfice global pour les parties en oeuvre dans le domaine de la bière.\\
+
+		Premièrement, il s'agit d'un onglet intitulé "Bons Plans" dans l'application.\\
+		Nous entamerons des relations avec les brasseurs pour leur proposer dans cet onglet, d'afficher leurs promotions qu'ils font sur leurs bières. Un amateur de bière et utilisateur de l'application aura alors grand intérêt à consulter cette section du site pour obtenir ses bières moins cher.\\
+		De cette manière les brasseurs sont directement gagnant en incluant leur publicité/offres promotionnelles (liens sponsorisés) dans un média qui concerne directement leurs prospects, les utilisateurs gagnent à utiliser l'application, et par conséquent nous aussi.\\
+
+		Enfin, il s'agit ici de notre collaboration avec les bars à bière.\\
+		Etant donné que les vrais bars à bières (et autre bars, disposant éventuellement d'une quantité supérieure de bières différentes à définir) se retrouveront sur la carte de géolocalisation de l'utilisateur, ils gagneront beaucoup à ce que les gens utilisent cette application pour les trouver.\\
+		Nous irons donc démarcher ces bars et les convaincre de l'intérêt qu'ils ont à ce que les clients utilisent cette application et que le bouche-à-oreille se fasse. Une fois convaincus, nous plaçerions des flyers faisant la publicité de l'application \textbf(ET) d'un sponsor brasseur à qui nous vendrions un espace publicitaire sur ces flyers.\\
+
+	\subsection{Rentabilité}
+
+		Le point faible de notre projet consiste en l'absence de certitude quant aux revenus.\\
+
+		Nous estimons cependant que nos frais ne seront pas astronomiques.\\
+		La plus grosse dépense va résider dans nos salaires de développeurs, qui reste encore à calculer. Au niveau infrastructure, le public belge voire francophone en général étant ciblé pour les débuts, un investissement modéré sera à fournir en infrastructure du côté serveurs.\\
+
+		Une fois l'application développée et l'infrastructure minimale assurée, il faudra obtenir l'enthousiasme des bars et brasseurs à collaborer avec nous.
+
+		Enfin, il faut également que les utilisateurs se comportent comme on l'espère, en cliquant sur les liens sponsorisés.\\
+
+\section{Faisabilité}
+
+	Les gros points de difficulté qui vont venir à nous sont la création d'un système de scan éfficace et de bonne réponse de la part de la base de données, une mise au point éfficace du système de Géolocalisation, ainsi que du système VoIP disponible avec ses amis.\\
+
+	Nous estimons ce projet être totalement faisable au vu de nos compétences.\\
+	
+\end{document}
