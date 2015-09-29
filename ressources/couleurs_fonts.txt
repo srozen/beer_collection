@@ -1,0 +1,16 @@
+======
+Colors
+======
+
+Mousse blanc cassé : EBE2CC
+Blond clair : FADF73
+Ambré clair : E39227
+
+
+=====
+Fonts
+=====
+
+Bukhari Script
+Bizon
+Maxwell
