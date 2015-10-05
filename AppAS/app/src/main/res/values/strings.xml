@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Beer Collection</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_accueil">Accueil</string>
+    <string name="title_activity_inscription">Inscription</string>
+    <string name="title_activity_menu_p">Menu Principal</string>
+    <string name="title_activity_collection">Votre collection</string>
+    <string name="title_activity_profil">Votre profil</string>
+    <string name="title_activity_scan">Scan</string>
+    <string name="title_activity_bon_plan">Les Bons Plans</string>
+    <string name="font_path">fonts/maxwell.bold.tff</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="login">Nom de profil</string>
+    <string name="connexion">Je suis déjà Collectionneur!</string>
+    <string name="inscription">Dever Collectionneur!</string>
+    <string name="intro">Beer Collection est une application qui permet</string>
+
+    <string-array name="nav_drawer_items">
+        <item>Scan</item>
+        <item>Collection</item>
+        <item>Bons Plans</item>
+        <item>Compte</item>
+    </string-array>
+
+    <!-- <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_home</item>
+    </array> -->
+
+</resources>
