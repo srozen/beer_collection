@@ -1,5 +1,6 @@
 package socialbeerproject.appas;
 
+import android.app.Activity;
 import android.app.Application;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class Accueil extends AppCompatActivity {
+public class Accueil extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

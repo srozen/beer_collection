@@ -15,8 +15,9 @@
     <string name="mdp">Mot de passe</string>
     <string name="login">Nom de profil</string>
     <string name="connexion">Je suis déjà Collectionneur!</string>
-    <string name="inscription">Dever Collectionneur!</string>
+    <string name="inscription">Devenir Collectionneur!</string>
     <string name="intro">Beer Collection est une application qui permet</string>
+    <string name="textePasDeCompte">Vous n\'êtes pas encore collectionneur?</string>
 
     <string-array name="nav_drawer_items">
         <item>Scan</item>
