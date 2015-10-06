@@ -1,0 +1,3 @@
+[submodule "beer_collection_website"]
+	path = beer_collection_website
+	url = https://github.com/srozen/beer_collection_website
