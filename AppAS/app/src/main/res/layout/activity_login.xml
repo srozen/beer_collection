@@ -7,66 +7,72 @@
     tools:context="socialbeerproject.appas.Login">
 
     <TextView
-        android:id="@+id/titreC"
+        android:id="@+id/titre_Connexion"
         style="@style/Titre"
-        android:text="Se connecter" />
+        android:text="@string/title_activity_login" />
 
     <TextView
-        android:id="@+id/Utilisateur"
+        android:id="@+id/texte_utilisateur"
         style="@style/SimpleTexte"
-        android:text="@string/login"
-        android:layout_below="@+id/titreC"
+        android:text="@string/texte_login"
+        android:layout_below="@+id/titre_Connexion"
         android:layout_marginTop="20dp" />
 
     <EditText
-        android:id="@+id/login"
+        android:id="@+id/champ_login"
         android:layout_gravity="center_horizontal"
-        android:hint="@string/login"
-        android:layout_below="@+id/Utilisateur"
+        android:hint="@string/hint_login"
+        android:layout_below="@+id/texte_utilisateur"
         android:layout_marginTop="10dp"
         style="@style/ChampsUneLigne">
         <requestFocus />
     </EditText>
 
     <TextView
-        android:id="@+id/MotDePasse"
+        android:id="@+id/texte_motDePasse"
         style="@style/SimpleTexte"
-        android:text="@string/mdp"
-        android:layout_below="@+id/login"
+        android:text="@string/texte_mdp"
+        android:layout_below="@+id/champ_login"
         android:layout_marginTop="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:id="@+id/mdp"
+        android:id="@+id/champ_mdp"
         android:layout_gravity="center_horizontal"
-        android:hint="@string/mdp"
-        android:layout_below="@+id/MotDePasse"
+        android:hint="@string/hint_mdp"
+        android:layout_below="@+id/texte_motDePasse"
         android:layout_marginTop="10dp"
-        android:password="true"
+        android:inputType="textPassword"
         style="@style/ChampsUneLigne" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/GrosBouton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/btn_seConnecter"
+        android:layout_below="@+id/champ_mdp"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         style="@style/SimpleTexte"
-        android:id="@+id/textPasDeCompte"
-        android:text="@string/textePasDeCompte"
+        android:id="@+id/texte_PasDeCompte"
+        android:text="@string/texte_PasDeCompte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_above="@+id/inscription"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/btn_A_Inscription"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"/>
 
     <Button
-        android:id="@+id/inscription"
+        android:id="@+id/btn_A_Inscription"
+        style="@style/GrosBouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/inscription"
-        android:textStyle="bold"
-        android:padding="30dp"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:background="@color/ambre"
-        android:singleLine="false"
+        android:text="@string/texte_inscription"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

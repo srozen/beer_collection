@@ -6,58 +6,100 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="socialbeerproject.appas.Inscription">
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+    <TextView
+        android:id="@+id/titreI"
+        style="@style/Titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp"
-        android:orientation="vertical" >
-    </LinearLayout>
+        android:text="@string/title_activity_inscription"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        style="@style/SimpleTexte"
+        android:id="@+id/texte_utilisateur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/texte_login"
+        android:layout_below="@+id/titreI"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
 
     <EditText
-        android:id="@+id/nickname"
-        android:layout_width="wrap_content"
+        style="@style/ChampsUneLigne"
+        android:id="@+id/champ_login"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:hint="pseudo" >
-
+        android:hint="@string/hint_login"
+        android:layout_below="@+id/texte_utilisateur"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" >
         <requestFocus />
     </EditText>
 
+    <TextView
+        style="@style/SimpleTexte"
+        android:id="@+id/texte_motDePasse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/texte_mdp"
+        android:layout_below="@+id/champ_login"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        style="@style/ChampsUneLigne"
+        android:id="@+id/champ_mdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/hint_mdp"
+        android:layout_below="@+id/texte_motDePasse"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        style="@style/SimpleTexte"
+        android:id="@+id/texte_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/texte_mail"
+        android:layout_below="@+id/champ_mdp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        style="@style/ChampsUneLigne"
+        android:id="@+id/champ_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/hint_mail"
+        android:layout_below="@+id/texte_mail" />
+
     <Button
+        style="@style/GrosBouton"
         android:id="@+id/confirmation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp"
-        android:text="inscription" />
+        android:text="@string/btn_valider"
+        android:layout_below="@+id/champ_mail"
+        android:layout_marginTop="20dp" />
 
-    <EditText
-        android:id="@+id/psw"
-        android:layout_width="wrap_content"
+    <Button
+        style="@style/GrosBouton"
+        android:id="@+id/btn_A_SeConnecter"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/linearLayout1"
-        android:layout_alignLeft="@+id/nickname"
-        android:layout_gravity="center_horizontal"
-        android:ems="10"
-        android:hint="mot de passe" />
-
-    <EditText
-        android:id="@+id/mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/nickname"
-        android:layout_below="@+id/linearLayout1"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="27dp"
-        android:ems="10"
-        android:hint="adresse email" />
+        android:text="@string/texte_connexion"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

@@ -3,7 +3,7 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="title_activity_login">Login</string>
+    <string name="title_activity_login">Se Connecter</string>
     <string name="title_activity_accueil">Accueil</string>
     <string name="title_activity_inscription">Inscription</string>
     <string name="title_activity_menu_p">Menu Principal</string>
@@ -12,12 +12,18 @@
     <string name="title_activity_scan">Scan</string>
     <string name="title_activity_bon_plan">Les Bons Plans</string>
     <string name="font_path">fonts/maxwell.bold.tff</string>
-    <string name="mdp">Mot de passe</string>
-    <string name="login">Nom de profil</string>
-    <string name="connexion">Je suis déjà Collectionneur!</string>
-    <string name="inscription">Devenir Collectionneur!</string>
-    <string name="intro">Beer Collection est une application qui permet</string>
-    <string name="textePasDeCompte">Vous n\'êtes pas encore collectionneur?</string>
+    <string name="texte_mdp">Mot de passe : </string>
+    <string name="texte_login">Nom de profil : </string>
+    <string name="hint_mdp">Mot de passe</string>
+    <string name="hint_login">Nom de profil</string>
+    <string name="texte_connexion">Je suis déjà Collectionneur!</string>
+    <string name="texte_inscription">Devenir Collectionneur!</string>
+    <string name="texte_intro">Beer Collection est une application qui permet</string>
+    <string name="texte_PasDeCompte">Vous n\'êtes pas encore collectionneur?</string>
+    <string name="btn_seConnecter">Se connecter</string>
+    <string name="texte_mail">Adresse mail :</string>
+    <string name="hint_mail">ex : toto@BCollection.com</string>
+    <string name="btn_valider">Valider</string>
 
     <string-array name="nav_drawer_items">
         <item>Scan</item>

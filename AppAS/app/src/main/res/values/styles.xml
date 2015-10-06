@@ -1,13 +1,14 @@
 <resources>
-    <style name="AppTheme" parent="android:Theme.Black.NoTitleBar">
-        <item name="android:textColor">@color/background</item>
+    <style name="AppTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:textColor">@color/mousse</item>
+        <item name="android:background">@color/background</item>
     </style>
     <style name="Titre">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/titreSize</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/ambre</item>
+        <item name="android:textColor">@color/yellow</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
     <style name="SimpleTexte">
@@ -15,12 +16,20 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/texteSize</item>
         <item name="android:gravity">left</item>
-        <item name="android:textColor">@color/blond</item>
+        <item name="android:textColor">@color/mousse</item>
     </style>
     <style name="ChampsUneLigne">
         <item name="android:singleLine">true</item>
         <item name="android:lines">1</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="GrosBouton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:clickable">true</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/ambre</item>
     </style>
 </resources>
