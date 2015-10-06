@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/scan" android:icon="@mipmap/ic_launcher" android:showAsAction="always" android:title="Scan" android:titleCondensed="Scan" android:visible="true"></item>
+    <item android:id="@+id/collection" android:icon="@mipmap/ic_launcher" android:showAsAction="always" android:title="Collection" android:titleCondensed="Collection" android:visible="true"></item>
+    <item android:id="@+id/bar" android:icon="@mipmap/ic_launcher" android:showAsAction="always" android:title="Bar" android:titleCondensed="Bar" android:visible="true"></item>
+    <item android:id="@+id/compte" android:icon="@mipmap/ic_launcher" android:showAsAction="always" android:title="Compte" android:titleCondensed="Compte" android:visible="true"></item>
+
+</menu>
