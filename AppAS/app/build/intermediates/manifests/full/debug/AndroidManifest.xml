@@ -23,10 +23,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="socialbeerproject.appas.Accueil"
-            android:label="@string/title_activity_accueil" >
-        </activity>
-        <activity
             android:name="socialbeerproject.appas.Inscription"
             android:label="@string/title_activity_inscription"
             android:noHistory="true" >

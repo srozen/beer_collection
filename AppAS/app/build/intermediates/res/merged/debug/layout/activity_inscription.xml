@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+
         <TextView
             android:id="@+id/titreI"
             style="@style/Titre"
@@ -105,6 +106,7 @@
             android:text="@string/texte_connexion"
             android:layout_below="@+id/btn_confirmation"
             android:layout_marginTop="30dp" />
+
     </LinearLayout>
 </ScrollView>
 <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/layout/activity_inscription.xml -->
