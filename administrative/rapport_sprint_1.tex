@@ -1,0 +1,85 @@
+\documentclass{report}
+\usepackage{filecontents}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{listings}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[toc, page]{appendix}
+\usepackage{url}
+
+\definecolor{xcodekw}{rgb}{0.75, 0.22, 0.60}
+\definecolor{xcodestr}{rgb}{0.89, 0.27, 0.30}
+\definecolor{xcodecmt}{rgb}{0.31, 0.73, 0.35}
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\geometry{hscale=0.75,vscale=0.85,centering}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand\appendixtocname{Annexes}
+\renewcommand\appendixname{Annexes}
+\renewcommand\appendixpagename{Annexes}
+
+\title{
+\parbox{15cm}
+{ %\includegraphics[width=4cm]{foxhound.png} \\
+  \vspace{3cm}
+	\begin{center}\sf\bfseries\Huge
+		\rule{15cm}{1pt}
+		\medskip
+		Beer Collection \\
+		\huge Rapport de Sprint 1\\
+		\vspace{.5cm}
+		\rule{15cm}{1pt}
+	\end{center}
+	\vspace{3cm}
+ }}
+\author{Michaël \bsc{Riffon}, Maxime \bsc{Grenier}, Christophe \bsc{Henry}\\
+Rémy \bsc{Voet}, Cyril \bsc{Pierret}, Samuel \bsc{Monroe}, Florian \bsc{Faingnaert}}
+
+\date{7 Octobre 2015}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\section{Introduction}
+
+  Ce rapport présente l'avancement du projet \textbf{Beer Collection} au terme de ce premier sprint.\\
+  Nous allons exposer les éléments qui ont été accomplis, notre état d'avancement par rapport aux prévisions et la vélocité estimée
+  de notre équipe par rapport aux points des Stories completées.\\
+
+\section{User et Technical Stories terminées}
+
+  Notre définition de "fini" impliquera que la story soit fonctionnelle à 100%, et disposant d'un design suffisamment abouti pour ne nécéssiter que quelques modifications finales pour assurer l'homogénéité visuelle du projet.\\
+
+  Nous n'avons donc aucune User Story réellement terminée selon nos exigences.
+
+\section{Avancement par rapport aux prévisions}
+
+  Malgré l'absence de User Stories terminées, nous avons atteint un état d'avancement pas si éloigné des objectifs initiaux.\\
+
+  Beaucoup de temps a surtout été consacré à l'apprentissage des technologies que nous utiliserons pour la suite du projet, ainsi
+  qu'à la mise en place des environnements de travail, de l'adaptation à la méthode SCRUM, ainsi qu'au rythme de travail à avoir.\\
+
+  Nous estimons notre avancement à 70% sur la prévision initiale.\\
+
+\section{Vélocité de l'équipe sur le sprint}
+
+  Cette estimation est un peu biaisée car l'estimation des points à donner aux Stories s'est révélée assez peu précise.\\
+
+  Cependant, si on considère l'attribution initiale des points, nous en sommes à 
