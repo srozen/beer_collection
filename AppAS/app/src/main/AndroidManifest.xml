@@ -16,10 +16,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Accueil"
-            android:label="@string/title_activity_accueil" >
-        </activity>
-        <activity
             android:name=".Inscription"
             android:label="@string/title_activity_inscription"
             android:noHistory="true" >

@@ -42,6 +42,13 @@ public class Inscription extends Activity implements View.OnClickListener{
                 Intent i= new Intent(this,Login.class);
                 startActivity(i);
                 break;
+            case R.id.btn_confirmation:
+                this.verificationInscription();
+                break;
         }
+    }
+
+    private void verificationInscription(){
+
     }
 }
