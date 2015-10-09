@@ -24,6 +24,9 @@
     <string name="texte_mail">Adresse mail :</string>
     <string name="hint_mail">ex : toto@BCollection.com</string>
     <string name="btn_valider">Valider</string>
+    <string name="btn_retour">Retour</string>
+    <string name="texte_description">Description :</string>
+    <string name="texte_alcool">Alcool :</string>
 
     <string-array name="nav_drawer_items">
         <item>Scan</item>

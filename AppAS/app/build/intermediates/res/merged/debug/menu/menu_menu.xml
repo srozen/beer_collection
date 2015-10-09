@@ -5,4 +5,4 @@
     <item android:id="@+id/bar" android:icon="@mipmap/ic_launcher" android:showAsAction="always" android:title="Bar" android:titleCondensed="Bar" android:visible="true"></item>
     <item android:id="@+id/compte" android:icon="@mipmap/ic_launcher" android:showAsAction="always" android:title="Compte" android:titleCondensed="Compte" android:visible="true"></item>
 
-</menu><!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/menu/menu_menu.xml -->
+</menu><!-- From: file:/D:/application/beer_collection/AppAS/app/src/main/res/menu/menu_menu.xml -->

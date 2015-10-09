@@ -18,6 +18,13 @@
         <item name="android:gravity">left</item>
         <item name="android:textColor">@color/button</item>
     </style>
+    <style name="LittleSimpleTexte">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/littleTexteSize</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
     <style name="ChampsUneLigne">
         <item name="android:singleLine">true</item>
         <item name="android:lines">1</item>

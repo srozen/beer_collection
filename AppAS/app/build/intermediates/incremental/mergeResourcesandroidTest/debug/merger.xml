@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\BeerProjet\AppAS\app\src\androidTest\res"/><source path="C:\BeerProjet\AppAS\app\build\generated\res\rs\androidTest\debug"/><source path="C:\BeerProjet\AppAS\app\build\generated\res\resValues\androidTest\debug"/></dataSet><mergedItems/></merger>
+<merger version="3"><dataSet config="main"><source path="D:\application\beer_collection\AppAS\app\src\androidTest\res"/><source path="D:\application\beer_collection\AppAS\app\build\generated\res\rs\androidTest\debug"/><source path="D:\application\beer_collection\AppAS\app\build\generated\res\resValues\androidTest\debug"/></dataSet><mergedItems/></merger>
