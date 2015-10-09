@@ -8,47 +8,30 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".Login"
-            android:label="@string/title_activity_login"
+            android:label="@string/app_name"
             android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            android:name=".Accueil"
-            android:label="@string/title_activity_accueil" >
-        </activity>
-        <activity
->>>>>>> android_login
-=======
->>>>>>> android_register
             android:name=".Inscription"
             android:label="@string/title_activity_inscription"
             android:noHistory="true" >
         </activity>
         <activity
-            android:name=".MenuP"
+            android:name=".Principal"
             android:label="@string/title_activity_menu_p" >
-        </activity>
-        <activity
-            android:name=".Collection"
-            android:label="@string/title_activity_collection" >
         </activity>
         <activity
             android:name=".Profil"
             android:label="@string/title_activity_profil" >
         </activity>
         <activity
-            android:name=".Scan"
-            android:label="@string/title_activity_scan" >
-        </activity>
-        <activity
-            android:name=".BonPlan"
-            android:label="@string/title_activity_bon_plan" >
+            android:name=".profil_biere"
+            android:label="@string/title_activity_profil_biere" >
         </activity>
     </application>
 

@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<selector>
-=======
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
->>>>>>> android_login
-=======
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
->>>>>>> android_register
 
 </selector>

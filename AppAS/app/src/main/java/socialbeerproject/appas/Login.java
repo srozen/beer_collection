@@ -43,24 +43,14 @@ public class Login extends Activity implements View.OnClickListener{
                 Intent i= new Intent(this,Inscription.class);
                 startActivity(i);
                 break;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> android_register
-            case R.id.btn_A_SeConnecter:
+            case R.id.btn_SeConnecter:
                 this.verificationConnexion();
                 break;
         }
     }
 
     private void verificationConnexion(){
-
+        Intent i= new Intent(this,Principal.class);
+        startActivity(i);
     }
-<<<<<<< HEAD
-=======
-        }
-    }
->>>>>>> android_login
-=======
->>>>>>> android_register
 }

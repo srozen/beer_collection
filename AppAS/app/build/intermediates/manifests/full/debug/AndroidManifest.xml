@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="socialbeerproject.appas.Login"
-            android:label="@string/title_activity_login"
+            android:label="@string/app_name"
             android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,24 +28,16 @@
             android:noHistory="true" >
         </activity>
         <activity
-            android:name="socialbeerproject.appas.MenuP"
+            android:name="socialbeerproject.appas.Principal"
             android:label="@string/title_activity_menu_p" >
-        </activity>
-        <activity
-            android:name="socialbeerproject.appas.Collection"
-            android:label="@string/title_activity_collection" >
         </activity>
         <activity
             android:name="socialbeerproject.appas.Profil"
             android:label="@string/title_activity_profil" >
         </activity>
         <activity
-            android:name="socialbeerproject.appas.Scan"
-            android:label="@string/title_activity_scan" >
-        </activity>
-        <activity
-            android:name="socialbeerproject.appas.BonPlan"
-            android:label="@string/title_activity_bon_plan" >
+            android:name="socialbeerproject.appas.profil_biere"
+            android:label="@string/title_activity_profil_biere" >
         </activity>
     </application>
 

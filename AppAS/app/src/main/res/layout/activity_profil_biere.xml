@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="La bière de l&apos;ours"
+        android:text="La bière de l'ours"
         android:id="@+id/textView_Title"
         android:layout_alignBottom="@+id/button_Retour"
         android:layout_alignParentRight="true"

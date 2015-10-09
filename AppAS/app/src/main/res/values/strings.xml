@@ -20,19 +20,14 @@
     <string name="texte_inscription">Devenir Collectionneur!</string>
     <string name="texte_intro">Beer Collection est une application qui permet</string>
     <string name="texte_PasDeCompte">Vous n\'êtes pas encore collectionneur?</string>
+    <string name="texte_description">Description :</string>
+    <string name="texte_alcool">Alcool :</string>
     <string name="btn_seConnecter">Se connecter</string>
     <string name="texte_mail">Adresse mail :</string>
     <string name="hint_mail">ex : toto@BCollection.com</string>
     <string name="btn_valider">Valider</string>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <string name="btn_retour">Retour</string>
-    <string name="texte_description">Description :</string>
-    <string name="texte_alcool">Alcool :</string>
-=======
->>>>>>> android_login
-=======
->>>>>>> android_register
+
 
     <string-array name="nav_drawer_items">
         <item>Scan</item>
@@ -41,11 +36,10 @@
         <item>Compte</item>
     </string-array>
 
-    <!-- <array name="nav_drawer_icons">
-        <item>@drawable/ic_home</item>
-        <item>@drawable/ic_home</item>
-        <item>@drawable/ic_home</item>
-        <item>@drawable/ic_home</item>
-    </array> -->
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_profil_biere">profil_biere</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

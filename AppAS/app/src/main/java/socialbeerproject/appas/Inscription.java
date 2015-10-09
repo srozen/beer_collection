@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.view.ViewManager;
 
 public class Inscription extends Activity implements View.OnClickListener{
 
@@ -42,10 +43,6 @@ public class Inscription extends Activity implements View.OnClickListener{
                 Intent i= new Intent(this,Login.class);
                 startActivity(i);
                 break;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> android_register
             case R.id.btn_confirmation:
                 this.verificationInscription();
                 break;
@@ -55,11 +52,4 @@ public class Inscription extends Activity implements View.OnClickListener{
     private void verificationInscription(){
 
     }
-<<<<<<< HEAD
-=======
-        }
-    }
->>>>>>> android_login
-=======
->>>>>>> android_register
 }
