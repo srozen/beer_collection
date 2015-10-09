@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="red">#FF0000</color>
+<<<<<<< HEAD
     <color name="black">#000000</color>
+=======
+>>>>>>> android_login
     <color name="green">#58FA82</color>
     <color name="blue">#81BEF7</color>
     <color name="yellow">#F7FE2E</color>

@@ -3,5 +3,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="titreSize">30sp</dimen>
     <dimen name="texteSize">20sp</dimen>
+<<<<<<< HEAD
     <dimen name="littleTexteSize">15sp</dimen>
+=======
+>>>>>>> android_login
 </resources>
