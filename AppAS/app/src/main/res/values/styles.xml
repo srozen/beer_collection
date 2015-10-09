@@ -1,12 +1,17 @@
 <resources>
     <style name="AppTheme" parent="android:Theme.NoTitleBar">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <item name="android:background">@color/mousse</item>
         <item name="android:textColor">@color/background</item>
 =======
         <item name="android:textColor">@color/mousse</item>
         <item name="android:background">@color/background</item>
 >>>>>>> android_login
+=======
+        <item name="android:background">@color/mousse</item>
+        <item name="android:textColor">@color/background</item>
+>>>>>>> android_register
     </style>
     <style name="Titre">
         <item name="android:layout_width">wrap_content</item>
@@ -14,10 +19,14 @@
         <item name="android:textSize">@dimen/titreSize</item>
         <item name="android:gravity">center</item>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <item name="android:textColor">@color/ambre</item>
 =======
         <item name="android:textColor">@color/yellow</item>
 >>>>>>> android_login
+=======
+        <item name="android:textColor">@color/ambre</item>
+>>>>>>> android_register
         <item name="android:layout_centerHorizontal">true</item>
     </style>
     <style name="SimpleTexte">
@@ -25,6 +34,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/texteSize</item>
         <item name="android:gravity">left</item>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <item name="android:textColor">@color/button</item>
     </style>
@@ -38,6 +48,10 @@
         <item name="android:textColor">@color/mousse</item>
 >>>>>>> android_login
     </style>
+=======
+        <item name="android:textColor">@color/button</item>
+    </style>
+>>>>>>> android_register
     <style name="ChampsUneLigne">
         <item name="android:singleLine">true</item>
         <item name="android:lines">1</item>
@@ -51,9 +65,13 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">20sp</item>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <item name="android:background">@drawable/boutton</item>
 =======
         <item name="android:background">@color/ambre</item>
 >>>>>>> android_login
+=======
+        <item name="android:background">@drawable/boutton</item>
+>>>>>>> android_register
     </style>
 </resources>

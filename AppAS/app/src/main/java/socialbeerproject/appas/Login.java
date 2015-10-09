@@ -44,6 +44,9 @@ public class Login extends Activity implements View.OnClickListener{
                 startActivity(i);
                 break;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> android_register
             case R.id.btn_A_SeConnecter:
                 this.verificationConnexion();
                 break;
@@ -53,8 +56,11 @@ public class Login extends Activity implements View.OnClickListener{
     private void verificationConnexion(){
 
     }
+<<<<<<< HEAD
 =======
         }
     }
 >>>>>>> android_login
+=======
+>>>>>>> android_register
 }

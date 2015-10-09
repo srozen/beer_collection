@@ -2,9 +2,12 @@
 <resources>
     <color name="red">#FF0000</color>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <color name="black">#000000</color>
 =======
 >>>>>>> android_login
+=======
+>>>>>>> android_register
     <color name="green">#58FA82</color>
     <color name="blue">#81BEF7</color>
     <color name="yellow">#F7FE2E</color>

@@ -17,12 +17,15 @@
         </activity>
         <activity
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:name=".Accueil"
             android:label="@string/title_activity_accueil" >
         </activity>
         <activity
 >>>>>>> android_login
+=======
+>>>>>>> android_register
             android:name=".Inscription"
             android:label="@string/title_activity_inscription"
             android:noHistory="true" >
