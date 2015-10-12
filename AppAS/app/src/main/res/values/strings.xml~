@@ -27,7 +27,7 @@
     <string name="hint_mail">ex : toto@BCollection.com</string>
     <string name="btn_valider">Valider</string>
     <string name="btn_retour">Retour</string>
-    <string name="icon">@drawable/ic_home</string>
+
 
     <string-array name="nav_drawer_items">
         <item>Scan</item>

@@ -1,0 +1,71 @@
+package socialbeerproject.appas;
+
+import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+/*
+ * Classe permettant de customizer les éléments du menu principal.
+ * Chaque item sera affiché selon elem_menu.xml
+ */
+
+public class AdaptateurCollection extends BaseAdapter {
+
+	
+	Context context;
+	List<ElementCollection> elements;
+
+	public AdaptateurCollection(Context context, List<ElementCollection> elements) {
+		this.context = context;
+		this.elements = elements;
+	}
+
+	    @Override
+	    public int getCount() {
+
+	        return elements.size();
+	    }
+
+	    @Override
+	    public Object getItem(int position) {
+
+	        return elements.get(position);
+	    }
+
+	    @Override
+	    public long getItemId(int position) {
+
+	        return elements.indexOf(getItem(position));
+	    }
+
+	    @Override
+	    public View getView(int position, View convertView, ViewGroup parent) {
+
+	        if (convertView == null) {
+	            LayoutInflater mInflater = (LayoutInflater) context
+	                    .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+	            convertView = mInflater.inflate(R.layout.elem_collection, null);
+	        }
+
+	        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.Image);
+	        TextView Titre = (TextView) convertView.findViewById(R.id.Nom);
+
+	        ElementCollection row_pos = elements.get(position);
+	        // setting the image resource and title
+	        
+	        
+	        imgIcon.setImageResource(row_pos.getIcon());
+	        
+	        
+	        Titre.setText(row_pos.getNom());
+
+	        return convertView;
+
+	    }
+}
