@@ -1,4 +1,4 @@
-package socialbeerproject.appas;
+package be.example.socialbeer;
 
 import Fragments.MenuP;
 import android.app.Activity;

@@ -1,39 +1,23 @@
 package socialbeerproject.appas;
 
-import Fragments.MenuP;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
-public class Principal extends Activity {
+public class Collection extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        //On applique le lyaout du fragment à l'activité.
-        super.setContentView(R.layout.fragment_menu);
-        
-
-        // Création du nouveau fragment à placer dans le layout de l'activité.
-        MenuP men = new MenuP();
-        
-        // si le fragment à besoin d'être initialisé avec des arguments.
-        //men.setArguments(null,null);
-        
-        // Add the fragment to the 'fragment_container' FrameLayout
-        getFragmentManager().beginTransaction()
-                .add(R.id.linear, men).commit();
-
-
+        setContentView(R.layout.activity_collection);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_collection, menu);
         return true;
     }
 
@@ -51,8 +35,4 @@ public class Principal extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    
-    
-
 }
