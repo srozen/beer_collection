@@ -60,10 +60,8 @@ public class Adaptateur extends BaseAdapter {
 	        elementListe row_pos = elements.get(position);
 	        // setting the image resource and title
 	        
-	        //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	        //Todo: trouver un moyen de passer l'id des images se trouvant dans drawable.
-	        //!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	        imgIcon.setImageResource(R.drawable.ic_home);
+	        
+	        imgIcon.setImageResource(row_pos.getIcon());
 	        
 	        
 	        Titre.setText(row_pos.getTitle());
