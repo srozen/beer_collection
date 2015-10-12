@@ -17,15 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Menu.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Menu#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MenuP extends ListFragment {
 	
     private int Position = 0;
@@ -52,8 +43,8 @@ public class MenuP extends ListFragment {
         
         element = new ArrayList<elementListe>();
 
-        elementListe e1 = new elementListe("Scan", "scan ta binouze", 1);
-        elementListe e2 = new elementListe("Collection", "toute les bières que t'as sifflé", 1);
+        elementListe e1 = new elementListe("Scan", "scan ta binouze", R.string.icon);
+        elementListe e2 = new elementListe("Collection", "toute les bières que t'as sifflé", R.string.icon);
         element.add(e1);
         element.add(e2);
 
