@@ -12,13 +12,17 @@ import android.widget.Button;
 public class Login extends Activity implements View.OnClickListener{
 
     private Button btnAInsc = null;
+    private Button btnSeConnecter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         btnAInsc = (Button) findViewById(R.id.btn_A_Inscription);
         btnAInsc.setOnClickListener(this);
+        btnSeConnecter = (Button) findViewById(R.id.btn_SeConnecter);
+        btnSeConnecter.setOnClickListener(this);
     }
 
     @Override

@@ -30,7 +30,7 @@
             android:label="@string/title_activity_profil" >
         </activity>
         <activity
-            android:name=".profil_biere"
+            android:name=".Profil_biere"
             android:label="@string/title_activity_profil_biere" >
         </activity>
     </application>

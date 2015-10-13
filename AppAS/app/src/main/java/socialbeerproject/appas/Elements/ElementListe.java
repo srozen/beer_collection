@@ -1,12 +1,12 @@
-package be.example.socialbeer;
+package socialbeerproject.appas.Elements;
 
-public class elementListe {
-	
-	private String title;
-	private String description;
+public class ElementListe {
+
+    private String title;
+    private String description;
     private int icon;
 
-    public elementListe(String title, String descr, int icon) {
+    public ElementListe(String title, String descr, int icon) {
         this.title = title;
         this.icon = icon;
         this.description = descr;
@@ -16,13 +16,13 @@ public class elementListe {
     public String getTitle() {
         return title;
     }
-    
+
     public String getDescription(){
-    	return description;
+        return description;
     }
-    
+
     public void setDescription(String descr){
-    	this.description = descr;
+        this.description = descr;
     }
 
     public void setTitle(String title) {

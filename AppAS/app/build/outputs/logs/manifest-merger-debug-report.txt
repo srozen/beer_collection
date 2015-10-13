@@ -61,7 +61,7 @@ ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:28:9-31:20
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:30:13-58
 	android:name
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:29:13-35
-activity#socialbeerproject.appas.profil_biere
+activity#socialbeerproject.appas.Profil_biere
 ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:32:9-35:20
 	android:label
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:34:13-64

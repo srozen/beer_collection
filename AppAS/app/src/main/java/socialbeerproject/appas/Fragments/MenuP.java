@@ -3,56 +3,39 @@ package socialbeerproject.appas.Fragments;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.example.socialbeer.*;
-import android.app.Activity;
+import socialbeerproject.appas.Adaptateurs.Adaptateur;
+import socialbeerproject.appas.Elements.ElementListe;
+import socialbeerproject.appas.R;
+
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.content.Intent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
 public class MenuP extends ListFragment {
-	
+
     private int Position = 0;
     private ArrayList<String> Item;
-    
+
     Adaptateur adapter;
-    private List<elementListe> element;
+    private List<ElementListe> element;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        
-        //ex code
-        /*
-        //Liste des boutons du menu.
-        Item = new ArrayList<String>();
-        Item.add("Scan");
-        Item.add("Collection");
+        element = new ArrayList<ElementListe>();
 
-        // On remplit le menu avec notre liste d'options.
-        setListAdapter(new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_activated_1, Item));
-                */
-        
-        element = new ArrayList<elementListe>();
-
-        elementListe e1 = new elementListe("Scan", "scan ta binouze", R.string.icon);
-        elementListe e2 = new elementListe("Collection", "toute les bières que t'as sifflé", R.string.icon);
+        ElementListe e1 = new ElementListe("Scan", "scan ta binouze", R.string.icon);
+        ElementListe e2 = new ElementListe("Collection", "toute les bières que t'as sifflé", R.string.icon);
         element.add(e1);
         element.add(e2);
 
         adapter = new Adaptateur(getActivity(), element);
         setListAdapter(adapter);
-
     }
-    
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -73,36 +56,27 @@ public class MenuP extends ListFragment {
     void selectItem(int index, View v) {
         Position = index;
 
-      
         // We can display everything in-place with fragments, so update
         // the list to highlight the selected item and show the data.
         getListView().setItemChecked(index, true);
 
-      
 
         //Remplace un fragment par un autre
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         switch (index) {
-        case 0:
-        	//Avec en paramètre l'id de la vue de l'activité mère et un fragment.
-            ft.replace(R.id.linear, new Scan());
-            break;
-        case 1:
-            //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
-            ft.replace(R.id.linear, new Collection());
-            break;
+            case 0:
+                //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
+                ft.replace(R.id.linear, new Scan());
+                break;
+            case 1:
+                //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
+                ft.replace(R.id.linear, new Collection());
+                break;
         }
-            
+
         ft.addToBackStack(null);
-        
-        
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
-        }
-
-
-	
-
-    
+    }
 }
 

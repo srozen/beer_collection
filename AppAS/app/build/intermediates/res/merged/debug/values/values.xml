@@ -279,6 +279,7 @@
     <string name="hint_login">Nom de profil</string>
     <string name="hint_mail">ex : toto@BCollection.com</string>
     <string name="hint_mdp">Mot de passe</string>
+    <string name="icon">@mipmap/ic_launcher</string>
     <!-- From: file:/C:/BeerProjet/AppAS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>

@@ -36,7 +36,7 @@
             android:label="@string/title_activity_profil" >
         </activity>
         <activity
-            android:name="socialbeerproject.appas.profil_biere"
+            android:name="socialbeerproject.appas.Profil_biere"
             android:label="@string/title_activity_profil_biere" >
         </activity>
     </application>

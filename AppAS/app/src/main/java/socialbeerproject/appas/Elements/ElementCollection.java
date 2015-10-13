@@ -1,8 +1,8 @@
-package socialbeerproject.appas;
+package socialbeerproject.appas.Elements;
 
 public class ElementCollection {
-	
-	private String nom;
+
+    private String nom;
     private int icon;
 
     public ElementCollection(String nom, int icon) {

@@ -3,27 +3,28 @@ package socialbeerproject.appas.Fragments;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.example.socialbeer.*;
-import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import socialbeerproject.appas.Adaptateurs.AdaptateurCollection;
+import socialbeerproject.appas.Elements.ElementCollection;
+import socialbeerproject.appas.R;
 
 
 public class Collection extends ListFragment {
-	
+
     private int Position = 0;
     private ArrayList<String> Item;
-    
+
     AdaptateurCollection adapter;
     private List<ElementCollection> element;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        
+
         element = new ArrayList<ElementCollection>();
 
         ElementCollection e1 = new ElementCollection("Leffe", R.string.icon);
@@ -33,9 +34,8 @@ public class Collection extends ListFragment {
 
         adapter = new AdaptateurCollection(getActivity(), element);
         setListAdapter(adapter);
-
     }
-    
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -56,7 +56,7 @@ public class Collection extends ListFragment {
     void selectItem(int index, View v) {
         Position = index;
 
-      
+
         // We can display everything in-place with fragments, so update
         // the list to highlight the selected item and show the data.
         getListView().setItemChecked(index, true);
@@ -64,23 +64,21 @@ public class Collection extends ListFragment {
 
         //Remplace un fragment par un autre
         //FragmentTransaction ft = getFragmentManager().beginTransaction();
-        
+
         switch (index) {
-        case 0:
-        	//Avec en paramètre l'id de la vue de l'activité mère et un fragment.
-            //ft.replace(R.id.linear, new Scan());
-            break;
-        case 1:
-            //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
-            //ft.replace(R.id.linear, new Collection());
-            break;
+            case 0:
+                //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
+                //ft.replace(R.id.linear, new Scan());
+                break;
+            case 1:
+                //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
+                //ft.replace(R.id.linear, new Collection());
+                break;
         }
-            
+
         //ft.addToBackStack(null);
-        
-        
         //ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         //ft.commit();
-        }
-    
+    }
+
 }

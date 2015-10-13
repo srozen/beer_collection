@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class profil_biere extends AppCompatActivity {
+public class Profil_biere extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
