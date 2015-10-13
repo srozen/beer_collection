@@ -1,13 +1,20 @@
-package socialbeerproject.appas;
+package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
+import socialbeerproject.appas.Chargement;
+import socialbeerproject.appas.R;
+import socialbeerproject.appas.ServeurCom;
 
 public class Login extends Activity implements View.OnClickListener{
 
@@ -44,8 +51,13 @@ public class Login extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_A_Inscription:
-                Intent i= new Intent(this,Inscription.class);
-                startActivity(i);
+
+                btnAInsc.setText(ServeurCom.connexion("er","dsf"));
+                //Chargement c = new Chargement(this, (RelativeLayout) findViewById(R.id.lnr_Login));
+                //c.start();
+                //Intent i= new Intent(this,Inscription.class);
+                //startActivity(i);
+
                 break;
             case R.id.btn_SeConnecter:
                 this.verificationConnexion();

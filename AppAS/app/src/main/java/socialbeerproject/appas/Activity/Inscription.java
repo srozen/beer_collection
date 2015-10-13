@@ -1,4 +1,4 @@
-package socialbeerproject.appas;
+package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.view.ViewManager;
+
+import socialbeerproject.appas.R;
 
 public class Inscription extends Activity implements View.OnClickListener{
 

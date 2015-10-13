@@ -1,22 +1,34 @@
-package socialbeerproject.appas;
+package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Profil extends Activity {
+import socialbeerproject.appas.Fragments.MenuP;
+import socialbeerproject.appas.R;
+
+
+public class Principal extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profil);
+
+        //On applique le lyaout du fragment à l'activité.
+        super.setContentView(R.layout.fragment_menu);
+        // Création du nouveau fragment à placer dans le layout de l'activité.
+        MenuP men = new MenuP();
+        
+        // Add the fragment to the 'fragment_container' FrameLayout
+        getFragmentManager().beginTransaction()
+                .add(R.id.linear, men).commit();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_profil, menu);
+        getMenuInflater().inflate(R.menu.menu_menu, menu);
         return true;
     }
 
@@ -34,4 +46,8 @@ public class Profil extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 }

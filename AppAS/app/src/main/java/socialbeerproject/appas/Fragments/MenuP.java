@@ -73,7 +73,6 @@ public class MenuP extends ListFragment {
                 ft.replace(R.id.linear, new Collection());
                 break;
         }
-
         ft.addToBackStack(null);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();

@@ -4,9 +4,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="socialbeerproject.appas.Login">
+    tools:context="socialbeerproject.appas.Activity.Login">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/lnr_Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -82,5 +83,5 @@
             android:layout_marginTop="10dp"
             android:layout_below="@+id/texte_PasDeCompte" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>

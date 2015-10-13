@@ -8,7 +8,6 @@ public class ElementCollection {
     public ElementCollection(String nom, int icon) {
         this.nom = nom;
         this.icon = icon;
-
     }
 
     public String getNom() {
