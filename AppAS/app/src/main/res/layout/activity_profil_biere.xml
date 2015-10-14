@@ -1,115 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <Button
-        style="@style/GrosBouton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Retour"
-        android:id="@+id/button_Retour"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <Button
+            style="@style/GrosBouton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_retour"
+            android:id="@+id/button_Retour"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/textView_Title"
+            android:layout_toStartOf="@+id/textView_Title" />
 
-    <Button
-        style="@style/GrosBouton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Je bois"
-        android:id="@+id/button_JeBois"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView_Title"
-        android:layout_alignEnd="@+id/textView_Title" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView_Etiquette"
-        android:src="@drawable/test2"
-        android:layout_below="@+id/button_Retour"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        style="@style/Titre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="La bière de l'ours"
-        android:id="@+id/textView_Title"
-        android:layout_alignBottom="@+id/button_Retour"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/button_Retour"
-        android:layout_toEndOf="@+id/button_Retour" />
+        <TextView
+            style="@style/Titre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="La bière de l&apos;ours"
+            android:id="@+id/textView_Title"
+            android:layout_above="@+id/imageView_Etiquette"
+            android:layout_toRightOf="@+id/textView_Note_Value"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Degrée :"
-        android:id="@+id/textView_Alcool"
-        android:layout_alignBaseline="@+id/textView_Brasserie"
-        android:layout_alignBottom="@+id/textView_Brasserie"
-        android:layout_alignLeft="@+id/textView_Description"
-        android:layout_alignStart="@+id/textView_Description" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView_Etiquette"
+            android:src="@drawable/test2"
+            android:layout_below="@+id/button_Retour" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Brasserie de L&apos;ours"
-        android:id="@+id/textView_Brasserie"
-        android:layout_alignBottom="@+id/imageView_Etiquette"
-        android:layout_alignRight="@+id/textView_Description_Value"
-        android:layout_alignEnd="@+id/textView_Description_Value" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/texte_note"
+            android:id="@+id/textView_Note"
+            android:layout_alignBottom="@+id/textView_Note_Value"
+            android:layout_toLeftOf="@+id/textView_Type_Value"
+            android:layout_toStartOf="@+id/textView_Type_Value" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Description"
-        android:id="@+id/textView_Description"
-        android:layout_above="@+id/textView_Description_Value"
-        android:layout_alignLeft="@+id/textView_Description_Value"
-        android:layout_alignStart="@+id/textView_Description_Value" />
+        <TextView
+            style="@style/LittleSimpleTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="4/5"
+            android:id="@+id/textView_Note_Value"
+            android:layout_alignBottom="@+id/textView_Brasserie"
+            android:layout_alignRight="@+id/textView_Description"
+            android:layout_alignEnd="@+id/textView_Description" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Type :"
-        android:id="@+id/textView_Type"
-        android:layout_below="@+id/textView_Alc_Value"
-        android:layout_toLeftOf="@+id/textView_Alc_Value"
-        android:layout_toStartOf="@+id/textView_Alc_Value" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Brasserie de L&apos;ours"
+            android:id="@+id/textView_Brasserie"
+            android:layout_below="@+id/imageView_Etiquette"
+            android:layout_alignRight="@+id/textView_Title"
+            android:layout_alignEnd="@+id/textView_Title"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp" />
 
-    <TextView
-        style="@style/LittleSimpleTexte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=" 7°"
-        android:id="@+id/textView_Alc_Value"
-        android:layout_alignTop="@+id/textView_Alcool"
-        android:layout_toRightOf="@+id/textView_Alcool"
-        android:layout_toEndOf="@+id/textView_Alcool" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/texte_nbConsommateur"
+            android:id="@+id/textView_NbConso"
+            android:layout_alignBottom="@+id/textView_Alc_Value"
+            android:layout_alignLeft="@+id/textView_Type"
+            android:layout_alignStart="@+id/textView_Type" />
 
-    <TextView
-        style="@style/LittleSimpleTexte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&quot;"
-        android:id="@+id/textView_Description_Value"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="5dip"
-        android:layout_above="@+id/button_JeBois" />
+        <TextView
+            style="@style/LittleSimpleTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="500001"
+            android:id="@+id/textView_nbConso_Value"
+            android:layout_marginTop="37dp"
+            android:layout_below="@+id/textView_Note"
+            android:layout_alignLeft="@+id/textView_Brasserie"
+            android:layout_alignStart="@+id/textView_Brasserie" />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/texte_degree"
+            android:id="@+id/textView_Alcool"
+            android:layout_alignBottom="@+id/textView_nbConso_Value"
+            android:layout_toRightOf="@+id/textView_nbConso_Value"
+            android:layout_toEndOf="@+id/textView_nbConso_Value"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp" />
+
+        <TextView
+            style="@style/LittleSimpleTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=" 7°"
+            android:id="@+id/textView_Alc_Value"
+            android:layout_alignTop="@+id/textView_Alcool"
+            android:layout_toRightOf="@+id/textView_Alcool"
+            android:layout_toEndOf="@+id/textView_Alcool" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/texte_type"
+            android:id="@+id/textView_Type"
+            android:layout_marginTop="41dp"
+            android:layout_below="@+id/textView_Alc_Value"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp" />
+
+        <TextView
+            style="@style/LittleSimpleTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Brute, Sucré, ..."
+            android:id="@+id/textView_Type_Value"
+            android:layout_above="@+id/textView_Description"
+            android:layout_toRightOf="@+id/textView_Type"
+            android:layout_toEndOf="@+id/textView_Type" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/texte_description"
+            android:id="@+id/textView_Description"
+            android:layout_marginTop="29dp"
+            android:layout_below="@+id/textView_Type"
+            android:layout_alignLeft="@+id/textView_Type"
+            android:layout_alignStart="@+id/textView_Type" />
+
+        <TextView
+            style="@style/LittleSimpleTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&quot;"
+            android:id="@+id/textView_Description_Value"
+            android:layout_below="@+id/textView_Description"
+            android:layout_alignLeft="@+id/textView_Description"
+            android:layout_alignStart="@+id/textView_Description"
+            android:layout_alignRight="@+id/textView_Brasserie"
+            android:layout_alignEnd="@+id/textView_Brasserie" />
+
+        <Button
+            style="@style/GrosBouton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_je_bois"
+            android:id="@+id/button_JeBois"
+            android:layout_below="@+id/textView_Description_Value"
+            android:layout_alignLeft="@+id/textView_Description_Value"
+            android:layout_alignStart="@+id/textView_Description_Value"
+            android:layout_alignRight="@+id/textView_Description_Value"
+            android:layout_alignEnd="@+id/textView_Description_Value" />
+
+    </RelativeLayout>
+</ScrollView>

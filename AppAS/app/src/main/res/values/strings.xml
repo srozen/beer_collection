@@ -28,6 +28,12 @@
     <string name="btn_valider">Valider</string>
     <string name="btn_retour">Retour</string>
     <string name="icon">@mipmap/ic_launcher</string>
+    <string name="texte_degree">Degree :</string>
+    <string name="texte_type">Type : </string>
+    <string name="texte_note">Note : </string>
+    <string name="texte_nbConsommateur">Nombre de consommateurs : </string>
+    <string name="btn_je_bois">Je bois !</string>
+    <string name="btn_jai_bu">J\'ai bu !</string>
 
 
     <string-array name="nav_drawer_items">

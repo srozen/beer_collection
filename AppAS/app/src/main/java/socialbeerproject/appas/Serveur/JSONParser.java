@@ -1,6 +1,4 @@
-package socialbeerproject.appas;
-
-import android.util.Log;
+package socialbeerproject.appas.Serveur;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,6 +22,7 @@ import java.util.List;
 
 /**
  * Created by Rémy on 14-10-15.
+ * Tirer en partie d'un forum : http://stackoverflow.com/questions/23945810/json-keep-getting-the-old-data
  */
 public class JSONParser {
 
@@ -39,16 +38,11 @@ public class JSONParser {
     // function get json from url
     // by making HTTP POST or GET method
 
-    public JSONObject makeHttpRequest(String url, String method,
-                                      List<NameValuePair> params) throws IOException {
-
+    public JSONObject makeHttpRequest(String url, String method, List<NameValuePair> params) throws IOException {
         // Making HTTP request
         try {
-
             // check for request method
-            if (method == "POST") {
-                // request method is POST
-                // defaultHttpClient
+            if (method == "POST") { // Méthode Post
                 DefaultHttpClient httpClient = new DefaultHttpClient();
                 HttpPost httpPost = new HttpPost(url);
                 httpPost.setEntity(new UrlEncodedFormEntity(params));
@@ -58,27 +52,23 @@ public class JSONParser {
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
 
-            } else if (method == "GET") {
-                // request method is GET
+            } else if (method == "GET") { // Méthode GET (dans l'url)
                 HttpParams httpParameters = null;
                 DefaultHttpClient httpClient = new DefaultHttpClient(httpParameters);
                 String paramString = URLEncodedUtils.format(params, "utf-8");
                 url += "?" + paramString;
                 HttpGet httpGet = new HttpGet(url);
-
                 HttpResponse httpResponse = httpClient.execute(httpGet);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
             }
-
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (Exception ex) {
-            // Log.d("Networking", ex.getLocalizedMessage());
-            throw new IOException("Error connecting");
+            throw new IOException("Erreur de connexion");
         }
 
         try {
@@ -92,14 +82,14 @@ public class JSONParser {
             is.close();
             json = sb.toString();
         } catch (Exception e) {
-            Log.e("Buffer Error", "Error converting result " + e.toString());
+            throw new IOException("Erreur de lecture buffer!");
         }
 
         // try parse the string to a JSON object
         try {
             jObj = new JSONObject(json);
         } catch (JSONException e) {
-            Log.e("JSON Parser", "Error parsing data " + e.toString());
+            throw new IOException("Erreur parsing");
         }
 
         // return JSON String

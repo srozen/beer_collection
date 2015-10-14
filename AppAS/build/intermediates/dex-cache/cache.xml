@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Rémy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jar="C:\BeerProjet\AppAS\app\libs\httpclient-4.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-5f7cb3d1242db3f4721585efad84b25e46f93fcd.jar" />
+        sha1="a76d7fd8033d48b4c67b4ccf159abb080c1059b6">
+        <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\httpclient-4.0-6916e5f985a1dff0835b609832a9db6b011cb97c.jar" />
     </item>
     <item
         jar="C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
@@ -14,6 +14,20 @@
         revision="23.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
         <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\classes-37267c942c5edd778ae150dcbf02151f11856256.jar" />
+    </item>
+    <item
+        jar="C:\BeerProjet\AppAS\app\libs\httpcore-4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="50d62373255daf8fa4f21ce381683ed64a3a95b8">
+        <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\httpcore-4.0-c048a076c6921e003523dfa860fffb02d8b1dbf8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rémy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-5f7cb3d1242db3f4721585efad84b25e46f93fcd.jar" />
     </item>
     <item
         jar="C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"

@@ -2,19 +2,20 @@ package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import socialbeerproject.appas.Chargement;
+import socialbeerproject.appas.Divers.Chargement;
 import socialbeerproject.appas.R;
-import socialbeerproject.appas.ServeurCom;
+import socialbeerproject.appas.Serveur.ServeurCom;
 
 public class Login extends Activity implements View.OnClickListener{
 
@@ -51,22 +52,46 @@ public class Login extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_A_Inscription:
-
-                btnAInsc.setText(ServeurCom.connexion("er","dsf"));
-                //Chargement c = new Chargement(this, (RelativeLayout) findViewById(R.id.lnr_Login));
-                //c.start();
-                //Intent i= new Intent(this,Inscription.class);
-                //startActivity(i);
-
+                Intent i= new Intent(this,Inscription.class);
+                startActivity(i);
                 break;
             case R.id.btn_SeConnecter:
-                this.verificationConnexion();
+                if(verificationConnexion()){
+                    Intent i2= new Intent(this,Principal.class);
+                    startActivity(i2);
+                } else {
+                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                    alertDialog.setTitle("Connexion");
+                    alertDialog.setMessage("Mot de passe erroné!");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
                 break;
         }
     }
 
-    private void verificationConnexion(){
-        Intent i= new Intent(this,Principal.class);
-        startActivity(i);
+    private boolean verificationConnexion(){
+        Chargement.getInstance().attach(this, (RelativeLayout) findViewById(R.id.lnr_Login));
+        Chargement.getInstance().start();
+
+        EditText editUser  = (EditText)findViewById(R.id.champ_login);
+        EditText editPassword   = (EditText)findViewById(R.id.champ_mdp);
+
+        String con = ServeurCom.connexion(editUser.getText().toString(), editPassword.getText().toString());
+        btnAInsc.setText(con);
+
+        Chargement.getInstance().stop();
+        Chargement.getInstance().dettach();
+
+        if(con == "true"){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -1,11 +1,11 @@
-package socialbeerproject.appas;
+package socialbeerproject.appas.Serveur;
 
 import android.os.StrictMode;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
 import java.util.ArrayList;
