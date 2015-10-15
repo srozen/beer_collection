@@ -12,26 +12,15 @@
        android:paddingLeft="10dip">
         <TextView
          android:id="@+id/Titre"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:textColor="#FF7F3300"
-         android:textSize="20dip"
+         style="@style/TitreMenu"
          android:textStyle="italic"
          />
         <TextView
          android:id="@+id/Descr"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:textSize="14dip"
-         android:textColor="#FF267F00"
-         android:paddingLeft="100dip"
+         style="@style/DescrMenu"
          />
     </LinearLayout>
     <ImageView
         android:id="@+id/Image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="5dp"
-        android:src="@drawable/icon"
-        android:layout_alignParentRight="true" />
+        style="@style/ImageMenu" />
 </RelativeLayout >
