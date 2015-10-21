@@ -1,15 +1,18 @@
 package socialbeerproject.appas.Serveur;
 
+import android.app.Activity;
 import android.os.StrictMode;
+import android.widget.RelativeLayout;
 
 import org.apache.http.NameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import socialbeerproject.appas.Activity.ActivityCom;
+import socialbeerproject.appas.Divers.Chargement;
 
 /**
  * Created by Rémy on 13-10-15.
@@ -17,37 +20,48 @@ import java.util.List;
  */
 public class ServeurCom {
 
-    public static String url = "http://46.101.143.168/mlogin";
+    private RelativeLayout chargementRel;
+    private ActivityCom act;
 
-    public static String connexion(String username, String password){
-        return ServeurCom.envoieServeur();
+    public ServeurCom(RelativeLayout r, ActivityCom act){
+        this.chargementRel = r;
+        this.act = act;
     }
 
-    public static boolean inscription(String username, String password, String email){
-
-        return true;
+    public void receptionRep(JSONObject rep){
+        if (act!=null){
+            Chargement.getInstance().stop();
+            Chargement.getInstance().dettach();
+            act.communication(rep);
+        } else {
+            Chargement.getInstance().stop();
+            Chargement.getInstance().dettach();
+            act.communication(rep);
+        }
     }
 
-    public static String envoieServeur(){
+    public void connexion(String username, String password){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+        params.add(new BasicNameValuePair("password", password));
+        params.add(new BasicNameValuePair("login", username));
+
+        this.envoieServeur(params);
+    }
+
+    public void inscription(String username, String password, String email){
+
+    }
+
+    private void envoieServeur(List<NameValuePair> params){
+        Chargement.getInstance().attach((Activity) chargementRel.getContext(), chargementRel);
+        Chargement.getInstance().start();
+
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("password", "usr"));
-        params.add(new BasicNameValuePair("login", "user"));
-        try {
-            JSONParser t = new JSONParser();
-            JSONObject obj = t.makeHttpRequest(url,"GET",params);
-            try {
-                return obj.getString("response");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "Bug";
+        new DemandeHTTP(this).execute(params);
     }
 }

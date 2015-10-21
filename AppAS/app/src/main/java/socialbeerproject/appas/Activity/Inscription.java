@@ -1,16 +1,15 @@
 package socialbeerproject.appas.Activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import org.json.JSONObject;
+
 import socialbeerproject.appas.R;
 
-public class Inscription extends Activity implements View.OnClickListener{
+public class Inscription extends ActivityCom implements View.OnClickListener{
 
     private Button btnAConn = null;
 
@@ -20,21 +19,6 @@ public class Inscription extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_inscription);
         btnAConn = (Button) findViewById(R.id.btn_A_SeConnecter);
         btnAConn.setOnClickListener(this);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_inscription, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -51,6 +35,11 @@ public class Inscription extends Activity implements View.OnClickListener{
     }
 
     private void verificationInscription(){
+
+    }
+
+    @Override
+    public void communication(JSONObject rep) {
 
     }
 }

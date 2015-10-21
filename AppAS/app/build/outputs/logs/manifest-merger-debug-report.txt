@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:2:1-37:12
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:2:1-43:12
 	package
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml
@@ -17,60 +17,80 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:5:5-97
+	android:name
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:5:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:6:22-77
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:8:5-95
+	android:name
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:9:5-91
+	android:name
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:9:22-72
+uses-permission#android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:10:5-88
+	android:name
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:10:22-85
 application
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:5:5-35:19
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:11:5-41:19
 MERGED from [com.android.support:appcompat-v7:23.0.1] C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.0.1] C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:7:9-41
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:13:9-41
 	android:icon
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:6:9-43
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:12:9-43
 	android:theme
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:8:9-40
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:14:9-40
 activity#socialbeerproject.appas.Activity.Login
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:9:9-17:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:15:9-23:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:11:13-45
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:17:13-45
 	android:noHistory
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:12:13-37
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:10:13-43
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:16:13-43
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:13:13-16:29
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:19:13-22:29
 action#android.intent.action.MAIN
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:15:17-77
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:15:27-74
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:21:27-74
 activity#socialbeerproject.appas.Activity.Inscription
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:18:9-22:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:24:9-28:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:20:13-63
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:26:13-63
 	android:noHistory
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:21:13-37
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:19:13-49
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:25:13-49
 activity#socialbeerproject.appas.Activity.Principal
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:23:9-26:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:29:9-32:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:25:13-58
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:31:13-58
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:24:13-47
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:30:13-47
 activity#socialbeerproject.appas.Activity.Profil
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:27:9-30:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:33:9-36:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:29:13-58
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:35:13-58
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:28:13-44
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:34:13-44
 activity#socialbeerproject.appas.Activity.Profil_biere
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:31:9-34:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:37:9-40:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:33:13-64
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:39:13-64
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:32:13-50
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:38:13-50
 uses-sdk
 INJECTED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.0.1] C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
