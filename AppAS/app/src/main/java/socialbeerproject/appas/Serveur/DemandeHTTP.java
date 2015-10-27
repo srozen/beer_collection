@@ -61,10 +61,6 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         }
     }
 
-    public DemandeHTTP() {
-        super();
-    }
-
     private JSONObject makeHttpRequest(List<NameValuePair> params) throws IOException {
         String newUrl= new String(url+'/');
         switch (params.get(0).getName()){
