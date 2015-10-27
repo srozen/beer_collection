@@ -1,6 +1,8 @@
 package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 
 import org.json.JSONObject;
 
@@ -9,17 +11,18 @@ import org.json.JSONObject;
  * Classe Abstraite pour une Activité qui utiliserais un ServeurCom ()
  */
 public abstract class ActivityCom extends Activity {
-    protected void enregistrementLog(String username, String password){
 
-    }
-
-    protected String getUsername(){
-        return null;
-    }
-
-    protected String getMdp(){
-        return null;
-    }
+    protected Boolean chargementFini = true;
 
     public abstract void communication(JSONObject rep);
+
+    protected void connexionValide(String username, String password){
+        SharedPreferences log = getSharedPreferences("Login",MODE_PRIVATE);
+        SharedPreferences.Editor edit = log.edit();
+        edit.putString("username", username);
+        edit.putString("password", password);
+        edit.apply();
+        Intent i2= new Intent(this,Principal.class);
+        startActivity(i2);
+    }
 }

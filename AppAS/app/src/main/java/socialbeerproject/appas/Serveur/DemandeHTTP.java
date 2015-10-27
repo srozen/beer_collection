@@ -3,16 +3,11 @@ package socialbeerproject.appas.Serveur;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,7 +15,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -29,8 +23,11 @@ import java.util.List;
  */
 public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObject> {
 
-    public static String url = "http://46.101.143.168/mlogin";
-    public static String method = "POST";
+    public static String url = "http://46.101.143.168";
+    public static String cheminLogin = "api_login";
+    public static String cheminInsc = "api_register";
+    public static String cheminCata = "api_";
+    public static String cheminColl = "api_";
 
     private ServeurCom ser;
 
@@ -69,14 +66,32 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     }
 
     private JSONObject makeHttpRequest(List<NameValuePair> params) throws IOException {
-        SystemClock.sleep(2000);
+        String newUrl= new String(url+'/');
+        switch (params.get(0).getName()){
+            case "inscription" :
+                newUrl += cheminInsc;
+                break;
+            case "connexion" :
+                newUrl += cheminLogin;
+                break;
+            case "catalogue" :
+                newUrl += cheminCata;
+                break;
+            case "collection" :
+                newUrl += cheminColl;
+                break;
+            default:
+                return null;
+        }
+        params.remove(0);
+        //SystemClock.sleep(2000);
         InputStream is = null;
         JSONObject jObj = null;
         String json = "";
 
         // Créé une demande HTTP au serveur avec les paramètres en post
         DefaultHttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(url);
+        HttpPost httpPost = new HttpPost(newUrl);
         httpPost.setEntity(new UrlEncodedFormEntity(params));
         HttpResponse httpResponse = httpClient.execute(httpPost);
 

@@ -15,7 +15,7 @@ public class Principal extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //On applique le lyaout du fragment à l'activité.
+        //On applique le layout du fragment à l'activité.
         super.setContentView(R.layout.fragment_menu);
         // Création du nouveau fragment à placer dans le layout de l'activité.
         MenuP men = new MenuP();
@@ -46,8 +46,4 @@ public class Principal extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 }

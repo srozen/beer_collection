@@ -3,6 +3,7 @@ package socialbeerproject.appas.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ public class Login extends ActivityCom implements View.OnClickListener{
 
     private Button btnAInsc = null;
     private Button btnSeConnecter = null;
+    private String username = null;
+    private String password = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,45 +44,70 @@ public class Login extends ActivityCom implements View.OnClickListener{
                 startActivity(i);
                 break;
             case R.id.btn_SeConnecter:
-                verificationConnexion();
+                if (chargementFini){
+                    this.launchConnexion();
+                }
                 break;
         }
     }
 
-    private void verificationConnexion(){
+    /* Vérifie si c'est la première fois qu'on ouvre l'app, si non connexion automatique, sinon
+    * Go inscription */
+    private void premiereConnexion(){
+        SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
+        if (log.getString("username","n/a")!="n/a"){
+
+            EditText editUser = (EditText) findViewById(R.id.champ_login);
+            editUser.setText(log.getString("username", "n/a"));
+
+            EditText editPassword = (EditText) findViewById(R.id.champ_mdp);
+            editPassword.setText(log.getString("password", "n/a"));
+
+            this.launchConnexion();
+        }
+    }
+
+    /* Lance la connexion */
+    private void launchConnexion(){
         EditText editUser  = (EditText)findViewById(R.id.champ_login);
         EditText editPassword   = (EditText)findViewById(R.id.champ_mdp);
 
+        username = new String(editUser.getText().toString());
+        password = new String(editPassword.getText().toString());
+
+        chargementFini = false;
+        
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.lnr_Login), this);
         ser.connexion(editUser.getText().toString(), editPassword.getText().toString());
     }
 
-    /* Vérifie si c'est la première fois qu'on ouvre l'app */
-    private void premiereConnexion(){
 
-    }
 
     @Override
     public void communication(JSONObject rep) {
-        String con = new String();
+        chargementFini = true;
+        String connexion = new String();
+
         try {
             if(rep != null){
-                con = rep.getString("response");
+                connexion = rep.getString("checkLog");
             } else {
-                con = "Aucune réponse du serveur";
+                connexion = "Aucune réponse du serveur";
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            con = "Réponse du serveur incorrect";
+            connexion = "Réponse du serveur incorrect";
         }
 
-        if(con == "true"){
-            Intent i2= new Intent(this,Principal.class);
-            startActivity(i2);
+        if(connexion == "true"){
+            this.connexionValide(username,password);
         } else {
+            if(connexion == "false"){
+                connexion = "Mot de passe erroné!";
+            }
             AlertDialog alertDialog = new AlertDialog.Builder(this,R.style.DialogAlertStyle).create();
             alertDialog.setTitle("Connexion");
-            alertDialog.setMessage("Mot de passe erroné!");
+            alertDialog.setMessage(connexion);
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -88,6 +116,5 @@ public class Login extends ActivityCom implements View.OnClickListener{
                     });
             alertDialog.show();
         }
-        btnAInsc.setText(con);
     }
 }

@@ -1,9 +1,11 @@
 package socialbeerproject.appas.Divers;
 
 import android.app.Activity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import socialbeerproject.appas.R;
@@ -14,6 +16,7 @@ import socialbeerproject.appas.R;
  */
 public class Chargement {
 
+    private LinearLayout layoutChar = null;
     private ImageView imageCha = null;
     private Activity act;
     private RelativeLayout rel;
@@ -42,12 +45,12 @@ public class Chargement {
 
             RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             relativeParams.addRule(RelativeLayout.BELOW, rel.getId());
-            relativeParams.setMargins(0,50,0,0);
+            relativeParams.setMargins(0, 50, 0, 0);
             imageCha.setLayoutParams(relativeParams);
 
             rel.addView(imageCha);
             this.act = act;
-            this.rel =  rel;
+            this.rel = rel;
         }
     }
 
@@ -64,9 +67,11 @@ public class Chargement {
     }
 
     public void dettach(){
-        rel.removeView(imageCha);
-        imageCha.destroyDrawingCache();
-        imageCha=null;
-        act=null;
+        if (imageCha != null) {
+            rel.removeView(imageCha);
+            imageCha.destroyDrawingCache();
+            imageCha = null;
+            act = null;
+        }
     }
 }

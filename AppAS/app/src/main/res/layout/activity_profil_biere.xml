@@ -26,7 +26,7 @@
             android:layout_above="@+id/imageView_Etiquette"
             android:layout_toRightOf="@+id/textView_Note_Value"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />" />
+            android:layout_alignParentEnd="true" />
 
 
         <ImageView

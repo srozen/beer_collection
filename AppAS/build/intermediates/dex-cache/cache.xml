@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-c3027b6e7dad6bef3c6287d66075faa33fb3928d.jar" />
+    </item>
+    <item
         jar="C:\BeerProjet\AppAS\app\libs\httpclient-4.0.jar"
         jumboMode="false"
         revision="23.0.1"
@@ -28,13 +35,6 @@
         revision="23.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
         <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-5f7cb3d1242db3f4721585efad84b25e46f93fcd.jar" />
-    </item>
-    <item
-        jar="C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\BeerProjet\AppAS\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-c3027b6e7dad6bef3c6287d66075faa33fb3928d.jar" />
     </item>
     <item
         jar="C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"

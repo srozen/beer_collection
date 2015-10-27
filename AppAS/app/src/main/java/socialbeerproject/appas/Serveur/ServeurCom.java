@@ -36,12 +36,12 @@ public class ServeurCom {
         } else {
             Chargement.getInstance().stop();
             Chargement.getInstance().dettach();
-            act.communication(rep);
         }
     }
 
     public void connexion(String username, String password){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("connexion", "connexion"));
 
         params.add(new BasicNameValuePair("password", password));
         params.add(new BasicNameValuePair("login", username));
@@ -50,7 +50,32 @@ public class ServeurCom {
     }
 
     public void inscription(String username, String password, String email){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("inscription", "inscription"));
 
+        params.add(new BasicNameValuePair("email", email));
+        params.add(new BasicNameValuePair("password", password));
+        params.add(new BasicNameValuePair("login", username));
+
+        this.envoieServeur(params);
+    }
+
+    public void catalogue(String userId, String tri){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("catalogue", "catalogue"));
+
+        params.add(new BasicNameValuePair("userId", userId));
+
+        this.envoieServeur(params);
+    }
+
+    public void collection(String userId, String tri){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("collection", "collection"));
+
+        params.add(new BasicNameValuePair("userId", userId));
+
+        this.envoieServeur(params);
     }
 
     private void envoieServeur(List<NameValuePair> params){
