@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:2:1-44:12
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:2:1-45:12
 	package
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml
@@ -38,7 +38,7 @@ ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:10:5-88
 	android:name
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:10:22-85
 application
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:11:5-42:19
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:11:5-43:19
 MERGED from [com.android.support:appcompat-v7:23.0.1] C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.0.1] C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
 	android:label
@@ -74,23 +74,25 @@ ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:27:17-77
 	android:name
 		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:27:27-74
 activity#socialbeerproject.appas.Activity.Principal
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:30:9-33:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:30:9-34:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:32:13-58
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:33:13-58
+	android:theme
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:31:13-46
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:31:13-47
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:32:13-47
 activity#socialbeerproject.appas.Activity.Profil
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:34:9-37:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:35:9-38:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:36:13-58
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:37:13-58
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:35:13-44
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:36:13-44
 activity#socialbeerproject.appas.Activity.Profil_biere
-ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:38:9-41:20
+ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:39:9-42:20
 	android:label
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:40:13-64
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:41:13-64
 	android:name
-		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:39:13-50
+		ADDED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml:40:13-50
 uses-sdk
 INJECTED from C:\BeerProjet\AppAS\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.0.1] C:\BeerProjet\AppAS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43

@@ -105,7 +105,7 @@ public class Login extends ActivityCom implements View.OnClickListener{
             if(connexion == "false"){
                 connexion = "Mot de passe erroné!";
             }
-            AlertDialog alertDialog = new AlertDialog.Builder(this,R.style.DialogAlertStyle).create();
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle("Connexion");
             alertDialog.setMessage(connexion);
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",

@@ -37,7 +37,8 @@
         </activity>
         <activity
             android:name="socialbeerproject.appas.Activity.Principal"
-            android:label="@string/title_activity_menu_p" >
+            android:label="@string/title_activity_menu_p"
+            android:theme="@style/MenuPTheme" >
         </activity>
         <activity
             android:name="socialbeerproject.appas.Activity.Profil"

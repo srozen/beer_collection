@@ -101,8 +101,6 @@ public class Collection extends ListFragment {
                 startActivity(intent);
 
                 getActivity().overridePendingTransition(R.animator.anim_in,R.animator.anim_out);
-
-
                 break;
         }
 

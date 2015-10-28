@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import socialbeerproject.appas.Fragments.MenuP;
 import socialbeerproject.appas.R;
+import socialbeerproject.appas.Fragments.MenuP;
 
 
 public class Principal extends Activity {
@@ -21,8 +21,7 @@ public class Principal extends Activity {
         MenuP men = new MenuP();
         
         // Add the fragment to the 'fragment_container' FrameLayout
-        getFragmentManager().beginTransaction()
-                .add(R.id.linear, men).commit();
+        getFragmentManager().beginTransaction().add(R.id.linear, men).commit();
     }
 
     @Override

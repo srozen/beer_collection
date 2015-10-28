@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:theme="@style/MenuPTheme"
             android:name=".Activity.Principal"
             android:label="@string/title_activity_menu_p" >
         </activity>

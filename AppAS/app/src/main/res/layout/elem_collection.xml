@@ -2,7 +2,7 @@
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@color/orange"
+    android:background="@drawable/collection_item"
     android:layout_gravity="center"
     android:gravity="center_vertical"
     android:padding="8dp">
@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dip"
             android:layout_toRightOf="@id/Image"
-            android:background="@color/darkAmbre"
             android:layout_centerVertical="true">
             <TextView
                 android:id="@+id/Nom"
