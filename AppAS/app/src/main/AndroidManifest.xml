@@ -22,19 +22,21 @@
             android:name=".Activity.Inscription"
             android:label="@string/title_activity_inscription"
             android:noHistory="true" >
+
+        </activity>
+        <activity
+            android:theme="@style/MenuPTheme"
+            android:name=".Activity.Principal"
+            android:label="@string/title_activity_menu_p" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:theme="@style/MenuPTheme"
-            android:name=".Activity.Principal"
-            android:label="@string/title_activity_menu_p" >
-        </activity>
-        <activity
             android:name=".Activity.Profil"
             android:label="@string/title_activity_profil" >
+
         </activity>
         <activity
             android:name=".Activity.Profil_biere"

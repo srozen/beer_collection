@@ -39,7 +39,7 @@ public class Profil_biere extends Activity implements View.OnClickListener {
                 */
                 break;
             case R.id.button_Retour:
-                Intent i= new Intent(this,MenuP.class);
+                Intent i= new Intent(this,Principal.class);
                 startActivity(i);
                 break;
         }

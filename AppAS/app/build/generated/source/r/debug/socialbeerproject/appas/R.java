@@ -1619,7 +1619,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0e003c;
         public static final int action_mode_bar_stub=0x7f0e003b;
         public static final int action_mode_close_button=0x7f0e0024;
-        public static final int action_settings=0x7f0e009f;
+        public static final int action_settings=0x7f0e00a0;
         public static final int activity_chooser_view_content=0x7f0e0025;
         public static final int alertTitle=0x7f0e002f;
         public static final int always=0x7f0e001c;
@@ -1670,6 +1670,9 @@ containing a value of this type.
         public static final int imageView_Etiquette=0x7f0e0071;
         public static final int img_Avatar=0x7f0e0068;
         public static final int info=0x7f0e009b;
+        public static final int item_info=0x7f0e009f;
+        public static final int item_menu=0x7f0e009e;
+        public static final int item_profil=0x7f0e009d;
         public static final int line1=0x7f0e0095;
         public static final int line3=0x7f0e0099;
         public static final int linear=0x7f0e005d;
@@ -1681,8 +1684,6 @@ containing a value of this type.
         public static final int mail=0x7f0e0085;
         public static final int mdp=0x7f0e0083;
         public static final int media_actions=0x7f0e0093;
-        public static final int menu_back=0x7f0e009e;
-        public static final int menu_profil=0x7f0e009d;
         public static final int middle=0x7f0e001b;
         public static final int multiply=0x7f0e0014;
         public static final int never=0x7f0e001f;
@@ -1827,11 +1828,12 @@ containing a value of this type.
         public static final int chargement=0x7f030000;
         public static final int ic_catalogue=0x7f030001;
         public static final int ic_collection=0x7f030002;
-        public static final int ic_launcher=0x7f030003;
-        public static final int ic_map=0x7f030004;
-        public static final int ic_menu=0x7f030005;
-        public static final int ic_profil=0x7f030006;
-        public static final int ic_scan=0x7f030007;
+        public static final int ic_infos=0x7f030003;
+        public static final int ic_launcher=0x7f030004;
+        public static final int ic_map=0x7f030005;
+        public static final int ic_menu=0x7f030006;
+        public static final int ic_profil=0x7f030007;
+        public static final int ic_scan=0x7f030008;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f070000;

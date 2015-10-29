@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/menu_profil" android:icon="@mipmap/ic_profil" android:showAsAction="always" android:title="Scan" android:titleCondensed="Profil" android:visible="true" ></item>
-    <item android:id="@+id/menu_back" android:icon="@mipmap/ic_menu" android:showAsAction="always" android:title="Collection" android:titleCondensed="Menu" android:visible="true"></item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item_profil"
+          android:icon="@mipmap/ic_profil"
+          android:showAsAction="always"
+          android:title="Scan"
+          android:titleCondensed="Profil"
+          android:visible="true" ></item>
+
+    <item android:id="@+id/item_menu"
+        android:icon="@mipmap/ic_menu"
+        android:showAsAction="always"
+        android:title="Collection"
+        android:titleCondensed="Menu"
+        android:visible="true"></item>
+
+    <item android:id="@+id/item_info"
+        android:icon="@mipmap/ic_infos"
+        android:showAsAction="always"
+        android:title="Collection"
+        android:titleCondensed="Infos"
+        android:visible="true"></item>
+
+
 </menu>

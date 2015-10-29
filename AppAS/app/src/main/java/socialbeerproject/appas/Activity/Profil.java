@@ -1,9 +1,12 @@
 package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import socialbeerproject.appas.Fragments.MenuP;
 import socialbeerproject.appas.R;
 
 public class Profil extends Activity implements View.OnClickListener {
@@ -13,6 +16,7 @@ public class Profil extends Activity implements View.OnClickListener {
     private Button chgAvatar;
     private Button addFriend;
     private Button lookFriend;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class Profil extends Activity implements View.OnClickListener {
         addFriend.setOnClickListener(this);
         lookFriend = (Button) findViewById(R.id.button_Friends_View);
         lookFriend.setOnClickListener(this);
+        back = (Button) findViewById(R.id.button_RetourProfil);
+        back.setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +87,11 @@ public class Profil extends Activity implements View.OnClickListener {
                     TODO : Permettre la visualisation de ses amis
                    **********************
                 */
+                break;
+
+            case R.id.button_RetourProfil:
+                Intent i= new Intent(this,Principal.class);
+                startActivity(i);
                 break;
         }
     }
