@@ -61,25 +61,18 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         }
     }
 
+    /**
+     * Envoie une requête à l'api correspondant et attend la réponse (à utiliser de manière
+     * asynchrone!)
+     * @param params liste de paramatre qui seront introduit dans la demande
+     * @return retourne la réponse du serveur dans un fichier JSON
+     * @throws IOException
+     */
     private JSONObject makeHttpRequest(List<NameValuePair> params) throws IOException {
-        String newUrl= new String(url+'/');
-        switch (params.get(0).getName()){
-            case "inscription" :
-                newUrl += cheminInsc;
-                break;
-            case "connexion" :
-                newUrl += cheminLogin;
-                break;
-            case "catalogue" :
-                newUrl += cheminCata;
-                break;
-            case "collection" :
-                newUrl += cheminColl;
-                break;
-            default:
-                return null;
-        }
+
+        String newUrl = getNewUrl(params.get(0).getName());
         params.remove(0);
+
         //SystemClock.sleep(2000);
         InputStream is = null;
         JSONObject jObj = null;
@@ -110,5 +103,33 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
 
         // return JSONObject
         return jObj;
+    }
+
+    /**
+     * Défini l'url de l'Api conrespondant
+     * @param namCase nom de la demande. (connexion, ...)
+     * @return Retourne le nouvel URL
+     */
+    private String getNewUrl(String namCase){
+        String newUrl= new String(url+'/');
+
+        switch (namCase){
+            case "inscription" :
+                newUrl += cheminInsc;
+                break;
+            case "connexion" :
+                newUrl += cheminLogin;
+                break;
+            case "catalogue" :
+                newUrl += cheminCata;
+                break;
+            case "collection" :
+                newUrl += cheminColl;
+                break;
+            default:
+                return null;
+        }
+
+        return newUrl;
     }
 }

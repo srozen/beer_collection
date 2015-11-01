@@ -74,6 +74,9 @@ public class MenuP extends ListFragment {
             case 4:
                 break;
             case 5:
+
+                break;
+            case 6:
                 this.logOut();
                 break;
         }
@@ -87,13 +90,16 @@ public class MenuP extends ListFragment {
         ElementListe e3 = new ElementListe("Catalogue", "Liste de tous les bières", R.string.ic_catalogue);
         ElementListe e4 = new ElementListe("Profil", "Paramètres personnels", R.string.ic_profil);
         ElementListe e5 = new ElementListe("BeerMap", "Carte des buveurs", R.string.ic_map);
-        ElementListe e6 = new ElementListe("Déconnexion", "Changement de compte?", R.string.ic_deco);
+        ElementListe e6 = new ElementListe("Bons Plans", "Promo sur les bières", R.string.ic_bon_plan);
+        ElementListe e7 = new ElementListe("Déconnexion", "Changement de compte?", R.string.ic_deco);
+
         element.add(e1);
         element.add(e2);
         element.add(e3);
         element.add(e4);
         element.add(e5);
         element.add(e6);
+        element.add(e7);
 
         adapter = new Adaptateur(getActivity(), element);
         setListAdapter(adapter);

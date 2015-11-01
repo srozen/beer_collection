@@ -275,7 +275,6 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="action_settings">Settings</string>
     <string name="app_name">Beer Collection</string>
     <string name="btn_jai_bu">J\'ai bu !</string>
     <string name="btn_je_bois">Je bois !</string>
@@ -286,6 +285,7 @@
     <string name="hint_login">Nom de profil</string>
     <string name="hint_mail">ex : toto@BCollection.com</string>
     <string name="hint_mdp">Mot de passe</string>
+    <string name="ic_bon_plan">@mipmap/ic_bon_plan</string>
     <string name="ic_catalogue">@mipmap/ic_catalogue</string>
     <string name="ic_collection">@mipmap/ic_collection</string>
     <string name="ic_deco">@mipmap/ic_deco</string>

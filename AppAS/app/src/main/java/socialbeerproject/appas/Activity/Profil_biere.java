@@ -1,15 +1,15 @@
 package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import socialbeerproject.appas.Fragments.MenuP;
+import org.json.JSONObject;
+
 import socialbeerproject.appas.R;
 
-public class Profil_biere extends Activity implements View.OnClickListener {
+public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
     private Button jeBois;
     private Button retour;
@@ -42,5 +42,10 @@ public class Profil_biere extends Activity implements View.OnClickListener {
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void communication(JSONObject rep) {
+
     }
 }

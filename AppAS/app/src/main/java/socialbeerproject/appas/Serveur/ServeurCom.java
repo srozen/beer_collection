@@ -16,7 +16,7 @@ import socialbeerproject.appas.Divers.Chargement;
 
 /**
  * Created by Rémy on 13-10-15.
- * Classe gérant les communications avec l'API serveur
+ * Classe gérant les communications avec l'API serveur (et le chargement)
  */
 public class ServeurCom {
 
@@ -28,6 +28,10 @@ public class ServeurCom {
         this.act = act;
     }
 
+    /**
+     * Fonction qui receptionnera la réponse du serveur, et arretera le l'animation du chargement)
+     * @param rep Réponse du serveur
+     */
     public void receptionRep(JSONObject rep){
         if (act!=null){
             Chargement.getInstance().stop();

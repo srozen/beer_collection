@@ -42,9 +42,7 @@ public abstract class ActivityCom extends Activity {
 
     @Override
     public void onBackPressed() {
-        // finish() is called in super: we only override this method to be able to override the transition
         super.onBackPressed();
-
         overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
     }
 }

@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONObject;
+
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Fragments.MenuP;
 
 
-public class Principal extends Activity {
+public class Principal extends ActivityCom {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,5 +57,10 @@ public class Principal extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void communication(JSONObject rep) {
+
     }
 }

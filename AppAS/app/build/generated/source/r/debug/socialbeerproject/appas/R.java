@@ -1822,15 +1822,16 @@ containing a value of this type.
     }
     public static final class mipmap {
         public static final int chargement=0x7f030000;
-        public static final int ic_catalogue=0x7f030001;
-        public static final int ic_collection=0x7f030002;
-        public static final int ic_deco=0x7f030003;
-        public static final int ic_info=0x7f030004;
-        public static final int ic_launcher=0x7f030005;
-        public static final int ic_map=0x7f030006;
-        public static final int ic_menu=0x7f030007;
-        public static final int ic_profil=0x7f030008;
-        public static final int ic_scan=0x7f030009;
+        public static final int ic_bon_plan=0x7f030001;
+        public static final int ic_catalogue=0x7f030002;
+        public static final int ic_collection=0x7f030003;
+        public static final int ic_deco=0x7f030004;
+        public static final int ic_info=0x7f030005;
+        public static final int ic_launcher=0x7f030006;
+        public static final int ic_map=0x7f030007;
+        public static final int ic_menu=0x7f030008;
+        public static final int ic_profil=0x7f030009;
+        public static final int ic_scan=0x7f03000a;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f070000;
@@ -1850,17 +1851,17 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with=0x7f07000e;
         public static final int abc_shareactionprovider_share_with_application=0x7f07000f;
         public static final int abc_toolbar_collapse_description=0x7f070010;
-        public static final int action_settings=0x7f070012;
-        public static final int app_name=0x7f070013;
-        public static final int btn_jai_bu=0x7f070014;
-        public static final int btn_je_bois=0x7f070015;
-        public static final int btn_retour=0x7f070016;
-        public static final int btn_seConnecter=0x7f070017;
-        public static final int btn_valider=0x7f070018;
-        public static final int font_path=0x7f070019;
-        public static final int hint_login=0x7f07001a;
-        public static final int hint_mail=0x7f07001b;
-        public static final int hint_mdp=0x7f07001c;
+        public static final int app_name=0x7f070012;
+        public static final int btn_jai_bu=0x7f070013;
+        public static final int btn_je_bois=0x7f070014;
+        public static final int btn_retour=0x7f070015;
+        public static final int btn_seConnecter=0x7f070016;
+        public static final int btn_valider=0x7f070017;
+        public static final int font_path=0x7f070018;
+        public static final int hint_login=0x7f070019;
+        public static final int hint_mail=0x7f07001a;
+        public static final int hint_mdp=0x7f07001b;
+        public static final int ic_bon_plan=0x7f07001c;
         public static final int ic_catalogue=0x7f07001d;
         public static final int ic_collection=0x7f07001e;
         public static final int ic_deco=0x7f07001f;
