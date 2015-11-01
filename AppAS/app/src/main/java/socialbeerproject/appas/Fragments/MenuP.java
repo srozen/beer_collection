@@ -2,7 +2,9 @@ package socialbeerproject.appas.Fragments;
 
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -10,6 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import socialbeerproject.appas.Activity.Login;
 import socialbeerproject.appas.Activity.Profil;
 import socialbeerproject.appas.Adaptateurs.Adaptateur;
 import socialbeerproject.appas.Elements.ElementListe;
@@ -53,23 +56,14 @@ public class MenuP extends ListFragment {
     void selectItem(int index, View v) {
         Position = index;
 
-        // We can display everything in-place with fragments, so update
-        // the list to highlight the selected item and show the data.
         getListView().setItemChecked(index, true);
-
-        //Remplace un fragment par un autre
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
 
         switch (index) {
             case 0:
-                //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
-                ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-                ft.replace(R.id.linear, new Scan());
+                this.replaceFragment("Scan");
                 break;
             case 1:
-                //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
-                ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-                ft.replace(R.id.linear, new Collection());
+                this.replaceFragment("Collection");
                 break;
             case 2:
 
@@ -80,16 +74,12 @@ public class MenuP extends ListFragment {
             case 4:
                 break;
             case 5:
-                // Détruire préférence ensuite Go Act Login
+                this.logOut();
                 break;
         }
-            
-        ft.addToBackStack(null);
-        ft.commit();
     }
 
     void creationMenu(){
-
         element = new ArrayList<ElementListe>();
 
         ElementListe e1 = new ElementListe("Scan", "Scan ta binouze", R.string.ic_scan);
@@ -107,8 +97,34 @@ public class MenuP extends ListFragment {
 
         adapter = new Adaptateur(getActivity(), element);
         setListAdapter(adapter);
-
     }
 
+    private void replaceFragment(String frag){
+        //Remplace un fragment par un autre
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        switch (frag) {
+            case "Scan":
+                ft.replace(R.id.linear, new Scan());
+                break;
+            case "Collection":
+                ft.replace(R.id.linear, new Collection());
+                break;
+        }
+
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    private void logOut(){
+        SharedPreferences log = getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = log.edit();
+        edit.remove("username");
+        edit.remove("password");
+        edit.apply();
+        startActivity(new Intent(getActivity(), Login.class));
+        getActivity().finish();
+    }
 }
 

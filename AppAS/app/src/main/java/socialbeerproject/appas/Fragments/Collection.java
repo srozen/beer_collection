@@ -74,14 +74,9 @@ public class Collection extends ListFragment {
     void selectItem(int index, View v) {
         Position = index;
 
-
         // We can display everything in-place with fragments, so update
         // the list to highlight the selected item and show the data.
         getListView().setItemChecked(index, true);
-
-
-        //Remplace un fragment par un autre
-        //FragmentTransaction ft = getFragmentManager().beginTransaction();
 
         Intent intent = new Intent(getActivity(), Profil_biere.class);
 

@@ -1,7 +1,6 @@
 package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,9 +24,6 @@ public class Principal extends Activity {
         // Add the fragment to the 'fragment_container' FrameLayout
         getFragmentManager().beginTransaction().add(R.id.linear, men).commit();
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

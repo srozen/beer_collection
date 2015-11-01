@@ -11,6 +11,7 @@
     <string name="title_activity_profil">Votre profil</string>
     <string name="title_activity_scan">Scan</string>
     <string name="title_activity_bon_plan">Les Bons Plans</string>
+    <string name="title_activity_profil_biere">Profil d\'une bière</string>
     <string name="font_path">fonts/maxwell.bold.tff</string>
     <string name="texte_mdp">Mot de passe : </string>
     <string name="texte_login">Nom de profil : </string>
@@ -34,7 +35,7 @@
     <string name="ic_catalogue">@mipmap/ic_catalogue</string>
     <string name="ic_collection">@mipmap/ic_collection</string>
     <string name="ic_scan">@mipmap/ic_scan</string>
-    <string name="ic_deco">@mipmap/ic_launcher</string>
+    <string name="ic_deco">@mipmap/ic_deco</string>
     <string name="texte_degree">Degree :</string>
     <string name="texte_type">Type : </string>
     <string name="texte_note">Note : </string>
@@ -49,11 +50,5 @@
         <item>Bons Plans</item>
         <item>Compte</item>
     </string-array>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_profil_biere">profil_biere</string>
-
-    <string name="hello_world">Hello world!</string>
 
 </resources>

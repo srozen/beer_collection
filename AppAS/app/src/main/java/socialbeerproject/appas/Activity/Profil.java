@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.json.JSONObject;
+
 import socialbeerproject.appas.Fragments.MenuP;
 import socialbeerproject.appas.R;
 
-public class Profil extends Activity implements View.OnClickListener {
+public class Profil extends ActivityCom implements View.OnClickListener {
 
     private Button chgPass;
     private Button chgMail;
@@ -90,9 +92,13 @@ public class Profil extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.button_RetourProfil:
-                Intent i= new Intent(this,Principal.class);
-                startActivity(i);
+                finish();
                 break;
         }
+    }
+
+    @Override
+    public void communication(JSONObject rep) {
+
     }
 }

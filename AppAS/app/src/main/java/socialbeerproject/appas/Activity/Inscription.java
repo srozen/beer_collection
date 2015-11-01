@@ -96,7 +96,7 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
         if(valInscription == "true"){
             this.connexionValide(username, password);
         } else {
-            AlertDialog alertDialog = new AlertDialog.Builder(this,R.style.DialogAlertStyle).create();
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle("Inscription");
             alertDialog.setMessage(valInscription);
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",

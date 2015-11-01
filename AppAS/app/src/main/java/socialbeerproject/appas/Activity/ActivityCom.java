@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 
 import org.json.JSONObject;
 
+import socialbeerproject.appas.R;
+
 /**
  * Created by Rémy on 20-10-15.
  * Classe Abstraite pour une Activité qui utiliserais un ServeurCom ()
@@ -24,5 +26,25 @@ public abstract class ActivityCom extends Activity {
         edit.apply();
         Intent i2= new Intent(this,Principal.class);
         startActivity(i2);
+    }
+
+    @Override
+    public void startActivity(Intent i){
+        super.startActivity(i);
+        overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // finish() is called in super: we only override this method to be able to override the transition
+        super.onBackPressed();
+
+        overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
     }
 }
