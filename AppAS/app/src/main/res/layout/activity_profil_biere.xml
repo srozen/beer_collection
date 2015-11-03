@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:id="@+id/rel_profilBiere">
 
         <Button
             style="@style/GrosBouton"
@@ -13,8 +14,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/textView_Title"
-            android:layout_toStartOf="@+id/textView_Title" />
+            android:layout_toLeftOf="@+id/textView_ProfilBiere_Title"
+            android:layout_toStartOf="@+id/textView_ProfilBiere_Title" />
 
         <TextView
             style="@style/Titre"
@@ -22,19 +23,41 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="La bière de l&apos;ours"
-            android:id="@+id/textView_Title"
-            android:layout_above="@+id/imageView_Etiquette"
-            android:layout_toRightOf="@+id/textView_Note_Value"
+            android:id="@+id/textView_ProfilBiere_Title"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/textView_Note_Value"
             android:layout_alignParentEnd="true" />
 
-
-        <ImageView
+        <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView_Etiquette"
-            android:src="@drawable/test2"
-            android:layout_below="@+id/button_Retour" />
+            android:id="@+id/linear_images_bieres"
+            android:layout_below="@+id/button_Retour"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView_Bouteille"
+                    android:src="@drawable/test2"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="500dp"
+                    android:maxHeight="200dp"
+                    android:scaleType="fitCenter" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView_Etiquette"
+                    android:src="@drawable/test2"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="500dp"
+                    android:maxHeight="200dp"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,9 +86,9 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Brasserie de L&apos;ours"
             android:id="@+id/textView_Brasserie"
-            android:layout_below="@+id/imageView_Etiquette"
-            android:layout_alignRight="@+id/textView_Title"
-            android:layout_alignEnd="@+id/textView_Title"
+            android:layout_below="@+id/linear_images_bieres"
+            android:layout_alignRight="@+id/textView_ProfilBiere_Title"
+            android:layout_alignEnd="@+id/textView_ProfilBiere_Title"
             android:layout_marginRight="24dp"
             android:layout_marginEnd="24dp" />
 

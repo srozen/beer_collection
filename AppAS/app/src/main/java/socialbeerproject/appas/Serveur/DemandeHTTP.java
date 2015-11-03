@@ -24,10 +24,13 @@ import java.util.List;
 public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObject> {
 
     public static String url = "http://46.101.143.168";
+    // public static String url = "http://192.168.1.26";
     public static String cheminLogin = "api_login";
     public static String cheminInsc = "api_register";
-    public static String cheminCata = "api_";
-    public static String cheminColl = "api_";
+    public static String cheminCata = "catalogue.json";
+    public static String cheminColl = "";
+    public static String cheminProfilBeer = "api_beer_profile.json";
+
 
     private ServeurCom ser;
 
@@ -73,7 +76,6 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         String newUrl = getNewUrl(params.get(0).getName());
         params.remove(0);
 
-        //SystemClock.sleep(2000);
         InputStream is = null;
         JSONObject jObj = null;
         String json = "";
@@ -125,6 +127,9 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
                 break;
             case "collection" :
                 newUrl += cheminColl;
+                break;
+            case "profilBiere" :
+                newUrl += cheminProfilBeer;
                 break;
             default:
                 return null;

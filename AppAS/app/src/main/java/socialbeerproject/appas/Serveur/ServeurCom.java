@@ -2,6 +2,7 @@ package socialbeerproject.appas.Serveur;
 
 import android.app.Activity;
 import android.os.StrictMode;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import org.apache.http.NameValuePair;
@@ -64,11 +65,9 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
-    public void catalogue(String userId, String tri){
+    public void catalogue(){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("catalogue", "catalogue"));
-
-        params.add(new BasicNameValuePair("userId", userId));
 
         this.envoieServeur(params);
     }
@@ -80,6 +79,21 @@ public class ServeurCom {
         params.add(new BasicNameValuePair("userId", userId));
 
         this.envoieServeur(params);
+    }
+
+    public void profilBiere(String idBiere){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("profilBiere", "profilBiere"));
+
+        params.add(new BasicNameValuePair("id", idBiere));
+        this.envoieServeur(params);
+    }
+
+    public void recuperationImage(String beerId, ImageView imgBout, ImageView imgEtiq){
+        String urlBout = ImageHTTP.cheminImageBouteille + beerId +".jpg";
+        new ImageHTTP(imgBout).execute(urlBout);
+        String urlEtiq = ImageHTTP.cheminImageEtiquette + beerId +".jpg";
+        new ImageHTTP(imgEtiq).execute(urlEtiq);
     }
 
     private void envoieServeur(List<NameValuePair> params){

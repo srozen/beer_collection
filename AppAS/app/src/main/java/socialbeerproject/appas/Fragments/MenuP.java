@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import socialbeerproject.appas.Activity.Login;
+import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil;
 import socialbeerproject.appas.Adaptateurs.Adaptateur;
 import socialbeerproject.appas.Elements.ElementListe;
@@ -32,8 +33,6 @@ public class MenuP extends ListFragment {
         super.onActivityCreated(savedInstanceState);
         this.creationMenu();
     }
-    
-    
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -110,12 +109,14 @@ public class MenuP extends ListFragment {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+
+        Principal prin = (Principal) getActivity();
         switch (frag) {
             case "Scan":
                 ft.replace(R.id.linear, new Scan());
                 break;
             case "Collection":
-                ft.replace(R.id.linear, new Collection());
+                ft.replace(R.id.linear, prin.collection);
                 break;
         }
 

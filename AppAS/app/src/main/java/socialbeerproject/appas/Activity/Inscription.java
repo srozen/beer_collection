@@ -83,7 +83,6 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
                     } else if ("checkMail" == "false"){
                         valInscription = "Mail déjà utilisé";
                     }
-
                 }
             } else {
                 valInscription = "Aucune réponse du serveur";

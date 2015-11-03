@@ -1,7 +1,5 @@
 package socialbeerproject.appas.Activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -104,16 +102,7 @@ public class Login extends ActivityCom implements View.OnClickListener{
             if(connexion == "false"){
                 connexion = "Mot de passe erroné!";
             }
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("Connexion");
-            alertDialog.setMessage(connexion);
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
+            this.messageErreur(connexion);
         }
     }
 }

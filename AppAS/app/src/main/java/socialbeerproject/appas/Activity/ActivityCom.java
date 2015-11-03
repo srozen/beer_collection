@@ -1,6 +1,8 @@
 package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
@@ -26,6 +28,19 @@ public abstract class ActivityCom extends Activity {
         edit.apply();
         Intent i2= new Intent(this,Principal.class);
         startActivity(i2);
+    }
+
+    public void messageErreur(String message){
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Erreur !");
+        alertDialog.setMessage(message);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
     }
 
     @Override
