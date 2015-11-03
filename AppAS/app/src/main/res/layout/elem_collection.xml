@@ -8,17 +8,19 @@
     android:padding="5dp">
 
     <RelativeLayout android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:id="@+id/rel_elem_collection">
 
         <ImageView
             android:id="@+id/Image"
-            style="@style/ImageMenu" />
+            style="@style/ImageMenu"
+            android:src="@string/ic_introuvable"/>
 
-        <RelativeLayout android:id="@+id/Text"
+        <RelativeLayout android:id="@+id/rel_Text"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dip"
+            android:paddingLeft="5dp"
             android:layout_toRightOf="@id/Image"
             android:layout_centerVertical="true">
             <TextView
@@ -26,7 +28,38 @@
                 style="@style/TitreMenu"
                 android:textStyle="italic"
                 android:text="Leffe"
+                android:layout_centerVertical="true"
                 />
+            <RelativeLayout android:id="@+id/rel_ProgressBar"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/Nom"
+                android:layout_centerVertical="true"
+                android:padding="5dp">
+                <ProgressBar
+                    android:id="@+id/RatingGlo"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="30dp"
+                    android:progressDrawable="@drawable/progress_bar"
+                    />
+                <ProgressBar
+                    android:id="@+id/RatingPer"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:progressDrawable="@drawable/progress_bar"
+                    />
+            </RelativeLayout>
+
         </RelativeLayout>
 
     </RelativeLayout>

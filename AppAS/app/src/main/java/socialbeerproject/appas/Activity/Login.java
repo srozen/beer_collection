@@ -76,7 +76,7 @@ public class Login extends ActivityCom implements View.OnClickListener{
         chargementFini = false;
         
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.lnr_Login), this);
-        ser.connexion(editUser.getText().toString(), editPassword.getText().toString());
+        ser.connexionOne(editUser.getText().toString(), editPassword.getText().toString());
     }
 
 

@@ -50,6 +50,7 @@
     <string name="ic_scan">@mipmap/ic_scan</string>
     <string name="ic_deco">@mipmap/ic_deco</string>
     <string name="ic_bon_plan">@mipmap/ic_bon_plan</string>
+    <string name="ic_introuvable">@mipmap/ic_introuvable</string>
 
     <!-- Fonts -->
     <string name="font_path">fonts/maxwell.bold.tff</string>

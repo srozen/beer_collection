@@ -1,7 +1,6 @@
 package socialbeerproject.appas.Serveur;
 
 import android.os.AsyncTask;
-import android.os.SystemClock;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -13,7 +12,6 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
@@ -24,19 +22,24 @@ import java.util.List;
 public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObject> {
 
     public static String url = "http://46.101.143.168";
-    // public static String url = "http://192.168.1.26";
-    public static String cheminLogin = "api_login";
-    public static String cheminInsc = "api_register";
+    public static String cheminLogin = "api_login.json";
+    public static String cheminInsc = "api_register.json";
     public static String cheminCata = "catalogue.json";
     public static String cheminColl = "";
     public static String cheminProfilBeer = "api_beer_profile.json";
 
-
     private ServeurCom ser;
+    private boolean con;
 
     public DemandeHTTP(ServeurCom ser){
         super();
         this.ser = ser;
+    }
+
+    public DemandeHTTP(ServeurCom ser, boolean con){
+        super();
+        this.ser = ser;
+        this.con = con;
     }
 
     @Override
@@ -53,14 +56,22 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     @Override
     protected void onCancelled(){
         if (ser !=null){
-            ser.receptionRep(null);
+            try {
+                ser.receptionRep(null);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     protected void onPostExecute(JSONObject res){
         if (ser !=null){
-            ser.receptionRep(res);
+            try {
+                ser.receptionRep(res);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -76,9 +87,7 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         String newUrl = getNewUrl(params.get(0).getName());
         params.remove(0);
 
-        InputStream is = null;
         JSONObject jObj = null;
-        String json = "";
 
         // Créé une demande HTTP au serveur avec les paramètres en post
         DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -86,13 +95,7 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         httpPost.setEntity(new UrlEncodedFormEntity(params));
         HttpResponse httpResponse = httpClient.execute(httpPost);
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent()));
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-        while ((line = reader.readLine()) != null) {
-            sb.append(line + "\n");
-        }
-        json = sb.toString();
+        String json = this.lecture(httpResponse);
 
         // try parse the string to a JSON object
         try {
@@ -105,6 +108,16 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
 
         // return JSONObject
         return jObj;
+    }
+
+    private String lecture(HttpResponse httpResponse) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent()));
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+        return sb.toString();
     }
 
     /**
@@ -134,7 +147,6 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
             default:
                 return null;
         }
-
         return newUrl;
     }
 }

@@ -289,6 +289,7 @@
     <string name="ic_catalogue">@mipmap/ic_catalogue</string>
     <string name="ic_collection">@mipmap/ic_collection</string>
     <string name="ic_deco">@mipmap/ic_deco</string>
+    <string name="ic_introuvable">@mipmap/ic_introuvable</string>
     <string name="ic_map">@mipmap/ic_map</string>
     <string name="ic_menu">@mipmap/ic_menu</string>
     <string name="ic_profil">@mipmap/ic_profil</string>

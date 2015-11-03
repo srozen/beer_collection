@@ -1,22 +1,19 @@
 package socialbeerproject.appas.Divers;
 
 import android.app.Activity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import socialbeerproject.appas.R;
 
 /**
  * Created by Rémy on 13-10-15.
- * Singleton
+ * Singleton pour le chargement (bière qui tourne)
  */
 public class Chargement {
 
-    private LinearLayout layoutChar = null;
     private ImageView imageCha = null;
     private Activity act;
     private RelativeLayout rel;
@@ -42,8 +39,7 @@ public class Chargement {
         if (imageCha == null){
             imageCha = new ImageView(act);
             imageCha.setImageResource(R.mipmap.chargement);
-
-            RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             relativeParams.addRule(RelativeLayout.BELOW, rel.getId());
             relativeParams.setMargins(0, 50, 0, 0);
             imageCha.setLayoutParams(relativeParams);

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,17 +38,6 @@ public class ListeBiere extends ListFragment {
 
         ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.linear),(ActivityCom) getActivity());
         ser.catalogue();
-
-        /*
-        element = new ArrayList<ElementCollection>();
-
-        ElementCollection e1 = new ElementCollection("Leffe", R.string.icon);
-        ElementCollection e2 = new ElementCollection("CaraPils", R.string.icon);
-        element.add(e1);
-        element.add(e2);
-
-        adapter = new AdaptateurCollection(getActivity(), element);
-        setListAdapter(adapter); */
 
         previous = new View(getActivity().getApplicationContext());
     }
@@ -95,7 +85,7 @@ public class ListeBiere extends ListFragment {
 
     public void creationListe(JSONObject rep){
         element = new ArrayList<ElementCollection>();
-        String name = "";
+        String nom = "";
         String id= "";
 
         if(rep != null){
@@ -107,16 +97,17 @@ public class ListeBiere extends ListFragment {
             }
             for (int i=0;i<nbBiere;i++){
                 try {
-                    name = rep.getJSONArray("beers").getJSONObject(i).getString("name");
-                    id = rep.getJSONArray("beers").getJSONObject(i).getString("id");
+                    JSONObject biere = rep.getJSONArray("beers").getJSONObject(i);
+                    nom = biere.getString("name");
+                    id = biere.getString("id");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                element.add(new ElementCollection(name, R.string.icon, id));
+                element.add(new ElementCollection(nom, R.string.icon, id));
             }
         } else {
-            ActivityCom activity  = (ActivityCom) getActivity();
-            activity.messageErreur("Aucune connexion au serveur possible!");
+            ActivityCom activiteCom  = (ActivityCom) getActivity();
+            activiteCom.messageErreur("Aucune connexion au serveur possible!");
         }
 
         adapter = new AdaptateurCollection(getActivity(), element);

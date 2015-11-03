@@ -1,7 +1,5 @@
 package socialbeerproject.appas.Activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -63,14 +61,14 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
         username = editUser.getText().toString();
         password = editPassword.getText().toString();
 
-        chargementFini=false;
+        chargementFini = false;
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.lnr_Inscription), this);
-        ser.inscription(username, password , editMail.getText().toString());
+        ser.inscriptionOne(username, password , editMail.getText().toString());
     }
 
     @Override
     public void communication(JSONObject rep) {
-        chargementFini=true;
+        chargementFini = true;
         String valInscription = "";
 
         try {
@@ -95,16 +93,7 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
         if(valInscription == "true"){
             this.connexionValide(username, password);
         } else {
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("Inscription");
-            alertDialog.setMessage(valInscription);
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
+            this.messageErreur(valInscription);
         }
     }
 }
