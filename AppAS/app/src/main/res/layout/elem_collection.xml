@@ -20,45 +20,54 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
+            android:padding="5dp"
             android:layout_toRightOf="@id/Image"
             android:layout_centerVertical="true">
+
+            <View
+                android:id="@+id/view_separation"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="invisible" />
+
             <TextView
                 android:id="@+id/Nom"
                 style="@style/TitreMenu"
                 android:textStyle="italic"
-                android:text="Leffe"
+                android:text="Leffe Blonde"
                 android:layout_centerVertical="true"
-                />
-            <RelativeLayout android:id="@+id/rel_ProgressBar"
-                android:orientation="vertical"
+                android:layout_toLeftOf="@id/view_separation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/Nom"
-                android:layout_centerVertical="true"
-                android:padding="5dp">
-                <ProgressBar
-                    android:id="@+id/RatingGlo"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="30dp"
-                    android:progressDrawable="@drawable/progress_bar"
-                    />
-                <ProgressBar
-                    android:id="@+id/RatingPer"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:progressDrawable="@drawable/progress_bar"
-                    />
-            </RelativeLayout>
+                />
+
+            <ProgressBar
+                android:id="@+id/RatingGlo"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@id/view_separation"
+                android:layout_marginLeft="10dp"
+                android:progressDrawable="@drawable/progress_bar"
+                android:progress="50"
+                />
+            <ProgressBar
+                android:id="@+id/RatingPer"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/view_separation"
+                android:progressDrawable="@drawable/progress_bar"
+                android:progress="95"
+                />
 
         </RelativeLayout>
 

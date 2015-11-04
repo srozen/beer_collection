@@ -60,6 +60,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
     public void communication(JSONObject rep) {
         /* **********************
               TODO : Modifier tous les champs de l'affichage selon la réponse du serveur
+              (voir : http://46.101.143.168/beers/6.json) pour connaitre les champs
            **********************
         */
 

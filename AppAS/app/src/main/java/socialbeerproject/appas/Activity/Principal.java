@@ -11,7 +11,6 @@ import socialbeerproject.appas.Fragments.ListeBiere;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Fragments.MenuP;
 
-
 public class Principal extends ActivityCom {
 
     public MenuP men;
@@ -25,7 +24,8 @@ public class Principal extends ActivityCom {
         super.setContentView(R.layout.fragment_menu);
         // Création du nouveau fragment à placer dans le layout de l'activité.
         men = new MenuP();
-        collection = new ListeBiere();
+        catalogue = new ListeBiere();
+        //collection = new ListeBiere();
         // Add the fragment to the 'fragment_container' FrameLayout
         getFragmentManager().beginTransaction().add(R.id.linear, men).commit();
     }
@@ -58,6 +58,9 @@ public class Principal extends ActivityCom {
 
     @Override
     public void communication(JSONObject rep) {
-        collection.creationListe(rep);
+        /*
+         * TODO: Depend de la demande , catalogue ou collection
+         */
+        catalogue.creationListe(rep);
     }
 }

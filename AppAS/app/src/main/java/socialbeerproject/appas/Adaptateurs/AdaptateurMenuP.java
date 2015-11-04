@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import socialbeerproject.appas.Elements.ElementListe;
+import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
 
 /*
@@ -18,13 +18,12 @@ import socialbeerproject.appas.R;
  * Chaque item sera affiché selon elem_menu.xml
  */
 
-public class Adaptateur extends BaseAdapter {
-
+public class AdaptateurMenuP extends BaseAdapter {
 
     Context context;
-    List<ElementListe> elements;
+    List<ElementMenuP> elements;
 
-    public Adaptateur(Context context, List<ElementListe> elements) {
+    public AdaptateurMenuP(Context context, List<ElementMenuP> elements) {
         this.context = context;
         this.elements = elements;
     }
@@ -57,10 +56,9 @@ public class Adaptateur extends BaseAdapter {
         TextView Titre = (TextView) convertView.findViewById(R.id.Titre);
         TextView Descr = (TextView) convertView.findViewById(R.id.Descr);
 
-        ElementListe row_pos = elements.get(position);
+        ElementMenuP row_pos = elements.get(position);
         // setting the image resource and title
         imgIcon.setImageResource(row_pos.getIcon());
-
 
         Titre.setText(row_pos.getTitle());
         Descr.setText(row_pos.getDescription());

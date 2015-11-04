@@ -1,5 +1,8 @@
 package socialbeerproject.appas.Elements;
 
+/**
+ * Utilisé pour une lister les bières (catalogue ou collection)
+ */
 public class ElementCollection {
 
     private String nom;

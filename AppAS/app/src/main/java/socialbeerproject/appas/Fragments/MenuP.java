@@ -15,8 +15,8 @@ import java.util.List;
 import socialbeerproject.appas.Activity.Login;
 import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil;
-import socialbeerproject.appas.Adaptateurs.Adaptateur;
-import socialbeerproject.appas.Elements.ElementListe;
+import socialbeerproject.appas.Adaptateurs.AdaptateurMenuP;
+import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
 
 
@@ -25,8 +25,8 @@ public class MenuP extends ListFragment {
     private int Position = 0;
     private ArrayList<String> Item;
     
-    Adaptateur adapter;
-    private List<ElementListe> element;
+    AdaptateurMenuP adapter;
+    private List<ElementMenuP> element;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class MenuP extends ListFragment {
                 this.replaceFragment("Collection");
                 break;
             case 2:
-
+                this.replaceFragment("Catalogue");
                 break;
             case 3:
                 startActivity(new Intent(getActivity(), Profil.class));
@@ -82,15 +82,15 @@ public class MenuP extends ListFragment {
     }
 
     void creationMenu(){
-        element = new ArrayList<ElementListe>();
+        element = new ArrayList<ElementMenuP>();
 
-        ElementListe e1 = new ElementListe("Scan", "Scan ta binouze", R.string.ic_scan);
-        ElementListe e2 = new ElementListe("Collection", "Toute les bières que tu as sifflé", R.string.ic_collection);
-        ElementListe e3 = new ElementListe("Catalogue", "Liste de tous les bières", R.string.ic_catalogue);
-        ElementListe e4 = new ElementListe("Profil", "Paramètres personnels", R.string.ic_profil);
-        ElementListe e5 = new ElementListe("BeerMap", "Carte des buveurs", R.string.ic_map);
-        ElementListe e6 = new ElementListe("Bons Plans", "Promo sur les bières", R.string.ic_bon_plan);
-        ElementListe e7 = new ElementListe("Déconnexion", "Changement de compte?", R.string.ic_deco);
+        ElementMenuP e1 = new ElementMenuP("Scan", "Scan ta binouze", R.string.ic_scan);
+        ElementMenuP e2 = new ElementMenuP("Collection", "Toute les bières que tu as sifflé", R.string.ic_collection);
+        ElementMenuP e3 = new ElementMenuP("Catalogue", "Liste de tous les bières", R.string.ic_catalogue);
+        ElementMenuP e4 = new ElementMenuP("Profil", "Paramètres personnels", R.string.ic_profil);
+        ElementMenuP e5 = new ElementMenuP("BeerMap", "Carte des buveurs", R.string.ic_map);
+        ElementMenuP e6 = new ElementMenuP("Bons Plans", "Promo sur les bières", R.string.ic_bon_plan);
+        ElementMenuP e7 = new ElementMenuP("Déconnexion", "Changement de compte?", R.string.ic_deco);
 
         element.add(e1);
         element.add(e2);
@@ -100,7 +100,7 @@ public class MenuP extends ListFragment {
         element.add(e6);
         element.add(e7);
 
-        adapter = new Adaptateur(getActivity(), element);
+        adapter = new AdaptateurMenuP(getActivity(), element);
         setListAdapter(adapter);
     }
 
@@ -116,7 +116,10 @@ public class MenuP extends ListFragment {
                 ft.replace(R.id.linear, new Scan());
                 break;
             case "Collection":
-                ft.replace(R.id.linear, prin.collection);
+                //ft.replace(R.id.linear, prin.collection);
+                break;
+            case "Catalogue":
+                ft.replace(R.id.linear, prin.catalogue);
                 break;
         }
 

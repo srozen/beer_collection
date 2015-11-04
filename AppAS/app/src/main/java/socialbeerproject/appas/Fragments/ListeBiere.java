@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -88,6 +87,9 @@ public class ListeBiere extends ListFragment {
         String nom = "";
         String id= "";
 
+        /*
+                TODO: enregister les rating dans l'element
+                 */
         if(rep != null){
             int nbBiere = 0;
             try {

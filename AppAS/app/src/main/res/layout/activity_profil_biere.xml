@@ -3,7 +3,8 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="match_parent"
-        android:id="@+id/rel_profilBiere">
+        android:id="@+id/rel_profilBiere"
+        android:padding="5dp">
 
         <Button
             style="@style/GrosBouton"
@@ -34,7 +35,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/linear_images_bieres"
             android:layout_below="@+id/button_Retour"
-            android:layout_margin="5dp">
+            android:padding="5dp"
+            android:background="@drawable/menu_item">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">

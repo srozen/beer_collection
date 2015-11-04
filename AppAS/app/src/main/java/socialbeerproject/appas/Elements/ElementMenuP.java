@@ -1,16 +1,15 @@
 package socialbeerproject.appas.Elements;
 
-public class ElementListe {
+public class ElementMenuP {
 
     private String title;
     private String description;
     private int icon;
 
-    public ElementListe(String title, String descr, int icon) {
+    public ElementMenuP(String title, String descr, int icon) {
         this.title = title;
         this.icon = icon;
         this.description = descr;
-
     }
 
     public String getTitle() {

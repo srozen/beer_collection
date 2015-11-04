@@ -21,6 +21,10 @@ public class Login extends ActivityCom implements View.OnClickListener{
     private String username = null;
     private String password = null;
 
+    /*
+     * TODO: enregister le hash et pas le mot de passe, et envoyer directement le hash.
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

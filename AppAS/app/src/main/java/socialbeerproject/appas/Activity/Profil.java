@@ -1,14 +1,11 @@
 package socialbeerproject.appas.Activity;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import org.json.JSONObject;
 
-import socialbeerproject.appas.Fragments.MenuP;
 import socialbeerproject.appas.R;
 
 public class Profil extends ActivityCom implements View.OnClickListener {

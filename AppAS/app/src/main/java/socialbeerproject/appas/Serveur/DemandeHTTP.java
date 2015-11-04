@@ -17,7 +17,6 @@ import java.util.List;
 
 /**
  * Created by Rémy on 14-10-15.
- * Tirer en partie d'un forum : http://stackoverflow.com/questions/23945810/json-keep-getting-the-old-data
  */
 public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObject> {
 
