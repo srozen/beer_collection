@@ -15,7 +15,7 @@ import java.io.InputStream;
 public class ImageHTTP  extends AsyncTask<String, Void, Bitmap> {
 
     public static String cheminImageBouteille = DemandeHTTP.url + "/images/beer_profile/";
-    public static String cheminImageEtiquette = DemandeHTTP.url + "/images/beer_sticker/";;
+    public static String cheminImageEtiquette = DemandeHTTP.url + "/images/beer_sticker/";
 
     private ImageView bmImage;
 
@@ -36,6 +36,8 @@ public class ImageHTTP  extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected void onPostExecute(Bitmap result) {
-        bmImage.setImageBitmap(result);
+        if (result != null){
+            bmImage.setImageBitmap(result);
+        }
     }
 }

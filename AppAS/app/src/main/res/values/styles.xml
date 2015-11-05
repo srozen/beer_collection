@@ -16,7 +16,6 @@
     <!-- ActionBar -->
     <style name="ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/mousse</item>
-
     </style>
 
     <!-- Style Textes - boutton -->
@@ -82,4 +81,35 @@
         <item name="android:scaleType">fitXY</item>
         <item name="android:layout_alignParentLeft">true</item>
     </style>
+
+
+    <!-- Dialog -->
+    <style name="MyAlertDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+        <item name="android:textAppearanceMedium">@style/SimpleTexte</item>
+        <item name="android:borderlessButtonStyle">@style/GrosBouton</item>
+        <item name="android:buttonBarStyle">@style/GrosBouton</item>
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/darkAmbre</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/ambre</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/mousse</item>
+
+        <item name="android:windowTitleStyle">@style/MyTitleTextStyle</item>
+        <item name="android:buttonStyle">@style/GrosBouton</item>
+    </style>
+
+    <style name="MyTitleTextStyle">
+        <item name="android:textColor">@color/darkAmbre</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+
 </resources>

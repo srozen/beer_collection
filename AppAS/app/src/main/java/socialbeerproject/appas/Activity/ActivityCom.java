@@ -31,7 +31,7 @@ public abstract class ActivityCom extends Activity {
     }
 
     public void messageErreur(String message){
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        AlertDialog alertDialog = new AlertDialog.Builder(this,R.style.MyAlertDialogStyle).create();
         alertDialog.setTitle("Erreur !");
         alertDialog.setMessage(message);
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
