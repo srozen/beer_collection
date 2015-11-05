@@ -189,6 +189,13 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
+    public void amitie(){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("amitie", "amitie"));
+
+        this.envoieServeur(params);
+    }
+
     public void collection(String userId, String tri){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("collection", "collection"));
