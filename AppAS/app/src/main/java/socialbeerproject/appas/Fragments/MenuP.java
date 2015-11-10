@@ -84,13 +84,13 @@ public class MenuP extends ListFragment {
     void creationMenu(){
         element = new ArrayList<ElementMenuP>();
 
-        ElementMenuP e1 = new ElementMenuP("Scan", "Scan ta binouze", R.string.ic_scan);
-        ElementMenuP e2 = new ElementMenuP("Collection", "Toute les bières que tu as sifflé", R.string.ic_collection);
-        ElementMenuP e3 = new ElementMenuP("Catalogue", "Liste de tous les bières", R.string.ic_catalogue);
-        ElementMenuP e4 = new ElementMenuP("Profil", "Paramètres personnels", R.string.ic_profil);
-        ElementMenuP e5 = new ElementMenuP("BeerMap", "Carte des buveurs", R.string.ic_map);
-        ElementMenuP e6 = new ElementMenuP("Bons Plans", "Promo sur les bières", R.string.ic_bon_plan);
-        ElementMenuP e7 = new ElementMenuP("Déconnexion", "Changement de compte?", R.string.ic_deco);
+        ElementMenuP e1 = new ElementMenuP("Scan", "Scan ta binouze", R.mipmap.ic_scan);
+        ElementMenuP e2 = new ElementMenuP("Collection", "Toute les bières que tu as sifflé", R.mipmap.ic_collection);
+        ElementMenuP e3 = new ElementMenuP("Catalogue", "Liste de tous les bières", R.mipmap.ic_catalogue);
+        ElementMenuP e4 = new ElementMenuP("Profil", "Paramètres personnels", R.mipmap.ic_profil);
+        ElementMenuP e5 = new ElementMenuP("BeerMap", "Carte des buveurs", R.mipmap.ic_map);
+        ElementMenuP e6 = new ElementMenuP("Bons Plans", "Promo sur les bières", R.mipmap.ic_bon_plan);
+        ElementMenuP e7 = new ElementMenuP("Déconnexion", "Changement de compte?", R.mipmap.ic_deco);
 
         element.add(e1);
         element.add(e2);

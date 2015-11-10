@@ -27,7 +27,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         setContentView(R.layout.activity_profil_biere);
         jeBois = (Button) findViewById(R.id.button_ajouterColl_biere);
         jeBois.setOnClickListener(this);
-        retour = (Button) findViewById(R.id.button_Retour);
+        retour = (Button) findViewById(R.id.button_retour_biere);
         retour.setOnClickListener(this);
 
         Bundle b = getIntent().getExtras();
@@ -51,7 +51,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
                    **********************
                 */
                 break;
-            case R.id.button_Retour:
+            case R.id.button_retour_biere:
                 finish();
                 break;
         }

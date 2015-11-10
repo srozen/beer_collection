@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/Image"
             style="@style/ImageMenu"
-            android:src="@string/ic_introuvable"/>
+            android:src="@mipmap/ic_introuvable"/>
 
         <RelativeLayout android:id="@+id/rel_Text"
             android:orientation="vertical"

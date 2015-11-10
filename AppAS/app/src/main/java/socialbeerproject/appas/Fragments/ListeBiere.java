@@ -105,7 +105,7 @@ public class ListeBiere extends ListFragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                element.add(new ElementCollection(nom, R.string.icon, id));
+                element.add(new ElementCollection(nom, R.mipmap.ic_launcher, id));
             }
         } else {
             ActivityCom activiteCom  = (ActivityCom) getActivity();

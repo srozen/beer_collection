@@ -31,7 +31,7 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         addFriend.setOnClickListener(this);
         lookFriend = (Button) findViewById(R.id.button_Friends_View);
         lookFriend.setOnClickListener(this);
-        back = (Button) findViewById(R.id.button_RetourProfil);
+        back = (Button) findViewById(R.id.button_retour_profil);
         back.setOnClickListener(this);
     }
 
@@ -88,7 +88,7 @@ public class Profil extends ActivityCom implements View.OnClickListener {
                 */
                 break;
 
-            case R.id.button_RetourProfil:
+            case R.id.button_retour_profil:
                 finish();
                 break;
         }

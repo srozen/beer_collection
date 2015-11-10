@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btn_retour"
-            android:id="@+id/button_Retour"
+            android:id="@+id/button_retour_biere"
             android:layout_alignParentTop="true" />
 
         <TextView
@@ -23,7 +23,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="La bière de l&apos;ours"
             android:id="@+id/textView_ProfilBiere_Title"
-            android:layout_toRightOf="@+id/button_Retour"
+            android:layout_toRightOf="@+id/button_retour_biere"
             android:layout_centerHorizontal="true"/>
 
         <HorizontalScrollView
@@ -46,7 +46,8 @@
                     android:adjustViewBounds="true"
                     android:maxWidth="500dp"
                     android:maxHeight="200dp"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Image de la bouteille" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -55,7 +56,8 @@
                     android:adjustViewBounds="true"
                     android:maxWidth="500dp"
                     android:maxHeight="200dp"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Image de l'étiquette" />
             </LinearLayout>
         </HorizontalScrollView>
         <RelativeLayout
@@ -101,7 +103,7 @@
                 android:layout_below="@+id/RatingGlo_biere"
                 android:progressDrawable="@drawable/progress_bar"
                 android:layout_margin="5dp"
-                android:progress="95" />
+                android:progress="50" />
 
             <TextView
                 android:id="@+id/texte_prog_ratingPer"
@@ -128,17 +130,25 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Brasserie de L&apos;ours"
                 android:id="@+id/textView_brasserie_biere"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/textView_alcool_biere"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/textView_brasserie_biere"
                 android:textStyle="bold"
+                android:layout_toLeftOf="@+id/textView_alcoolDegree_biere"
                 android:text="@string/texte_introuvable"
                 android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/textView_alcoolDegree_biere"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:text="°" />
             <TextView
                 android:id="@+id/textView_typeTexte_biere"
                 android:layout_width="wrap_content"
@@ -181,7 +191,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Description : "
                 android:layout_below="@+id/textView_couleur_biere"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="5dp" />
 
             <TextView
                 android:id="@+id/textView_description_biere"
@@ -191,7 +201,15 @@
                 android:text="@string/texte_introuvable"
                 android:textStyle="bold"
                 android:layout_below="@+id/textView_descriptionTexte_biere"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:layout_below="@+id/textView_description_biere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_dateBu_biere"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
         </RelativeLayout>
         <Button
             android:id="@+id/button_ajouterColl_biere"
@@ -217,7 +235,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" sont déja consommateur!"
+                android:text=" sont déjà consommateur!"
                 android:layout_toRightOf="@+id/texte_nbConsommateur"/>
         </RelativeLayout>
     </RelativeLayout>

@@ -32,8 +32,6 @@
     <string name="btn_retour">Retour</string>
 
     <!-- Textes Profil d'une bière -->
-    <string name="texte_alcool">Alcool :</string>
-    <string name="texte_degree">Degree :</string>
     <string name="texte_type">Type : </string>
     <string name="texte_note">Notes : </string>
     <string name="btn_suppresionColl">Retirer de ma collection</string>
@@ -41,23 +39,10 @@
     <string name="texte_introuvable">N/A</string>
     <string name="texte_noteGlobal">Note globale :</string>
     <string name="texte_notePer">Note personnelle :</string>
-
-    <!-- Chemin vers les images et icônes -->
-    <string name="icon">@mipmap/ic_launcher</string>
-    <string name="ic_map">@mipmap/ic_map</string>
-    <string name="ic_menu">@mipmap/ic_menu</string>
-    <string name="ic_profil">@mipmap/ic_profil</string>
-    <string name="ic_catalogue">@mipmap/ic_catalogue</string>
-    <string name="ic_collection">@mipmap/ic_collection</string>
-    <string name="ic_scan">@mipmap/ic_scan</string>
-    <string name="ic_deco">@mipmap/ic_deco</string>
-    <string name="ic_bon_plan">@mipmap/ic_bon_plan</string>
-    <string name="ic_introuvable">@mipmap/ic_introuvable</string>
+    <string name="texte_dateBu">Vous avez consommé cette bière le </string>
 
     <!-- Fonts -->
     <string name="font_path">fonts/maxwell.bold.tff</string>
-
-
 
     <string-array name="nav_drawer_items">
         <item>Scan</item>
