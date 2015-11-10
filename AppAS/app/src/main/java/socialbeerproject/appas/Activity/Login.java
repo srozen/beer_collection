@@ -88,7 +88,7 @@ public class Login extends ActivityCom implements View.OnClickListener{
     @Override
     public void communication(JSONObject rep) {
         chargementFini = true;
-        String connexion = new String();
+        String connexion;
         try {
             if(rep != null){
                 connexion = rep.getString("checkLog");

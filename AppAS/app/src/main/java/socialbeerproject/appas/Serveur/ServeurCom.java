@@ -3,6 +3,7 @@ package socialbeerproject.appas.Serveur;
 import android.app.Activity;
 import android.os.StrictMode;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -46,8 +47,6 @@ public class ServeurCom {
                 Chargement.getInstance().stop();
                 Chargement.getInstance().dettach();
                 act.communication(rep);
-            } else {
-
             }
         } else {
             Chargement.getInstance().stop();

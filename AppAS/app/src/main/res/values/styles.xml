@@ -2,14 +2,14 @@
     <!-- Thèmes -->
     <style name="AppTheme" parent="android:Theme.NoTitleBar">
         <item name="android:background">@color/mousse</item>
-        <item name="android:textColor">@color/orange</item>
+        <item name="android:textColor">@color/darkAmbre</item>
     </style>
 
     <style name="MenuPTheme" parent="android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
         <item name="android:selectableItemBackground">@drawable/bar_item</item>
         <item name="android:background">@color/mousse</item>
-        <item name="android:textColor">@color/orange</item>
+        <item name="android:textColor">@color/darkAmbre</item>
     </style>
     <!-- Styles -->
 
@@ -26,6 +26,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/darkAmbre</item>
         <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
     <style name="SimpleTexte">
@@ -93,11 +94,12 @@
         <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
         <item name="android:textAppearanceMedium">@style/SimpleTexte</item>
         <item name="android:borderlessButtonStyle">@style/GrosBouton</item>
-        <item name="android:buttonBarStyle">@style/GrosBouton</item>
+        <item name="android:buttonBarStyle">@style/BarStyleDialog</item>
         <!-- Used for the buttons -->
         <item name="colorAccent">@color/darkAmbre</item>
         <!-- Used for the title and text -->
         <item name="android:textColorPrimary">@color/ambre</item>
+
         <!-- Used for the background -->
         <item name="android:background">@color/mousse</item>
 
@@ -109,6 +111,12 @@
         <item name="android:textColor">@color/darkAmbre</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
         <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="BarStyleDialog">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkAmbre</item>
+        <item name="android:background">@color/mousse</item>
     </style>
 
 

@@ -19,12 +19,13 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
     private Button retour;
     private ImageView imgBouteille;
     private ImageView imgEtiquette;
+    private Integer id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil_biere);
-        jeBois = (Button) findViewById(R.id.button_JeBois);
+        jeBois = (Button) findViewById(R.id.button_ajouterColl_biere);
         jeBois.setOnClickListener(this);
         retour = (Button) findViewById(R.id.button_Retour);
         retour.setOnClickListener(this);
@@ -43,8 +44,8 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_JeBois:
-                jeBois.setText("J'ai bu !");
+            case R.id.button_ajouterColl_biere:
+                jeBois.setText(R.string.btn_suppresionColl);
                 /* **********************
                     ICI CODE POUR AJOUTER UNE BIERE A LA COLLECTION DE BIERE
                    **********************
@@ -65,9 +66,20 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         */
 
         TextView name = (TextView) findViewById(R.id.textView_ProfilBiere_Title);
+        TextView alcool = (TextView) findViewById(R.id.textView_alcool_biere);
+        TextView brasserie = (TextView) findViewById(R.id.textView_brasserie_biere);
+        TextView desc = (TextView) findViewById(R.id.textView_description_biere);
+        TextView categorie = (TextView) findViewById(R.id.textView_types_biere);
+
         try {
             JSONObject beer = rep.getJSONObject("beer");
+            JSONObject cat = rep.getJSONObject("category");
+
             name.setText(beer.getString("name"));
+            alcool.setText(beer.getString("degree"));
+            desc.setText(beer.getString("description"));
+
+            categorie.setText(cat.getString("name"));
         } catch (JSONException e) {
             e.printStackTrace();
         }

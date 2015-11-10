@@ -276,10 +276,10 @@
     <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">Beer Collection</string>
-    <string name="btn_jai_bu">J\'ai bu !</string>
-    <string name="btn_je_bois">Je bois !</string>
+    <string name="btn_AjoutColl">Ajouter à ma collection</string>
     <string name="btn_retour">Retour</string>
     <string name="btn_seConnecter">Se connecter</string>
+    <string name="btn_suppresionColl">Retirer de ma collection</string>
     <string name="btn_valider">Valider</string>
     <string name="font_path">fonts/maxwell.bold.tff</string>
     <string name="hint_login">Nom de profil</string>
@@ -307,11 +307,13 @@
     <string name="texte_description">Description :</string>
     <string name="texte_inscription">Devenir Collectionneur!</string>
     <string name="texte_intro">Beer Collection est une application qui permet</string>
+    <string name="texte_introuvable">N/A</string>
     <string name="texte_login">Nom de profil : </string>
     <string name="texte_mail">Adresse mail :</string>
     <string name="texte_mdp">Mot de passe : </string>
-    <string name="texte_nbConsommateur">Nombre de consommateurs : </string>
-    <string name="texte_note">Note : </string>
+    <string name="texte_note">Notes : </string>
+    <string name="texte_noteGlobal">Note globale :</string>
+    <string name="texte_notePer">Note personnelle :</string>
     <string name="texte_type">Type : </string>
     <string name="title_activity_accueil">Accueil</string>
     <string name="title_activity_bon_plan">Les Bons Plans</string>
@@ -337,7 +339,12 @@
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.NoTitleBar">
         <item name="android:background">@color/mousse</item>
-        <item name="android:textColor">@color/orange</item>
+        <item name="android:textColor">@color/darkAmbre</item>
+    </style>
+    <style name="BarStyleDialog">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkAmbre</item>
+        <item name="android:background">@color/mousse</item>
     </style>
     <!-- From: file:/C:/BeerProjet/AppAS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
     <eat-comment/>
@@ -1298,7 +1305,7 @@
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
         <item name="android:selectableItemBackground">@drawable/bar_item</item>
         <item name="android:background">@color/mousse</item>
-        <item name="android:textColor">@color/orange</item>
+        <item name="android:textColor">@color/darkAmbre</item>
     </style>
     <style name="MyAlertDialogStyle">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -1309,11 +1316,12 @@
         <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
         <item name="android:textAppearanceMedium">@style/SimpleTexte</item>
         <item name="android:borderlessButtonStyle">@style/GrosBouton</item>
-        <item name="android:buttonBarStyle">@style/GrosBouton</item>
+        <item name="android:buttonBarStyle">@style/BarStyleDialog</item>
         <!-- Used for the buttons -->
         <item name="colorAccent">@color/darkAmbre</item>
         <!-- Used for the title and text -->
         <item name="android:textColorPrimary">@color/ambre</item>
+
         <!-- Used for the background -->
         <item name="android:background">@color/mousse</item>
 
@@ -1581,6 +1589,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/darkAmbre</item>
         <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
     <style name="TitreMenu">
