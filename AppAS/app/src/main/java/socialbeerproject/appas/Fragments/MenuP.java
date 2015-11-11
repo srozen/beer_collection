@@ -125,6 +125,7 @@ public class MenuP extends ListFragment {
 
         ft.addToBackStack(null);
         ft.commit();
+
     }
 
     private void logOut(){

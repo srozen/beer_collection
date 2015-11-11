@@ -37,8 +37,8 @@
     <string name="btn_suppresionColl">Retirer de ma collection</string>
     <string name="btn_AjoutColl">Ajouter à ma collection</string>
     <string name="texte_introuvable">N/A</string>
-    <string name="texte_noteGlobal">Note globale :</string>
-    <string name="texte_notePer">Note personnelle :</string>
+    <string name="texte_noteGlobal">Note globale : </string>
+    <string name="texte_notePer">Note personnelle : </string>
     <string name="texte_dateBu">Vous avez consommé cette bière le </string>
 
     <!-- Fonts -->

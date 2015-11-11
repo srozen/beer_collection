@@ -65,8 +65,21 @@ public class AdaptateurCollection extends BaseAdapter {
         /*
          * TODO: A terminer avec les progressBar (rating)
          */
-        //ProgressBar pBRatingGlo = (ProgressBar) convertView.findViewById(R.id.RatingGlo);
-        //ProgressBar pBRatingPer = (ProgressBar) convertView.findViewById(R.id.RatingPer);
+        ProgressBar pBRatingGlo = (ProgressBar) convertView.findViewById(R.id.RatingGlo);
+        ProgressBar pBRatingPer = (ProgressBar) convertView.findViewById(R.id.RatingPer);
+
+
+
+        if (row_pos.getRatingPer() != -1){
+            pBRatingPer.setProgress((int)(row_pos.getRatingPer()*10));
+        } else {
+            pBRatingPer.setVisibility(View.INVISIBLE);
+        }
+        if (row_pos.getRatingGlo() != -1){
+            pBRatingGlo.setProgress((int) (row_pos.getRatingGlo() * 10));
+        } else {
+            pBRatingGlo.setVisibility(View.INVISIBLE);
+        }
 
         imgIcon.setImageResource(row_pos.getIcon());
         Titre.setText(row_pos.getNom());

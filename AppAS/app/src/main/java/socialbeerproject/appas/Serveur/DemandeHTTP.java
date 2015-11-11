@@ -23,9 +23,11 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     public static String url = "http://46.101.143.168";
     public static String cheminLogin = "api_login.json";
     public static String cheminInsc = "api_register.json";
-    public static String cheminCata = "catalogue.json";
-    public static String cheminColl = "";
+    public static String cheminCata = "api_catalogue.json";
+    public static String cheminColl = "api_collection.json";
     public static String cheminProfilBeer = "api_beer_profile.json";
+    public static String cheminAddBeer="api_add_beer.json";
+    public static String cheminDeleteBeer="api_delete_beer.json";
 
     private ServeurCom ser;
     private boolean con;
@@ -142,6 +144,12 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
                 break;
             case "profilBiere" :
                 newUrl += cheminProfilBeer;
+                break;
+            case "ajoutColl":
+                newUrl += cheminAddBeer;
+                break;
+            case "deleteColl":
+                newUrl += cheminDeleteBeer;
                 break;
             default:
                 return null;

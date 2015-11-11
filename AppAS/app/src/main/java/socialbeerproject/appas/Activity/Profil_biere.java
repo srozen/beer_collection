@@ -1,8 +1,11 @@
 package socialbeerproject.appas.Activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -24,6 +27,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
     private RatingBar ratingBar;
     private TextView txtRatingValue;
     private String id;
+    private String idReview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
         Bundle b = getIntent().getExtras();
         id = b.getString("id");
+        idReview = "";
 
         sendServer(false);
 
@@ -41,7 +46,10 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
     private void sendServer(Boolean refresh){
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
-        ser.profilBiere(id);
+
+        SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
+
+        ser.profilBiere(id, log.getString("idUser", "0"));
 
         if(!refresh){
             imgBouteille = (ImageView) findViewById(R.id.imageView_Bouteille);
@@ -75,10 +83,11 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_ajouterColl_biere:
-                /* **********************
-                    ICI CODE POUR AJOUTER UNE BIERE A LA COLLECTION DE BIERE
-                   **********************
-                */
+                if (idReview == ""){
+                    ajouterDCollection();
+                } else {
+                    deleteDCollection();
+                }
                 this.sendServer(true);
                 break;
             case R.id.button_retour_biere:
@@ -87,7 +96,28 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         }
     }
 
+    private void ajouterDCollection() {
+        EditText commentEdit = (EditText) findViewById(R.id.champ_comment_biere);
+        RatingBar notePer = (RatingBar) findViewById(R.id.ratingBarPer_biere);
+        SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
 
+        String comment = commentEdit.getText().toString();
+        String note = Integer.toString(notePer.getProgress());
+        String idUser = log.getString("idUser", "0");
+        String hash = log.getString("hash","");
+
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
+        ser.ajoutColl(this.id,idUser,hash,note,comment);
+    }
+
+    private void deleteDCollection(){
+        SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
+        String idUser = log.getString("idUser", "0");
+        String hash = log.getString("hash","");
+
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
+        ser.deleteColl(idUser,hash,idReview);
+    }
 
     @Override
     public void communication(JSONObject rep) {
@@ -98,7 +128,14 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         */
         if (rep.has("beer")){
             modifBiere(rep);
-        } else if (rep.has("ajoutcoll")){
+        } else if (rep.has("success")){
+            try {
+                if (!rep.getBoolean("success")){
+                    this.messageErreur("Problème!");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             this.sendServer(true);
         }
     }
@@ -109,10 +146,26 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         TextView brasserie = (TextView) findViewById(R.id.textView_brasserie_biere);
         TextView desc = (TextView) findViewById(R.id.textView_description_biere);
         TextView categorie = (TextView) findViewById(R.id.textView_types_biere);
+        ProgressBar notePerGlo = (ProgressBar) findViewById(R.id.prog_ratingGlo_biere);
+        TextView notePerTxt = (TextView) findViewById(R.id.textView_prog_ratingGlo);
 
         try {
             JSONObject beer = rep.getJSONObject("beer");
             JSONObject cat = rep.getJSONObject("category");
+            if (rep.has("review") && rep.getJSONArray("review").length()==1){
+                System.out.println("PERTE");
+                modifDejaCollection(rep.getJSONArray("review").getJSONObject(0));
+            } else {
+                System.out.println("Aucune rev");
+            }
+
+            if (!beer.isNull("global_note") && !beer.getString("global_note").equals("null")){
+                float noteGlo = (float) beer.getDouble("global_note");
+                notePerGlo.setProgress((int) noteGlo*10);
+                notePerTxt.setText(getString(R.string.texte_noteGlobal) + Float.toString(noteGlo) + " /10");
+            } else {
+                notePerTxt.setText("Aucune note encore attribuée! ");
+            }
 
             name.setText(beer.getString("name"));
             alcool.setText(beer.getString("degree"));
@@ -122,13 +175,9 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        if (false){
-            modifDejaCollection();
-        }
     }
 
-    private void modifDejaCollection(){
+    private void modifDejaCollection(JSONObject review) throws JSONException {
         ProgressBar notePerPro = (ProgressBar) findViewById(R.id.prog_ratingPer_biere);
         TextView notePerTxt = (TextView) findViewById(R.id.textView_prog_ratingPer);
         notePerPro.setVisibility(View.VISIBLE);
@@ -139,5 +188,11 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
         jeBois.setText(R.string.btn_suppresionColl);
         jeBois.setVisibility(View.VISIBLE);
+
+        float notePer = (float) review.getDouble("note");
+        idReview = review.getString("id");
+
+        notePerPro.setProgress((int) notePer*10);
+        notePerTxt.setText(getString(R.string.texte_notePer) + Float.toString(notePer) + " /10" );
     }
 }

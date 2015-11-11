@@ -253,6 +253,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+            <EditText
+                android:id="@+id/champ_comment_biere"
+                android:hint="Votre commentaire"
+                android:layout_below="@+id/textView_ratingBarPer_biere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+            </EditText>
+
         </RelativeLayout>
         <Button
             android:id="@+id/button_ajouterColl_biere"

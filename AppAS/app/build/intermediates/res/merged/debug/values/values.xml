@@ -301,8 +301,8 @@
     <string name="texte_mail">Adresse mail :</string>
     <string name="texte_mdp">Mot de passe : </string>
     <string name="texte_note">Notes : </string>
-    <string name="texte_noteGlobal">Note globale :</string>
-    <string name="texte_notePer">Note personnelle :</string>
+    <string name="texte_noteGlobal">Note globale : </string>
+    <string name="texte_notePer">Note personnelle : </string>
     <string name="texte_type">Type : </string>
     <string name="title_activity_accueil">Accueil</string>
     <string name="title_activity_bon_plan">Les Bons Plans</string>

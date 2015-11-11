@@ -3,7 +3,6 @@ package socialbeerproject.appas.Serveur;
 import android.app.Activity;
 import android.os.StrictMode;
 import android.util.Base64;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -183,9 +182,11 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
-    public void catalogue(){
+    public void catalogue(String userId){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("catalogue", "catalogue"));
+
+        params.add(new BasicNameValuePair("userId", userId));
 
         this.envoieServeur(params);
     }
@@ -194,12 +195,10 @@ public class ServeurCom {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("amitie", "amitie"));
 
-
-
         this.envoieServeur(params);
     }
 
-    public void collection(String userId, String tri){
+    public void collection(String userId){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("collection", "collection"));
 
@@ -208,11 +207,37 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
-    public void profilBiere(String idBiere){
+    public void profilBiere(String idBiere, String userId){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("profilBiere", "profilBiere"));
 
         params.add(new BasicNameValuePair("id", idBiere));
+        params.add(new BasicNameValuePair("userId", userId));
+
+        this.envoieServeur(params);
+    }
+
+    public void ajoutColl(String idBiere, String userId, String hash, String note, String comment){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("ajoutColl", "ajoutColl"));
+
+        params.add(new BasicNameValuePair("beerId", idBiere));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("hash", hash));
+        params.add(new BasicNameValuePair("note", note));
+        params.add(new BasicNameValuePair("comment", comment));
+
+        this.envoieServeur(params);
+    }
+
+    public void deleteColl(String userId, String hash, String reviewId){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("deleteColl", "deleteColl"));
+
+        params.add(new BasicNameValuePair("reviewId", reviewId));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("hash", hash));
+
         this.envoieServeur(params);
     }
 
@@ -231,7 +256,6 @@ public class ServeurCom {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
         new DemandeHTTP(this).execute(params);
     }
 }

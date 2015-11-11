@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListFragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,12 +38,22 @@ public class ListeBiere extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        Bundle args = getArguments();
         ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.linear),(ActivityCom) getActivity());
-        ser.catalogue();
-
+        if (args!=null && args.getString("type","N/A") != "N/A" ) {
+            ActivityCom activiteCom = (ActivityCom) getActivity();
+            SharedPreferences log = activiteCom.getSharedPreferences("Login", Context.MODE_PRIVATE);
+            switch (args.getString("type","N/A")) {
+                case "catalogue":
+                    ser.catalogue(log.getString("idUser", "n/a"));
+                    break;
+                case "collection":
+                    ser.collection(log.getString("idUser", "n/a"));
+                    break;
+            }
+        }
         previous = new View(getActivity().getApplicationContext());
     }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -87,11 +100,19 @@ public class ListeBiere extends ListFragment {
         /*
         TODO: enregister les rating dans l'element
         */
+        JSONArray reviews = new JSONArray();
+
+        if (rep.has("reviews") && !rep.getJSONArray("reviews").equals(null)){
+            reviews = rep.getJSONArray("reviews");
+        } else {
+            reviews = null;
+        }
         if(rep != null){
             int nbBiere=0;
             nbBiere = rep.getJSONArray("beers").length();
             for (int i=0;i<nbBiere;i++){
-                creationElement(rep.getJSONArray("beers").getJSONObject(i));
+                ElementCollection elementBiere = creationElement(rep.getJSONArray("beers").getJSONObject(i), reviews);
+                element.add(elementBiere);
             }
         } else {
             ActivityCom activiteCom  = (ActivityCom) getActivity();
@@ -101,15 +122,49 @@ public class ListeBiere extends ListFragment {
         setListAdapter(adapter);
     }
 
-    public void creationElement(JSONObject biere){
+    public ElementCollection creationElement(JSONObject biere, JSONArray reviews){
         String nom = "";
         String id= "";
+        float ratingPer = -1f ;
+        float ratingGlo = -1f ;
         try {
             nom = biere.getString("name");
             id = biere.getString("id");
+            if (reviews != null){
+                ratingPer = findReview(biere, reviews);
+            }
+            if (!biere.getString("global_note").equals("null")){
+                ratingGlo = Float.parseFloat(biere.getString("global_note"));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        element.add(new ElementCollection(nom, R.mipmap.ic_launcher, id));
+        ElementCollection elementBiere = new ElementCollection(nom, R.mipmap.ic_launcher, id);
+        elementBiere.setRatingPer(ratingPer);
+        elementBiere.setRatingGlo(ratingGlo);
+        return elementBiere;
+    }
+
+    /**
+     * Va chercher la note personnel grâce aux reviews
+     * @param biere
+     * @param reviews
+     * @return
+     */
+    private float findReview(JSONObject biere, JSONArray reviews) {
+        int nbReview;
+        nbReview = reviews.length();
+        for (int i=0;i<nbReview;i++){
+            try {
+                int idBeer = reviews.getJSONObject(i).getInt("beer_id");
+                if (biere.getInt("id") == idBeer){
+                    return (float) reviews.getJSONObject(i).getDouble("note");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return (-1f);
+            }
+        }
+        return (-1f);
     }
 }

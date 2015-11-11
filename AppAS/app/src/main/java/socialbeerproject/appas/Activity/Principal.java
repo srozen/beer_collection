@@ -17,18 +17,36 @@ public class Principal extends ActivityCom {
     public MenuP men;
     public ListeBiere collection;
     public ListeBiere catalogue;
+    public String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //On applique le layout du fragment à l'activité.
+
         super.setContentView(R.layout.fragment_menu);
         // Création du nouveau fragment à placer dans le layout de l'activité.
         men = new MenuP();
-        catalogue = new ListeBiere();
-        collection = new ListeBiere();
+        makeCatalogue();
+        makeCollection();
         // Add the fragment to the 'fragment_container' FrameLayout
         getFragmentManager().beginTransaction().add(R.id.linear, men).commit();
+    }
+
+    public ListeBiere makeCatalogue(){
+        catalogue = new ListeBiere();
+        Bundle args = new Bundle();
+        args.putString("type", "catalogue");
+        catalogue.setArguments(args);
+        return catalogue;
+    }
+
+    public ListeBiere makeCollection(){
+        collection = new ListeBiere();
+        Bundle args = new Bundle();
+        args.putString("type", "collection");
+        collection.setArguments(args);
+        return collection;
     }
 
     @Override
@@ -62,11 +80,8 @@ public class Principal extends ActivityCom {
          * TODO: Depend de la demande , catalogue ou collection
          */
         try {
-            if(true){
-                catalogue.creationListe(rep);
-            } else if (false) {
-                collection.creationListe(rep);
-            }
+            ListeBiere lb = (ListeBiere) getFragmentManager().findFragmentById(R.id.linear);
+            lb.creationListe(rep);
         } catch (JSONException e) {
             e.printStackTrace();
         }

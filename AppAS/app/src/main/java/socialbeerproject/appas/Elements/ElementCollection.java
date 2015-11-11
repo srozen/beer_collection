@@ -6,6 +6,8 @@ package socialbeerproject.appas.Elements;
 public class ElementCollection {
 
     private String nom;
+    private float ratingPer;
+    private float ratingGlo;
     private int icon;
     private String id;
 
@@ -39,4 +41,19 @@ public class ElementCollection {
         this.id = id;
     }
 
+    public float getRatingPer() {
+        return ratingPer;
+    }
+
+    public void setRatingPer(float ratingPer) {
+        this.ratingPer = ratingPer;
+    }
+
+    public float getRatingGlo() {
+        return ratingGlo;
+    }
+
+    public void setRatingGlo(float ratingGlo) {
+        this.ratingGlo = ratingGlo;
+    }
 }

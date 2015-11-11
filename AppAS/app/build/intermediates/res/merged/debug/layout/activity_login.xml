@@ -32,7 +32,6 @@
             android:layout_marginTop="10dp"
             android:inputType="textVisiblePassword|textNoSuggestions"
             style="@style/ChampsUneLigne">
-            <requestFocus />
         </EditText>
 
         <TextView
