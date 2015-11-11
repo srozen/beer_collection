@@ -20,6 +20,7 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
     private Button btnIns = null;
     private String username = null;
     private String password = null;
+    private String mail = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +61,20 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
 
         username = editUser.getText().toString();
         password = editPassword.getText().toString();
+        mail = editMail.getText().toString();
 
-        chargementFini = false;
-        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.lnr_Inscription), this);
-        ser.inscriptionOne(username, password , editMail.getText().toString());
+        if (this.verifChamp()){
+            chargementFini = false;
+            ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.lnr_Inscription), this);
+            ser.inscriptionOne(username, password , mail);
+        }
+    }
+
+    private boolean verifChamp() {
+        /*
+        TODO: Vérification des champs
+         */
+        return true;
     }
 
     @Override
@@ -91,7 +102,7 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
         }
 
         if(valInscription == "true"){
-            this.connexionValide(username, password);
+            this.connexionValide(username);
         } else {
             this.messageErreur(valInscription);
         }

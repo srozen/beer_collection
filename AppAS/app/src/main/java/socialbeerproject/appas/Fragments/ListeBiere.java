@@ -82,37 +82,34 @@ public class ListeBiere extends ListFragment {
         getActivity().overridePendingTransition(R.animator.anim_in, R.animator.anim_out);
     }
 
-    public void creationListe(JSONObject rep){
+    public void creationListe(JSONObject rep) throws JSONException {
         element = new ArrayList<ElementCollection>();
-        String nom = "";
-        String id= "";
-
         /*
-                TODO: enregister les rating dans l'element
-                 */
+        TODO: enregister les rating dans l'element
+        */
         if(rep != null){
-            int nbBiere = 0;
-            try {
-                nbBiere = rep.getJSONArray("beers").length();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            int nbBiere=0;
+            nbBiere = rep.getJSONArray("beers").length();
             for (int i=0;i<nbBiere;i++){
-                try {
-                    JSONObject biere = rep.getJSONArray("beers").getJSONObject(i);
-                    nom = biere.getString("name");
-                    id = biere.getString("id");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                element.add(new ElementCollection(nom, R.mipmap.ic_launcher, id));
+                creationElement(rep.getJSONArray("beers").getJSONObject(i));
             }
         } else {
             ActivityCom activiteCom  = (ActivityCom) getActivity();
             activiteCom.messageErreur("Aucune connexion au serveur possible!");
         }
-
         adapter = new AdaptateurCollection(getActivity(), element);
         setListAdapter(adapter);
+    }
+
+    public void creationElement(JSONObject biere){
+        String nom = "";
+        String id= "";
+        try {
+            nom = biere.getString("name");
+            id = biere.getString("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        element.add(new ElementCollection(nom, R.mipmap.ic_launcher, id));
     }
 }

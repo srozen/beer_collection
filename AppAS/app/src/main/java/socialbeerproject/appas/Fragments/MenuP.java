@@ -116,7 +116,7 @@ public class MenuP extends ListFragment {
                 ft.replace(R.id.linear, new Scan());
                 break;
             case "Collection":
-                //ft.replace(R.id.linear, prin.collection);
+                ft.replace(R.id.linear, prin.collection);
                 break;
             case "Catalogue":
                 ft.replace(R.id.linear, prin.catalogue);
@@ -131,7 +131,8 @@ public class MenuP extends ListFragment {
         SharedPreferences log = getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = log.edit();
         edit.remove("username");
-        edit.remove("password");
+        edit.remove("hash");
+        edit.remove("idUser");
         edit.apply();
         startActivity(new Intent(getActivity(), Login.class));
         getActivity().finish();

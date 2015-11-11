@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Fragments.ListeBiere;
@@ -25,7 +26,7 @@ public class Principal extends ActivityCom {
         // Création du nouveau fragment à placer dans le layout de l'activité.
         men = new MenuP();
         catalogue = new ListeBiere();
-        //collection = new ListeBiere();
+        collection = new ListeBiere();
         // Add the fragment to the 'fragment_container' FrameLayout
         getFragmentManager().beginTransaction().add(R.id.linear, men).commit();
     }
@@ -50,7 +51,6 @@ public class Principal extends ActivityCom {
             case (R.id.item_info):
             /*    Intent i= new Intent(this,About.class);
                 startActivity(i);*/
-
         }
 
         return super.onOptionsItemSelected(item);
@@ -61,6 +61,14 @@ public class Principal extends ActivityCom {
         /*
          * TODO: Depend de la demande , catalogue ou collection
          */
-        catalogue.creationListe(rep);
+        try {
+            if(true){
+                catalogue.creationListe(rep);
+            } else if (false) {
+                collection.creationListe(rep);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

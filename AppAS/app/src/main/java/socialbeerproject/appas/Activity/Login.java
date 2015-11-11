@@ -19,7 +19,6 @@ public class Login extends ActivityCom implements View.OnClickListener{
     private Button btnAInsc = null;
     private Button btnSeConnecter = null;
     private String username = null;
-    private String password = null;
 
     /*
      * TODO: enregister le hash et pas le mot de passe, et envoyer directement le hash.
@@ -47,43 +46,42 @@ public class Login extends ActivityCom implements View.OnClickListener{
                 break;
             case R.id.btn_SeConnecter:
                 if (chargementFini){
-                    this.launchConnexion();
+                    this.launchConnexionFirst();
                 }
                 break;
         }
     }
 
-    /* Vérifie si c'est la première fois qu'on ouvre l'app, si non connexion automatique, sinon
+    /* Vérifie si c'est la première fois qu'on ouvre l'app, sinon connexion automatique, sinon
     * Go inscription */
     private void premiereConnexion(){
         SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
         if (log.getString("username","n/a")!="n/a"){
-
             EditText editUser = (EditText) findViewById(R.id.champ_login);
             editUser.setText(log.getString("username", "n/a"));
-
-            EditText editPassword = (EditText) findViewById(R.id.champ_mdp);
-            editPassword.setText(log.getString("password", "n/a"));
-
-            this.launchConnexion();
+            this.launchConnexionAuto(log.getString("idUser","n/a"),log.getString("hash","n/a"),log.getString("username","n/a"));
         }
     }
 
     /* Lance la connexion */
-    private void launchConnexion(){
+    private void launchConnexionFirst(){
         EditText editUser  = (EditText)findViewById(R.id.champ_login);
         EditText editPassword   = (EditText)findViewById(R.id.champ_mdp);
 
         username = new String(editUser.getText().toString());
-        password = new String(editPassword.getText().toString());
 
         chargementFini = false;
-        
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.lnr_Login), this);
         ser.connexionOne(editUser.getText().toString(), editPassword.getText().toString());
     }
 
+    private void launchConnexionAuto(String id,String hash,String username){
+        this.username = username;
 
+        chargementFini = false;
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.lnr_Login), this);
+        ser.connexionTwo(hash, id);
+    }
 
     @Override
     public void communication(JSONObject rep) {
@@ -101,7 +99,7 @@ public class Login extends ActivityCom implements View.OnClickListener{
         }
 
         if(connexion == "true"){
-            this.connexionValide(username,password);
+            this.connexionValide(username);
         } else {
             if(connexion == "false"){
                 connexion = "Mot de passe erroné!";

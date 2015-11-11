@@ -62,7 +62,7 @@ public class ServeurCom {
      */
     private boolean checkLog(JSONObject rep) throws JSONException {
         //Pour la connexion
-        if (rep!=null && rep.has("exists") ){
+        if (rep!=null && rep.has("exists")&& rep.has("saltUser") && rep.has("idUser") ){
             if (rep.getBoolean("exists")){
                 String sel = rep.getString("saltUser");
                 String idUser = rep.getString("idUser");
@@ -116,13 +116,15 @@ public class ServeurCom {
      * @param hash
      * @param idUser
      */
-    private void connexionTwo(String hash, String idUser){
+    public void connexionTwo(String hash, String idUser){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("connexion", "connexion"));
 
         params.add(new BasicNameValuePair("idUser", idUser));
         params.add(new BasicNameValuePair("password", hash));
 
+        act.setHash(hash);
+        act.setIdUser(idUser);
         this.pass = "";
 
         this.envoieServeur(params);

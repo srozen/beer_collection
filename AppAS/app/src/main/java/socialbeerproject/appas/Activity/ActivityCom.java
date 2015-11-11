@@ -17,14 +17,17 @@ import socialbeerproject.appas.R;
 public abstract class ActivityCom extends Activity {
 
     protected Boolean chargementFini = true;
+    private String hash;
+    private String idUser;
 
     public abstract void communication(JSONObject rep);
 
-    protected void connexionValide(String username, String password){
+    protected void connexionValide(String username){
         SharedPreferences log = getSharedPreferences("Login",MODE_PRIVATE);
         SharedPreferences.Editor edit = log.edit();
         edit.putString("username", username);
-        edit.putString("password", password);
+        edit.putString("hash", this.hash);
+        edit.putString("idUser", this.idUser);
         edit.apply();
         Intent i2= new Intent(this,Principal.class);
         startActivity(i2);
@@ -59,5 +62,13 @@ public abstract class ActivityCom extends Activity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+    }
+
+    public void setHash(String hash){
+        this.hash = hash;
+    }
+
+    public void setIdUser(String idUser){
+        this.idUser = idUser;
     }
 }
