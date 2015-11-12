@@ -1,0 +1,98 @@
+\documentclass{report}
+\usepackage{filecontents}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{listings}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[toc, page]{appendix}
+\usepackage{url}
+
+\definecolor{xcodekw}{rgb}{0.75, 0.22, 0.60}
+\definecolor{xcodestr}{rgb}{0.89, 0.27, 0.30}
+\definecolor{xcodecmt}{rgb}{0.31, 0.73, 0.35}
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\geometry{hscale=0.75,vscale=0.85,centering}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand\appendixtocname{Annexes}
+\renewcommand\appendixname{Annexes}
+\renewcommand\appendixpagename{Annexes}
+
+\title{
+\parbox{15cm}
+{ %\includegraphics[width=4cm]{foxhound.png} \\
+  \vspace{3cm}
+	\begin{center}\sf\bfseries\Huge
+		\rule{15cm}{1pt}
+		\medskip
+		Beer Collection \\
+		\huge Rapport de Sprint 2\\
+		\vspace{.5cm}
+		\rule{15cm}{1pt}
+	\end{center}
+	\vspace{3cm}
+ }}
+\author{Michaël \bsc{Riffon}, Maxime \bsc{Grenier}, Christophe \bsc{Henry}\\
+Rémy \bsc{Voet}, Cyril \bsc{Pierret}, Samuel \bsc{Monroe}, Florian \bsc{Faingnaert}}
+
+\date{22 Octobre 2015}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\section{Introduction}
+
+  Ce rapport présente l'avancement du projet \textbf{Beer Collection} au terme de ce second sprint.\\
+  Nous allons exposer les éléments qui ont été accomplis, notre état d'avancement par rapport aux prévisions et la vélocité estimée
+  de notre équipe par rapport aux points des Stories completées.\\
+
+\section{User et Technical Stories terminées}
+
+  Ce second sprint a été beaucoup plus agréable que le second au niveau de la complétion car, après avoir appris pendant le premier sprint (du moins suffisamment pour commencer à développer) les technologies sur lesquelles vont reposer le projet, nous avons pu créer des choses concrètes.\\
+
+  Au niveau des User Stories, celles prévues pour ce second sprint ont été presque intégralement complétées.\\
+  Un user peut sur le site web : \\
+    \begin{itemize}
+      \item S'inscrire ou se connecter
+      \item Consulter et rechercher dans le catalogue des bières
+      \item Afficher le profil d'une bière
+      \item Avoir un aperçu du produit sur la page d'accueil
+    \end{itemize}
+
+  Au niveau de l'application Android il peut : \\
+  \begin{itemize}
+    \item Se connecter ou s'inscrire
+    \item Consulter le catalogue
+    \item Afficher le profil d'une bière
+  \end{itemize}
+
+\section{Avancement par rapport aux prévisions}
+
+  Ce deuxième sprint a été bien mieux géré que le précédent, il était encore cependant un peu délicat de bien se positionner, nous étions encore dans une phase de sortie d'apprentissage et début de réelle programmation.\\
+
+  Finalement nous sommes presque à 100\% de ce qui était prévu à la base.\\
+
+\section{Vélocité de l'équipe sur le sprint}
+
+  L'estimation du temps a été cette-fois ci un peu plus (trop) prudente que lors du premier sprint, mais nous savons néamoins maintenant dans quelle tranche estimer la durée des tâches.
+
+  Si on considère l'attribution initiale des points, nous en sommes presque à 40 points sur les 40 prévus au total des stories de ce sprint.\\
+
+\end{document}
