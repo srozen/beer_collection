@@ -1,0 +1,107 @@
+\documentclass{report}
+\usepackage{filecontents}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{listings}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[toc, page]{appendix}
+\usepackage{url}
+
+\definecolor{xcodekw}{rgb}{0.75, 0.22, 0.60}
+\definecolor{xcodestr}{rgb}{0.89, 0.27, 0.30}
+\definecolor{xcodecmt}{rgb}{0.31, 0.73, 0.35}
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\geometry{hscale=0.75,vscale=0.85,centering}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand\appendixtocname{Annexes}
+\renewcommand\appendixname{Annexes}
+\renewcommand\appendixpagename{Annexes}
+
+\title{
+\parbox{15cm}
+{ %\includegraphics[width=4cm]{foxhound.png} \\
+  \vspace{3cm}
+	\begin{center}\sf\bfseries\Huge
+		\rule{15cm}{1pt}
+		\medskip
+		Beer Collection \\
+		\huge Rapport de Sprint 3\\
+		\vspace{.5cm}
+		\rule{15cm}{1pt}
+	\end{center}
+	\vspace{3cm}
+ }}
+\author{Michaël \bsc{Riffon}, Maxime \bsc{Grenier}, Christophe \bsc{Henry}\\
+Rémy \bsc{Voet}, Cyril \bsc{Pierret}, Samuel \bsc{Monroe}, Florian \bsc{Faingnaert}}
+
+\date{22 Octobre 2015}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\section{Introduction}
+
+  Ce rapport présente l'avancement du projet \textbf{Beer Collection} au terme de ce troisième sprint.\\
+  Nous allons exposer les éléments qui ont été accomplis, notre état d'avancement par rapport aux prévisions et la vélocité estimée
+  de notre équipe par rapport aux points des Stories completées.\\
+
+\section{User et Technical Stories terminées}
+
+  Ce troisième sprint a été un peu plus délicat à gérer que les autres.\\
+  Nombre de projets et échéances ce sont rajoutés au planning personnel des membres, et malgré la semaine de Toussaint et le temps en plus (limité malgré tout), nous avons eu un peu du mal à avancer de manière substentielle.\\
+
+  Néamoins, nous avons tout de même incrémenté de manière non négligeable le projet.\\
+
+  Au niveau des User Stories, celles prévues pour ce troisième sprint ont été relativement complétées.\\
+  Un user peut sur le site web : \\
+    \begin{itemize}
+      \item Naviger plus agréablement dans le site suite au cleanup effectué
+      \item L'arborescence des bières et catégories est efficace, on peut obtenir toutes les bières d'une catégorie rien que via un click dessus
+      \item Consulter son profil
+      \item Consulter sa collection
+      \item Obtenir les notes des utilisateurs + consulter les reviews d'une bière
+    \end{itemize}
+
+  Au niveau de l'application Android il peut : \\
+  \begin{itemize}
+    \item Afficher le profl d'une bière
+    \item Afficher sa collection personnelle de bières
+    \item Obtenir les notes globales des bières
+    \item Ajouter ou supprimer une bière de sa collection
+  \end{itemize}
+
+\section{Avancement par rapport aux prévisions}
+
+  Ce deuxième sprint a été moins bien géré que le précédent, un manque de travail global est à constater, l'implication de l'ensemble des membres nous a fait défaut, des User Stories sont restées délaissées alors que des membres avaient probablement du temps de s'en occuper tandis que d'autres travaillaient sur d'autres US.\\
+
+  Finalement nous sommes presque à 60\% de ce qui était prévu à la base.\\
+
+  Le résultat attendu sur ce sprint devait être beaucoup plus spectaculaire que celui présent ici, la gestion des amis devait être implémentée, ainsi que le scanner de bières et une base d'environnement pour la VoIP.\\
+
+  En tant que Product Owner, je suis un peu déçu de ce sprint, comprenant néamoins que l'ensemble des TI se sente un peu déstabilisé par la masse de travail en cours, moi y compris.\\
+
+\section{Vélocité de l'équipe sur le sprint}
+
+  L'estimation du temps a été cette-fois assez correcte, mais le temps n'a pas été pris pour pousser le projet vers ses objectifs de Sprint.
+
+  Si on considère l'attribution initiale des points, nous en sommes presque à 36 points sur les 50 prévus au total des stories de ce sprint.\\
+
+\end{document}
