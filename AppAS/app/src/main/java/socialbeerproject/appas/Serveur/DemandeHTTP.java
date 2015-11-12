@@ -30,17 +30,10 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     public static String cheminDeleteBeer="api_delete_beer.json";
 
     private ServeurCom ser;
-    private boolean con;
 
     public DemandeHTTP(ServeurCom ser){
         super();
         this.ser = ser;
-    }
-
-    public DemandeHTTP(ServeurCom ser, boolean con){
-        super();
-        this.ser = ser;
-        this.con = con;
     }
 
     @Override
@@ -88,7 +81,7 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         String newUrl = getNewUrl(params.get(0).getName());
         params.remove(0);
 
-        JSONObject jObj = null;
+        JSONObject jObj;
 
         // Créé une demande HTTP au serveur avec les paramètres en post
         DefaultHttpClient httpClient = new DefaultHttpClient();

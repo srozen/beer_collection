@@ -1,8 +1,11 @@
 package socialbeerproject.appas.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import org.json.JSONObject;
 
@@ -76,10 +79,30 @@ public class Profil extends ActivityCom implements View.OnClickListener {
                  */
                 break;
             case R.id.button_Friend_Add:
-                 /* **********************
-                    TODO : Permettre l'ajout d'un ami
-                   **********************
-                 */
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+                alert.setTitle("Ajouter un ami");
+                alert.setMessage("Pour ajouter un ami, remplissez le champ ci-dessous avec son nom d'utilisateur.");
+
+               // Set an EditText view to get user input
+                final EditText input = new EditText(this);
+                alert.setView(input);
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        // TODO : ENVOYEZ LA REQUETE AU SERVEUR
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+
+                alert.show();
                 break;
             case R.id.button_Friends_View:
                  /* **********************

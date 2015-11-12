@@ -4,160 +4,156 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="match_parent">
 
-        <Button
-            style="@style/GrosBouton"
-            android:padding="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_retour"
-            android:id="@+id/button_retour_profil"
-            android:layout_alignParentTop="true" />
-
-        <TextView
-            style="@style/Titre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profil"
-            android:id="@+id/texte_Profil"
-            android:layout_alignBottom="@+id/button_retour_profil"
-            android:layout_alignLeft="@+id/button_Chg_Mail"
-            android:layout_alignStart="@+id/button_Chg_Mail"
-            android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp" />
-
-        <TextView
-            style="@style/SimpleTexte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="CyrilProBeerMaster"
-            android:id="@+id/texte_Username_Value"
-            android:layout_marginTop="19dp"
-            android:layout_below="@+id/button_retour_profil"
-            android:layout_toLeftOf="@+id/texte_Profil"
-            android:layout_toStartOf="@+id/texte_Profil" />
-
-        <TextView
-            style="@style/SimpleTexte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Niveau : "
-            android:id="@+id/texte_Level"
-            android:layout_above="@+id/texte_Level_Value"
-            android:layout_alignLeft="@+id/bar_Pourcentage_Collection"
-            android:layout_alignStart="@+id/bar_Pourcentage_Collection" />
-
-        <TextView
-            style="@style/LittleSimpleTexte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Habitué des tavernes"
-            android:id="@+id/texte_Level_Value"
-            android:layout_alignBaseline="@+id/button_Chg_Mail"
-            android:layout_alignBottom="@+id/button_Chg_Mail"
-            android:layout_alignLeft="@+id/img_Avatar"
-            android:layout_alignStart="@+id/img_Avatar" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/img_Avatar"
-            android:src="@mipmap/ic_profil"
-            android:layout_below="@+id/texte_Level_Value"
-            android:layout_toLeftOf="@+id/button_Chg_Avatar"
-            android:layout_alignLeft="@+id/texte_Username_Value"
-            android:layout_alignStart="@+id/texte_Username_Value"
-            android:layout_alignBottom="@+id/button_Friends_View" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Changer de mot de passe"
-            android:id="@+id/button_Chg_Pass"
-            android:layout_marginRight="21dp"
-            android:layout_marginEnd="21dp"
-            android:layout_alignTop="@+id/texte_Username_Value"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Changer d&apos;adresse mail"
-            android:id="@+id/button_Chg_Mail"
-            android:layout_below="@+id/button_Chg_Pass"
-            android:layout_alignLeft="@+id/button_Chg_Pass"
-            android:layout_alignStart="@+id/button_Chg_Pass"
-            android:layout_alignRight="@+id/button_Chg_Pass"
-            android:layout_alignEnd="@+id/button_Chg_Pass" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Changer d&apos;avatar"
-            android:id="@+id/button_Chg_Avatar"
-            android:layout_below="@+id/button_Chg_Mail"
-            android:layout_alignLeft="@+id/button_Chg_Mail"
-            android:layout_alignStart="@+id/button_Chg_Mail"
-            android:layout_alignRight="@+id/button_Chg_Mail"
-            android:layout_alignEnd="@+id/button_Chg_Mail" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ajouter un ami"
-            android:id="@+id/button_Friend_Add"
-            android:layout_below="@+id/button_Chg_Avatar"
-            android:layout_alignLeft="@+id/button_Chg_Avatar"
-            android:layout_alignStart="@+id/button_Chg_Avatar"
-            android:layout_alignRight="@+id/button_Chg_Avatar"
-            android:layout_alignEnd="@+id/button_Chg_Avatar" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Voir vos amis"
-            android:id="@+id/button_Friends_View"
-            android:layout_below="@+id/button_Friend_Add"
-            android:layout_alignLeft="@+id/button_Friend_Add"
-            android:layout_alignStart="@+id/button_Friend_Add"
-            android:layout_alignRight="@+id/button_Friend_Add"
-            android:layout_alignEnd="@+id/button_Friend_Add" />
-
-        <TextView
-            style="@style/SimpleTexte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ma collection :"
-            android:id="@+id/texte_MaCol"
-            android:layout_below="@+id/img_Avatar"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp" />
-
-        <TextView
-            style="@style/LittleSimpleTexte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="50/354"
-            android:id="@+id/texte_MaCol_Value"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_below="@+id/texte_MaCol"
-            android:layout_centerHorizontal="true" />
-
-        <ProgressBar
-            android:id="@+id/progressCollection_profil"
-            style="?android:attr/progressBarStyleHorizontal"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar"
-            android:layout_margin="5dp"
-            android:layout_below="@+id/texte_MaCol_Value"
-            android:progress="50"
-            android:layout_centerHorizontal="true" />
+            android:id="@+id/rel_titre_profil"
+            android:padding="@dimen/paddingLayout">
+            <Button
+                style="@style/GrosBouton"
 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_retour"
+                android:id="@+id/button_retour_profil"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                style="@style/Titre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@+id/button_retour_profil"
+                android:text="Votre profil"
+                android:id="@+id/textView_titre_profil" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rel_corps_profil"
+            android:layout_below="@+id/rel_titre_profil"
+            android:padding="5dp">
+            <View
+                android:id="@+id/view_separation"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="invisible" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/view_separation"
+                android:id="@+id/rel_right_profil"
+                android:padding="@dimen/paddingLayout">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Changer de mot de passe"
+                    android:id="@+id/button_Chg_Pass"
+                    style="@style/SimpleBouton"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Changer d&apos;adresse mail"
+                    android:id="@+id/button_Chg_Mail"
+                    android:layout_below="@+id/button_Chg_Pass"
+                    style="@style/SimpleBouton"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Changer d&apos;avatar"
+                    android:id="@+id/button_Chg_Avatar"
+                    android:layout_below="@+id/button_Chg_Mail"
+                    style="@style/SimpleBouton"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ajouter un ami"
+                    android:id="@+id/button_Friend_Add"
+                    android:layout_below="@+id/button_Chg_Avatar"
+                    style="@style/SimpleBouton" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Voir vos amis"
+                    android:id="@+id/button_Friends_View"
+                    android:layout_below="@+id/button_Friend_Add"
+                    style="@style/SimpleBouton"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/view_separation"
+                android:id="@+id/rel_left_profil"
+                android:padding="@dimen/paddingLayout">
+                <TextView
+                    style="@style/SimpleTexte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="N/A"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/textView_username_profil" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/img_avatar_profil"
+                    android:src="@mipmap/ic_profil"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textView_username_profil"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rel_collection_profil"
+            android:layout_below="@+id/rel_corps_profil"
+            android:padding="@dimen/paddingLayout">
+            <TextView
+                style="@style/SimpleTexte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Avancement collection : "
+                android:id="@+id/textView_titreCollection_profil"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_collection_profil"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/progress_bar"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/textView_titreCollection_profil"
+                android:progress="50"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                style="@style/LittleSimpleTexte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/texte_introuvable"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                android:id="@+id/textView_valeurCollection_profil"
+                android:layout_alignLeft="@id/progress_collection_profil"
+                android:layout_alignTop="@id/progress_collection_profil"
+                android:layout_alignRight="@id/progress_collection_profil"
+                android:layout_alignBottom="@id/progress_collection_profil"/>
+        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

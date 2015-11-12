@@ -44,6 +44,10 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         addListenerOnRatingBar();
     }
 
+    /**
+     * Fait une demande au serveur pour récupérer la bière grâce à l'id correspondant
+     * @param refresh true quand on récupère pas les images
+     */
     private void sendServer(Boolean refresh){
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
 
@@ -116,29 +120,11 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         String hash = log.getString("hash","");
 
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
-        ser.deleteColl(idUser,hash,idReview);
+        ser.deleteColl(idUser, hash, idReview);
     }
 
-    @Override
-    public void communication(JSONObject rep) {
-        /* **********************
-              TODO : Modifier tous les champs de l'affichage selon la réponse du serveur
-              (voir : http://46.101.143.168/beers/6.json) pour connaitre les champs
-           **********************
-        */
-        if (rep.has("beer")){
-            modifBiere(rep);
-        } else if (rep.has("success")){
-            try {
-                if (!rep.getBoolean("success")){
-                    this.messageErreur("Problème!");
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            this.sendServer(true);
-        }
-    }
+
+
 
     private void modifBiere(JSONObject rep){
         TextView name = (TextView) findViewById(R.id.textView_ProfilBiere_Title);
@@ -153,10 +139,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
             JSONObject beer = rep.getJSONObject("beer");
             JSONObject cat = rep.getJSONObject("category");
             if (rep.has("review") && rep.getJSONArray("review").length()==1){
-                System.out.println("PERTE");
                 modifDejaCollection(rep.getJSONArray("review").getJSONObject(0));
-            } else {
-                System.out.println("Aucune rev");
             }
 
             if (!beer.isNull("global_note") && !beer.getString("global_note").equals("null")){
@@ -194,5 +177,23 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
         notePerPro.setProgress((int) notePer*10);
         notePerTxt.setText(getString(R.string.texte_notePer) + Float.toString(notePer) + " /10" );
+    }
+
+    @Override
+    public void communication(JSONObject rep) {
+        if (rep.has("beer")){
+            modifBiere(rep);
+        } else if (rep.has("success")){
+            try {
+                if (rep.getBoolean("success")){
+                    this.sendServer(true);
+                    idReview = "";
+                } else {
+                    this.messageErreur("Une erreur a été rencontrée! ");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

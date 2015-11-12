@@ -68,9 +68,9 @@ public class ListeBiere extends ListFragment {
         String tag = this.getTag();
         Log.d(tag, "id, position " + id + " " + position);
         previous.setSelected(false);
-        //previous.setBackgroundColor(Color.TRANSPARENT);
+
         v.setSelected(true);
-        //v.setBackgroundColor(R.color.blue);
+
         previous=v;
 
         selectItem(position, v);

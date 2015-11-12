@@ -80,31 +80,31 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
     @Override
     public void communication(JSONObject rep) {
         chargementFini = true;
-        String valInscription = "";
+        String erreurInsc = "";
 
         try {
             if(rep != null){
-                if (rep.getString("checkUser") == "true" && rep.getString("checkMail") == "true"){
-                    valInscription = "true";
-                } else {
-                    if ("checkUser" == "false"){
-                        valInscription = "Username déjà utilisé";
-                    } else if ("checkMail" == "false"){
-                        valInscription = "Mail déjà utilisé";
+                if (rep.getString("checkUser") != "true" && rep.getString("checkMail") != "true") {
+                    if ("checkUser" == "false") {
+                        erreurInsc = "Username déjà utilisé";
+                    } else if ("checkMail" == "false") {
+                        erreurInsc = "Mail déjà utilisé";
+                    } else {
+                        erreurInsc = "Mail et Username déjà utilisé";
                     }
                 }
             } else {
-                valInscription = "Aucune réponse du serveur";
+                erreurInsc = "Aucune réponse du serveur";
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            valInscription = "Réponse du serveur incorrect";
+            erreurInsc = "Réponse du serveur incorrect";
         }
 
-        if(valInscription == "true"){
+        if(erreurInsc.isEmpty()){
             this.connexionValide(username);
         } else {
-            this.messageErreur(valInscription);
+            this.messageErreur(erreurInsc);
         }
     }
 }
