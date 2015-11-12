@@ -1603,13 +1603,13 @@ containing a value of this type.
         public static final int test2=0x7f020044;
     }
     public static final class id {
-        public static final int Descr=0x7f0e00a2;
-        public static final int Image=0x7f0e009a;
-        public static final int Nom=0x7f0e009d;
-        public static final int RatingGlo=0x7f0e009e;
-        public static final int RatingPer=0x7f0e009f;
-        public static final int Text=0x7f0e00a0;
-        public static final int Titre=0x7f0e00a1;
+        public static final int Descr=0x7f0e009c;
+        public static final int Image=0x7f0e0099;
+        public static final int Nom=0x7f0e00a0;
+        public static final int RatingGlo=0x7f0e00a1;
+        public static final int RatingPer=0x7f0e00a2;
+        public static final int Text=0x7f0e009a;
+        public static final int Titre=0x7f0e009b;
         public static final int action0=0x7f0e00a4;
         public static final int action_bar=0x7f0e003f;
         public static final int action_bar_activity_content=0x7f0e0000;
@@ -1707,9 +1707,9 @@ containing a value of this type.
         public static final int pseudo=0x7f0e0091;
         public static final int radio=0x7f0e0039;
         public static final int ratingBarPer_biere=0x7f0e0089;
-        public static final int rel_Text=0x7f0e009b;
+        public static final int rel_Text=0x7f0e009e;
         public static final int rel_collection=0x7f0e00a3;
-        public static final int rel_elem_collection=0x7f0e0099;
+        public static final int rel_elem_collection=0x7f0e009d;
         public static final int rel_profilBiere=0x7f0e0070;
         public static final int relative_desc_biere=0x7f0e007c;
         public static final int relative_notePer_biere=0x7f0e0087;
@@ -1780,7 +1780,7 @@ containing a value of this type.
         public static final int useLogo=0x7f0e0013;
         public static final int viewC=0x7f0e0060;
         public static final int viewS=0x7f0e005f;
-        public static final int view_separation=0x7f0e009c;
+        public static final int view_separation=0x7f0e009f;
         public static final int withText=0x7f0e0020;
         public static final int wrap_content=0x7f0e0021;
     }
@@ -1909,8 +1909,9 @@ containing a value of this type.
         public static final int title_activity_login=0x7f07002e;
         public static final int title_activity_menu_p=0x7f07002f;
         public static final int title_activity_profil=0x7f070030;
-        public static final int title_activity_profil_biere=0x7f070031;
-        public static final int title_activity_scan=0x7f070032;
+        public static final int title_activity_profil_ami=0x7f070031;
+        public static final int title_activity_profil_biere=0x7f070032;
+        public static final int title_activity_scan=0x7f070033;
     }
     public static final class style {
         public static final int ActionBarStyle=0x7f09007a;

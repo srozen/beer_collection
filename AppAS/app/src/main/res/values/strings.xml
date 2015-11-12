@@ -12,6 +12,7 @@
     <string name="title_activity_scan">Scan</string>
     <string name="title_activity_bon_plan">Les Bons Plans</string>
     <string name="title_activity_profil_biere">Profil d\'une bière</string>
+    <string name="title_activity_profil_ami">Profil d\'un ami</string>
 
     <!-- Textes Connexion - Inscription -->
     <string name="texte_mdp">Mot de passe : </string>

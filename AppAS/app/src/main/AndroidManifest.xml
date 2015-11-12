@@ -16,10 +16,7 @@
             android:name=".Activity.Login"
             android:label="@string/app_name"
             android:noHistory="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".Activity.Inscription"
@@ -39,6 +36,14 @@
         <activity
             android:name=".Activity.Profil_biere"
             android:label="@string/title_activity_profil_biere" >
+        </activity>
+        <activity
+            android:name=".Activity.Profil_ami"
+            android:label="@string/title_activity_profil_ami" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
