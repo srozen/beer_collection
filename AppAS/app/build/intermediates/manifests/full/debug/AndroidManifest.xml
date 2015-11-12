@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="socialbeerproject.appas"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="socialbeerproject.appas.Activity.Login"
+            android:label="@string/app_name"
+            android:noHistory="true" >
+        </activity>
+        <activity
+            android:name="socialbeerproject.appas.Activity.Inscription"
+            android:label="@string/title_activity_inscription"
+            android:noHistory="true" >
+        </activity>
+
+        <!-- android:theme="@style/MenuPTheme" -->
+        <activity
+            android:name="socialbeerproject.appas.Activity.Principal"
+            android:label="@string/title_activity_menu_p" >
+        </activity>
+        <activity
+            android:name="socialbeerproject.appas.Activity.Profil"
+            android:label="@string/title_activity_profil" >
+        </activity>
+        <activity
+            android:name="socialbeerproject.appas.Activity.Profil_biere"
+            android:label="@string/title_activity_profil_biere" >
+        </activity>
+        <activity
+            android:name="socialbeerproject.appas.Activity.Profil_ami"
+            android:label="@string/title_activity_profil_ami" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

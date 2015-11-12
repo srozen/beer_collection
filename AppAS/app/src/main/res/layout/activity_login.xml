@@ -1,0 +1,87 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="socialbeerproject.appas.Activity.Login">
+
+    <RelativeLayout
+        android:id="@+id/lnr_Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/titre_Connexion"
+            style="@style/Titre"
+            android:text="@string/title_activity_login" />
+
+        <TextView
+            android:id="@+id/texte_utilisateur"
+            style="@style/SimpleTexte"
+            android:text="@string/texte_login"
+            android:layout_below="@+id/titre_Connexion"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/champ_login"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/hint_login"
+            android:layout_below="@+id/texte_utilisateur"
+            android:layout_marginTop="10dp"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            style="@style/ChampsUneLigne">
+        </EditText>
+
+        <TextView
+            android:id="@+id/texte_motDePasse"
+            style="@style/SimpleTexte"
+            android:text="@string/texte_mdp"
+            android:layout_below="@+id/champ_login"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/champ_mdp"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/hint_mdp"
+            android:layout_below="@+id/texte_motDePasse"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            style="@style/ChampsUneLigne" />
+
+        <Button
+            android:id="@+id/btn_SeConnecter"
+            style="@style/GrosBouton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/btn_seConnecter"
+            android:layout_below="@+id/champ_mdp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            style="@style/SimpleTexte"
+            android:id="@+id/texte_PasDeCompte"
+            android:text="@string/texte_PasDeCompte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/btn_SeConnecter"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"/>
+
+        <Button
+            style="@style/GrosBouton"
+            android:id="@+id/btn_A_Inscription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/texte_inscription"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/texte_PasDeCompte" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item_profil"
+        android:icon="@mipmap/ic_profil"
+        android:showAsAction="always"
+        android:titleCondensed="Profil"
+        android:visible="true"
+        android:title="Votre profil" />
+
+    <item android:id="@+id/item_menu"
+        android:icon="@mipmap/ic_menu"
+        android:showAsAction="always"
+        android:titleCondensed="Menu"
+        android:visible="true"
+        android:title="Menu principal" />
+
+    <item android:id="@+id/item_info"
+        android:icon="@mipmap/ic_info"
+        android:showAsAction="always"
+        android:titleCondensed="Infos"
+        android:visible="true"
+        android:title="Information sur l'application" />
+
+
+</menu>
