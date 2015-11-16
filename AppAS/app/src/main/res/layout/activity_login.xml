@@ -31,8 +31,7 @@
             android:layout_below="@+id/texte_utilisateur"
             android:layout_marginTop="10dp"
             android:inputType="textVisiblePassword|textNoSuggestions"
-            style="@style/ChampsUneLigne">
-        </EditText>
+            style="@style/ChampsUneLigne"/>
 
         <TextView
             android:id="@+id/texte_motDePasse"

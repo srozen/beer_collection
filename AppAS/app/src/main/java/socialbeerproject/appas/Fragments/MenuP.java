@@ -113,19 +113,18 @@ public class MenuP extends ListFragment {
         Principal prin = (Principal) getActivity();
         switch (frag) {
             case "Scan":
-                ft.replace(R.id.linear, new Scan());
+                ft.replace(R.id.rel_menu, new Scan());
                 break;
             case "Collection":
-                ft.replace(R.id.linear, prin.collection);
+                ft.replace(R.id.rel_menu, prin.collection);
                 break;
             case "Catalogue":
-                ft.replace(R.id.linear, prin.catalogue);
+                ft.replace(R.id.rel_menu, prin.catalogue);
                 break;
         }
 
         ft.addToBackStack(null);
         ft.commit();
-
     }
 
     private void logOut(){

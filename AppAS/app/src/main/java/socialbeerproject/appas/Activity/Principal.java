@@ -1,5 +1,6 @@
 package socialbeerproject.appas.Activity;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,25 +13,28 @@ import socialbeerproject.appas.Fragments.ListeBiere;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Fragments.MenuP;
 
+/**
+ * Activité du menu principal avec les listes de bière (et scan)
+ */
 public class Principal extends ActivityCom {
 
     public MenuP men;
     public ListeBiere collection;
     public ListeBiere catalogue;
-    public String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //On applique le layout du fragment à l'activité.
-
+        // On applique le layout du fragment à l'activité.
         super.setContentView(R.layout.fragment_menu);
+
         // Création du nouveau fragment à placer dans le layout de l'activité.
         men = new MenuP();
         makeCatalogue();
         makeCollection();
-        // Add the fragment to the 'fragment_container' FrameLayout
-        getFragmentManager().beginTransaction().add(R.id.linear, men).commit();
+
+        // Ajout du fragment du menu principal
+        getFragmentManager().beginTransaction().add(R.id.rel_menu, men).commit();
     }
 
     public ListeBiere makeCatalogue(){
@@ -62,26 +66,24 @@ public class Principal extends ActivityCom {
                 Intent i = new Intent(this, Profil.class);
                 startActivity(i);
                 break;
-
             case (R.id.item_menu):
                 Intent j = new Intent(this, Principal.class);
                 startActivity(j);
             case (R.id.item_info):
             /*    Intent i= new Intent(this,About.class);
-                startActivity(i);*/
+                startActivity(i); TODO */
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void communication(JSONObject rep) {
-        /*
-         * TODO: Depend de la demande , catalogue ou collection
-         */
         try {
-            ListeBiere lb = (ListeBiere) getFragmentManager().findFragmentById(R.id.linear);
-            lb.creationListe(rep);
+            Fragment frag = getFragmentManager().findFragmentById(R.id.rel_menu);
+            if (frag.isVisible()){
+                ListeBiere lb = (ListeBiere) frag;
+                lb.creationListe(rep);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

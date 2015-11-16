@@ -106,9 +106,13 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
 
         String comment = commentEdit.getText().toString();
+        if (comment.length()<=1){
+            comment = "Sans avis";
+        }
         String note = Integer.toString(notePer.getProgress());
         String idUser = log.getString("idUser", "0");
         String hash = log.getString("hash","");
+
 
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
         ser.ajoutColl(this.id,idUser,hash,note,comment);
@@ -123,17 +127,15 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         ser.deleteColl(idUser, hash, idReview);
     }
 
-
-
-
     private void modifBiere(JSONObject rep){
         TextView name = (TextView) findViewById(R.id.textView_ProfilBiere_Title);
         TextView alcool = (TextView) findViewById(R.id.textView_alcool_biere);
+        TextView histoire = (TextView) findViewById(R.id.textView_histoire_biere);
         TextView brasserie = (TextView) findViewById(R.id.textView_brasserie_biere);
         TextView desc = (TextView) findViewById(R.id.textView_description_biere);
         TextView categorie = (TextView) findViewById(R.id.textView_types_biere);
         ProgressBar notePerGlo = (ProgressBar) findViewById(R.id.prog_ratingGlo_biere);
-        TextView notePerTxt = (TextView) findViewById(R.id.textView_prog_ratingGlo);
+        TextView notePerTxt = (TextView) findViewById(R.id.textView_ratingGlo_LB);
 
         try {
             JSONObject beer = rep.getJSONObject("beer");
@@ -153,6 +155,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
             name.setText(beer.getString("name"));
             alcool.setText(beer.getString("degree"));
             desc.setText(beer.getString("description"));
+            histoire.setText(beer.getString("story"));
 
             categorie.setText(cat.getString("name"));
         } catch (JSONException e) {
@@ -161,27 +164,34 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
     }
 
     private void modifDejaCollection(JSONObject review) throws JSONException {
+
+        float notePer = (float) review.getDouble("note");
+        idReview = review.getString("id");
+        // Progress bar personnelle
         ProgressBar notePerPro = (ProgressBar) findViewById(R.id.prog_ratingPer_biere);
         TextView notePerTxt = (TextView) findViewById(R.id.textView_prog_ratingPer);
         notePerPro.setVisibility(View.VISIBLE);
         notePerTxt.setVisibility(View.VISIBLE);
 
-        RelativeLayout ratingPer = (RelativeLayout) findViewById(R.id.relative_notePer_biere);
-        ratingPer.setVisibility(View.GONE);
-
+        notePerPro.setProgress((int) notePer * 10);
+        notePerTxt.setText(getString(R.string.texte_notePer) + Float.toString(notePer) + " /10");
+        // Changement boutton
         jeBois.setText(R.string.btn_suppresionColl);
         jeBois.setVisibility(View.VISIBLE);
+        // Date de consomation
+        TextView dateCons = (TextView) findViewById(R.id.textView_dateBu_biere);
+        dateCons.setText("Bu le " + review.getString("created_at").substring(0,10));
 
-        float notePer = (float) review.getDouble("note");
-        idReview = review.getString("id");
-
-        notePerPro.setProgress((int) notePer*10);
-        notePerTxt.setText(getString(R.string.texte_notePer) + Float.toString(notePer) + " /10" );
+        RelativeLayout ratingPer = (RelativeLayout) findViewById(R.id.relative_notePer_biere);
+        ratingPer.setVisibility(View.GONE);
     }
 
     @Override
     public void communication(JSONObject rep) {
         if (rep.has("beer")){
+            setContentView(R.layout.activity_profil_biere);
+            addListenerOnRatingBar();
+            addListenerButton();
             modifBiere(rep);
         } else if (rep.has("success")){
             try {

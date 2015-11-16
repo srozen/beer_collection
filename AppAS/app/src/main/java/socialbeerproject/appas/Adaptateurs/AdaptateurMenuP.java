@@ -52,7 +52,7 @@ public class AdaptateurMenuP extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.elem_menu, null);
         }
 
-        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.Image);
+        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.image_LB);
         TextView Titre = (TextView) convertView.findViewById(R.id.Titre);
         TextView Descr = (TextView) convertView.findViewById(R.id.Descr);
 

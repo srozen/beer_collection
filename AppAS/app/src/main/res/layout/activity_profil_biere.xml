@@ -86,7 +86,7 @@
                 android:progress="50" />
 
             <TextView
-                android:id="@+id/textView_prog_ratingGlo"
+                android:id="@+id/textView_ratingGlo_LB"
                 android:text="@string/texte_noteGlobal"
                 android:gravity="center"
                 android:layout_alignLeft="@id/prog_ratingGlo_biere"
@@ -208,12 +208,33 @@
                 android:layout_marginBottom="15dp"/>
 
             <TextView
+                android:id="@+id/textView_histoireTexte_biere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Histoire : "
                 android:layout_below="@+id/textView_description_biere"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:id="@+id/textView_histoire_biere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/texte_introuvable"
+                android:textStyle="bold"
+                android:layout_below="@+id/textView_histoireTexte_biere"
+                android:layout_marginBottom="15dp"/>
+
+
+            <TextView
+                android:layout_below="@+id/textView_histoire_biere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView_dateBu_biere"
                 android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:visibility="gone"/>
         </RelativeLayout>
 
         <RelativeLayout
