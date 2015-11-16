@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,6 +76,29 @@ public class ListeBiere extends ListFragment {
     public void onResume(){
         super.onResume();
         this.demandeServeur();
+        this.makeTitle();
+    }
+
+    private void makeTitle(){
+        Bundle args = getArguments();
+        if (args!=null && args.getString("type","N/A") != "N/A" ) {
+            TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
+            switch (args.getString("type","N/A")) {
+                case "catalogue":
+                    title.setText("Catalogue");
+                    break;
+                case "collection":
+                    title.setText("Votre collection");
+                    break;
+            }
+            ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
+            imgButton.setVisibility(View.VISIBLE);
+            imgButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                }
+            });
+        }
     }
 
     private void demandeServeur(){

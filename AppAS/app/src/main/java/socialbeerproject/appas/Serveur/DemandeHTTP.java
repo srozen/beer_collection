@@ -86,7 +86,7 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         // Créé une demande HTTP au serveur avec les paramètres en post
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(newUrl);
-        httpPost.setEntity(new UrlEncodedFormEntity(params));
+        httpPost.setEntity(new UrlEncodedFormEntity(params, "iso-8859-1"));
         HttpResponse httpResponse = httpClient.execute(httpPost);
 
         String json = this.lecture(httpResponse);

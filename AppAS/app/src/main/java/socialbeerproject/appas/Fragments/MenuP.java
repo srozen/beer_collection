@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +47,17 @@ public class MenuP extends ListFragment {
 
     	selectItem(position, v);
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
+        title.setText("Menu");
+
+        ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
+        imgButton.setVisibility(View.GONE);
     }
 
     /**
@@ -121,6 +134,7 @@ public class MenuP extends ListFragment {
             case "Catalogue":
                 ft.replace(R.id.rel_menu, prin.catalogue);
                 break;
+
         }
 
         ft.addToBackStack(null);

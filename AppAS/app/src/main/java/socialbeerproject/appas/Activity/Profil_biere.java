@@ -38,7 +38,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         id = b.getString("id");
         idReview = "";
 
-        sendServer(false);
+        sendServer();
 
         addListenerButton();
         addListenerOnRatingBar();
@@ -46,20 +46,20 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
     /**
      * Fait une demande au serveur pour récupérer la bière grâce à l'id correspondant
-     * @param refresh true quand on récupère pas les images
      */
-    private void sendServer(Boolean refresh){
+    private void sendServer(){
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
 
         SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
 
         ser.profilBiere(id, log.getString("idUser", "0"));
+    }
 
-        if(!refresh){
-            imgBouteille = (ImageView) findViewById(R.id.imageView_Bouteille);
-            imgEtiquette = (ImageView) findViewById(R.id.imageView_Etiquette);
-            ser.recuperationImage(id,imgBouteille,imgEtiquette);
-        }
+    private void recupImage(){
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
+        imgBouteille = (ImageView) findViewById(R.id.imageView_Bouteille);
+        imgEtiquette = (ImageView) findViewById(R.id.imageView_Etiquette);
+        ser.recuperationImage(id, imgBouteille, imgEtiquette);
     }
 
     private void addListenerButton(){
@@ -92,7 +92,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
                 } else {
                     deleteDCollection();
                 }
-                this.sendServer(true);
+                this.sendServer();
                 break;
             case R.id.button_retour_biere:
                 finish();
@@ -181,6 +181,7 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         // Date de consomation
         TextView dateCons = (TextView) findViewById(R.id.textView_dateBu_biere);
         dateCons.setText("Bu le " + review.getString("created_at").substring(0,10));
+        dateCons.setVisibility(View.VISIBLE);
 
         RelativeLayout ratingPer = (RelativeLayout) findViewById(R.id.relative_notePer_biere);
         ratingPer.setVisibility(View.GONE);
@@ -193,10 +194,11 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
             addListenerOnRatingBar();
             addListenerButton();
             modifBiere(rep);
+            recupImage();
         } else if (rep.has("success")){
             try {
                 if (rep.getBoolean("success")){
-                    this.sendServer(true);
+                    this.sendServer();
                     idReview = "";
                 } else {
                     this.messageErreur("Une erreur a été rencontrée! ");

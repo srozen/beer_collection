@@ -20,6 +20,4 @@
         android:titleCondensed="Infos"
         android:visible="true"
         android:title="Information sur l'application" />
-
-
 </menu>
