@@ -3,16 +3,29 @@ package socialbeerproject.appas.Serveur;
 import android.os.AsyncTask;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.KeyStore;
 import java.util.List;
 
 /**
@@ -20,7 +33,7 @@ import java.util.List;
  */
 public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObject> {
 
-    public static String url = "http://46.101.143.168";
+    public static String url = "https://www.beercollection.be";
     public static String cheminLogin = "api_login.json";
     public static String cheminInsc = "api_register.json";
     public static String cheminCata = "api_catalogue.json";
@@ -84,9 +97,10 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         JSONObject jObj;
 
         // Créé une demande HTTP au serveur avec les paramètres en post
-        DefaultHttpClient httpClient = new DefaultHttpClient();
+        //DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpClient httpClient = getNewHttpClient();
         HttpPost httpPost = new HttpPost(newUrl);
-        httpPost.setEntity(new UrlEncodedFormEntity(params, "iso-8859-1"));
+        httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF_8"));
         HttpResponse httpResponse = httpClient.execute(httpPost);
 
         String json = this.lecture(httpResponse);
@@ -148,5 +162,32 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
                 return null;
         }
         return newUrl;
+    }
+
+    public HttpClient getNewHttpClient() {
+        try {
+            KeyStore trustStore = KeyStore.getInstance(KeyStore
+                    .getDefaultType());
+            trustStore.load(null, null);
+
+            SSLSocketFactory sf = new MySSLSocketFactory(trustStore);
+            sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
+            HttpParams params = new BasicHttpParams();
+            HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+
+            SchemeRegistry registry = new SchemeRegistry();
+            registry.register(new Scheme("http", PlainSocketFactory
+                    .getSocketFactory(), 80));
+            registry.register(new Scheme("https", sf, 443));
+
+            ClientConnectionManager ccm = new ThreadSafeClientConnManager(
+                    params, registry);
+
+            return new DefaultHttpClient(ccm, params);
+        } catch (Exception e) {
+            return new DefaultHttpClient();
+        }
     }
 }

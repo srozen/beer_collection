@@ -489,11 +489,10 @@ int id btn_SeConnecter 0x7f0e005a
 int id btn_confirmation 0x7f0e0056
 int id btn_principal 0x7f0e00a1
 int id buttonPanel 0x7f0e0035
-int id button_Chg_Avatar 0x7f0e0069
-int id button_Chg_Mail 0x7f0e0068
+int id button_Chg_Avatar 0x7f0e0068
 int id button_Chg_Pass 0x7f0e0067
-int id button_Friend_Add 0x7f0e006a
-int id button_Friends_View 0x7f0e006b
+int id button_Friend_Add 0x7f0e0069
+int id button_Friends_View 0x7f0e006a
 int id button_ajouterColl_biere 0x7f0e0091
 int id button_retour_biere 0x7f0e0074
 int id button_retour_profil 0x7f0e0062
@@ -525,7 +524,7 @@ int id imageChargement 0x7f0e0005
 int id imageView_Bouteille 0x7f0e0077
 int id imageView_Etiquette 0x7f0e0078
 int id image_LB 0x7f0e0093
-int id img_avatar_profil 0x7f0e006e
+int id img_avatar_profil 0x7f0e006d
 int id info 0x7f0e00ae
 int id item_info 0x7f0e00b2
 int id item_menu 0x7f0e00b1
@@ -558,7 +557,7 @@ int id rel_collection_profil 0x7f0e006f
 int id rel_corps_profil 0x7f0e0064
 int id rel_desc_LB 0x7f0e0099
 int id rel_elem_collection 0x7f0e0098
-int id rel_left_profil 0x7f0e006c
+int id rel_left_profil 0x7f0e006b
 int id rel_listeBiere 0x7f0e009e
 int id rel_menu 0x7f0e00a2
 int id rel_principal 0x7f0e005d
@@ -607,6 +606,7 @@ int id textView_descriptionTexte_biere 0x7f0e0087
 int id textView_description_biere 0x7f0e0088
 int id textView_histoireTexte_biere 0x7f0e0089
 int id textView_histoire_biere 0x7f0e008a
+int id textView_mail_profil 0x7f0e006e
 int id textView_nom_LB 0x7f0e009a
 int id textView_note_biere 0x7f0e007a
 int id textView_prog_ratingBarPer_biere 0x7f0e008f
@@ -618,7 +618,7 @@ int id textView_titreCollection_profil 0x7f0e0070
 int id textView_titre_profil 0x7f0e0063
 int id textView_typeTexte_biere 0x7f0e0083
 int id textView_types_biere 0x7f0e0084
-int id textView_username_profil 0x7f0e006d
+int id textView_username_profil 0x7f0e006c
 int id textView_valeurCollection_profil 0x7f0e0072
 int id texte_PasDeCompte 0x7f0e005b
 int id texte_mail 0x7f0e0054

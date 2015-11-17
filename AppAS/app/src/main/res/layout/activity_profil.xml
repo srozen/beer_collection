@@ -58,17 +58,9 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Changer d&apos;adresse mail"
-                    android:id="@+id/button_Chg_Mail"
-                    android:layout_below="@+id/button_Chg_Pass"
-                    style="@style/SimpleBouton"/>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Changer d&apos;avatar"
                     android:id="@+id/button_Chg_Avatar"
-                    android:layout_below="@+id/button_Chg_Mail"
+                    android:layout_below="@+id/button_Chg_Pass"
                     style="@style/SimpleBouton"/>
 
                 <Button
@@ -112,6 +104,13 @@
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/textView_username_profil"
                     android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView_mail_profil"
+                    android:layout_below="@+id/img_avatar_profil"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
             </RelativeLayout>
         </RelativeLayout>
 

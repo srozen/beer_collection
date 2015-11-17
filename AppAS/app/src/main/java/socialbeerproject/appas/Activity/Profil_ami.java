@@ -21,7 +21,6 @@ import socialbeerproject.appas.R;
 public class Profil_ami extends ActivityCom implements View.OnClickListener {
 
     private Button delete1;
-    private Button delete2;
     private Button addFriend;
     private Button lookFriend;
     private Button lookCollection;
@@ -37,8 +36,6 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         /* BOUTON A EFFACER */
         delete1 = (Button) findViewById(R.id.button_Chg_Pass);
         delete1.setVisibility(View.INVISIBLE);
-        delete2 = (Button) findViewById(R.id.button_Chg_Mail);
-        delete2.setVisibility(View.INVISIBLE);
 
         addFriend = (Button) findViewById(R.id.button_Chg_Avatar);
         addFriend.setText("Ajouter cet ami");

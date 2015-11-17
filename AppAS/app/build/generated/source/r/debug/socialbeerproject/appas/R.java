@@ -1634,11 +1634,10 @@ containing a value of this type.
         public static final int btn_confirmation=0x7f0e0056;
         public static final int btn_principal=0x7f0e00a1;
         public static final int buttonPanel=0x7f0e0035;
-        public static final int button_Chg_Avatar=0x7f0e0069;
-        public static final int button_Chg_Mail=0x7f0e0068;
+        public static final int button_Chg_Avatar=0x7f0e0068;
         public static final int button_Chg_Pass=0x7f0e0067;
-        public static final int button_Friend_Add=0x7f0e006a;
-        public static final int button_Friends_View=0x7f0e006b;
+        public static final int button_Friend_Add=0x7f0e0069;
+        public static final int button_Friends_View=0x7f0e006a;
         public static final int button_ajouterColl_biere=0x7f0e0091;
         public static final int button_retour_biere=0x7f0e0074;
         public static final int button_retour_profil=0x7f0e0062;
@@ -1670,7 +1669,7 @@ containing a value of this type.
         public static final int imageView_Bouteille=0x7f0e0077;
         public static final int imageView_Etiquette=0x7f0e0078;
         public static final int image_LB=0x7f0e0093;
-        public static final int img_avatar_profil=0x7f0e006e;
+        public static final int img_avatar_profil=0x7f0e006d;
         public static final int info=0x7f0e00ae;
         public static final int item_info=0x7f0e00b2;
         public static final int item_menu=0x7f0e00b1;
@@ -1703,7 +1702,7 @@ containing a value of this type.
         public static final int rel_corps_profil=0x7f0e0064;
         public static final int rel_desc_LB=0x7f0e0099;
         public static final int rel_elem_collection=0x7f0e0098;
-        public static final int rel_left_profil=0x7f0e006c;
+        public static final int rel_left_profil=0x7f0e006b;
         public static final int rel_listeBiere=0x7f0e009e;
         public static final int rel_menu=0x7f0e00a2;
         public static final int rel_principal=0x7f0e005d;
@@ -1752,6 +1751,7 @@ containing a value of this type.
         public static final int textView_description_biere=0x7f0e0088;
         public static final int textView_histoireTexte_biere=0x7f0e0089;
         public static final int textView_histoire_biere=0x7f0e008a;
+        public static final int textView_mail_profil=0x7f0e006e;
         public static final int textView_nom_LB=0x7f0e009a;
         public static final int textView_note_biere=0x7f0e007a;
         public static final int textView_prog_ratingBarPer_biere=0x7f0e008f;
@@ -1763,7 +1763,7 @@ containing a value of this type.
         public static final int textView_titre_profil=0x7f0e0063;
         public static final int textView_typeTexte_biere=0x7f0e0083;
         public static final int textView_types_biere=0x7f0e0084;
-        public static final int textView_username_profil=0x7f0e006d;
+        public static final int textView_username_profil=0x7f0e006c;
         public static final int textView_valeurCollection_profil=0x7f0e0072;
         public static final int texte_PasDeCompte=0x7f0e005b;
         public static final int texte_mail=0x7f0e0054;

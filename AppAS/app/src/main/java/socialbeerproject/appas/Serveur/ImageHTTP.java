@@ -16,10 +16,15 @@ public class ImageHTTP  extends AsyncTask<String, Void, Bitmap> {
 
     public static String cheminImageBouteille = DemandeHTTP.url + "/images/beer_profile/";
     public static String cheminImageEtiquette = DemandeHTTP.url + "/images/beer_sticker/";
+    public static String cheminGravatar = "http://www.gravatar.com/avatar/";
 
     private ImageView bmImage;
 
     public ImageHTTP(ImageView bmImage) {
+        this.bmImage = bmImage;
+    }
+
+    public ImageHTTP(ImageView bmImage, String hash) {
         this.bmImage = bmImage;
     }
 

@@ -6,15 +6,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import socialbeerproject.appas.Divers.MD5Util;
 import socialbeerproject.appas.R;
+import socialbeerproject.appas.Serveur.ImageHTTP;
 
 public class Profil extends ActivityCom implements View.OnClickListener {
 
     private Button chgPass;
-    private Button chgMail;
     private Button chgAvatar;
     private Button addFriend;
     private Button lookFriend;
@@ -26,8 +34,6 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         setContentView(R.layout.activity_profil);
         chgPass = (Button) findViewById(R.id.button_Chg_Pass);
         chgPass.setOnClickListener(this);
-        chgMail = (Button) findViewById(R.id.button_Chg_Mail);
-        chgMail.setOnClickListener(this);
         chgAvatar = (Button) findViewById(R.id.button_Chg_Avatar);
         chgAvatar.setOnClickListener(this);
         addFriend = (Button) findViewById(R.id.button_Friend_Add);
@@ -42,63 +48,53 @@ public class Profil extends ActivityCom implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_Chg_Pass:
-                /* **********************
-                    TODO : Changer le mot de passe d'un utilisateur
+                AlertDialog alertMdp = new AlertDialog.Builder(this,R.style.MyAlertDialogStyle).create();
 
-                      * 1 : Insérez ancien mot de passe
-                      * 2 : Insérez 2x le nouveau mot de passe
-                      * 3 : Vérifier si ancien mot de passe = correcte
-                      * 4 : Modifier en base de données
-                      * 5 : Envoyez un mail pour confirmer la modification
+                alertMdp.setTitle("Changement de mot de passe");
+                alertMdp.setMessage("Connecter vous sur notre site web : www.beercollection.be");
 
-                   **********************
-                 */
-                break;
-            case R.id.button_Chg_Mail:
-                 /* **********************
-                    TODO : Changer l'email d'un utilisateur
+                alertMdp.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
 
-                      * 1 : Insérez mot de passe
-                      * 2 : Insérez la nouvelle adresse mail
-                      * 3 : Envoyez un mail à la nouvelle
-                      * 4 : Recevoir une confirmation pour le changement de mail
-                      * 5 : Envoyez un mail pour confirmer la modification
-
-                   **********************
-                 */
+                alertMdp.show();
                 break;
             case R.id.button_Chg_Avatar:
-                 /* **********************
-                    TODO : Changer l'avatar d'un utilisateur
+                AlertDialog alertAvatar = new AlertDialog.Builder(this,R.style.MyAlertDialogStyle).create();
 
-                      * 1 : Checkez le level de l'utilisateur
-                      * 2 : En f(x) du level, plusieur icônes disponibles
-                      * 3 : Changer l'avatar principal en bd
+                alertAvatar.setTitle("Changement d'avatar");
+                alertAvatar.setMessage("Pour changer votre avatar,vous devez utiliser le système de gravatar");
 
-                   **********************
-                 */
+                alertAvatar.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                alertAvatar.show();
                 break;
             case R.id.button_Friend_Add:
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
-
                 alert.setTitle("Ajouter un ami");
                 alert.setMessage("Pour ajouter un ami, remplissez le champ ci-dessous avec son nom d'utilisateur.");
-
                // Set an EditText view to get user input
                 final EditText input = new EditText(this);
                 alert.setView(input);
 
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-
-                        // TODO : ENVOYEZ LA REQUETE AU SERVEUR
+                        requeteAjoutAmi(input.getText().toString());
                     }
                 });
 
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        // Canceled.
+                        dialog.dismiss();
                     }
                 });
 
@@ -117,8 +113,40 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         }
     }
 
+    private void requeteAjoutAmi(String name){
+
+    }
+
+    private void demandeProfil(){
+
+    }
+
+    private void modifProfil(JSONObject rep){
+        TextView username = (TextView) findViewById(R.id.textView_username_profil);
+        TextView mail = (TextView) findViewById(R.id.textView_mail_profil);
+        TextView txtProgColl = (TextView) findViewById(R.id.textView_valeurCollection_profil);
+        ProgressBar progressColl = (ProgressBar) findViewById(R.id.progress_collection_profil);
+        ImageView avatar = (ImageView) findViewById(R.id.img_avatar_profil);
+
+
+
+
+
+        //this.demandeGravatar(avatar, mail.getText().toString());
+    }
+
+    private void demandeGravatar(ImageView img, String mail){
+        String hash = MD5Util.md5Hex(mail);
+        new ImageHTTP(img).execute(ImageHTTP.cheminGravatar + hash + ".jpg?s=200");
+        System.out.println(hash);
+    }
+
     @Override
     public void communication(JSONObject rep) {
+        if(true){
+            this.modifProfil(rep);
+        } else if (false) {
 
+        }
     }
 }
