@@ -2,23 +2,23 @@ package socialbeerproject.appas.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import socialbeerproject.appas.Divers.MD5Util;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ImageHTTP;
+import socialbeerproject.appas.Serveur.ServeurCom;
 
 public class Profil extends ActivityCom implements View.OnClickListener {
 
@@ -32,6 +32,13 @@ public class Profil extends ActivityCom implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+
+        this.addListener();
+
+        this.demandeProfil();
+    }
+
+    private void addListener(){
         chgPass = (Button) findViewById(R.id.button_Chg_Pass);
         chgPass.setOnClickListener(this);
         chgAvatar = (Button) findViewById(R.id.button_Chg_Avatar);
@@ -118,7 +125,11 @@ public class Profil extends ActivityCom implements View.OnClickListener {
     }
 
     private void demandeProfil(){
-
+        SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
+        if (log.getString("idUser","n/a")!="n/a"){
+            ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_titre_profil), this);
+            ser.profil(log.getString("idUser", "0"));
+        }
     }
 
     private void modifProfil(JSONObject rep){
@@ -128,11 +139,16 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         ProgressBar progressColl = (ProgressBar) findViewById(R.id.progress_collection_profil);
         ImageView avatar = (ImageView) findViewById(R.id.img_avatar_profil);
 
+        try {
+            username.setText(rep.getString("login"));
+            mail.setText(rep.getString("email"));
+            txtProgColl.setText(rep.getString("nbBeers") + "/" + rep.getString(""));
+            /* TODO */
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-
-
-
-        //this.demandeGravatar(avatar, mail.getText().toString());
+        this.demandeGravatar(avatar, mail.getText().toString());
     }
 
     private void demandeGravatar(ImageView img, String mail){
@@ -143,10 +159,8 @@ public class Profil extends ActivityCom implements View.OnClickListener {
 
     @Override
     public void communication(JSONObject rep) {
-        if(true){
+        if(rep != null && rep.has("login")){
             this.modifProfil(rep);
-        } else if (false) {
-
         }
     }
 }

@@ -241,6 +241,15 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
+    public void profil(String userId){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("profil","profil"));
+
+        params.add(new BasicNameValuePair("id", userId));
+
+        this.envoieServeur(params);
+    }
+
     public void recuperationImage(String beerId, ImageView imgBout, ImageView imgEtiq){
         String urlBout = ImageHTTP.cheminImageBouteille + beerId +".jpg";
         new ImageHTTP(imgBout).execute(urlBout);

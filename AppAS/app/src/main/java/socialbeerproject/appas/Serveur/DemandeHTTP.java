@@ -41,6 +41,7 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     public static String cheminProfilBeer = "api_beer_profile.json";
     public static String cheminAddBeer="api_add_beer.json";
     public static String cheminDeleteBeer="api_delete_beer.json";
+    public static String cheminProfil = "api_user_profile.json";
 
     private ServeurCom ser;
 
@@ -157,6 +158,9 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
                 break;
             case "deleteColl":
                 newUrl += cheminDeleteBeer;
+                break;
+            case "profil":
+                newUrl += cheminProfil;
                 break;
             default:
                 return null;

@@ -53,31 +53,6 @@ public class Principal extends ActivityCom {
         return collection;
     }
 
-    /* A supprimer?
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case (R.id.item_profil):
-                Intent i = new Intent(this, Profil.class);
-                startActivity(i);
-                break;
-            case (R.id.item_menu):
-                Intent j = new Intent(this, Principal.class);
-                startActivity(j);
-            case (R.id.item_info):
-            /*    Intent i= new Intent(this,About.class);
-                startActivity(i); TODO */ /*
-        }
-        return super.onOptionsItemSelected(item);
-    } */
-
     @Override
     public void communication(JSONObject rep) {
         try {

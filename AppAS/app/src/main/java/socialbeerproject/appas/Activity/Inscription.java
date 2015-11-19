@@ -7,9 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
@@ -71,10 +75,67 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
     }
 
     private boolean verifChamp() {
-        /*
-        TODO: Vérification des champs
-         */
-        return true;
+
+        boolean work = false;
+
+        // ON CHECK L'ADRESSE MAIL EN PREMIER
+        if ( (this.mail.length() > 6) && (isEmailValid()) ){
+            // ON CHECK LE NOM UTILISATEUR
+            if (isUserValid()) {
+                // ON CHECK LE MOT DE PASSE
+                if (isPassValid())
+                    work = true;
+                else {
+                    // MSG ERREUR - nom d'utilisateur incorrecte
+                    String errorMessage = "Whoops - le mot de passe doit être formé de 6 à 40 caractères";
+                    Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+            } else {
+                // MSG ERREUR - nom d'utilisateur incorrecte
+                String errorMessage = "Whoops - le nom d'utilisateur doit être formé de 4 à 50 caractères";
+                Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        } else {
+            // MSG ERREUR - mail trop petit
+            String errorMessage = "Whoops - l'adresse mail est incorrecte - Réessayez.";
+            Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        return work;
+    }
+
+    public boolean isPassValid() {
+        if ( (this.password.length()>=6) && (this.password.length()<=40)) return true;
+        else return false;
+    }
+
+    public boolean isUserValid() {
+        if ( (this.username.length()>=4) && (this.username.length()<=50)) return true;
+        else return false;
+    }
+
+    public boolean isEmailValid() {
+        String regExpn =
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                        +"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        +"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        +"([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
+
+        CharSequence inputStr = this.mail;
+
+        Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+
+        if(matcher.matches())
+            return true;
+        else
+            return false;
     }
 
     @Override
