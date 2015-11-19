@@ -49,6 +49,10 @@
             android:name="socialbeerproject.appas.Activity.Profil_ami"
             android:label="@string/title_activity_profil_ami" >
         </activity>
+        <activity
+            android:name="socialbeerproject.appas.Activity.Scan"
+            android:label="@string/title_activity_scan" >
+        </activity>
     </application>
 
 </manifest>

@@ -5,7 +5,20 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.BufferedHttpEntity;
+
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import static socialbeerproject.appas.Serveur.DemandeHTTP.getNewHttpClient;
 
 /**
  * Created by Rémy on 03-11-15.
@@ -24,16 +37,12 @@ public class ImageHTTP  extends AsyncTask<String, Void, Bitmap> {
         this.bmImage = bmImage;
     }
 
-    public ImageHTTP(ImageView bmImage, String hash) {
-        this.bmImage = bmImage;
-    }
-
     protected Bitmap doInBackground(String... urls) {
         String urlDisplay = urls[0];
         Bitmap mIcon11 = null;
         try {
-            InputStream in = new java.net.URL(urlDisplay).openStream();
-            mIcon11 = BitmapFactory.decodeStream(in);
+            InputStream is = (InputStream) new URL(urlDisplay).getContent();
+            mIcon11 = BitmapFactory.decodeStream(is);
         } catch (Exception e) {
             e.printStackTrace();
         }

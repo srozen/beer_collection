@@ -42,6 +42,20 @@
     <string name="texte_notePer">Note personnelle : </string>
     <string name="texte_dateBu">Vous avez consommé cette bière le </string>
 
+    <string name="intro">Le scan de notre application est très précis veuillez respecter ces règles pour
+    pouvoir avoir une occurence en base de données.
+
+    \n\n1) Lancer l\'appareil photo !
+    \n\n2) Placer la bouteille à environ 20 cm de l\'objectif
+    \n\n3) Veuillez bien centrer l\'appareil au milieu de l\'étiquette de votre bière
+    \n\n4) Prenez la photo
+    \n\n5) Découper la photo avec l\'outil proposé. Afin de n\'avoir que l\'étiquette, centrer le carré
+    \n\n6) Valider.
+    \n\n7) Lancer le scan ! </string>
+    <string name="picture">Picture</string>
+    <string name="capture">Lancer l\'appareil photo!</string>
+    <string name="scan_btn">Lancer le scan!</string>
+
     <!-- Fonts -->
     <string name="font_path">fonts/maxwell.bold.tff</string>
 
@@ -51,5 +65,8 @@
         <item>Bons Plans</item>
         <item>Compte</item>
     </string-array>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

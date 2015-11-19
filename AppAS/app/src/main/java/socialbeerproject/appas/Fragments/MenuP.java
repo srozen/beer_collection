@@ -17,6 +17,7 @@ import java.util.List;
 import socialbeerproject.appas.Activity.Login;
 import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil;
+import socialbeerproject.appas.Activity.Scan;
 import socialbeerproject.appas.Adaptateurs.AdaptateurMenuP;
 import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
@@ -72,7 +73,7 @@ public class MenuP extends ListFragment {
 
         switch (index) {
             case 0:
-                this.replaceFragment("Scan");
+                startActivity(new Intent(getActivity(), Scan.class));
                 break;
             case 1:
                 this.replaceFragment("Collection");
@@ -125,9 +126,6 @@ public class MenuP extends ListFragment {
 
         Principal prin = (Principal) getActivity();
         switch (frag) {
-            case "Scan":
-                ft.replace(R.id.rel_menu, new Scan());
-                break;
             case "Collection":
                 ft.replace(R.id.rel_menu, prin.collection);
                 break;

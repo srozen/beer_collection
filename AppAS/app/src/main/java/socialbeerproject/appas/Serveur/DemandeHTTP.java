@@ -168,7 +168,7 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         return newUrl;
     }
 
-    public HttpClient getNewHttpClient() {
+    public static HttpClient getNewHttpClient() {
         try {
             KeyStore trustStore = KeyStore.getInstance(KeyStore
                     .getDefaultType());

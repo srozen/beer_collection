@@ -9,11 +9,6 @@
         android:id="@+id/list"
         android:layout_width="0dp"
         android:layout_height="match_parent" tools:layout="@layout/fragment_menu" />
-    <fragment android:name="socialbeerproject.appas.Fragments.Scan"
-        android:id="@+id/viewS"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_scan" />
     <fragment android:name="socialbeerproject.appas.Fragments.ListeBiere"
         android:id="@+id/viewC"
         android:layout_width="0dp"
