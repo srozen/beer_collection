@@ -267,4 +267,15 @@ public class ServeurCom {
         }
         new DemandeHTTP(this).execute(params);
     }
+
+    public void ajoutAmi(String nomAmi, String userId ) {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("ajoutAmi", "ajoutAmi"));
+
+        params.add(new BasicNameValuePair("id", userId));
+        params.add(new BasicNameValuePair("nomAmi", nomAmi));
+        this.envoieServeur(params);
+
+        // TODO : A IMPLEMENTER COTE SERVEUR
+    }
 }

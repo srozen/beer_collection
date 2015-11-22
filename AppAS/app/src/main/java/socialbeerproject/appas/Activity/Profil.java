@@ -121,6 +121,10 @@ public class Profil extends ActivityCom implements View.OnClickListener {
     }
 
     private void requeteAjoutAmi(String name){
+        SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_titre_profil), this);
+
+        ser.ajoutAmi(name, log.getString("idUser", "0"));
 
     }
 
