@@ -87,7 +87,7 @@ public class MenuP extends ListFragment {
             case 4:
                 break;
             case 5:
-
+                this.replaceFragment("BonPlan");
                 break;
             case 6:
                 this.logOut();
@@ -132,7 +132,9 @@ public class MenuP extends ListFragment {
             case "Catalogue":
                 ft.replace(R.id.rel_menu, prin.catalogue);
                 break;
-
+            case "BonPlan" :
+                ft.replace(R.id.rel_menu, prin.bonPlan);
+                break;
         }
 
         ft.addToBackStack(null);
