@@ -85,11 +85,14 @@ public class MenuP extends ListFragment {
                 startActivity(new Intent(getActivity(), Profil.class));
                 break;
             case 4:
+                this.replaceFragment("Amitie");
                 break;
             case 5:
-                this.replaceFragment("BonPlan");
                 break;
             case 6:
+                this.replaceFragment("BonPlan");
+                break;
+            case 7:
                 this.logOut();
                 break;
         }
@@ -102,9 +105,10 @@ public class MenuP extends ListFragment {
         ElementMenuP e2 = new ElementMenuP("Collection", "Toute les bières que tu as sifflé", R.mipmap.ic_collection);
         ElementMenuP e3 = new ElementMenuP("Catalogue", "Liste de tous les bières", R.mipmap.ic_catalogue);
         ElementMenuP e4 = new ElementMenuP("Profil", "Paramètres personnels", R.mipmap.ic_profil);
-        ElementMenuP e5 = new ElementMenuP("BeerMap", "Carte des buveurs", R.mipmap.ic_map);
-        ElementMenuP e6 = new ElementMenuP("Bons Plans", "Promo sur les bières", R.mipmap.ic_bon_plan);
-        ElementMenuP e7 = new ElementMenuP("Déconnexion", "Changement de compte?", R.mipmap.ic_deco);
+        ElementMenuP e5 = new ElementMenuP("Amis", "Voir vos amis", R.mipmap.ic_amis);
+        ElementMenuP e6 = new ElementMenuP("BeerMap", "Carte des buveurs", R.mipmap.ic_map);
+        ElementMenuP e7 = new ElementMenuP("Bons Plans", "Promo sur les bières", R.mipmap.ic_bon_plan);
+        ElementMenuP e8 = new ElementMenuP("Déconnexion", "Changement de compte?", R.mipmap.ic_deco);
 
         element.add(e1);
         element.add(e2);
@@ -113,6 +117,7 @@ public class MenuP extends ListFragment {
         element.add(e5);
         element.add(e6);
         element.add(e7);
+        element.add(e8);
 
         adapter = new AdaptateurMenuP(getActivity(), element);
         setListAdapter(adapter);
@@ -134,6 +139,9 @@ public class MenuP extends ListFragment {
                 break;
             case "BonPlan" :
                 ft.replace(R.id.rel_menu, prin.bonPlan);
+                break;
+            case "Amitie" :
+                ft.replace(R.id.rel_menu, prin.amitie);
                 break;
         }
 

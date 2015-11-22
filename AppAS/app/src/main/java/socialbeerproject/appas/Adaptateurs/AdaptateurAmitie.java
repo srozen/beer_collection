@@ -56,13 +56,13 @@ public class AdaptateurAmitie extends BaseAdapter {
         }
 
 
-        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.image_LB);
-        TextView Titre = (TextView) convertView.findViewById(R.id.textView_nom_LB);
+        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.amitie_img);
+        TextView nomAmi = (TextView) convertView.findViewById(R.id.amitie_nom);
 
         ElementAmitie row_pos = elements.get(position);
 
         imgIcon.setImageResource(row_pos.getIcon());
-        Titre.setText(row_pos.getNom());
+        nomAmi.setText(row_pos.getNom());
 
         return convertView;
     }

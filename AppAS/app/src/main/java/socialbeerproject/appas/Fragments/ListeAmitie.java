@@ -18,6 +18,7 @@ import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Activity.Profil_ami;
 import socialbeerproject.appas.Adaptateurs.AdaptateurAmitie;
 import socialbeerproject.appas.Elements.ElementAmitie;
+import socialbeerproject.appas.Elements.ElementPlan;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
@@ -35,8 +36,18 @@ public class ListeAmitie extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
-        ser.amitie();
+        element = new ArrayList<ElementAmitie>();
+
+        ElementAmitie e1 = new ElementAmitie("Cyril", R.mipmap.ic_launcher, "1");
+        ElementAmitie e2 = new ElementAmitie("Cyril2", R.mipmap.ic_launcher, "2");
+        element.add(e1);
+        element.add(e2);
+
+        adapter = new AdaptateurAmitie(getActivity(), element);
+        setListAdapter(adapter);
+
+      /*  ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
+        ser.amitie();*/
 
         previous = new View(getActivity().getApplicationContext());
     }
@@ -82,34 +93,4 @@ public class ListeAmitie extends ListFragment {
         getActivity().overridePendingTransition(R.animator.anim_in, R.animator.anim_out);
     }
 
-    public void creationListe(JSONObject rep){
-        element = new ArrayList<ElementAmitie>();
-        String nom = "";
-        String id= "";
-
-        if(rep != null){
-            int nbAmi = 0;
-            try {
-                nbAmi = rep.getJSONArray("friends").length();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            for (int i=0;i<nbAmi;i++){
-                try {
-                    JSONObject friends = rep.getJSONArray("friends").getJSONObject(i);
-                    nom = friends.getString("name");
-                    id = friends.getString("id");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                element.add(new ElementAmitie(nom, R.mipmap.ic_launcher, id));
-            }
-        } else {
-            ActivityCom activiteCom  = (ActivityCom) getActivity();
-            activiteCom.messageErreur("Aucune connexion au serveur possible!");
-        }
-
-        adapter = new AdaptateurAmitie(getActivity(), element);
-        setListAdapter(adapter);
-    }
 }

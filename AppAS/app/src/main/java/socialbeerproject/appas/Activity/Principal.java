@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Fragments.BonPlan;
+import socialbeerproject.appas.Fragments.ListeAmitie;
 import socialbeerproject.appas.Fragments.ListeBiere;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Fragments.MenuP;
@@ -23,6 +24,7 @@ public class Principal extends ActivityCom {
     public ListeBiere collection;
     public ListeBiere catalogue;
     public BonPlan bonPlan;
+    public ListeAmitie amitie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class Principal extends ActivityCom {
         makeCatalogue();
         makeCollection();
         makeBonPlan();
+        makeAmitie();
 
         // Ajout du fragment du menu principal
         getFragmentManager().beginTransaction().add(R.id.rel_menu, men).commit();
@@ -62,6 +65,14 @@ public class Principal extends ActivityCom {
         args.putString("type", "bonPlan");
         bonPlan.setArguments(args);
         return bonPlan;
+    }
+
+    public ListeAmitie makeAmitie() {
+        amitie = new ListeAmitie();
+        Bundle args = new Bundle();
+        args.putString("type", "amitie");
+        amitie.setArguments(args);
+        return amitie;
     }
 
     @Override

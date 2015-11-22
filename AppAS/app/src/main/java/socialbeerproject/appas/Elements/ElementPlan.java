@@ -5,6 +5,20 @@ package socialbeerproject.appas.Elements;
  */
 public class ElementPlan {
 
+    // TODO : IMPLEMENTER LES DERNIERS ATTRIBUTS EN FONCTION DE LA DB
+
+    /*
+        t.string   "name"
+        t.string   "nameBeer"
+        t.text     "description"
+        t.string   "categorie"
+        t.datetime "datedebut"
+        t.datetime "datefin"
+        t.float    "prix"
+        t.float    "reference"
+        t.float    "reduction"
+     */
+
     private String title;
     private String description;
     private String dateDebut;
