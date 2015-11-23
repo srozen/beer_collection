@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Activity.ActivityCom;
+import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil_biere;
 import socialbeerproject.appas.Adaptateurs.AdaptateurListeBiere;
 import socialbeerproject.appas.Elements.ElementListeBiere;
@@ -83,21 +84,30 @@ public class ListeBiere extends ListFragment {
         Bundle args = getArguments();
         if (args!=null && args.getString("type","N/A") != "N/A" ) {
             TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
+            ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
+            imgButton.setVisibility(View.VISIBLE);
             switch (args.getString("type","N/A")) {
                 case "catalogue":
                     title.setText("Catalogue");
+                    imgButton.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            Principal prin = (Principal) getActivity();
+                            prin.replaceFragment("Menu");
+                            prin.closeFrag(prin.catalogue);
+                        }
+                    });
                     break;
                 case "collection":
                     title.setText("Votre collection");
+                    imgButton.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            Principal prin = (Principal) getActivity();
+                            prin.replaceFragment("Menu");
+                            prin.closeFrag(prin.collection);
+                        }
+                    });
                     break;
             }
-            ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
-            imgButton.setVisibility(View.VISIBLE);
-            imgButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-
-                }
-            });
         }
     }
 

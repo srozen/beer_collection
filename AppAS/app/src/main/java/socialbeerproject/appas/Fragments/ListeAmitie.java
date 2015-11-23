@@ -8,13 +8,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Activity.ActivityCom;
+import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil_ami;
 import socialbeerproject.appas.Adaptateurs.AdaptateurAmitie;
 import socialbeerproject.appas.Elements.ElementAmitie;
@@ -52,6 +55,21 @@ public class ListeAmitie extends ListFragment {
         previous = new View(getActivity().getApplicationContext());
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
+        title.setText("Vos ami(e)s");
+        ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
+        imgButton.setVisibility(View.VISIBLE);
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Principal prin = (Principal) getActivity();
+                prin.replaceFragment("Menu");
+                prin.closeFrag(prin.amitie);
+            }
+        });
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

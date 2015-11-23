@@ -1,6 +1,5 @@
 package socialbeerproject.appas.Fragments;
 
-import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
@@ -70,27 +69,28 @@ public class MenuP extends ListFragment {
         Position = index;
 
         getListView().setItemChecked(index, true);
+        Principal prin = (Principal) getActivity();
 
         switch (index) {
             case 0:
                 startActivity(new Intent(getActivity(), Scan.class));
                 break;
             case 1:
-                this.replaceFragment("Collection");
+                prin.replaceFragment("Collection");
                 break;
             case 2:
-                this.replaceFragment("Catalogue");
+                prin.replaceFragment("Catalogue");
                 break;
             case 3:
                 startActivity(new Intent(getActivity(), Profil.class));
                 break;
             case 4:
-                this.replaceFragment("Amitie");
+                prin.replaceFragment("Amitie");
                 break;
             case 5:
                 break;
             case 6:
-                this.replaceFragment("BonPlan");
+                prin.replaceFragment("BonPlan");
                 break;
             case 7:
                 this.logOut();
@@ -98,7 +98,7 @@ public class MenuP extends ListFragment {
         }
     }
 
-    void creationMenu(){
+    private void creationMenu(){
         element = new ArrayList<ElementMenuP>();
 
         ElementMenuP e1 = new ElementMenuP("Scan", "Scan ta binouze", R.mipmap.ic_scan);
@@ -123,31 +123,7 @@ public class MenuP extends ListFragment {
         setListAdapter(adapter);
     }
 
-    private void replaceFragment(String frag){
-        //Remplace un fragment par un autre
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
 
-        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-
-        Principal prin = (Principal) getActivity();
-        switch (frag) {
-            case "Collection":
-                ft.replace(R.id.rel_menu, prin.collection);
-                break;
-            case "Catalogue":
-                ft.replace(R.id.rel_menu, prin.catalogue);
-                break;
-            case "BonPlan" :
-                ft.replace(R.id.rel_menu, prin.bonPlan);
-                break;
-            case "Amitie" :
-                ft.replace(R.id.rel_menu, prin.amitie);
-                break;
-        }
-
-        ft.addToBackStack(null);
-        ft.commit();
-    }
 
     private void logOut(){
         SharedPreferences log = getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);

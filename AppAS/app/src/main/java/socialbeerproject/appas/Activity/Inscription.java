@@ -109,13 +109,11 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
     }
 
     public boolean isPassValid() {
-        if ( (this.password.length()>=6) && (this.password.length()<=40)) return true;
-        else return false;
+        return (this.password.length() >= 6) && (this.password.length() <= 40);
     }
 
     public boolean isUserValid() {
-        if ( (this.username.length()>=4) && (this.username.length()<=50)) return true;
-        else return false;
+        return (this.username.length() >= 4) && (this.username.length() <= 50);
     }
 
     public boolean isEmailValid() {
@@ -132,10 +130,7 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
         Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(inputStr);
 
-        if(matcher.matches())
-            return true;
-        else
-            return false;
+        return matcher.matches();
     }
 
     @Override

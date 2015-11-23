@@ -8,6 +8,7 @@
         android:id="@+id/bar_principal"
         android:orientation="horizontal"
         android:padding="@dimen/paddingLayout"
+        android:layout_margin="1dp"
         android:background="@color/ambre">
         <TextView
             android:layout_width="match_parent"

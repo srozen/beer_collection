@@ -25,7 +25,9 @@ public final class R {
         public static final int activity_out=0x7f05000d;
         public static final int chargement=0x7f05000e;
         public static final int slide_in_left=0x7f05000f;
-        public static final int slide_out_right=0x7f050010;
+        public static final int slide_in_right=0x7f050010;
+        public static final int slide_out_left=0x7f050011;
+        public static final int slide_out_right=0x7f050012;
     }
     public static final class animator {
         public static final int anim_in=0x7f060000;
@@ -1594,15 +1596,14 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f02003b;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f02003c;
         public static final int abc_textfield_search_material=0x7f02003d;
-        public static final int bar_item=0x7f02003e;
-        public static final int boutton=0x7f02003f;
-        public static final int image_button=0x7f020040;
-        public static final int introuvable=0x7f020041;
-        public static final int liste_biere_cata_item=0x7f020042;
-        public static final int liste_biere_coll_item=0x7f020043;
-        public static final int menu_item=0x7f020044;
-        public static final int notification_template_icon_bg=0x7f020046;
-        public static final int progress_bar=0x7f020045;
+        public static final int boutton=0x7f02003e;
+        public static final int image_button=0x7f02003f;
+        public static final int introuvable=0x7f020040;
+        public static final int liste_biere_cata_item=0x7f020041;
+        public static final int liste_biere_coll_item=0x7f020042;
+        public static final int menu_item=0x7f020043;
+        public static final int notification_template_icon_bg=0x7f020045;
+        public static final int progress_bar=0x7f020044;
     }
     public static final class id {
         public static final int Descr=0x7f0e00a4;

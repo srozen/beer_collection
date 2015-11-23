@@ -8,10 +8,14 @@ import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Elements.ElementPlan;
 import socialbeerproject.appas.Adaptateurs.AdaptateurPlan;
+import socialbeerproject.appas.R;
 
 public class BonPlan extends ListFragment{
 
@@ -39,6 +43,21 @@ public class BonPlan extends ListFragment{
         setListAdapter(adapter);
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
+        title.setText("Bons Plans");
+        ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
+        imgButton.setVisibility(View.VISIBLE);
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Principal prin = (Principal) getActivity();
+                prin.replaceFragment("Menu");
+                prin.replaceFragment("Menu");
+            }
+        });
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

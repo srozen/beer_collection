@@ -1,10 +1,10 @@
 package socialbeerproject.appas.Activity;
 
 import android.app.Fragment;
-import android.content.Intent;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.app.ListFragment;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,8 +36,8 @@ public class Principal extends ActivityCom {
         men = new MenuP();
         makeCatalogue();
         makeCollection();
-        makeBonPlan();
-        makeAmitie();
+        bonPlan = new BonPlan();
+        amitie = new ListeAmitie();
 
         // Ajout du fragment du menu principal
         getFragmentManager().beginTransaction().add(R.id.rel_menu, men).commit();
@@ -59,22 +59,6 @@ public class Principal extends ActivityCom {
         return collection;
     }
 
-    public BonPlan makeBonPlan() {
-        bonPlan = new BonPlan();
-        Bundle args = new Bundle();
-        args.putString("type", "bonPlan");
-        bonPlan.setArguments(args);
-        return bonPlan;
-    }
-
-    public ListeAmitie makeAmitie() {
-        amitie = new ListeAmitie();
-        Bundle args = new Bundle();
-        args.putString("type", "amitie");
-        amitie.setArguments(args);
-        return amitie;
-    }
-
     @Override
     public void communication(JSONObject rep) {
         try {
@@ -86,5 +70,39 @@ public class Principal extends ActivityCom {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void closeFrag(ListFragment lF){
+        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    public void replaceFragment(String frag){
+        //Remplace un fragment par un autre
+        FragmentManager fm = this.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+
+        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+
+        switch (frag) {
+            case "Collection":
+                ft.replace(R.id.rel_menu, this.collection);
+                break;
+            case "Catalogue":
+                ft.replace(R.id.rel_menu, this.catalogue);
+                break;
+            case "BonPlan" :
+                ft.replace(R.id.rel_menu, this.bonPlan);
+                break;
+            case "Amitie" :
+                ft.replace(R.id.rel_menu, this.amitie);
+                break;
+            case "Menu" :
+                ft.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
+                ft.replace(R.id.rel_menu, this.men);
+                break;
+        }
+
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
