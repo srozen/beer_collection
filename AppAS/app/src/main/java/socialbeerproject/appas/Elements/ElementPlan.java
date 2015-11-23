@@ -24,13 +24,15 @@ public class ElementPlan {
     private String dateDebut;
     private String dateFin;
     private String reference;
+    private String id;
 
-    public ElementPlan(String title, String descr, String dD, String dE, String ref) {
+    public ElementPlan(String title, String descr, String dD, String dE, String ref, String id) {
         this.title = title;
         this.description = descr;
         this.dateDebut = dD;
         this.dateFin = dE;
         this.reference = ref;
+        this.id=id;
     }
 
     public String getTitle() {
@@ -71,5 +73,13 @@ public class ElementPlan {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

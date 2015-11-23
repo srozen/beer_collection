@@ -6,21 +6,22 @@ import java.util.List;
 
 import android.app.ListFragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
-import socialbeerproject.appas.Activity.Principal;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Elements.ElementPlan;
 import socialbeerproject.appas.Adaptateurs.AdaptateurPlan;
 import socialbeerproject.appas.R;
+import socialbeerproject.appas.Serveur.ServeurCom;
 
-public class BonPlan extends ListFragment{
+public class BonPlan extends ListFragment {
 
-    private int Position = 0;
-
+    private int position = 0;
     private View previous;
 
     AdaptateurPlan adapter;
@@ -30,65 +31,66 @@ public class BonPlan extends ListFragment{
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        this.demandeServeur();
+
         previous = new View(getActivity().getApplicationContext());
-
-        element = new ArrayList<ElementPlan>();
-
-        ElementPlan e1 = new ElementPlan("BeerBar", "2 bières pour le prix d'une","22/11/15","23/11/15","X96ZF");
-        ElementPlan e2 = new ElementPlan("Oasis", "Chicha gratuit à l'achat d'une bière", "22/11/15","23/11/15", "AF65R");
-        element.add(e1);
-        element.add(e2);
-
-        adapter = new AdaptateurPlan(getActivity(), element);
-        setListAdapter(adapter);
     }
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
-        title.setText("Bons Plans");
-        ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
-        imgButton.setVisibility(View.VISIBLE);
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Principal prin = (Principal) getActivity();
-                prin.replaceFragment("Menu");
-                prin.replaceFragment("Menu");
-            }
-        });
-    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("Choix", Position);
-    }
-
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-
-        super.onListItemClick(l, v, position, id);
-        String tag = this.getTag();
-        Log.d(tag, "id, position " + id + " " + position);
-        previous.setSelected(false);
-        //previous.setBackgroundColor(Color.TRANSPARENT);
-        v.setSelected(true);
-        //v.setBackgroundColor(R.color.blue);
-        previous=v;
-
-        selectItem(position, v);
-    }
-
-    /**
-     * Helper function to show the details of a selected item, either by
-     * displaying a fragment in-place in the current UI, or starting a
-     * whole new activity in which it is displayed.
-     */
-    void selectItem(int index, View v) {
+        outState.putInt("Choix", position);
     }
 
 
+    private void demandeServeur() {
+        ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu), (ActivityCom) getActivity());
+
+        ser.getBonPlan();
+    }
+
+    public void creationListe(JSONObject rep) throws JSONException {
+        element = new ArrayList<ElementPlan>();
+
+        if(rep != null){
+            int nbPlan=0;
+            nbPlan = rep.getJSONArray("bonplan").length();
+            for (int i=0;i<nbPlan;i++){
+                ElementPlan elementPlan = creationElement(rep.getJSONArray("beers").getJSONObject(i));
+                element.add(elementPlan);
+            }
+        } else {
+            ActivityCom activiteCom  = (ActivityCom) getActivity();
+            activiteCom.messageErreur("Aucune connexion au serveur possible!");
+        }
+        adapter = new AdaptateurPlan(getActivity(), element);
+        setListAdapter(adapter);
+    }
+
+    public ElementPlan creationElement(JSONObject bonplan){
+        String title = "";
+        String description= "";
+        String dateDebut= "";
+        String dateFin= "";
+        String reference= "";
+        String id= "";
+
+        try {
+            title = bonplan.getString("title");
+            description = bonplan.getString("description");
+            dateDebut = bonplan.getString("dateDebut");
+            dateFin = bonplan.getString("dateFin");
+            reference = bonplan.getString("reference");
+            id = bonplan.getString("id");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ElementPlan elementPlan = new ElementPlan(title,description,dateDebut,dateFin,reference,id);
+
+        return elementPlan;
+    }
 
 }
 
