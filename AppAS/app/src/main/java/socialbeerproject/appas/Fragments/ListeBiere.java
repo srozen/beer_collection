@@ -74,7 +74,7 @@ public class ListeBiere extends ListFragment {
     }
 
     @Override
-    public void onResume(){
+         public void onResume(){
         super.onResume();
         this.demandeServeur();
         this.makeTitle();
@@ -124,6 +124,7 @@ public class ListeBiere extends ListFragment {
                 case "collection":
                     ser.collection(log.getString("idUser", "n/a"));
                     break;
+                
             }
         }
     }

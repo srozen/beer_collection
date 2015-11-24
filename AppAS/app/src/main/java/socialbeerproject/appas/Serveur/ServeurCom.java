@@ -296,4 +296,12 @@ public class ServeurCom {
         // TODO : A IMPLEMENTER COTE SERVEUR
 
     }
+
+    public void listeAmi(String userId) {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("listeAmi", "listeAmi"));
+        params.add(new BasicNameValuePair("userId", userId));
+        this.envoieServeur(params);
+
+    }
 }

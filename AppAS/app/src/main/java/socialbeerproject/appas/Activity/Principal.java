@@ -66,6 +66,9 @@ public class Principal extends ActivityCom {
             if (frag != null && frag.getClass().equals(ListeBiere.class)){
                 ListeBiere lb = (ListeBiere) frag;
                 lb.creationListe(rep);
+            } else if (frag!= null && frag.getClass().equals(ListeAmitie.class)){
+                ListeAmitie lb = (ListeAmitie) frag;
+                lb.creationListe(rep);
             }
         } catch (JSONException e) {
             e.printStackTrace();

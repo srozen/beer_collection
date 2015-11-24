@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListFragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,14 +15,18 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil_ami;
+import socialbeerproject.appas.Activity.Profil_biere;
 import socialbeerproject.appas.Adaptateurs.AdaptateurAmitie;
+import socialbeerproject.appas.Adaptateurs.AdaptateurListeBiere;
 import socialbeerproject.appas.Elements.ElementAmitie;
+import socialbeerproject.appas.Elements.ElementListeBiere;
 import socialbeerproject.appas.Elements.ElementPlan;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
@@ -39,18 +45,7 @@ public class ListeAmitie extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        element = new ArrayList<ElementAmitie>();
-
-        ElementAmitie e1 = new ElementAmitie("Cyril", R.mipmap.ic_launcher, "1");
-        ElementAmitie e2 = new ElementAmitie("Cyril2", R.mipmap.ic_launcher, "2");
-        element.add(e1);
-        element.add(e2);
-
-        adapter = new AdaptateurAmitie(getActivity(), element);
-        setListAdapter(adapter);
-
-      /*  ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
-        ser.amitie();*/
+        this.demandeServeur();
 
         previous = new View(getActivity().getApplicationContext());
     }
@@ -97,7 +92,8 @@ public class ListeAmitie extends ListFragment {
      * displaying a fragment in-place in the current UI, or starting a
      * whole new activity in which it is displayed.
      */
-    void selectItem(int index, View v) {
+    public void selectItem(int index, View v) {
+
         Position = index;
         // We can display everything in-place with fragments, so update
         // the list to highlight the selected item and show the data.
@@ -111,4 +107,47 @@ public class ListeAmitie extends ListFragment {
         getActivity().overridePendingTransition(R.animator.anim_in, R.animator.anim_out);
     }
 
+    private void demandeServeur() {
+
+        ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
+        ActivityCom activiteCom = (ActivityCom) getActivity();
+        SharedPreferences log = activiteCom.getSharedPreferences("Login", Context.MODE_PRIVATE);
+
+        ser.listeAmi(log.getString("idUser", "n/a"));
+
+    }
+
+    public void creationListe(JSONObject rep) throws JSONException {
+        element = new ArrayList<ElementAmitie>();
+
+        if(rep != null && rep.has("friends")){
+            int nbAmi=0;
+            nbAmi = rep.getJSONArray("friends").length();
+            for (int i=0;i<nbAmi;i++){
+                ElementAmitie elementAmi = creationAmi(rep.getJSONArray("friends").getJSONObject(i));
+                element.add(elementAmi);
+            }
+        } else {
+            ActivityCom activiteCom  = (ActivityCom) getActivity();
+            activiteCom.messageErreur("Aucune connexion au serveur possible !");
+        }
+        adapter = new AdaptateurAmitie(getActivity(), element);
+        setListAdapter(adapter);
+    }
+
+    public ElementAmitie creationAmi(JSONObject ami){
+        String nom = "";
+        String id=  "";
+
+        try {
+            nom = ami.getString("login");
+            id = ami.getString("user_id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ElementAmitie elementAmi = new ElementAmitie(nom, R.mipmap.ic_profil, id);
+
+        return elementAmi;
+    }
 }

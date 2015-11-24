@@ -57,7 +57,7 @@ public class BonPlan extends ListFragment {
             int nbPlan=0;
             nbPlan = rep.getJSONArray("bonplan").length();
             for (int i=0;i<nbPlan;i++){
-                ElementPlan elementPlan = creationElement(rep.getJSONArray("beers").getJSONObject(i));
+                ElementPlan elementPlan = creationElement(rep.getJSONArray("bonplan").getJSONObject(i));
                 element.add(elementPlan);
             }
         } else {
