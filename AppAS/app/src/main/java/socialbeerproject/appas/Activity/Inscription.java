@@ -88,21 +88,18 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
                 else {
                     // MSG ERREUR - nom d'utilisateur incorrecte
                     String errorMessage = "Whoops - le mot de passe doit être formé de 6 à 40 caractères";
-                    Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
-                    toast.show();
+                    super.prinToast(errorMessage);
                 }
 
             } else {
                 // MSG ERREUR - nom d'utilisateur incorrecte
                 String errorMessage = "Whoops - le nom d'utilisateur doit être formé de 4 à 50 caractères";
-                Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
-                toast.show();
+                super.prinToast(errorMessage);
             }
         } else {
             // MSG ERREUR - mail trop petit
             String errorMessage = "Whoops - l'adresse mail est incorrecte - Réessayez.";
-            Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
-            toast.show();
+            super.prinToast(errorMessage);
         }
 
         return work;
@@ -158,6 +155,11 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
         }
 
         if(erreurInsc.isEmpty()){
+            try {
+                super.setIdUser(rep.getString("id"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             this.connexionValide(username);
         } else {
             this.messageErreur(erreurInsc);

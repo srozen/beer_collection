@@ -1,5 +1,6 @@
 package socialbeerproject.appas.Fragments;
 
+import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Activity.Login;
 import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil;
@@ -93,7 +95,9 @@ public class MenuP extends ListFragment {
                 prin.replaceFragment("BonPlan");
                 break;
             case 7:
-                this.logOut();
+                this.logOut(getActivity());
+                startActivity(new Intent(getActivity(), Login.class));
+                getActivity().finish();
                 break;
         }
     }
@@ -123,17 +127,13 @@ public class MenuP extends ListFragment {
         setListAdapter(adapter);
     }
 
-
-
-    private void logOut(){
-        SharedPreferences log = getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
+    public static void logOut(Activity act){
+        SharedPreferences log = act.getSharedPreferences("Login", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = log.edit();
         edit.remove("username");
         edit.remove("hash");
         edit.remove("idUser");
         edit.apply();
-        startActivity(new Intent(getActivity(), Login.class));
-        getActivity().finish();
     }
 }
 

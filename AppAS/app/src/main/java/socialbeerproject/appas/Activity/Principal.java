@@ -63,7 +63,7 @@ public class Principal extends ActivityCom {
     public void communication(JSONObject rep) {
         try {
             Fragment frag = getFragmentManager().findFragmentById(R.id.rel_menu);
-            if (frag.getClass().equals(ListeBiere.class)){
+            if (frag != null && frag.getClass().equals(ListeBiere.class)){
                 ListeBiere lb = (ListeBiere) frag;
                 lb.creationListe(rep);
             }

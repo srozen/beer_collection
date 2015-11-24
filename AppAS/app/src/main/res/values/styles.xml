@@ -1,21 +1,5 @@
 <resources>
-    <!-- Thèmes -->
-    <style name="AppTheme" parent="android:Theme.NoTitleBar">
-        <item name="android:background">@color/mousse</item>
-        <item name="android:textColor">@color/darkAmbre</item>
-    </style>
-
-    <style name="MenuPTheme" parent="android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
-        <item name="android:background">@color/mousse</item>
-        <item name="android:textColor">@color/darkAmbre</item>
-    </style>
     <!-- Styles -->
-
-    <!-- ActionBar -->
-    <style name="ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/mousse</item>
-    </style>
 
     <!-- Style Textes - boutton -->
     <style name="Titre">
@@ -53,6 +37,7 @@
         <item name="android:textColor">@color/darkAmbre</item>
         <item name="android:clickable">true</item>
         <item name="android:padding">15dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/texteSize</item>
         <item name="android:background">@drawable/boutton</item>
     </style>
@@ -103,30 +88,28 @@
         <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
         <item name="android:textAppearanceMedium">@style/SimpleTexte</item>
         <item name="android:borderlessButtonStyle">@style/GrosBouton</item>
-        <item name="android:buttonBarStyle">@style/BarStyleDialog</item>
+        <item name="android:buttonBarStyle">@style/TitreDialog</item>
         <!-- Used for the buttons -->
-        <item name="colorAccent">@color/darkAmbre</item>
+        <item name="colorAccent">@color/ambre</item>
         <!-- Used for the title and text -->
         <item name="android:textColorPrimary">@color/ambre</item>
 
         <!-- Used for the background -->
         <item name="android:background">@color/mousse</item>
-
-        <item name="android:windowTitleStyle">@style/MyTitleTextStyle</item>
-        <item name="android:buttonStyle">@style/GrosBouton</item>
+        <item name="android:gravity">center</item>
+        <item name="android:windowTitleStyle">@style/TitreDialog</item>
+        <item name="android:buttonStyle">@style/SimpleBouton</item>
     </style>
 
-    <style name="MyTitleTextStyle">
-        <item name="android:textColor">@color/darkAmbre</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    <style name="windTitreDialog">
+        <item name="android:textAppearance">@style/TitreDialog</item>
+    </style>
+
+    <style name="TitreDialog">
+        <item name="android:gravity">center</item>
         <item name="android:layout_centerHorizontal">true</item>
-    </style>
-
-    <style name="BarStyleDialog">
-        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/darkAmbre</item>
-        <item name="android:background">@color/mousse</item>
+        <item name="android:textStyle">bold</item>
     </style>
-
 
 </resources>

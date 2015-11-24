@@ -108,7 +108,7 @@ public class Profil extends ActivityCom implements View.OnClickListener {
     }
 
     private void messBtnAjAmi(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
         alert.setTitle("Ajouter un ami");
         alert.setMessage("Pour ajouter un ami, remplissez le champ ci-dessous avec son nom d'utilisateur.");
         // Set an EditText view to get user input

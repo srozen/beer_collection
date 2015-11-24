@@ -5,6 +5,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -44,6 +49,17 @@ public abstract class ActivityCom extends Activity {
                     }
                 });
         alertDialog.show();
+    }
+
+    public void prinToast(String mess){
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.linear_toast_layout));
+        Toast toast = new Toast(this);
+        TextView txt = (TextView) layout.findViewById(R.id.textView_toast);
+        txt.setText(mess);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
     }
 
     @Override

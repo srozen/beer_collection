@@ -147,7 +147,7 @@ public class ServeurCom {
     }
 
     /**
-     * Fait une demande de sel pour l'inscription
+     *
      * @param hash
      * @param sel
      */
@@ -157,16 +157,24 @@ public class ServeurCom {
 
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("login", username));
-        params.add(new BasicNameValuePair("password",hash));
-        params.add(new BasicNameValuePair("saltUser",sel));
+        params.add(new BasicNameValuePair("password", hash));
+        params.add(new BasicNameValuePair("saltUser", sel));
 
         this.pass = "";
         this.username = "";
         this.email = "";
 
+        act.setHash(hash);
+
         this.envoieServeur(params);
     }
 
+    /**
+     * Fait une demande de sel pour l'inscription
+     * @param username
+     * @param password
+     * @param email
+     */
     public void inscriptionOne(String username, String password, String email){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("inscription", "inscription"));
@@ -202,7 +210,7 @@ public class ServeurCom {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("collection", "collection"));
 
-        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("id", userId));
 
         this.envoieServeur(params);
     }

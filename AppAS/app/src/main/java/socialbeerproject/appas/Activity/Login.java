@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import socialbeerproject.appas.Fragments.MenuP;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
@@ -87,7 +88,7 @@ public class Login extends ActivityCom implements View.OnClickListener{
             if(rep != null){
                 connexion = rep.getString("checkLog");
             } else {
-                connexion = "Aucune réponse du serveur";
+                connexion = "Impossible de se connecter au serveur";
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -99,6 +100,7 @@ public class Login extends ActivityCom implements View.OnClickListener{
         } else {
             if(connexion == "false"){
                 connexion = "Mot de passe erroné!";
+                MenuP.logOut(this);
             }
             this.messageErreur(connexion);
         }

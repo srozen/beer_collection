@@ -137,7 +137,7 @@ public class ListeBiere extends ListFragment {
         } else {
             reviews = null;
         }
-        if(rep != null){
+        if(rep != null && rep.has("beers")){
             int nbBiere=0;
             nbBiere = rep.getJSONArray("beers").length();
             for (int i=0;i<nbBiere;i++){

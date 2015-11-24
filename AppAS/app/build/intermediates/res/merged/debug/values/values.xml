@@ -330,10 +330,19 @@
     <string name="title_activity_profil_ami">Profil d\'un ami</string>
     <string name="title_activity_profil_biere">Profil d\'une bière</string>
     <string name="title_activity_scan">Scan</string>
-    <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/values/themes.xml -->
     <eat-comment/>
-    <style name="ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/mousse</item>
+    <style name="AlertDialog">
+        <item name="android:fullDark">@null</item>
+        <item name="android:fullBright">@null</item>
+        <item name="android:topDark">@color/mousse</item>
+        <item name="android:topBright">@null</item>
+        <item name="android:centerBright">@null</item>
+        <item name="android:centerDark">@color/mousse</item>
+        <item name="android:centerMedium">@null</item>
+        <item name="android:bottomDark">@null</item>
+        <item name="android:bottomBright">@null</item>
+        <item name="android:bottomMedium">@color/mousse</item>
     </style>
     <!-- From: file:/C:/BeerProjet/AppAS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
     <eat-comment/>
@@ -341,16 +350,12 @@
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/values/themes.xml -->
     <eat-comment/>
-    <style name="AppTheme" parent="android:Theme.NoTitleBar">
+    <style name="AppTheme" parent="android:Theme.Black.NoTitleBar">
         <item name="android:background">@color/mousse</item>
         <item name="android:textColor">@color/darkAmbre</item>
-    </style>
-    <style name="BarStyleDialog">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/darkAmbre</item>
-        <item name="android:background">@color/mousse</item>
+        <item name="android:alertDialogStyle">@style/AlertDialog</item>
     </style>
     <!-- From: file:/C:/BeerProjet/AppAS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
     <eat-comment/>
@@ -1289,6 +1294,7 @@
         <item name="android:textColor">@color/darkAmbre</item>
         <item name="android:clickable">true</item>
         <item name="android:padding">15dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/texteSize</item>
         <item name="android:background">@drawable/boutton</item>
     </style>
@@ -1307,11 +1313,6 @@
         <item name="android:gravity">left</item>
         <item name="android:textColor">@color/black</item>
     </style>
-    <style name="MenuPTheme" parent="android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
-        <item name="android:background">@color/mousse</item>
-        <item name="android:textColor">@color/darkAmbre</item>
-    </style>
     <style name="MyAlertDialogStyle">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -1321,22 +1322,17 @@
         <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
         <item name="android:textAppearanceMedium">@style/SimpleTexte</item>
         <item name="android:borderlessButtonStyle">@style/GrosBouton</item>
-        <item name="android:buttonBarStyle">@style/BarStyleDialog</item>
+        <item name="android:buttonBarStyle">@style/TitreDialog</item>
         <!-- Used for the buttons -->
-        <item name="colorAccent">@color/darkAmbre</item>
+        <item name="colorAccent">@color/ambre</item>
         <!-- Used for the title and text -->
         <item name="android:textColorPrimary">@color/ambre</item>
 
         <!-- Used for the background -->
         <item name="android:background">@color/mousse</item>
-
-        <item name="android:windowTitleStyle">@style/MyTitleTextStyle</item>
-        <item name="android:buttonStyle">@style/GrosBouton</item>
-    </style>
-    <style name="MyTitleTextStyle">
-        <item name="android:textColor">@color/darkAmbre</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
-        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:windowTitleStyle">@style/TitreDialog</item>
+        <item name="android:buttonStyle">@style/SimpleBouton</item>
     </style>
     <!-- From: file:/C:/BeerProjet/AppAS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
     <eat-comment/>
@@ -1607,6 +1603,12 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
+    <style name="TitreDialog">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/darkAmbre</item>
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="TitreMenu">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1708,4 +1710,9 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
+    <!-- From: file:/C:/BeerProjet/AppAS/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="windTitreDialog">
+        <item name="android:textAppearance">@style/TitreDialog</item>
+    </style>
 </resources>
