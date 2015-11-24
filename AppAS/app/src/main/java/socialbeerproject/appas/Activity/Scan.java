@@ -2,7 +2,9 @@ package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.OutputStream;
 
 import socialbeerproject.appas.R;
 
@@ -21,13 +26,17 @@ public class Scan extends Activity implements View.OnClickListener {
     //keep track of camera capture intent
     final int CAMERA_CAPTURE = 1;
     //captured picture uri
-    private Uri picUri;
+    protected Uri picUri;
     //keep track of cropping intent
     final int PIC_CROP = 2;
 
     protected Button captureBtn;
     protected Button scanBtn;
     protected Button retour;
+
+    protected Bitmap photoScan;
+
+    protected OutputStream scanUpload;
 
 
     @Override
@@ -57,7 +66,9 @@ public class Scan extends Activity implements View.OnClickListener {
                 Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 //we will handle the returned data in onActivityResult
                 startActivityForResult(captureIntent, CAMERA_CAPTURE);
-            } catch(ActivityNotFoundException anfe){
+                scanBtn.setVisibility(View.VISIBLE);
+            }
+            catch(ActivityNotFoundException anfe){
                 //display an error message
                 String errorMessage = "Whoops - votre appareil ne supporte pas l'application";
                 Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
@@ -71,8 +82,10 @@ public class Scan extends Activity implements View.OnClickListener {
         }
 
         if (v.getId() == R.id.scan_btn) {
-            // TODO : ENVOIE DE L IMAGE AU SERVEUR
+            // TODO : ENVOIE DE L IMAGE AU SERVEUR A PARTIR DE scanUpload
         }
+
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -85,18 +98,53 @@ public class Scan extends Activity implements View.OnClickListener {
                 performCrop();
 
                 scanBtn.setVisibility(View.VISIBLE);
-            } else if(requestCode == PIC_CROP){ //user is returning from cropping the image
+            }//user is returning from cropping the image
+            else if(requestCode == PIC_CROP){
                 //get the returned data
                 Bundle extras = data.getExtras();
                 //get the cropped bitmap
-                Bitmap thePic = extras.getParcelable("data");
+                photoScan = extras.getParcelable("data");
                 //retrieve a reference to the ImageView
                 ImageView picView = (ImageView)findViewById(R.id.picture);
                 //display the returned cropped image
-                picView.setImageBitmap(thePic);
+                picView.setImageBitmap(photoScan);
+
+                // TODO : REGLER LA COMPRESSEION ICI 75
+                /*photoScan.compress(Bitmap.CompressFormat.JPEG, 75, scanUpload);
+
+               File file = new File(getRealPathFromURI(this,picUri));
+                boolean deleted = file.delete();
+
+                if (!deleted) {
+                    //display an error message
+                    String errorMessage = "Whoops - la photo n'a pas été supprimé de votre appareil.";
+                    Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
+                    toast.show();
+                }*/
+
             }
         }
     }
+
+
+
+    public String getRealPathFromURI(Context context, Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = { MediaStore.Images.Media.DATA };
+            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+
+
 
     private void performCrop(){
         try {
@@ -116,7 +164,9 @@ public class Scan extends Activity implements View.OnClickListener {
             cropIntent.putExtra("return-data", true);
             //start the activity - we handle returning in onActivityResult
             startActivityForResult(cropIntent, PIC_CROP);
-        } catch(ActivityNotFoundException anfe){
+
+        }
+        catch(ActivityNotFoundException anfe){
             //display an error message
             String errorMessage = "Whoops - your device doesn't support the crop action!";
             Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
