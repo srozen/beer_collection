@@ -286,4 +286,14 @@ public class ServeurCom {
 
         // TODO : A IMPLEMENTER COTE SERVEUR
     }
+
+    public void getBonPlan() {
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("bonPlan", "bonPlan"));
+        this.envoieServeur(params);
+
+        // TODO : A IMPLEMENTER COTE SERVEUR
+
+    }
 }

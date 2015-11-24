@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="D:\app4\beer_collection\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="D:\app4\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\classes-2fa105b0daed2ad2ecb5292e44fe6a38caa0916a.jar" />
-    </item>
-    <item
-        jar="D:\app4\beer_collection\AppAS\app\libs\httpclient-4.0.jar"
+        jar="C:\beer_collection\AppAS\app\libs\httpclient-4.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="a76d7fd8033d48b4c67b4ccf159abb080c1059b6">
-        <dex dex="D:\app4\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\httpclient-4.0-d8aa4a4cf1cd6b9e492ce09e68b677b1cb1cc64c.jar" />
+        <dex dex="C:\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\httpclient-4.0-77d87dc40e9f01850738969751a12a329f3436b3.jar" />
     </item>
     <item
-        jar="D:\app4\beer_collection\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jar="C:\beer_collection\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="D:\app4\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-68fa53d2ace63c8aa44ac95d0d96823cc592838b.jar" />
+        <dex dex="C:\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-b5056812d44dfcb40d709956081727fe5947dc9f.jar" />
     </item>
     <item
-        jar="C:\Users\Pierret\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="D:\app4\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-09f06f0964d6fccbf1042b12ffbfcc47bab5c1c3.jar" />
-    </item>
-    <item
-        jar="D:\app4\beer_collection\AppAS\app\libs\httpcore-4.0.jar"
+        jar="C:\beer_collection\AppAS\app\libs\httpcore-4.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="50d62373255daf8fa4f21ce381683ed64a3a95b8">
-        <dex dex="D:\app4\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\httpcore-4.0-970d8a5973cc9dfcdba29a2c78538e00602e2988.jar" />
+        <dex dex="C:\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\httpcore-4.0-93c101161b1f4908328f84086712c7626a3c668c.jar" />
     </item>
     <item
-        jar="D:\app4\beer_collection\AppAS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jar="C:\beer_collection\AppAS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="D:\app4\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\classes-b3e94e1241ea9cd96d30c9d9c67fd6c0ba355cd2.jar" />
+        <dex dex="C:\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\classes-7ed38ea79eeadbc57a93288982f19c151ad0fdfe.jar" />
+    </item>
+    <item
+        jar="C:\beer_collection\AppAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\classes-8c667cac155c09ad308062fd1b823f9de713fd1d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rémy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\beer_collection\AppAS\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-5f7cb3d1242db3f4721585efad84b25e46f93fcd.jar" />
     </item>
 
 </items>
