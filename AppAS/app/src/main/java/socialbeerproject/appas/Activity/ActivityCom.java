@@ -2,9 +2,11 @@ package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.R;
+import socialbeerproject.appas.SIP.Phone;
 
 /**
  * Created by Rémy on 20-10-15.
@@ -34,6 +37,13 @@ public abstract class ActivityCom extends Activity {
         edit.putString("hash", this.hash);
         edit.putString("idUser", this.idUser);
         edit.apply();
+
+        SharedPreferences prefs = getSharedPreferences("SIP", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editSip = prefs.edit();
+        editSip.putString("username", Integer.toString((6000) + (Integer.parseInt(this.idUser))));
+        editSip.putString("password", this.idUser);
+        editSip.apply();
+
         Intent i2= new Intent(this,Principal.class);
         startActivity(i2);
     }
@@ -66,6 +76,11 @@ public abstract class ActivityCom extends Activity {
     public void startActivity(Intent i){
         super.startActivity(i);
         overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override

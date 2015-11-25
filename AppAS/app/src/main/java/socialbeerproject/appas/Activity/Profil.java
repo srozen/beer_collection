@@ -167,7 +167,6 @@ public class Profil extends ActivityCom implements View.OnClickListener {
     private void demandeGravatar(ImageView img, String mail){
         String hash = MD5Util.md5Hex(mail);
         new ImageHTTP(img).execute(ImageHTTP.cheminGravatar + hash + ".jpg?s=200");
-        System.out.println(hash);
     }
 
     @Override

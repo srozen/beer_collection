@@ -4,11 +4,10 @@ package socialbeerproject.appas.Activity;
  * Created by Pierret on 05-11-15.
  */
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -18,17 +17,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Divers.MD5Util;
-import socialbeerproject.appas.Fragments.ListeBiere;
 import socialbeerproject.appas.R;
-
-
-import org.json.JSONObject;
-
-import socialbeerproject.appas.R;
+import socialbeerproject.appas.SIP.Phone;
 import socialbeerproject.appas.Serveur.ImageHTTP;
 import socialbeerproject.appas.Serveur.ServeurCom;
-
-import static android.app.PendingIntent.getActivity;
 
 public class Profil_ami extends ActivityCom implements View.OnClickListener {
 
@@ -38,14 +30,13 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
     private TextView saCollection;
     private String idAmi;
 
-    public void setIdAmi(String news) {
-        idAmi = news;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+
+        Bundle b = getIntent().getExtras();
+        idAmi = b.getString("id");
 
         /* BOUTON A EFFACER */
         Button delete1 = (Button) findViewById(R.id.button_Chg_Pass);
@@ -60,9 +51,6 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         lookCollection.setText("Voir sa collection");
         lookCollection.setOnClickListener(this);
 
-
-
-
         /* CHANGEMENT DE TITRE */
         title = (TextView) findViewById(R.id.textView_titre_profil);
         title.setText("Profil d'un ami");
@@ -72,11 +60,18 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         saCollection = (TextView) findViewById(R.id.textView_titreCollection_profil);
         saCollection.setText("Sa collection :");
 
-
         back = (Button) findViewById(R.id.button_retour_profil);
         back.setOnClickListener(this);
 
         this.demandeProfil();
+
+        Phone.getInstance().attach(this);
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        Phone.getInstance().close();
     }
 
     private void demandeProfil(){
@@ -98,6 +93,10 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
             case R.id.button_retour_profil:
                 finish();
                 break;
+            case R.id.imgBtn_call_profil:
+                if (Phone.getInstance().status == "Ready"){
+                    Phone.getInstance().initiateCall(idAmi);
+                }
         }
     }
 
@@ -113,7 +112,10 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
             mail.setText(rep.getString("email"));
             txtProgColl.setText(rep.getString("nbBeers") + "/" + rep.getString("totalBeers"));
             progressColl.setProgress(Profil.getValuePro(rep.getInt("nbBeers"), rep.getInt("totalBeers")));
-            idAmi = rep.getString("user_id");
+
+            ImageButton callBtn = (ImageButton) findViewById(R.id.imgBtn_call_profil);
+            callBtn.setVisibility(View.VISIBLE);
+            callBtn.setOnClickListener(this);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -124,7 +126,6 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
     private void demandeGravatar(ImageView img, String mail){
         String hash = MD5Util.md5Hex(mail);
         new ImageHTTP(img).execute(ImageHTTP.cheminGravatar + hash + ".jpg?s=200");
-        System.out.println(hash);
     }
 
     @Override
@@ -135,8 +136,6 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
     }
 
     public void openFriendCollection() {
-
-
 
     }
 }

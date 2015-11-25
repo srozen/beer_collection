@@ -111,6 +111,17 @@
                     android:layout_below="@+id/img_avatar_profil"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imgBtn_call_profil"
+                    android:src="@mipmap/ic_phone"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    android:layout_below="@+id/textView_mail_profil"
+                    android:layout_centerHorizontal="true"/>
+
             </RelativeLayout>
         </RelativeLayout>
 

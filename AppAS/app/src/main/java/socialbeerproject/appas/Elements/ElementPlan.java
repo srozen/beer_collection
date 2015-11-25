@@ -21,7 +21,7 @@ public class ElementPlan {
 
     private String title;
     private String nameBeer;
-    private String nomBiere
+    private String nomBiere;
     private String description;
     private String categorie;
     private String prix;
