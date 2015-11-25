@@ -20,15 +20,22 @@ public class ElementPlan {
      */
 
     private String title;
+    private String nameBeer;
+    private String nomBiere
     private String description;
+    private String categorie;
+    private String prix;
     private String dateDebut;
     private String dateFin;
     private String reference;
     private String id;
 
-    public ElementPlan(String title, String descr, String dD, String dE, String ref, String id) {
+    public ElementPlan(String title, String nameBeer, String descr, String categorie, String prix, String dD, String dE, String ref, String id) {
         this.title = title;
+        this.nameBeer = nameBeer;
         this.description = descr;
+        this.categorie = categorie;
+        this.prix = prix;
         this.dateDebut = dD;
         this.dateFin = dE;
         this.reference = ref;

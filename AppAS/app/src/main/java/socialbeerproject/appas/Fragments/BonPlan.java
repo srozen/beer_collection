@@ -70,24 +70,30 @@ public class BonPlan extends ListFragment {
 
     public ElementPlan creationElement(JSONObject bonplan){
         String title = "";
+        String nomBiere = "";
         String description= "";
+        String categorie="";
+        String prix="";
         String dateDebut= "";
         String dateFin= "";
         String reference= "";
         String id= "";
 
         try {
-            title = bonplan.getString("title");
+            title = bonplan.getString("name");
+            nomBiere = bonplan.getString("name_beer");
             description = bonplan.getString("description");
-            dateDebut = bonplan.getString("dateDebut");
-            dateFin = bonplan.getString("dateFin");
+            categorie = bonplan.getString("categorie");
+            prix = bonplan.getString("prix");
+            dateDebut = bonplan.getString("datedebut");
+            dateFin = bonplan.getString("datefin");
             reference = bonplan.getString("reference");
             id = bonplan.getString("id");
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ElementPlan elementPlan = new ElementPlan(title,description,dateDebut,dateFin,reference,id);
+        ElementPlan elementPlan = new ElementPlan(title,nomBiere,description,categorie,prix,dateDebut,dateFin,reference,id);
 
         return elementPlan;
     }

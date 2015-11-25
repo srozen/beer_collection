@@ -11,52 +11,110 @@
     <TextView
          style="@style/Titre"
          android:id="@+id/bp_title"
+         android:text="Bon Plan"
          android:textStyle="bold"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
      />
 
-    <TextView
-        style="@style/SimpleTexte"
-         android:id="@+id/bp_desc"
-         android:textStyle="italic"
-         android:layout_marginTop="10dp"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@id/bp_title"
-         android:layout_marginLeft="10dp"
-     />
+
 
     <TextView
-        style="@style/ChampsUneLigne"
-        android:id="@+id/bp_dateB"
+        style="@style/SimpleTexte"
+        android:id="@+id/bp_nom_biere"
+        android:text="Nom biere"
         android:textStyle="italic"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bp_desc"
+        android:layout_below="@id/bp_title"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         />
 
     <TextView
-        style="@style/ChampsUneLigne"
-        android:id="@+id/bp_dateF"
+        style="@style/SimpleTexte"
+        android:id="@+id/bp_categorie"
+        android:text="Categorie"
         android:textStyle="italic"
+        android:layout_marginTop="-25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bp_dateB"
-        android:layout_marginLeft="10dp"
+        android:layout_below="@id/bp_nom_biere"
+        android:layout_toRightOf= "@id/bp_nom_biere"
+        android:layout_marginLeft="160dp"
         />
 
     <TextView
         style="@style/LittleSimpleTexte"
-        android:id="@+id/bp_ref"
+        android:id="@+id/bp_nom_shop"
+        android:text="Ultimate Beer Shop"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bp_categorie"
+        android:layout_marginLeft="240dp"
+        />
+
+    <TextView
+        style=""
+        android:id="@+id/bp_desc"
+        android:text="Voici une bère description d'un bon plan, je ne sais pas trop quoi dire à part qu'il va être remplacé..."
+        android:maxWidth="210dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bp_categorie"
+        android:layout_marginLeft="10dp"
+
+        />
+
+    <TextView
+        style="@style/LittleSimpleTexte"
+        android:id="@+id/bp_prix"
+        android:text="Prix : 0.99 €"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bp_desc"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <TextView
+        style="@style/ChampsUneLigne"
+        android:id="@+id/bp_dateB"
+        android:text="01/01/2015"
         android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bp_desc"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        style="@style/ChampsUneLigne"
+        android:id="@+id/bp_dateF"
+        android:text="01/01/2014"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bp_desc"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+
+        android:id="@+id/bp_ref"
+        android:text="REFERENCE : 6546548231"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bp_dateF"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         />
     
     

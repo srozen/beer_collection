@@ -124,7 +124,7 @@ public class ListeBiere extends ListFragment {
                 case "collection":
                     ser.collection(log.getString("idUser", "n/a"));
                     break;
-                
+
             }
         }
     }
