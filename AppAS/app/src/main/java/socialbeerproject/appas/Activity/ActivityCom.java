@@ -2,7 +2,6 @@ package socialbeerproject.appas.Activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.R;
-import socialbeerproject.appas.SIP.Phone;
 
 /**
  * Created by Rémy on 20-10-15.

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.sip.*;
 
+import socialbeerproject.appas.Activity.PhoneA;
+
 
 /**
  * Ecoute si l'application reçoit un appel et l'envoie à Phone.
@@ -17,7 +19,6 @@ public class SIPReceiver extends BroadcastReceiver {
         super();
         isConn=true;
     }
-
 
     /**
      * Processes the incoming call, answers it, and hands it over to the
@@ -40,9 +41,9 @@ public class SIPReceiver extends BroadcastReceiver {
                 }
             };
 
-            Phone phone = Phone.getInstance();
+            PhoneA phoneAct = (PhoneA) context;
 
-            incomingCall = phone.manager.takeAudioCall(intent, listener);
+            incomingCall = phoneAct.manager.takeAudioCall(intent, listener);
             incomingCall.answerCall(5);
             incomingCall.startAudio();
             incomingCall.setSpeakerMode(true);
@@ -50,9 +51,7 @@ public class SIPReceiver extends BroadcastReceiver {
                 incomingCall.toggleMute();
             }
 
-            phone.call = incomingCall;
-
-
+            phoneAct.call = incomingCall;
 
         } catch (Exception e) {
             if (incomingCall != null) {
@@ -60,5 +59,4 @@ public class SIPReceiver extends BroadcastReceiver {
             }
         }
     }
-
 }

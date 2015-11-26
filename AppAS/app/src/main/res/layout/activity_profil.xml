@@ -71,13 +71,6 @@
                     android:layout_below="@+id/button_Chg_Avatar"
                     style="@style/SimpleBouton" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Voir vos amis"
-                    android:id="@+id/button_Friends_View"
-                    android:layout_below="@+id/button_Friend_Add"
-                    style="@style/SimpleBouton"/>
             </RelativeLayout>
 
             <RelativeLayout

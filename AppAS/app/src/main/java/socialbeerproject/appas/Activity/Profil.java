@@ -45,8 +45,6 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         chgAvatar.setOnClickListener(this);
         addFriend = (Button) findViewById(R.id.button_Friend_Add);
         addFriend.setOnClickListener(this);
-        lookFriend = (Button) findViewById(R.id.button_Friends_View);
-        lookFriend.setOnClickListener(this);
         back = (Button) findViewById(R.id.button_retour_profil);
         back.setOnClickListener(this);
     }
@@ -63,12 +61,6 @@ public class Profil extends ActivityCom implements View.OnClickListener {
             case R.id.button_Friend_Add:
                 this.messBtnAjAmi();
                 break;
-            case R.id.button_Friends_View:
-                 /* **********************
-                    TODO : Permettre la visualisation de ses amis
-                   ***********************/
-                break;
-
             case R.id.button_retour_profil:
                 finish();
                 break;

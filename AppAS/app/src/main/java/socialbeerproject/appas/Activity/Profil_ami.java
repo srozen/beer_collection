@@ -19,7 +19,6 @@ import org.json.JSONObject;
 
 import socialbeerproject.appas.Divers.MD5Util;
 import socialbeerproject.appas.R;
-import socialbeerproject.appas.SIP.Phone;
 import socialbeerproject.appas.Serveur.ImageHTTP;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
@@ -41,11 +40,9 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
 
         /* BOUTON A EFFACER */
         Button delete1 = (Button) findViewById(R.id.button_Chg_Pass);
-        Button delete2 = (Button) findViewById(R.id.button_Friends_View);
         Button delete3 = (Button) findViewById(R.id.button_Friend_Add);
 
         delete1.setVisibility(View.INVISIBLE);
-        delete2.setVisibility(View.INVISIBLE);
         delete3.setVisibility(View.INVISIBLE);
 
         lookCollection = (Button) findViewById(R.id.button_Chg_Avatar);
@@ -65,14 +62,11 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         back.setOnClickListener(this);
 
         this.demandeProfil();
-
-        //Phone.getInstance().attach(this);
     }
 
     @Override
     public void finish(){
         super.finish();
-        //Phone.getInstance().close();
     }
 
     private void demandeProfil(){
@@ -90,7 +84,6 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         switch (v.getId())  {
             case R.id.button_Chg_Avatar :
                 this.openFriendCollection();
-
             case R.id.button_retour_profil:
                 finish();
                 break;
@@ -100,10 +93,6 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
                 //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
                 intent.putExtra("id", this.idAmi);
                 startActivity(intent);
-
-                if (Phone.getInstance().status == "Ready"){
-                    //Phone.getInstance().initiateCall(idAmi);
-                }
         }
     }
 

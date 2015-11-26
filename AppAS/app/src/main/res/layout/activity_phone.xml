@@ -10,16 +10,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="@string/texte_introuvable"
         android:id="@+id/sip_label"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp" />
 
     <Button
+        style="@style/GrosBouton"
+        android:padding="50dp"
+        android:textSize="50sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Appeler"
         android:id="@+id/sip_button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
