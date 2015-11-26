@@ -38,10 +38,11 @@ public abstract class ActivityCom extends Activity {
         edit.putString("idUser", this.idUser);
         edit.apply();
 
-        SharedPreferences prefs = getSharedPreferences("SIP", Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("SIP", MODE_PRIVATE);
         SharedPreferences.Editor editSip = prefs.edit();
-        editSip.putString("username", Integer.toString((6000) + (Integer.parseInt(this.idUser))));
+        editSip.putString("username", Integer.toString(6000 + (Integer.parseInt(this.idUser)) ));
         editSip.putString("password", this.idUser);
+        editSip.putString("idUser", this.idUser);
         editSip.apply();
 
         Intent i2= new Intent(this,Principal.class);

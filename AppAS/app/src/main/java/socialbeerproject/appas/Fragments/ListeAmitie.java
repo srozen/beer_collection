@@ -77,7 +77,7 @@ public class ListeAmitie extends ListFragment {
 
         super.onListItemClick(l, v, position, id);
         String tag = this.getTag();
-        Log.d(tag, "id, position " + id + " " + position);
+
         previous.setSelected(false);
         //previous.setBackgroundColor(Color.TRANSPARENT);
         v.setSelected(true);

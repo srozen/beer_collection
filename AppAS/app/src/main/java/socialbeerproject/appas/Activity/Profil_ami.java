@@ -4,6 +4,7 @@ package socialbeerproject.appas.Activity;
  * Created by Pierret on 05-11-15.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,13 +66,13 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
 
         this.demandeProfil();
 
-        Phone.getInstance().attach(this);
+        //Phone.getInstance().attach(this);
     }
 
     @Override
     public void finish(){
         super.finish();
-        Phone.getInstance().close();
+        //Phone.getInstance().close();
     }
 
     private void demandeProfil(){
@@ -94,8 +95,14 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
                 finish();
                 break;
             case R.id.imgBtn_call_profil:
+                Intent intent = new Intent(this, PhoneA.class);
+
+                //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
+                intent.putExtra("id", this.idAmi);
+                startActivity(intent);
+
                 if (Phone.getInstance().status == "Ready"){
-                    Phone.getInstance().initiateCall(idAmi);
+                    //Phone.getInstance().initiateCall(idAmi);
                 }
         }
     }

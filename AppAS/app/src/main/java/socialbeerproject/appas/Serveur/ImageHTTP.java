@@ -27,8 +27,8 @@ import static socialbeerproject.appas.Serveur.DemandeHTTP.getNewHttpClient;
  */
 public class ImageHTTP  extends AsyncTask<String, Void, Bitmap> {
 
-    public static String cheminImageBouteille = DemandeHTTP.url + "/images/beer_profile/";
-    public static String cheminImageEtiquette = DemandeHTTP.url + "/images/beer_sticker/";
+    public static String cheminImageBouteille ="http://www.beercollection.be"+ "/images/beer_profile/";
+    public static String cheminImageEtiquette = "http://www.beercollection.be" + "/images/beer_sticker/";
     public static String cheminGravatar = "http://www.gravatar.com/avatar/";
 
     private ImageView bmImage;
