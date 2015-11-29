@@ -14,21 +14,21 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Activity.Login;
 import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil;
 import socialbeerproject.appas.Activity.Scan;
 import socialbeerproject.appas.Adaptateurs.AdaptateurMenuP;
+import socialbeerproject.appas.BeerMap;
 import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
 
 
 public class MenuP extends ListFragment {
-	
+
     private int Position = 0;
     private ArrayList<String> Item;
-    
+
     AdaptateurMenuP adapter;
     private List<ElementMenuP> element;
 
@@ -47,7 +47,7 @@ public class MenuP extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-    	selectItem(position, v);
+        selectItem(position, v);
 
     }
 
@@ -90,6 +90,7 @@ public class MenuP extends ListFragment {
                 prin.replaceFragment("Amitie");
                 break;
             case 5:
+                startActivity(new Intent(getActivity(), BeerMap.class));
                 break;
             case 6:
                 prin.replaceFragment("BonPlan");
