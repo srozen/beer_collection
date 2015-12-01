@@ -49,17 +49,17 @@
       <file leaf-file-name="BeerMap.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/BeerMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5860869">
-              <caret line="123" column="53" selection-start-line="123" selection-start-column="53" selection-end-line="123" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.3495652">
+              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9315#9646#0" expanded="true" />
-                <element signature="e#9395#9422#0" expanded="true" />
-                <element signature="e#9453#9480#0" expanded="true" />
-                <element signature="e#9645#9646#0" expanded="true" />
-                <element signature="e#9690#9924#0" expanded="true" />
-                <element signature="e#9800#9827#0" expanded="true" />
-                <element signature="e#9923#9924#0" expanded="true" />
+                <element signature="e#9246#9577#0" expanded="true" />
+                <element signature="e#9326#9353#0" expanded="true" />
+                <element signature="e#9384#9411#0" expanded="true" />
+                <element signature="e#9576#9577#0" expanded="true" />
+                <element signature="e#9621#9855#0" expanded="true" />
+                <element signature="e#9731#9758#0" expanded="true" />
+                <element signature="e#9854#9855#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2356,13 +2356,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9315#9646#0" expanded="true" />
-            <element signature="e#9395#9422#0" expanded="true" />
-            <element signature="e#9453#9480#0" expanded="true" />
-            <element signature="e#9645#9646#0" expanded="true" />
-            <element signature="e#9690#9924#0" expanded="true" />
-            <element signature="e#9800#9827#0" expanded="true" />
-            <element signature="e#9923#9924#0" expanded="true" />
+            <element signature="e#9246#9577#0" expanded="true" />
+            <element signature="e#9326#9353#0" expanded="true" />
+            <element signature="e#9384#9411#0" expanded="true" />
+            <element signature="e#9576#9577#0" expanded="true" />
+            <element signature="e#9621#9855#0" expanded="true" />
+            <element signature="e#9731#9758#0" expanded="true" />
+            <element signature="e#9854#9855#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2620,17 +2620,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/BeerMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5860869">
-          <caret line="123" column="53" selection-start-line="123" selection-start-column="53" selection-end-line="123" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.3495652">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9315#9646#0" expanded="true" />
-            <element signature="e#9395#9422#0" expanded="true" />
-            <element signature="e#9453#9480#0" expanded="true" />
-            <element signature="e#9645#9646#0" expanded="true" />
-            <element signature="e#9690#9924#0" expanded="true" />
-            <element signature="e#9800#9827#0" expanded="true" />
-            <element signature="e#9923#9924#0" expanded="true" />
+            <element signature="e#9246#9577#0" expanded="true" />
+            <element signature="e#9326#9353#0" expanded="true" />
+            <element signature="e#9384#9411#0" expanded="true" />
+            <element signature="e#9576#9577#0" expanded="true" />
+            <element signature="e#9621#9855#0" expanded="true" />
+            <element signature="e#9731#9758#0" expanded="true" />
+            <element signature="e#9854#9855#0" expanded="true" />
           </folding>
         </state>
       </provider>

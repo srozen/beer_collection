@@ -19,13 +19,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Divers.GPSTracker;
 import socialbeerproject.appas.Elements.Bar;
 import socialbeerproject.appas.Elements.BarShop;
-import socialbeerproject.appas.Elements.ElementListeBiere;
 import socialbeerproject.appas.Elements.Shop;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
@@ -34,9 +31,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     GPSTracker tracker;
     MapFragment mapFragment;
-
     GoogleMap map;
-
 
     JSONArray AllBarsShops;
     JSONArray AllShops;
@@ -136,7 +131,8 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
 
     @Override
-    public void onMapReady(GoogleMap map) {
+    public void onMapReady(GoogleMap imap) {
+        map = imap;
         this.setUserPos(map);
 
         this.demandeServeur("AllBS");
