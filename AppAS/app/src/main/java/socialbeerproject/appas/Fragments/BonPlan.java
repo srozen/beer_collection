@@ -55,9 +55,9 @@ public class BonPlan extends ListFragment {
 
         if(rep != null){
             int nbPlan=0;
-            nbPlan = rep.getJSONArray("bonplan").length();
+            nbPlan = rep.getJSONArray("deals").length();
             for (int i=0;i<nbPlan;i++){
-                ElementPlan elementPlan = creationElement(rep.getJSONArray("bonplan").getJSONObject(i));
+                ElementPlan elementPlan = creationElement(rep.getJSONArray("deals").getJSONObject(i));
                 element.add(elementPlan);
             }
         } else {
@@ -81,15 +81,14 @@ public class BonPlan extends ListFragment {
 
         try {
             title = bonplan.getString("name");
-            nomBiere = bonplan.getString("name_beer");
+            //nomBiere = bonplan.getString("name_beer");
             description = bonplan.getString("description");
-            categorie = bonplan.getString("categorie");
-            prix = bonplan.getString("prix");
-            dateDebut = bonplan.getString("datedebut");
-            dateFin = bonplan.getString("datefin");
+            //categorie = bonplan.getString("categorie");
+            //prix = bonplan.getString("prix");
+            dateDebut = bonplan.getString("start_date").substring(0,10);
+            dateFin = bonplan.getString("end_date").substring(0,10);
             reference = bonplan.getString("reference");
             id = bonplan.getString("id");
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

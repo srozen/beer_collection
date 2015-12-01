@@ -258,17 +258,6 @@ public class ServeurCom {
         new ImageHTTP(imgEtiq).execute(urlEtiq);
     }
 
-    private void envoieServeur(List<NameValuePair> params){
-        Chargement.getInstance().attach((Activity) chargementRel.getContext(), chargementRel);
-        Chargement.getInstance().start();
-
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
-        new DemandeHTTP(this).execute(params);
-    }
-
     public void ajoutAmi(String nomAmi, String userId ) {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("ajoutAmi", "ajoutAmi"));
@@ -303,5 +292,27 @@ public class ServeurCom {
         params.add(new BasicNameValuePair(type,type));
         this.envoieServeur(params);
 
+    }
+
+    public void envoieImage(String userId, String img){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+        params.add(new BasicNameValuePair("envoieIm", "envoieIm"));
+        params.add(new BasicNameValuePair("idUser", userId));
+        params.add(new BasicNameValuePair("img", img));
+
+
+        this.envoieServeur(params);
+    }
+
+    private void envoieServeur(List<NameValuePair> params){
+        Chargement.getInstance().attach((Activity) chargementRel.getContext(), chargementRel);
+        Chargement.getInstance().start();
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+        new DemandeHTTP(this).execute(params);
     }
 }

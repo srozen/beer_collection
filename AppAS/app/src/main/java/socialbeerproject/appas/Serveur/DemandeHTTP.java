@@ -49,6 +49,8 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     public static String cheminShop ="api_shops.json";
     public static String cheminBar = "api_bars.json";
 
+    public static String cheminEnvoieImage = "api_comp.json";
+
     private ServeurCom ser;
 
     public DemandeHTTP(ServeurCom ser){
@@ -182,6 +184,9 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
                 break;
             case "Shops":
                 newUrl += cheminShop;
+                break;
+            case "envoieIm":
+                newUrl += cheminEnvoieImage;
                 break;
             default:
                 return null;
