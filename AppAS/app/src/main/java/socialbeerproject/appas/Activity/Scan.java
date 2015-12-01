@@ -194,8 +194,8 @@ public class Scan extends ActivityCom implements View.OnClickListener {
 
         try {
             if(rep != null){
-                if(rep.getString("checkphoto") != null){
-                    prinToast("La bière " + rep.getString("checkphoto") + " a bien été ajouté à votre collection!");
+                if(rep.getString("checkPhoto") != null){
+                    prinToast("La bière " + rep.getString("checkPhoto") + " a bien été ajouté à votre collection!");
                 }else{
                     prinToast("Votre bière n'a pas été reconnue.");
                 }

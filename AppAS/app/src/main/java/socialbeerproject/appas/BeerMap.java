@@ -15,10 +15,15 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Divers.GPSTracker;
+import socialbeerproject.appas.Elements.Bar;
+import socialbeerproject.appas.Elements.BarShop;
+import socialbeerproject.appas.Elements.Shop;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
 
@@ -27,30 +32,14 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     GPSTracker tracker;
     MapFragment mapFragment;
 
-<<<<<<< HEAD
-
-    JSONObject AllBarsShops;
-    JSONObject AllShops;
-    JSONObject AllBars;
-=======
     JSONArray AllShops;
     JSONArray AllBars;
->>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
+
+    GoogleMap map;
 
 
     @Override
     public void communication(JSONObject rep) {
-<<<<<<< HEAD
-        if(rep != null && rep.has("AllBS")){
-            AllBarsShops = rep;
-            compteur++;
-        } else if(rep != null && rep.has("bars")){
-            AllBars = rep;
-            compteur++;
-        } else if(rep != null && rep.has("shops")){
-            AllShops = rep;
-            compteur++;
-=======
 
          if(rep != null && rep.has("bars")){
             try {
@@ -66,7 +55,6 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
             } catch (JSONException e) {
                 e.printStackTrace();
             }
->>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
         }
 
     }
@@ -95,24 +83,9 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
         ser.map(type);
     }
 
-<<<<<<< HEAD
-    private void drawMarkers() {
-        /* TODO :
-
-            Pour tout les shop
-                si shop
-                    setMarkerShopPos (GoogleMap map, String title, String information, String phone LatLng pos) {
-                sinon
-                    setMarkerBarPos(GoogleMap map, String title, String information, String phone, LatLng pos) {
-
-
-         */
-=======
-
     private void drawMarkers(String type) {
         int i;
         LatLng wLatLng;
-
 
         if (type == "bars") {
             for (i=0;i<AllBars.length();i++) {
@@ -135,13 +108,13 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
                 }
             }
         }
-
->>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
     }
 
     @Override
     public void onMapReady(GoogleMap map) {
         this.setUserPos(map);
+
+        this.map =map;
 
         this.demandeServeur("Bars");
         this.demandeServeur("Shops");
@@ -188,8 +161,6 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
-<<<<<<< HEAD
-=======
     private BarShop creationBarShop(JSONObject bs) {
         BarShop work;
 
@@ -276,9 +247,6 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
         return work;
     }
-
->>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
-
 
     /* http://stackoverflow.com/questions/843675/how-do-i-find-out-if-the-gps-of-an-android-device-is-enabled */
     private void buildAlertMessageNoGps() {
