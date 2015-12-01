@@ -199,13 +199,6 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
-    public void amitie(){
-        List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("amitie", "amitie"));
-
-        this.envoieServeur(params);
-    }
-
     public void collection(String userId){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("collection", "collection"));
@@ -301,6 +294,13 @@ public class ServeurCom {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("listeAmi", "listeAmi"));
         params.add(new BasicNameValuePair("userId", userId));
+        this.envoieServeur(params);
+
+    }
+
+    public void map(String type) {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair(type,type));
         this.envoieServeur(params);
 
     }

@@ -5,7 +5,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import com.google.android.gms.maps.model.*;
 
 import android.app.AlertDialog;
@@ -14,21 +13,52 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.widget.RelativeLayout;
 
+import org.json.JSONObject;
+
+import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Divers.GPSTracker;
+import socialbeerproject.appas.Serveur.ServeurCom;
 
 
-public class BeerMap extends FragmentActivity implements OnMapReadyCallback{
+public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     GPSTracker tracker;
-    
+    MapFragment mapFragment;
+
+
+    JSONObject AllBarsShops;
+    JSONObject AllShops;
+    JSONObject AllBars;
+
+    int compteur = 0;
+
+    @Override
+    public void communication(JSONObject rep) {
+        if(rep != null && rep.has("AllBS")){
+            AllBarsShops = rep;
+            compteur++;
+        } else if(rep != null && rep.has("bars")){
+            AllBars = rep;
+            compteur++;
+        } else if(rep != null && rep.has("shops")){
+            AllShops = rep;
+            compteur++;
+        }
+
+        if (compteur == 3) {
+            drawMarkers();
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_map);
 
-        MapFragment mapFragment = (MapFragment) getFragmentManager()
+        mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -42,24 +72,31 @@ public class BeerMap extends FragmentActivity implements OnMapReadyCallback{
 
     }
 
+    private void demandeServeur(String type){
+        ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_menu), this);
+        ser.map(type);
+    }
+
+    private void drawMarkers() {
+        /* TODO :
+
+            Pour tout les shop
+                si shop
+                    setMarkerShopPos (GoogleMap map, String title, String information, String phone LatLng pos) {
+                sinon
+                    setMarkerBarPos(GoogleMap map, String title, String information, String phone, LatLng pos) {
+
+
+         */
+    }
+
     @Override
     public void onMapReady(GoogleMap map) {
         this.setUserPos(map);
 
-
-
-        //        CHECKER EN BASE DE DONNEES TOUT LES SHOP
-
-
-        /*
-            pour tout les bar/shop
-                si shop
-                    setMarkerShopPos (GoogleMap map, String title, String information, LatLng pos) {
-                sinon
-                    setMarkerBarPos(GoogleMap map, String title, String information, LatLng pos) {
-
-         */
-
+        this.demandeServeur("AllBS");
+        this.demandeServeur("Bars");
+        this.demandeServeur("Shops");
 
         // Premier marker - Bar
         LatLng work = new LatLng(49.612764, 5.655492);
