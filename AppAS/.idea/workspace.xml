@@ -36,31 +36,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <file leaf-file-name="BeerMap.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/BeerMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4077922">
+              <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServeurCom.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/ServeurCom.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
+              <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
+              <folding>
+                <element signature="e#3785#3800#0" expanded="true" />
+                <element signature="e#6364#6379#0" expanded="true" />
+                <element signature="e#9150#9165#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityCom.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/ActivityCom.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeerMap.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/BeerMap.java">
+      <file leaf-file-name="Principal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/Principal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3495652">
-              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#9246#9577#0" expanded="true" />
-                <element signature="e#9326#9353#0" expanded="true" />
-                <element signature="e#9384#9411#0" expanded="true" />
-                <element signature="e#9576#9577#0" expanded="true" />
-                <element signature="e#9621#9855#0" expanded="true" />
-                <element signature="e#9731#9758#0" expanded="true" />
-                <element signature="e#9854#9855#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DemandeHTTP.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/DemandeHTTP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="53" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Bar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,79 +106,15 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Shop.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="10" selection-end-column="29" />
+              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
               <folding>
-                <element signature="e#534#535#0" expanded="true" />
-                <element signature="e#559#560#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-                <element signature="e#623#624#0" expanded="true" />
-                <element signature="e#654#655#0" expanded="true" />
-                <element signature="e#681#682#0" expanded="true" />
-                <element signature="e#721#722#0" expanded="true" />
-                <element signature="e#753#754#0" expanded="true" />
-                <element signature="e#791#792#0" expanded="true" />
-                <element signature="e#825#826#0" expanded="true" />
-                <element signature="e#879#880#0" expanded="true" />
-                <element signature="e#925#926#0" expanded="true" />
-                <element signature="e#961#962#0" expanded="true" />
-                <element signature="e#992#993#0" expanded="true" />
-                <element signature="e#1042#1043#0" expanded="true" />
-                <element signature="e#1083#1084#0" expanded="true" />
-                <element signature="e#1119#1120#0" expanded="true" />
-                <element signature="e#1151#1152#0" expanded="true" />
-                <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#1243#1244#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BarShop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/BarShop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
-              <folding>
-                <element signature="e#1185#1186#0" expanded="true" />
-                <element signature="e#1210#1211#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1274#1275#0" expanded="true" />
-                <element signature="e#1310#1311#0" expanded="true" />
-                <element signature="e#1342#1343#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
-                <element signature="e#1434#1435#0" expanded="true" />
-                <element signature="e#1468#1469#0" expanded="true" />
-                <element signature="e#1498#1499#0" expanded="true" />
-                <element signature="e#1544#1545#0" expanded="true" />
-                <element signature="e#1582#1583#0" expanded="true" />
-                <element signature="e#1615#1616#0" expanded="true" />
-                <element signature="e#1644#1645#0" expanded="true" />
-                <element signature="e#1688#1689#0" expanded="true" />
-                <element signature="e#1724#1725#0" expanded="true" />
-                <element signature="e#1757#1758#0" expanded="true" />
-                <element signature="e#1786#1787#0" expanded="true" />
-                <element signature="e#1830#1831#0" expanded="true" />
-                <element signature="e#1866#1867#0" expanded="true" />
-                <element signature="e#1900#1901#0" expanded="true" />
-                <element signature="e#1930#1931#0" expanded="true" />
-                <element signature="e#1976#1977#0" expanded="true" />
-                <element signature="e#2014#2015#0" expanded="true" />
-                <element signature="e#2045#2046#0" expanded="true" />
-                <element signature="e#2072#2073#0" expanded="true" />
-                <element signature="e#2112#2113#0" expanded="true" />
-                <element signature="e#2144#2145#0" expanded="true" />
-                <element signature="e#2178#2179#0" expanded="true" />
-                <element signature="e#2208#2209#0" expanded="true" />
-                <element signature="e#2254#2255#0" expanded="true" />
-                <element signature="e#2292#2293#0" expanded="true" />
-                <element signature="e#2329#2330#0" expanded="true" />
-                <element signature="e#2362#2363#0" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
-                <element signature="e#2456#2457#0" expanded="true" />
-                <element signature="e#2491#2492#0" expanded="true" />
-                <element signature="e#2522#2523#0" expanded="true" />
-                <element signature="e#2570#2571#0" expanded="true" />
-                <element signature="e#2610#2611#0" expanded="true" />
+                <element signature="e#338#339#0" expanded="true" />
+                <element signature="e#386#387#0" expanded="true" />
+                <element signature="e#426#427#0" expanded="true" />
+                <element signature="e#461#462#0" expanded="true" />
+                <element signature="e#491#492#0" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
+                <element signature="e#576#577#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1867,15 +1840,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Divers/GPStracker.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Fragments/MenuP.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Divers/GPSTracker.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/ServeurCom.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/DemandeHTTP.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Bars.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/BarShop.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/Login.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Bar.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Shop.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/BarShop.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/DemandeHTTP.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/Principal.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_beer_map.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/BeerMap.java" />
       </list>
     </option>
@@ -1929,6 +1905,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppAS" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2294,14 +2292,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2310,7 +2308,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.54060066" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2356,13 +2354,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9246#9577#0" expanded="true" />
-            <element signature="e#9326#9353#0" expanded="true" />
-            <element signature="e#9384#9411#0" expanded="true" />
-            <element signature="e#9576#9577#0" expanded="true" />
-            <element signature="e#9621#9855#0" expanded="true" />
-            <element signature="e#9731#9758#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2417,17 +2408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18681319">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44347826">
@@ -2451,30 +2431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/DemandeHTTP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="183" column="36" selection-start-line="183" selection-start-column="36" selection-end-line="183" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/ActivityCom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7095652">
-          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Fragments/ListeAmitie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2491,35 +2447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Bar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="e#536#537#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#827#828#0" expanded="true" />
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-            <element signature="e#995#996#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1123#1124#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Fragments/ListeBiere.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2528,10 +2455,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/Profil_biere.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45787546">
+          <caret line="194" column="32" selection-start-line="194" selection-start-column="32" selection-end-line="194" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5269565">
+          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/BarShop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="30" />
+          <folding>
+            <element signature="e#2413#2414#0" expanded="true" />
+            <element signature="e#2456#2457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Bar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Shop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#576#577#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/ActivityCom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/DemandeHTTP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="53" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Activity/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Serveur/ServeurCom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="298" column="5" selection-start-line="298" selection-start-column="5" selection-end-line="298" selection-end-column="5" />
+          <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
           <folding>
             <element signature="e#3785#3800#0" expanded="true" />
             <element signature="e#6364#6379#0" expanded="true" />
@@ -2540,97 +2550,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/BarShop.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beer_map.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
-          <folding>
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1274#1275#0" expanded="true" />
-            <element signature="e#1310#1311#0" expanded="true" />
-            <element signature="e#1342#1343#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-            <element signature="e#1434#1435#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-            <element signature="e#1498#1499#0" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1582#1583#0" expanded="true" />
-            <element signature="e#1615#1616#0" expanded="true" />
-            <element signature="e#1644#1645#0" expanded="true" />
-            <element signature="e#1688#1689#0" expanded="true" />
-            <element signature="e#1724#1725#0" expanded="true" />
-            <element signature="e#1757#1758#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1866#1867#0" expanded="true" />
-            <element signature="e#1900#1901#0" expanded="true" />
-            <element signature="e#1930#1931#0" expanded="true" />
-            <element signature="e#1976#1977#0" expanded="true" />
-            <element signature="e#2014#2015#0" expanded="true" />
-            <element signature="e#2045#2046#0" expanded="true" />
-            <element signature="e#2072#2073#0" expanded="true" />
-            <element signature="e#2112#2113#0" expanded="true" />
-            <element signature="e#2144#2145#0" expanded="true" />
-            <element signature="e#2178#2179#0" expanded="true" />
-            <element signature="e#2208#2209#0" expanded="true" />
-            <element signature="e#2254#2255#0" expanded="true" />
-            <element signature="e#2292#2293#0" expanded="true" />
-            <element signature="e#2329#2330#0" expanded="true" />
-            <element signature="e#2362#2363#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2456#2457#0" expanded="true" />
-            <element signature="e#2491#2492#0" expanded="true" />
-            <element signature="e#2522#2523#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2610#2611#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/Elements/Shop.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_liste_biere.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#825#826#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#961#962#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1119#1120#0" expanded="true" />
-            <element signature="e#1151#1152#0" expanded="true" />
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.5862069">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1724138">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/socialbeerproject/appas/BeerMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3495652">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.4077922">
+          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9246#9577#0" expanded="true" />
-            <element signature="e#9326#9353#0" expanded="true" />
-            <element signature="e#9384#9411#0" expanded="true" />
-            <element signature="e#9576#9577#0" expanded="true" />
-            <element signature="e#9621#9855#0" expanded="true" />
-            <element signature="e#9731#9758#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
           </folding>
         </state>
       </provider>

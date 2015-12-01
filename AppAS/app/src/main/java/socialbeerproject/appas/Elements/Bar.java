@@ -9,13 +9,15 @@ public class Bar {
     private String description;
     private Double lattitude;
     private Double longitude;
+    public  BarShop contact;
 
-    public Bar(String id, String name, String description, Double lattitude, Double longitude) {
+    public Bar(String id, String name, String description, Double lattitude, Double longitude, BarShop bs) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.lattitude = lattitude;
         this.longitude = longitude;
+        this.contact = bs;
     }
 
     public String getId() {

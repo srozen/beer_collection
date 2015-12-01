@@ -33,40 +33,27 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     MapFragment mapFragment;
     GoogleMap map;
 
-    JSONArray AllBarsShops;
     JSONArray AllShops;
     JSONArray AllBars;
 
-    int compteur = 0;
 
     @Override
     public void communication(JSONObject rep) {
-        if(rep != null && rep.has("AllBS")){
-            try {
-                AllBarsShops = rep.getJSONArray("ee");
-                compteur++;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
 
-        } else if(rep != null && rep.has("bars")){
+         if(rep != null && rep.has("bars")){
             try {
-                AllBars = rep.getJSONArray("ee");
-                compteur++;
+                AllBars = rep.getJSONArray("bars");
+                drawMarkers("bars");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         } else if(rep != null && rep.has("shops")) {
             try {
-                AllShops = rep.getJSONArray("ee");
-                compteur++;
+                AllShops = rep.getJSONArray("shops");
+                drawMarkers("shops");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
-
-        if (compteur == 3) {
-            drawMarkers();
         }
 
     }
@@ -91,41 +78,38 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     }
 
     private void demandeServeur(String type){
-        ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_menu), this);
+        ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_map), this);
         ser.map(type);
     }
 
 
-    private void drawMarkers() {
+    private void drawMarkers(String type) {
         int i;
-        BarShop workBarShop = null;
         LatLng wLatLng;
 
-        for (i = 0;i<AllBarsShops.length();i++); {
 
-            try {
-                workBarShop = this.creationBarShop(AllBarsShops.getJSONObject(i));
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (type == "bars") {
+            for (i=0;i<AllBars.length();i++) {
+                try {
+                    Bar workBar = this.creationBar(AllBars.getJSONObject(i));
+                    wLatLng = new LatLng(workBar.getLattitude(),workBar.getLongitude());
+                    this.setMarkerBarPos(map, workBar.getName(), workBar.contact.toString(), wLatLng);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-
-            if (workBarShop.getBeer_place() == "Shop") {
-
-                Shop workShop = this.findShopInJsonArray( workBarShop.getId());
-                wLatLng = new LatLng(workShop.getLattitude(),workShop.getLongitude());
-                this.setMarkerShopPos(map, workShop.getName(), workBarShop.toString(), wLatLng);
-
-
-            } else if (workBarShop.getBeer_place() == "Bar") {
-
-                Bar workBar = this.findBarInJsonArray(workBarShop.getId());
-                wLatLng = new LatLng(workBar.getLattitude(),workBar.getLongitude());
-                this.setMarkerShopPos(map,workBar.getName(),workBarShop.toString(), wLatLng);
-
-            } else {
-                System.out.println("erreur niveau bar shop");
+        } else {
+            for (i=0;i<AllShops.length();i++) {
+                try {
+                    Shop workShop = this.creationShop(AllShops.getJSONObject(i));
+                    wLatLng = new LatLng(workShop.getLattitude(),workShop.getLongitude());
+                    this.setMarkerShopPos(map, workShop.getName(), workShop.contact.toString(), wLatLng);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
+
     }
 
 
@@ -135,11 +119,10 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
         map = imap;
         this.setUserPos(map);
 
-        this.demandeServeur("AllBS");
         this.demandeServeur("Bars");
         this.demandeServeur("Shops");
 
-        // Premier marker - Bar
+        /* Premier marker - Bar
         LatLng work = new LatLng(49.612764, 5.655492);
         this.setMarkerBarPos(map,"Le Gaumais", "Rue du Château 32/B, 6747 Saint-Léger", work);
 
@@ -149,7 +132,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
         // Troisième marker - Shop
         work = new LatLng(49.610636, 5.653723);
-        this.setMarkerShopPos(map, "Spar", "Rue du Cinq Septembre 44, 6747 Saint-Léger", work);
+        this.setMarkerShopPos(map, "Spar", "Rue du Cinq Septembre 44, 6747 Saint-Léger", work);*/
 
     }
 
@@ -179,40 +162,6 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_beer))
                 .snippet(information));
 
-    }
-
-    private Shop findShopInJsonArray( String id){
-        int i = 0;
-        int key = -1;
-        Shop work = null;
-
-        try {
-            while (i < AllShops.length()) {
-                work = this.creationShop(AllShops.getJSONObject(i));
-                if (work.getId() == id) return work;
-                i++;
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return work;
-    }
-
-    private Bar findBarInJsonArray( String id){
-        int i = 0;
-        int key = -1;
-        Bar work = null;
-
-        try {
-            while (i < AllBars.length()) {
-                work = this.creationBar(AllBars.getJSONObject(i));
-                if (work.getId() == id) return work;
-                i++;
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return work;
     }
 
     private BarShop creationBarShop(JSONObject bs) {
@@ -250,53 +199,56 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     }
 
     private Shop creationShop(JSONObject shop) {
-        Shop work;
+        Shop work=null;
 
         String id="";
         String name="";
-        String description="";
+        String description=" ";
         double latitude=0;
         double longitude=0;
+        BarShop contact;
 
         try {
             id = shop.getString("id");
             name = shop.getString("name");
-            description = shop.getString("description");
+          //  description = shop.getString("description");
             latitude = shop.getDouble("latitude");
             longitude = shop.getDouble("longitude");
+            contact = this.creationBarShop(shop.getJSONObject("contact"));
+            work = new Shop(id,name,description,latitude,longitude,contact);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        work = new Shop(id,name,description,latitude,longitude);
+
 
         return work;
 
     }
 
     private Bar creationBar(JSONObject bar) {
-        Bar work;
+        Bar work = null;
 
         String id="";
         String name="";
-        String description="";
+        String description=" ";
         double latitude=0;
         double longitude=0;
+        BarShop contact;
 
         try {
             id = bar.getString("id");
             name = bar.getString("name");
-            description = bar.getString("description");
+            //description = bar.getString("description");
             latitude = bar.getDouble("latitude");
             longitude = bar.getDouble("longitude");
+            contact = this.creationBarShop(bar.getJSONObject("contact"));
+            work = new Bar(id,name,description,latitude,longitude,contact);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        work = new Bar(id,name,description,latitude,longitude);
-
         return work;
-
     }
 
 
