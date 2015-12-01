@@ -4,6 +4,8 @@ package socialbeerproject.appas.Activity;
  * Created by Pierret on 05-11-15.
  */
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import socialbeerproject.appas.Divers.MD5Util;
+import socialbeerproject.appas.Fragments.ListeBiere;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ImageHTTP;
 import socialbeerproject.appas.Serveur.ServeurCom;
@@ -29,6 +32,7 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
     private TextView title;
     private TextView saCollection;
     private String idAmi;
+    private ListeBiere collection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,8 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         Button delete1 = (Button) findViewById(R.id.button_Chg_Pass);
         Button delete3 = (Button) findViewById(R.id.button_Friend_Add);
 
-        delete1.setVisibility(View.INVISIBLE);
-        delete3.setVisibility(View.INVISIBLE);
+        delete1.setVisibility(View.GONE);
+        delete3.setVisibility(View.GONE);
 
         lookCollection = (Button) findViewById(R.id.button_Chg_Avatar);
         lookCollection.setText("Voir sa collection");
@@ -71,9 +75,9 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
 
     private void demandeProfil(){
         Bundle args = getIntent().getExtras();
-        if (args.getString("id","N/A") != "N/A"){
+        if (idAmi !=null){
             ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_titre_profil), this);
-            ser.profil(args.getString("id","N/A"));
+            ser.profil(idAmi);
         }
     }
 
@@ -84,6 +88,7 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         switch (v.getId())  {
             case R.id.button_Chg_Avatar :
                 this.openFriendCollection();
+                break;
             case R.id.button_retour_profil:
                 finish();
                 break;
@@ -93,6 +98,7 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
                 //Avec en paramètre l'id de la vue de l'activité mère et un fragment.
                 intent.putExtra("id", this.idAmi);
                 startActivity(intent);
+                break;
         }
     }
 
@@ -128,10 +134,29 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
     public void communication(JSONObject rep) {
         if(rep != null && rep.has("login")){
             this.modifProfilAmi(rep);
+        } else if (rep.has("beers")){
+            try {
+                RelativeLayout relListe = (RelativeLayout) findViewById(R.id.rel_coll_ami);
+                relListe.setVisibility(View.VISIBLE);
+                collection.creationListe(rep);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public void openFriendCollection() {
+        collection = new ListeBiere();
+        Bundle args = new Bundle();
+        args.putString("type", "ami");
+        args.putString("idAmi", idAmi);
+        collection.setArguments(args);
 
+        if(getFragmentManager().findFragmentById(R.id.rel_coll_ami) == null) {
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.add(R.id.rel_coll_ami, collection);
+            ft.commit();
+        }
     }
 }
