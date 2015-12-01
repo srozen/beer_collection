@@ -27,15 +27,20 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     GPSTracker tracker;
     MapFragment mapFragment;
 
+<<<<<<< HEAD
 
     JSONObject AllBarsShops;
     JSONObject AllShops;
     JSONObject AllBars;
+=======
+    JSONArray AllShops;
+    JSONArray AllBars;
+>>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
 
-    int compteur = 0;
 
     @Override
     public void communication(JSONObject rep) {
+<<<<<<< HEAD
         if(rep != null && rep.has("AllBS")){
             AllBarsShops = rep;
             compteur++;
@@ -45,10 +50,23 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
         } else if(rep != null && rep.has("shops")){
             AllShops = rep;
             compteur++;
-        }
+=======
 
-        if (compteur == 3) {
-            drawMarkers();
+         if(rep != null && rep.has("bars")){
+            try {
+                AllBars = rep.getJSONArray("bars");
+                drawMarkers("bars");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else if(rep != null && rep.has("shops")) {
+            try {
+                AllShops = rep.getJSONArray("shops");
+                drawMarkers("shops");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+>>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
         }
 
     }
@@ -73,10 +91,11 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     }
 
     private void demandeServeur(String type){
-        ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_menu), this);
+        ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_map), this);
         ser.map(type);
     }
 
+<<<<<<< HEAD
     private void drawMarkers() {
         /* TODO :
 
@@ -88,17 +107,46 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
 
          */
+=======
+
+    private void drawMarkers(String type) {
+        int i;
+        LatLng wLatLng;
+
+
+        if (type == "bars") {
+            for (i=0;i<AllBars.length();i++) {
+                try {
+                    Bar workBar = this.creationBar(AllBars.getJSONObject(i));
+                    wLatLng = new LatLng(workBar.getLattitude(),workBar.getLongitude());
+                    this.setMarkerBarPos(map, workBar.getName(), workBar.contact.toString(), wLatLng);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            for (i=0;i<AllShops.length();i++) {
+                try {
+                    Shop workShop = this.creationShop(AllShops.getJSONObject(i));
+                    wLatLng = new LatLng(workShop.getLattitude(),workShop.getLongitude());
+                    this.setMarkerShopPos(map, workShop.getName(), workShop.contact.toString(), wLatLng);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+>>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
     }
 
     @Override
     public void onMapReady(GoogleMap map) {
         this.setUserPos(map);
 
-        this.demandeServeur("AllBS");
         this.demandeServeur("Bars");
         this.demandeServeur("Shops");
 
-        // Premier marker - Bar
+        /* Premier marker - Bar
         LatLng work = new LatLng(49.612764, 5.655492);
         this.setMarkerBarPos(map,"Le Gaumais", "Rue du Château 32/B, 6747 Saint-Léger", work);
 
@@ -108,7 +156,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
         // Troisième marker - Shop
         work = new LatLng(49.610636, 5.653723);
-        this.setMarkerShopPos(map, "Spar", "Rue du Cinq Septembre 44, 6747 Saint-Léger", work);
+        this.setMarkerShopPos(map, "Spar", "Rue du Cinq Septembre 44, 6747 Saint-Léger", work);*/
 
     }
 
@@ -140,6 +188,96 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+<<<<<<< HEAD
+=======
+    private BarShop creationBarShop(JSONObject bs) {
+        BarShop work;
+
+        String id="";
+        String telephone="";
+        String website="";
+        String street="";
+        String number="";
+        String zipcode="";
+        String city="";
+        String country="";
+        String place_id="";
+        String beer_type="";
+
+        try {
+            id = bs.getString("name");
+            telephone = bs.getString("telephone");
+            website = bs.getString("website");
+            street = bs.getString("street");
+            number = bs.getString("number");
+            city = bs.getString("city");
+            country = bs.getString("country");
+            place_id = bs.getString("place_id");
+            beer_type = bs.getString("beer_type");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        work = new BarShop(id,telephone,website,street,number,zipcode,city,country,place_id,beer_type);
+
+        return work;
+
+    }
+
+    private Shop creationShop(JSONObject shop) {
+        Shop work=null;
+
+        String id="";
+        String name="";
+        String description=" ";
+        double latitude=0;
+        double longitude=0;
+        BarShop contact;
+
+        try {
+            id = shop.getString("id");
+            name = shop.getString("name");
+          //  description = shop.getString("description");
+            latitude = shop.getDouble("latitude");
+            longitude = shop.getDouble("longitude");
+            contact = this.creationBarShop(shop.getJSONObject("contact"));
+            work = new Shop(id,name,description,latitude,longitude,contact);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return work;
+
+    }
+
+    private Bar creationBar(JSONObject bar) {
+        Bar work = null;
+
+        String id="";
+        String name="";
+        String description=" ";
+        double latitude=0;
+        double longitude=0;
+        BarShop contact;
+
+        try {
+            id = bar.getString("id");
+            name = bar.getString("name");
+            //description = bar.getString("description");
+            latitude = bar.getDouble("latitude");
+            longitude = bar.getDouble("longitude");
+            contact = this.creationBarShop(bar.getJSONObject("contact"));
+            work = new Bar(id,name,description,latitude,longitude,contact);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return work;
+    }
+
+>>>>>>> e2630f2fa19af194903f56e48bfb6585e13c61b4
 
 
     /* http://stackoverflow.com/questions/843675/how-do-i-find-out-if-the-gps-of-an-android-device-is-enabled */

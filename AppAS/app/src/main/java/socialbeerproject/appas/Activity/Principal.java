@@ -26,6 +26,7 @@ public class Principal extends ActivityCom {
     public BonPlan bonPlan;
     public ListeAmitie amitie;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import socialbeerproject.appas.Divers.GPSTracker;
 import socialbeerproject.appas.Fragments.MenuP;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
@@ -20,6 +21,8 @@ public class Login extends ActivityCom implements View.OnClickListener{
     private Button btnAInsc = null;
     private Button btnSeConnecter = null;
     private String username = null;
+
+    private GPSTracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
