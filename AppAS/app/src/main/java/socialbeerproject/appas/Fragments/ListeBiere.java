@@ -82,7 +82,7 @@ public class ListeBiere extends ListFragment {
 
     private void makeTitle(){
         Bundle args = getArguments();
-        if (args!=null && args.getString("type","N/A") != "N/A" ) {
+        if (args!=null && args.getString("type","N/A") != "N/A" && args.getString("type","N/A") != "ami") {
             TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
             ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
             imgButton.setVisibility(View.VISIBLE);
@@ -113,18 +113,23 @@ public class ListeBiere extends ListFragment {
 
     private void demandeServeur(){
         Bundle args = getArguments();
-        ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
+        ServeurCom ser;
         if (args!=null && args.getString("type","N/A") != "N/A" ) {
             ActivityCom activiteCom = (ActivityCom) getActivity();
             SharedPreferences log = activiteCom.getSharedPreferences("Login", Context.MODE_PRIVATE);
             switch (args.getString("type","N/A")) {
                 case "catalogue":
+                    ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
                     ser.catalogue(log.getString("idUser", "n/a"));
                     break;
                 case "collection":
+                    ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
                     ser.collection(log.getString("idUser", "n/a"));
                     break;
-
+                case "ami":
+                    ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_coll_ami),(ActivityCom) getActivity());
+                    ser.collection(args.getString("idAmi"));
+                    break;
             }
         }
     }

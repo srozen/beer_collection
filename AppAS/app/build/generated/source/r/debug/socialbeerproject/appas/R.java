@@ -2095,9 +2095,15 @@ containing a value of this type.
         public static final int progress_bar=0x7f02008a;
     }
     public static final class id {
+<<<<<<< HEAD
         public static final int Descr=0x7f0f00c6;
         public static final int Text=0x7f0f00bb;
         public static final int Titre=0x7f0f00c5;
+=======
+        public static final int Descr=0x7f0f00c7;
+        public static final int Text=0x7f0f00bc;
+        public static final int Titre=0x7f0f00c6;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int action0=0x7f0f00e5;
         public static final int action_bar=0x7f0f005c;
         public static final int action_bar_activity_content=0x7f0f0000;
@@ -2119,21 +2125,26 @@ containing a value of this type.
         public static final int adjust_width=0x7f0f001f;
         public static final int alertTitle=0x7f0f004c;
         public static final int always=0x7f0f0023;
+<<<<<<< HEAD
         public static final int amitie_img=0x7f0f00ba;
         public static final int amitie_nom=0x7f0f00bc;
+=======
+        public static final int amitie_img=0x7f0f00bb;
+        public static final int amitie_nom=0x7f0f00bd;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int art=0x7f0f00dc;
         public static final int bar_principal=0x7f0f00d2;
         public static final int beginning=0x7f0f001b;
         public static final int book_now=0x7f0f0032;
-        public static final int bp_categorie=0x7f0f00c9;
-        public static final int bp_dateB=0x7f0f00cd;
-        public static final int bp_dateF=0x7f0f00ce;
-        public static final int bp_desc=0x7f0f00cb;
-        public static final int bp_nom_biere=0x7f0f00c8;
-        public static final int bp_nom_shop=0x7f0f00ca;
-        public static final int bp_prix=0x7f0f00cc;
-        public static final int bp_ref=0x7f0f00cf;
-        public static final int bp_title=0x7f0f00c7;
+        public static final int bp_categorie=0x7f0f00ca;
+        public static final int bp_dateB=0x7f0f00ce;
+        public static final int bp_dateF=0x7f0f00cf;
+        public static final int bp_desc=0x7f0f00cc;
+        public static final int bp_nom_biere=0x7f0f00c9;
+        public static final int bp_nom_shop=0x7f0f00cb;
+        public static final int bp_prix=0x7f0f00cd;
+        public static final int bp_ref=0x7f0f00d0;
+        public static final int bp_title=0x7f0f00c8;
         public static final int btn_A_Inscription=0x7f0f007a;
         public static final int btn_A_SeConnecter=0x7f0f0075;
         public static final int btn_SeConnecter=0x7f0f0078;
@@ -2143,19 +2154,27 @@ containing a value of this type.
         public static final int button_Chg_Avatar=0x7f0f0087;
         public static final int button_Chg_Pass=0x7f0f0086;
         public static final int button_Friend_Add=0x7f0f0088;
-        public static final int button_ajouterColl_biere=0x7f0f00b0;
-        public static final int button_retour_biere=0x7f0f0093;
+        public static final int button_ajouterColl_biere=0x7f0f00b1;
+        public static final int button_retour_biere=0x7f0f0094;
         public static final int button_retour_profil=0x7f0f0081;
+<<<<<<< HEAD
         public static final int button_retour_scan=0x7f0f00b2;
+=======
+        public static final int button_retour_scan=0x7f0f00b3;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int buttons=0x7f0f00e2;
         public static final int buyButton=0x7f0f002f;
         public static final int buy_now=0x7f0f0033;
         public static final int buy_with=0x7f0f0034;
         public static final int buy_with_google=0x7f0f0035;
         public static final int cancel_action=0x7f0f00e6;
+<<<<<<< HEAD
         public static final int capture_btn=0x7f0f00b5;
+=======
+        public static final int capture_btn=0x7f0f00b6;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int cast_notification_id=0x7f0f0004;
-        public static final int champ_comment_biere=0x7f0f00af;
+        public static final int champ_comment_biere=0x7f0f00b0;
         public static final int champ_login=0x7f0f006f;
         public static final int champ_mail=0x7f0f0073;
         public static final int champ_mdp=0x7f0f0071;
@@ -2191,9 +2210,9 @@ containing a value of this type.
         public static final int ifRoom=0x7f0f0025;
         public static final int image=0x7f0f0044;
         public static final int imageChargement=0x7f0f0006;
-        public static final int imageView_Bouteille=0x7f0f0096;
-        public static final int imageView_Etiquette=0x7f0f0097;
-        public static final int image_LB=0x7f0f00bf;
+        public static final int imageView_Bouteille=0x7f0f0097;
+        public static final int imageView_Etiquette=0x7f0f0098;
+        public static final int image_LB=0x7f0f00c0;
         public static final int imgBtn_call_profil=0x7f0f008d;
         public static final int img_avatar_profil=0x7f0f008b;
         public static final int info=0x7f0f00f0;
@@ -2202,7 +2221,11 @@ containing a value of this type.
         public static final int item_profil=0x7f0f00f2;
         public static final int line1=0x7f0f00ea;
         public static final int line3=0x7f0f00ee;
+<<<<<<< HEAD
         public static final int linear_toast_layout=0x7f0f00b8;
+=======
+        public static final int linear_toast_layout=0x7f0f00b9;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int list=0x7f0f007e;
         public static final int listMode=0x7f0f000b;
         public static final int list_item=0x7f0f0046;
@@ -2223,41 +2246,56 @@ containing a value of this type.
         public static final int none=0x7f0f0010;
         public static final int normal=0x7f0f000c;
         public static final int parentPanel=0x7f0f0049;
+<<<<<<< HEAD
         public static final int picture=0x7f0f00b6;
+=======
+        public static final int picture=0x7f0f00b7;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int play_pause=0x7f0f00dd;
         public static final int production=0x7f0f002b;
-        public static final int prog_ratingGlo_biere=0x7f0f009a;
-        public static final int prog_ratingPer_biere=0x7f0f009c;
+        public static final int prog_ratingGlo_biere=0x7f0f009b;
+        public static final int prog_ratingPer_biere=0x7f0f009d;
         public static final int progress_circular=0x7f0f0007;
         public static final int progress_collection_profil=0x7f0f0090;
         public static final int progress_horizontal=0x7f0f0008;
-        public static final int progress_ratingGlo_LB=0x7f0f00c2;
-        public static final int progress_ratingPer_LB=0x7f0f00c3;
+        public static final int progress_ratingGlo_LB=0x7f0f00c3;
+        public static final int progress_ratingPer_LB=0x7f0f00c4;
         public static final int radio=0x7f0f0056;
-        public static final int ratingBarPer_biere=0x7f0f00ad;
-        public static final int rel_background_LB=0x7f0f00bd;
+        public static final int ratingBarPer_biere=0x7f0f00ae;
+        public static final int rel_background_LB=0x7f0f00be;
+        public static final int rel_coll_ami=0x7f0f0092;
         public static final int rel_collection_profil=0x7f0f008e;
         public static final int rel_corps_profil=0x7f0f0083;
-        public static final int rel_desc_LB=0x7f0f00c0;
-        public static final int rel_elem_collection=0x7f0f00be;
+        public static final int rel_desc_LB=0x7f0f00c1;
+        public static final int rel_elem_collection=0x7f0f00bf;
         public static final int rel_left_profil=0x7f0f0089;
+<<<<<<< HEAD
         public static final int rel_listeBiere=0x7f0f00d0;
         public static final int rel_map=0x7f0f00d1;
+=======
+        public static final int rel_listeBiere=0x7f0f00d1;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int rel_menu=0x7f0f00d5;
         public static final int rel_principal=0x7f0f007d;
-        public static final int rel_profilBiere=0x7f0f0092;
+        public static final int rel_profilBiere=0x7f0f0093;
         public static final int rel_right_profil=0x7f0f0085;
         public static final int rel_titre_profil=0x7f0f0080;
+<<<<<<< HEAD
         public static final int relative_desc_biere=0x7f0f009e;
         public static final int relative_notePer_biere=0x7f0f00ab;
         public static final int relative_notes_biere=0x7f0f0098;
+=======
+        public static final int relative_desc_biere=0x7f0f009f;
+        public static final int relative_notePer_biere=0x7f0f00ac;
+        public static final int relative_notes_biere=0x7f0f0099;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int route_name=0x7f0f00d8;
         public static final int sandbox=0x7f0f002c;
         public static final int satellite=0x7f0f0021;
-        public static final int scan_btn=0x7f0f00b7;
+        public static final int scan_btn=0x7f0f00b8;
         public static final int screen=0x7f0f0016;
         public static final int scrollView=0x7f0f004e;
-        public static final int scroll_images_biere=0x7f0f0095;
+        public static final int scroll_images_biere=0x7f0f0096;
         public static final int search_badge=0x7f0f0060;
         public static final int search_bar=0x7f0f005f;
         public static final int search_button=0x7f0f0061;
@@ -2293,39 +2331,43 @@ containing a value of this type.
         public static final int text=0x7f0f00ef;
         public static final int text2=0x7f0f00ed;
         public static final int textSpacerNoButtons=0x7f0f004f;
-        public static final int textView_ProfilBiere_Title=0x7f0f0094;
-        public static final int textView_alcoolDegree_biere=0x7f0f00a1;
-        public static final int textView_alcool_biere=0x7f0f00a0;
-        public static final int textView_brasserie_biere=0x7f0f009f;
-        public static final int textView_couleurTexte_biere=0x7f0f00a4;
-        public static final int textView_couleur_biere=0x7f0f00a5;
-        public static final int textView_dateBu_biere=0x7f0f00aa;
-        public static final int textView_descriptionTexte_biere=0x7f0f00a6;
-        public static final int textView_description_biere=0x7f0f00a7;
-        public static final int textView_histoireTexte_biere=0x7f0f00a8;
-        public static final int textView_histoire_biere=0x7f0f00a9;
+        public static final int textView_ProfilBiere_Title=0x7f0f0095;
+        public static final int textView_alcoolDegree_biere=0x7f0f00a2;
+        public static final int textView_alcool_biere=0x7f0f00a1;
+        public static final int textView_brasserie_biere=0x7f0f00a0;
+        public static final int textView_couleurTexte_biere=0x7f0f00a5;
+        public static final int textView_couleur_biere=0x7f0f00a6;
+        public static final int textView_dateBu_biere=0x7f0f00ab;
+        public static final int textView_descriptionTexte_biere=0x7f0f00a7;
+        public static final int textView_description_biere=0x7f0f00a8;
+        public static final int textView_histoireTexte_biere=0x7f0f00a9;
+        public static final int textView_histoire_biere=0x7f0f00aa;
         public static final int textView_mail_profil=0x7f0f008c;
-        public static final int textView_nom_LB=0x7f0f00c1;
-        public static final int textView_note_biere=0x7f0f0099;
-        public static final int textView_prog_ratingBarPer_biere=0x7f0f00ae;
-        public static final int textView_prog_ratingPer=0x7f0f009d;
-        public static final int textView_ratingBarPer_biere=0x7f0f00ac;
-        public static final int textView_ratingGlo_LB=0x7f0f009b;
-        public static final int textView_ratingPer_LB=0x7f0f00c4;
-        public static final int textView_scan1=0x7f0f00b4;
+        public static final int textView_nom_LB=0x7f0f00c2;
+        public static final int textView_note_biere=0x7f0f009a;
+        public static final int textView_prog_ratingBarPer_biere=0x7f0f00af;
+        public static final int textView_prog_ratingPer=0x7f0f009e;
+        public static final int textView_ratingBarPer_biere=0x7f0f00ad;
+        public static final int textView_ratingGlo_LB=0x7f0f009c;
+        public static final int textView_ratingPer_LB=0x7f0f00c5;
+        public static final int textView_scan1=0x7f0f00b5;
         public static final int textView_titreCollection_profil=0x7f0f008f;
         public static final int textView_titre_profil=0x7f0f0082;
-        public static final int textView_toast=0x7f0f00b9;
-        public static final int textView_typeTexte_biere=0x7f0f00a2;
-        public static final int textView_types_biere=0x7f0f00a3;
+        public static final int textView_toast=0x7f0f00ba;
+        public static final int textView_typeTexte_biere=0x7f0f00a3;
+        public static final int textView_types_biere=0x7f0f00a4;
         public static final int textView_username_profil=0x7f0f008a;
         public static final int textView_valeurCollection_profil=0x7f0f0091;
+<<<<<<< HEAD
         public static final int text_Scan=0x7f0f00b3;
+=======
+        public static final int text_Scan=0x7f0f00b4;
+>>>>>>> 47f9ac20790a068fcf7981249d8c3f413c1f168b
         public static final int text_wrapper=0x7f0f00de;
         public static final int texte_PasDeCompte=0x7f0f0079;
         public static final int texte_mail=0x7f0f0072;
         public static final int texte_motDePasse=0x7f0f0070;
-        public static final int texte_nbConsommateur=0x7f0f00b1;
+        public static final int texte_nbConsommateur=0x7f0f00b2;
         public static final int texte_utilisateur=0x7f0f006e;
         public static final int time=0x7f0f00eb;
         public static final int title=0x7f0f0048;

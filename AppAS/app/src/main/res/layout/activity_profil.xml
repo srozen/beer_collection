@@ -158,5 +158,13 @@
                 android:layout_alignRight="@id/progress_collection_profil"
                 android:layout_alignBottom="@id/progress_collection_profil"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:visibility="gone"
+            android:id="@+id/rel_coll_ami"
+            android:layout_below="@id/rel_collection_profil">
+
+        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>
