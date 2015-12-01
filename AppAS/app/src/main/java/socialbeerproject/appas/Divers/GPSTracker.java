@@ -13,6 +13,8 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
 
+/* https://www.youtube.com/watch?v=h7LUNCC0U1U */
+
 public class GPSTracker extends Service implements LocationListener{
 
     private final Context context;

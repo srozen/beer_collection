@@ -7,6 +7,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.gms.maps.model.*;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -16,8 +22,7 @@ import socialbeerproject.appas.Divers.GPSTracker;
 public class BeerMap extends FragmentActivity implements OnMapReadyCallback{
 
     GPSTracker tracker;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,12 @@ public class BeerMap extends FragmentActivity implements OnMapReadyCallback{
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+
+        if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+            buildAlertMessageNoGps();
+        }
+
         tracker = new GPSTracker(this);
 
     }
@@ -34,6 +45,21 @@ public class BeerMap extends FragmentActivity implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap map) {
         this.setUserPos(map);
+
+
+
+        //        CHECKER EN BASE DE DONNEES TOUT LES SHOP
+
+
+        /*
+            pour tout les bar/shop
+                si shop
+                    setMarkerShopPos (GoogleMap map, String title, String information, LatLng pos) {
+                sinon
+                    setMarkerBarPos(GoogleMap map, String title, String information, LatLng pos) {
+
+         */
+
 
         // Premier marker - Bar
         LatLng work = new LatLng(49.612764, 5.655492);
@@ -75,5 +101,26 @@ public class BeerMap extends FragmentActivity implements OnMapReadyCallback{
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_beer))
                 .snippet(information));
 
+    }
+
+
+
+    /* http://stackoverflow.com/questions/843675/how-do-i-find-out-if-the-gps-of-an-android-device-is-enabled */
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+        builder.setMessage("Votre géolocalisation n'est pas activée, voulez-vous l'activer ?")
+                .setCancelable(false)
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
     }
 }
