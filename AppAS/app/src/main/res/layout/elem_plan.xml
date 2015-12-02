@@ -6,8 +6,7 @@
    android:layout_gravity="center"
    android:gravity="center_vertical"
    android:padding="8dp">
-   
-   
+
     <TextView
          style="@style/Titre"
          android:id="@+id/bp_title"
@@ -15,9 +14,15 @@
          android:textStyle="bold"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-     />
+         android:layout_margin="5dp" />
 
-
+    <View
+        android:id="@+id/view_separation"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible" />
 
     <TextView
         style="@style/SimpleTexte"
@@ -29,44 +34,38 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/bp_title"
         android:layout_marginLeft="10dp"
-        />
+        android:visibility="gone"/>
 
     <TextView
         style="@style/SimpleTexte"
         android:id="@+id/bp_categorie"
         android:text="Categorie"
         android:textStyle="italic"
-        android:layout_marginTop="-25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bp_nom_biere"
-        android:layout_toRightOf= "@id/bp_nom_biere"
-        android:layout_marginLeft="160dp"
-        />
+        android:layout_below="@id/bp_title"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"/>
 
     <TextView
         style="@style/LittleSimpleTexte"
         android:id="@+id/bp_nom_shop"
         android:text="Ultimate Beer Shop"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/bp_categorie"
-        android:layout_marginLeft="240dp"
-        />
+        android:layout_toRightOf="@id/view_separation"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 
     <TextView
-        style=""
+        android:layout_margin="10dp"
         android:id="@+id/bp_desc"
         android:text="Voici une bère description d'un bon plan, je ne sais pas trop quoi dire à part qu'il va être remplacé..."
-        android:maxWidth="210dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bp_categorie"
-        android:layout_marginLeft="10dp"
-
-        />
+        android:layout_below="@id/bp_categorie" />
 
     <TextView
         style="@style/LittleSimpleTexte"
@@ -77,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/bp_desc"
         android:layout_marginLeft="10dp"
+        android:visibility="gone"
         />
 
 
@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bp_desc"
-        android:layout_marginLeft="210dp"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="10dp"
         />
 
@@ -101,21 +101,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bp_desc"
-        android:layout_marginLeft="290dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
         />
 
     <TextView
-
         android:id="@+id/bp_ref"
         android:text="REFERENCE : 6546548231"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bp_dateF"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true"/>
     
     
 </RelativeLayout >

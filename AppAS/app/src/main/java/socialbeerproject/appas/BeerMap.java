@@ -58,6 +58,8 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+
+
     @Override
     public void communication(JSONObject rep) {
 
@@ -98,7 +100,6 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     private void drawMarkers(String type) {
         int i;
         LatLng wLatLng;
-
 
         if (type == "bars") {
             for (i=0;i<AllBars.length();i++) {
@@ -141,10 +142,13 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
         }
     }
 
+
+
     @Override
-    public void onMapReady(GoogleMap imap) {
-        map = imap;
+    public void onMapReady(GoogleMap map) {
         this.setUserPos(map);
+
+        this.map =map;
 
         this.demandeServeur("Bars");
         this.demandeServeur("Shops");

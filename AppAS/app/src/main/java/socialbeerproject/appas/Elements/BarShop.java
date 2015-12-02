@@ -4,18 +4,19 @@ package socialbeerproject.appas.Elements;
  * Created by Pierret on 01-12-15.
  */
 public class BarShop {
-    public String id;
-    public String telephone;
-    public String website;
-    public String street;
-    public String number;
-    public String zipcode;
-    public String city;
-    public String country;
-    public String beer_place;
-    public String place_id;
 
-    public BarShop(String id, String telephone, String website, String street, String number, String zipcode, String city, String country,String place_id , String beer_place) {
+    private String id;
+    private String telephone;
+    private String website;
+    private String street;
+    private String number;
+    private String zipcode;
+    private String city;
+    private String country;
+    private String beer_type;
+    private String place_id;
+
+    public BarShop(String id, String telephone, String website, String street, String number, String zipcode, String city, String country, String beer_type, String place_id) {
         this.id = id;
         this.telephone = telephone;
         this.website = website;
@@ -24,7 +25,7 @@ public class BarShop {
         this.zipcode = zipcode;
         this.city = city;
         this.country = country;
-        this.beer_place = beer_place;
+        this.beer_type = beer_type;
         this.place_id = place_id;
     }
 
@@ -103,12 +104,12 @@ public class BarShop {
         this.country = country;
     }
 
-    public String getBeer_place() {
-        return beer_place;
+    public String getBeer_type() {
+        return beer_type;
     }
 
-    public void setBeer_place(String beer_type) {
-        this.beer_place = beer_type;
+    public void setBeer_type(String beer_type) {
+        this.beer_type = beer_type;
     }
 
     public String getPlace_id() {
