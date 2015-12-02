@@ -11,6 +11,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
@@ -23,6 +24,7 @@ import socialbeerproject.appas.Activity.ActivityCom;
 import socialbeerproject.appas.Divers.GPSTracker;
 import socialbeerproject.appas.Elements.Bar;
 import socialbeerproject.appas.Elements.BarShop;
+import socialbeerproject.appas.Elements.FriendMap;
 import socialbeerproject.appas.Elements.Shop;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
@@ -35,28 +37,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     JSONArray AllShops;
     JSONArray AllBars;
-
-
-    @Override
-    public void communication(JSONObject rep) {
-
-         if(rep != null && rep.has("bars")){
-            try {
-                AllBars = rep.getJSONArray("bars");
-                drawMarkers("bars");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } else if(rep != null && rep.has("shops")) {
-            try {
-                AllShops = rep.getJSONArray("shops");
-                drawMarkers("shops");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
+    JSONArray AllFriends;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +58,42 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
-    private void demandeServeur(String type){
-        ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_map), this);
-        ser.map(type);
+    @Override
+    public void communication(JSONObject rep) {
+
+         if(rep != null && rep.has("bars")){
+            try {
+                AllBars = rep.getJSONArray("bars");
+                drawMarkers("bars");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else if(rep != null && rep.has("shops")) {
+            try {
+                AllShops = rep.getJSONArray("shops");
+                drawMarkers("shops");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else if (rep!= null && rep.has("friends")) {
+             try {
+                 AllFriends = rep.getJSONArray("friends");
+                 drawMarkers("friends");
+             } catch (JSONException e) {
+                 e.printStackTrace();
+             }
+
+         }
+
     }
 
+    private void demandeServeur(String type){
+        ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_map), this);
+
+        SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
+
+        ser.map(type,tracker.getLatitude(),tracker.getLongitude(),log.getString("idUser", "0"));
+    }
 
     private void drawMarkers(String type) {
         int i;
@@ -93,26 +105,41 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
                 try {
                     Bar workBar = this.creationBar(AllBars.getJSONObject(i));
                     wLatLng = new LatLng(workBar.getLattitude(),workBar.getLongitude());
-                    this.setMarkerBarPos(map, workBar.getName(), workBar.contact.toString(), wLatLng);
+                    this.setMarkerBarPos(map, workBar.getName(), workBar.contact.getTelephone(), wLatLng);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-        } else {
+        } else if (type == "shops") {
             for (i=0;i<AllShops.length();i++) {
                 try {
                     Shop workShop = this.creationShop(AllShops.getJSONObject(i));
                     wLatLng = new LatLng(workShop.getLattitude(),workShop.getLongitude());
-                    this.setMarkerShopPos(map, workShop.getName(), workShop.contact.toString(), wLatLng);
+                    this.setMarkerShopPos(map, workShop.getName(), workShop.contact.getTelephone(), wLatLng);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
+        } else if (type == "friends") {
+            for (i = 0; i < AllFriends.length(); i++) {
+                try {
+                    FriendMap workFriend = this.creationFriends(AllFriends.getJSONObject(i));
+
+                    if (workFriend.isValid()) {
+                        wLatLng = new LatLng(workFriend.getLatitude(), workFriend.getLongitude());
+
+                        int minConvert = workFriend.getDernierCon() / 60;
+                        int secConvert = workFriend.getDernierCon() % 60;;
+
+                        this.setMarkerFriendsPos(map, workFriend.getLogin(), "Il y a " + Integer.toString(minConvert) + "m" + Integer.toString(secConvert), wLatLng);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                }
+            }
         }
-
     }
-
-
 
     @Override
     public void onMapReady(GoogleMap imap) {
@@ -121,27 +148,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
         this.demandeServeur("Bars");
         this.demandeServeur("Shops");
-
-        /* Premier marker - Bar
-        LatLng work = new LatLng(49.612764, 5.655492);
-        this.setMarkerBarPos(map,"Le Gaumais", "Rue du Château 32/B, 6747 Saint-Léger", work);
-
-        // Second marker - Bar
-        work = new LatLng(49.611124,5.655101);
-        this.setMarkerBarPos(map, "Le Caf'Conç", "Rue du Cinq Septembre 31, 6747 Saint-Léger", work);
-
-        // Troisième marker - Shop
-        work = new LatLng(49.610636, 5.653723);
-        this.setMarkerShopPos(map, "Spar", "Rue du Cinq Septembre 44, 6747 Saint-Léger", work);*/
-
-    }
-
-    public void setMarkerShopPos (GoogleMap map, String title, String information, LatLng pos) {
-        map.addMarker(new MarkerOptions()
-                .position(pos)
-                .title(title)
-                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_caddy))
-                .snippet(information));
+        this.demandeServeur("Friends");
 
     }
 
@@ -155,12 +162,58 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+    public void setMarkerShopPos (GoogleMap map, String title, String information, LatLng pos) {
+        map.addMarker(new MarkerOptions()
+                .position(pos)
+                .title(title)
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_caddy))
+                .snippet(information));
+
+    }
+
+    public void setMarkerFriendsPos (GoogleMap map, String title, String information, LatLng pos) {
+        map.addMarker(new MarkerOptions()
+                .position(pos)
+                .title(title)
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_profil))
+                .snippet(information));
+
+    }
+
     public void setMarkerBarPos(GoogleMap map, String title, String information, LatLng pos) {
         map.addMarker(new MarkerOptions()
                 .position(pos)
                 .title(title)
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_beer))
                 .snippet(information));
+
+    }
+
+    private FriendMap creationFriends(JSONObject bs) {
+        FriendMap work;
+
+        String id = null;
+        boolean valid = false;
+        String login = null;
+        Double latitude = null;
+        Double longitude= null;
+        int dernierCon = 0;
+
+        try {
+            id = bs.getString("user_id");
+            valid = bs.getBoolean("valid");
+            login = bs.getString("login");
+            latitude = bs.getDouble("latitude");
+            longitude = bs.getDouble("longitude");
+            dernierCon = bs.getInt("connected");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        work = new FriendMap (id, valid, login, latitude, longitude, dernierCon);
+
+        return work;
 
     }
 
@@ -179,15 +232,15 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
         String beer_type="";
 
         try {
-            id = bs.getString("name");
+            id = bs.getString("id");
             telephone = bs.getString("telephone");
             website = bs.getString("website");
             street = bs.getString("street");
             number = bs.getString("number");
             city = bs.getString("city");
             country = bs.getString("country");
-            place_id = bs.getString("place_id");
-            beer_type = bs.getString("beer_type");
+            //place_id = bs.getString("place_id");
+            //beer_type = bs.getString("beer_type");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -250,8 +303,6 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
         return work;
     }
-
-
 
     /* http://stackoverflow.com/questions/843675/how-do-i-find-out-if-the-gps-of-an-android-device-is-enabled */
     private void buildAlertMessageNoGps() {

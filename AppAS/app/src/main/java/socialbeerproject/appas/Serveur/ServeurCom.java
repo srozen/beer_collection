@@ -286,7 +286,6 @@ public class ServeurCom {
         params.add(new BasicNameValuePair("bonPlan", "bonPlan"));
         this.envoieServeur(params);
 
-        // TODO : A IMPLEMENTER COTE SERVEUR
 
     }
 
@@ -298,9 +297,12 @@ public class ServeurCom {
 
     }
 
-    public void map(String type) {
+    public void map(String type, Double latitude, Double longitude, String userId) {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair(type,type));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("latitude",latitude.toString()));
+        params.add(new BasicNameValuePair("longitude",longitude.toString()));
         this.envoieServeur(params);
 
     }

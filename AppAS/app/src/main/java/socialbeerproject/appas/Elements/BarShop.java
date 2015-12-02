@@ -4,16 +4,16 @@ package socialbeerproject.appas.Elements;
  * Created by Pierret on 01-12-15.
  */
 public class BarShop {
-    private String id;
-    private String telephone;
-    private String website;
-    private String street;
-    private String number;
-    private String zipcode;
-    private String city;
-    private String country;
-    private String beer_place;
-    private String place_id;
+    public String id;
+    public String telephone;
+    public String website;
+    public String street;
+    public String number;
+    public String zipcode;
+    public String city;
+    public String country;
+    public String beer_place;
+    public String place_id;
 
     public BarShop(String id, String telephone, String website, String street, String number, String zipcode, String city, String country,String place_id , String beer_place) {
         this.id = id;
@@ -30,8 +30,8 @@ public class BarShop {
 
     @Override
     public String toString() {
-        return  telephone + '\'' +
-                website + '\'' +
+        return  telephone + '\n' +
+                website + '\n' +
                 number + ", " + street + '\n' +
                 zipcode + "  " + city + '\n' +
                 country;

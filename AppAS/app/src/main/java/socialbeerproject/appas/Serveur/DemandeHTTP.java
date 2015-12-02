@@ -45,8 +45,10 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     public static String cheminListeAmi ="api_friendlist.json";
     public static String cheminBonPLan ="api_deals.json";
 
+
     public static String cheminShop ="api_shops.json";
     public static String cheminBar = "api_bars.json";
+    public static String cheminFriend = "api_friends_map.json";
 
     private ServeurCom ser;
 
@@ -178,6 +180,9 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
                 break;
             case "Shops":
                 newUrl += cheminShop;
+                break;
+            case "Friends" :
+                newUrl += cheminFriend;
                 break;
             default:
                 return null;
