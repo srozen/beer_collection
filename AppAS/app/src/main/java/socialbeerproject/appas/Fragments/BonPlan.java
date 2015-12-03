@@ -19,6 +19,11 @@ import socialbeerproject.appas.Adaptateurs.AdaptateurPlan;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
+/**
+ * Classe BonPlan, cette classe permet de lister tous les bons plans
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
+
 public class BonPlan extends ListFragment {
 
     private int position = 0;
@@ -43,12 +48,21 @@ public class BonPlan extends ListFragment {
         outState.putInt("Choix", position);
     }
 
+    /**
+     * demandeServeur : demande au serveur les bons plans
+     */
 
     private void demandeServeur() {
         ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu), (ActivityCom) getActivity());
 
         ser.getBonPlan();
     }
+
+    /**
+     * creationListe : créé la liste de bon plan à partir du JSON
+     * @param rep : réponse du serveur
+     * @throws JSONException
+     */
 
     public void creationListe(JSONObject rep) throws JSONException {
         element = new ArrayList<ElementPlan>();
@@ -67,6 +81,12 @@ public class BonPlan extends ListFragment {
         adapter = new AdaptateurPlan(getActivity(), element);
         setListAdapter(adapter);
     }
+
+    /**
+     * ElementPlan : Créer un ElementPlan à partir du format JSON
+     * @param bonplan : bon plan en JSON
+     * @return : le bonplan en ElementPlan
+     */
 
     public ElementPlan creationElement(JSONObject bonplan){
         String title = "";

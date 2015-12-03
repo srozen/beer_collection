@@ -31,13 +31,16 @@ import socialbeerproject.appas.Elements.ElementPlan;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
+/**
+ * Classe ListeAmitie, cette classe permet de lister toutes les amitiées
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
+
 public class ListeAmitie extends ListFragment {
 
     private int Position = 0;
     private ArrayList<String> Item;
-
     private View previous;
-
     AdaptateurAmitie adapter;
     private List<ElementAmitie> element;
 
@@ -87,11 +90,6 @@ public class ListeAmitie extends ListFragment {
         selectItem(position, v);
     }
 
-    /**
-     * Helper function to show the details of a selected item, either by
-     * displaying a fragment in-place in the current UI, or starting a
-     * whole new activity in which it is displayed.
-     */
     public void selectItem(int index, View v) {
 
         Position = index;
@@ -107,6 +105,10 @@ public class ListeAmitie extends ListFragment {
         getActivity().overridePendingTransition(R.animator.anim_in, R.animator.anim_out);
     }
 
+    /**
+     * demandeServeur : demande au serveur la liste d'amitié
+     */
+
     private void demandeServeur() {
 
         ServeurCom ser = new ServeurCom((RelativeLayout) getActivity().findViewById(R.id.rel_menu),(ActivityCom) getActivity());
@@ -116,6 +118,12 @@ public class ListeAmitie extends ListFragment {
         ser.listeAmi(log.getString("idUser", "n/a"));
 
     }
+
+    /**
+     * creationListe : Créé la liste à partir de la réponse reçu par le serveur
+     * @param rep : réponse du serveur
+     * @throws JSONException
+     */
 
     public void creationListe(JSONObject rep) throws JSONException {
         element = new ArrayList<ElementAmitie>();
@@ -134,6 +142,12 @@ public class ListeAmitie extends ListFragment {
         adapter = new AdaptateurAmitie(getActivity(), element);
         setListAdapter(adapter);
     }
+
+    /**
+     * creationAmi, traduit un JSON en ElementAmi
+     * @param ami : l'ami en JSON
+     * @return : le JSON convertit en ElementAmi
+     */
 
     public ElementAmitie creationAmi(JSONObject ami){
         String nom = "";

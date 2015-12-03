@@ -26,6 +26,11 @@ import socialbeerproject.appas.Elements.ElementListeBiere;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
+/**
+ * Classe ListeBiere, cette classe permet de lister des bières
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
+
 public class ListeBiere extends ListFragment {
 
     private int Position = 0;
@@ -74,7 +79,7 @@ public class ListeBiere extends ListFragment {
     }
 
     @Override
-         public void onResume(){
+    public void onResume(){
         super.onResume();
         this.demandeServeur();
         this.makeTitle();
@@ -111,6 +116,10 @@ public class ListeBiere extends ListFragment {
         }
     }
 
+    /**
+     * demandeServeur : demande au serveur la liste d'amitié
+     */
+
     private void demandeServeur(){
         Bundle args = getArguments();
         ServeurCom ser;
@@ -133,6 +142,12 @@ public class ListeBiere extends ListFragment {
             }
         }
     }
+
+    /**
+     * creationListe : Créé la liste à partir de la réponse reçu par le serveur
+     * @param rep : réponse du serveur
+     * @throws JSONException
+     */
 
     public void creationListe(JSONObject rep) throws JSONException {
         element = new ArrayList<ElementListeBiere>();
@@ -157,6 +172,13 @@ public class ListeBiere extends ListFragment {
         adapter = new AdaptateurListeBiere(getActivity(), element);
         setListAdapter(adapter);
     }
+
+    /**
+     * creationElement, traduit un JSON en ElementListeBiere
+     * @param biere : la bière
+     * @param reviews : sa review
+     * @return : la bière convertit en ElementListeBiere et plus en JSON
+     */
 
     public ElementListeBiere creationElement(JSONObject biere, JSONArray reviews){
         String nom = "";

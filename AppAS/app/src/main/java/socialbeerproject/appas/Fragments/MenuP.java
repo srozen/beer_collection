@@ -23,6 +23,10 @@ import socialbeerproject.appas.BeerMap;
 import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
 
+/**
+ * Classe BonPlan, cette classe permet créer le menu sous forme de liste
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
 
 public class MenuP extends ListFragment {
 
@@ -67,6 +71,7 @@ public class MenuP extends ListFragment {
      * displaying a fragment in-place in the current UI, or starting a
      * whole new activity in which it is displayed.
      */
+
     void selectItem(int index, View v) {
         Position = index;
 
@@ -103,6 +108,10 @@ public class MenuP extends ListFragment {
         }
     }
 
+    /**
+     * creationMenu : créé le menu sous forme d'arraylist
+     */
+
     private void creationMenu(){
         element = new ArrayList<ElementMenuP>();
 
@@ -128,6 +137,10 @@ public class MenuP extends ListFragment {
         setListAdapter(adapter);
     }
 
+    /**
+     * logOut : Déconnecte l'utilisateur
+     * @param act : Activité dans laquelle le fragment se déroule
+     */
     public static void logOut(Activity act){
         SharedPreferences log = act.getSharedPreferences("Login", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = log.edit();
