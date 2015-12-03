@@ -1,8 +1,10 @@
 package socialbeerproject.appas.Elements;
 
 /**
- * Utilisé pour une lister les bières (catalogue ou collection)
+ * Classe ElementListeBiere, utilisé pour représenter une bière dans une liste (catalogue ou collection)
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
  */
+
 public class ElementListeBiere {
 
     private String nom;

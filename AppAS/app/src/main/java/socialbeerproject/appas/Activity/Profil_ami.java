@@ -1,9 +1,5 @@
 package socialbeerproject.appas.Activity;
 
-/**
- * Created by Pierret on 05-11-15.
- */
-
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -24,6 +20,11 @@ import socialbeerproject.appas.Fragments.ListeBiere;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ImageHTTP;
 import socialbeerproject.appas.Serveur.ServeurCom;
+
+/**
+ * Classe Profil_ami, cette activité permet de montrer le profil d'un utilisateur
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
 
 public class Profil_ami extends ActivityCom implements View.OnClickListener {
 
@@ -68,20 +69,6 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         this.demandeProfil();
     }
 
-    @Override
-    public void finish(){
-        super.finish();
-    }
-
-    private void demandeProfil(){
-        Bundle args = getIntent().getExtras();
-        if (idAmi !=null){
-            ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_titre_profil), this);
-            ser.profil(idAmi);
-        }
-    }
-
-
     // ATTENTION !!!! LE NOM DES BOUTONS DES RESSOURCES NE CONCORDENT PAS AVEC LES BOUTONS
     @Override
     public void onClick(View v) {
@@ -101,6 +88,43 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
                 break;
         }
     }
+
+    @Override
+    public void communication(JSONObject rep) {
+        if(rep != null && rep.has("login")){
+            this.modifProfilAmi(rep);
+        } else if (rep.has("beers")){
+            try {
+                RelativeLayout relListe = (RelativeLayout) findViewById(R.id.rel_coll_ami);
+                relListe.setVisibility(View.VISIBLE);
+                collection.creationListe(rep);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+    }
+
+    /**
+     * demandeProfil : demande au serveur le Profil de l'idAmi
+     */
+
+    private void demandeProfil(){
+        Bundle args = getIntent().getExtras();
+        if (idAmi !=null){
+            ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_titre_profil), this);
+            ser.profil(idAmi);
+        }
+    }
+
+    /**
+     * modifProfilAmi : modifie les informations du layout xml par rapport aux données de l'ami
+     * @param rep : JSON répondu par le serveur
+     */
 
     private void modifProfilAmi (JSONObject rep){
         TextView username = (TextView) findViewById(R.id.textView_username_profil);
@@ -125,25 +149,20 @@ public class Profil_ami extends ActivityCom implements View.OnClickListener {
         this.demandeGravatar(avatar, mail.getText().toString());
     }
 
+    /**
+     * demandeGravatar : demande de l'image du profil
+     * @param img : l'image
+     * @param mail : le mail du user
+     */
+
     private void demandeGravatar(ImageView img, String mail){
         String hash = MD5Util.md5Hex(mail);
         new ImageHTTP(img).execute(ImageHTTP.cheminGravatar + hash + ".jpg?s=200");
     }
 
-    @Override
-    public void communication(JSONObject rep) {
-        if(rep != null && rep.has("login")){
-            this.modifProfilAmi(rep);
-        } else if (rep.has("beers")){
-            try {
-                RelativeLayout relListe = (RelativeLayout) findViewById(R.id.rel_coll_ami);
-                relListe.setVisibility(View.VISIBLE);
-                collection.creationListe(rep);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    /**
+     * openFriendCollection : affiche la collection de bière de l'ami
+     */
 
     public void openFriendCollection() {
         collection = new ListeBiere();

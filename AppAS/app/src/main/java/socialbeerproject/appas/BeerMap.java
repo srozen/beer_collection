@@ -28,6 +28,11 @@ import socialbeerproject.appas.Elements.FriendMap;
 import socialbeerproject.appas.Elements.Shop;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
+/**
+ * Classe BeerMap, cette activité permet de montrer la map Google
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
+
 
 public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
@@ -89,6 +94,11 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+    /**
+     * demandeServeur : permet de faire une demande au serveur en fonction du type
+     * @param type : bars, shops, friends
+     */
+
     private void demandeServeur(String type){
         ServeurCom ser = new ServeurCom((RelativeLayout) this.findViewById(R.id.rel_map), this);
 
@@ -96,6 +106,11 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
         ser.map(type,tracker.getLatitude(),tracker.getLongitude(),log.getString("idUser", "0"));
     }
+
+    /**
+     * drawMarkers : permet de dessiner les marqueurs sur la map en fonction du type de marqueurs
+     * @param type : bars, shops, friends
+     */
 
     private void drawMarkers(String type) {
         int i;
@@ -142,7 +157,10 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
         }
     }
 
-
+    /**
+     * onMapReady : permet de faire des manipulations sur la cartes dés qu'elle est prète
+     * @param map : map Google
+     */
 
     @Override
     public void onMapReady(GoogleMap map) {
@@ -156,15 +174,29 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+    /**
+     * setUserPos : permet de centrer la cartes sur la position de l'utilisateur et ajoute le
+     *              marqueur personnel
+     * @param map : Google map
+     */
+
     public void setUserPos (GoogleMap map) {
         LatLng userPos = new LatLng(tracker.getLatitude(),tracker.getLongitude());
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(userPos, 15));
+        this.map.moveCamera(CameraUpdateFactory.newLatLngZoom(userPos, 15));
 
         map.addMarker(new MarkerOptions()
                 .position(userPos)
                 .title("Vous !"));
 
     }
+
+    /**
+     * setMarkerShopPos : ajoute un marqueur SHOP à la carte
+     * @param map : Google Map
+     * @param title : Titre du marqueur
+     * @param information : Texte du marqueur lorsqu'on clique dessus
+     * @param pos : Latitude et longitude de la position du marqueur
+     */
 
     public void setMarkerShopPos (GoogleMap map, String title, String information, LatLng pos) {
         map.addMarker(new MarkerOptions()
@@ -175,6 +207,14 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+    /**
+     * setMarkerFriendsPos : ajoute un marqueur FRIEND à la carte
+     * @param map : Google Map
+     * @param title : Titre du marqueur
+     * @param information : Texte du marqueur lorsqu'on clique dessus
+     * @param pos : Latitude et longitude de la position du marqueur
+     */
+
     public void setMarkerFriendsPos (GoogleMap map, String title, String information, LatLng pos) {
         map.addMarker(new MarkerOptions()
                 .position(pos)
@@ -184,6 +224,14 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+    /**
+     * setMarkerBaros : ajoute un marqueur BAR à la carte
+     * @param map : Google Map
+     * @param title : Titre du marqueur
+     * @param information : Texte du marqueur lorsqu'on clique dessus
+     * @param pos : Latitude et longitude de la position du marqueur
+     */
+
     public void setMarkerBarPos(GoogleMap map, String title, String information, LatLng pos) {
         map.addMarker(new MarkerOptions()
                 .position(pos)
@@ -192,6 +240,12 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
                 .snippet(information));
 
     }
+
+    /**
+     * creationFriends : créé une entité FriendMap à partir d'un JSON
+     * @param bs JSON à convertir
+     * @return : le JSON convertit
+     */
 
     private FriendMap creationFriends(JSONObject bs) {
         FriendMap work;
@@ -220,6 +274,12 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
         return work;
 
     }
+
+    /**
+     * creationBarShop : créé une entité BarShop à partir d'un JSON
+     * @param bs JSON à convertir
+     * @return : le JSON convertit
+     */
 
     private BarShop creationBarShop(JSONObject bs) {
         BarShop work;
@@ -255,6 +315,12 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+    /**
+     * creationFriends : créé une entité FriendMap à partir d'un JSON
+     * @param shop JSON à convertir
+     * @return : le JSON convertit
+     */
+
     private Shop creationShop(JSONObject shop) {
         Shop work=null;
 
@@ -283,6 +349,12 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     }
 
+    /**
+     * creationBar : créé une entité Bar à partir d'un JSON
+     * @param bar JSON à convertir
+     * @return : le JSON convertit
+     */
+
     private Bar creationBar(JSONObject bar) {
         Bar work = null;
 
@@ -307,6 +379,11 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
         return work;
     }
+
+    /**
+     * buildAlertMessageNoGps : alerte l'utilisateur que son GPS n'est pas activé
+     *                          et l'invite donc à l'activer
+     */
 
     /* http://stackoverflow.com/questions/843675/how-do-i-find-out-if-the-gps-of-an-android-device-is-enabled */
     private void buildAlertMessageNoGps() {

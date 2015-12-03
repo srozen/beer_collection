@@ -1,23 +1,11 @@
 package socialbeerproject.appas.Elements;
 
 /**
- * Created by Pierret on 22-11-15.
+ * Classe ElementPlan, utilisé représenter les bons plans dans une liste
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
  */
+
 public class ElementPlan {
-
-    // TODO : IMPLEMENTER LES DERNIERS ATTRIBUTS EN FONCTION DE LA DB
-
-    /*
-        t.string   "name"
-        t.string   "nameBeer"
-        t.text     "description"
-        t.string   "categorie"
-        t.datetime "datedebut"
-        t.datetime "datefin"
-        t.float    "prix"
-        t.float    "reference"
-        t.float    "reduction"
-     */
 
     private String title;
     private String nameBeer;

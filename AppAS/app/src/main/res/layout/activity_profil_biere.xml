@@ -171,30 +171,14 @@
                 android:layout_toRightOf="@+id/textView_typeTexte_biere"
                 android:layout_below="@+id/textView_brasserie_biere"/>
 
-            <TextView
-                android:id="@+id/textView_couleurTexte_biere"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Couleur : "
-                android:layout_below="@+id/textView_types_biere"
-                android:layout_marginBottom="10dp" />
-            <TextView
-                android:id="@+id/textView_couleur_biere"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/texte_introuvable"
-                android:textStyle="bold"
-                android:layout_toRightOf="@+id/textView_couleurTexte_biere"
-                android:layout_below="@+id/textView_types_biere"/>
+
             <TextView
                 android:id="@+id/textView_descriptionTexte_biere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Description : "
-                android:layout_below="@+id/textView_couleur_biere"
+                android:layout_below="@+id/textView_types_biere"
                 android:layout_marginBottom="5dp" />
 
             <TextView

@@ -1,8 +1,8 @@
 package socialbeerproject.appas.Elements;
 
 /**
- * Created by Pierret on 05-11-15.
- * Utilisé pour une lister les amitie (catalogue ou collection)
+ * ElementAmitie, Utilisé pour une liste des amitiés (catalogue ou collection)
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
  */
 public class ElementAmitie {
 

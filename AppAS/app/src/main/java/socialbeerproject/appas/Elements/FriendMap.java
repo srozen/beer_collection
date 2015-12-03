@@ -1,7 +1,8 @@
 package socialbeerproject.appas.Elements;
 
 /**
- * Created by Pierret on 02-12-15.
+ * Classe FriendMap, cette classe représente la position d'un ami
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
  */
 public class FriendMap {
 

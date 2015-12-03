@@ -18,6 +18,11 @@ import org.json.JSONObject;
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
+/**
+ * Classe Profil_Bière, cette activité permet de montrer le profil d'une bière
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
+
 public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
     private Button jeBois;
@@ -44,45 +49,6 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         addListenerOnRatingBar();
     }
 
-    /**
-     * Fait une demande au serveur pour récupérer la bière grâce à l'id correspondant
-     */
-    private void sendServer(){
-        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
-
-        SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
-
-        ser.profilBiere(id, log.getString("idUser", "0"));
-    }
-
-    private void recupImage(){
-        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
-        imgBouteille = (ImageView) findViewById(R.id.imageView_Bouteille);
-        imgEtiquette = (ImageView) findViewById(R.id.imageView_Etiquette);
-        ser.recuperationImage(id, imgBouteille, imgEtiquette);
-    }
-
-    private void addListenerButton(){
-        jeBois = (Button) findViewById(R.id.button_ajouterColl_biere);
-        jeBois.setOnClickListener(this);
-        retour = (Button) findViewById(R.id.button_retour_biere);
-        retour.setOnClickListener(this);
-    }
-
-    private void addListenerOnRatingBar() {
-        ratingBar = (RatingBar) findViewById(R.id.ratingBarPer_biere);
-        txtRatingValue = (TextView) findViewById(R.id.textView_prog_ratingBarPer_biere);
-
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                txtRatingValue.setText(String.valueOf(rating) + " / 10");
-                if (jeBois.getVisibility() == View.GONE) {
-                    jeBois.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -100,6 +66,84 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void communication(JSONObject rep) {
+        if (rep.has("beer")){
+            setContentView(R.layout.activity_profil_biere);
+            addListenerOnRatingBar();
+            addListenerButton();
+            modifBiere(rep);
+            recupImage();
+        } else if (rep.has("success")){
+            try {
+                if (rep.getBoolean("success")){
+                    this.sendServer();
+                    idReview = "";
+                } else {
+                    this.messageErreur("Une erreur a été rencontrée! ");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * sendServer : Fait une demande au serveur pour récupérer la bière grâce à l'id correspondant
+     */
+
+    private void sendServer(){
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
+
+        SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
+
+        ser.profilBiere(id, log.getString("idUser", "0"));
+    }
+
+    /**
+     * recupImage : Récupère les différentes images à afficher
+     */
+
+    private void recupImage(){
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
+        imgBouteille = (ImageView) findViewById(R.id.imageView_Bouteille);
+        imgEtiquette = (ImageView) findViewById(R.id.imageView_Etiquette);
+        ser.recuperationImage(id, imgBouteille, imgEtiquette);
+    }
+
+    /**
+     * addListernerButton : Ajoute les fonctions aux boutons
+     */
+
+    private void addListenerButton(){
+        jeBois = (Button) findViewById(R.id.button_ajouterColl_biere);
+        jeBois.setOnClickListener(this);
+        retour = (Button) findViewById(R.id.button_retour_biere);
+        retour.setOnClickListener(this);
+    }
+
+    /**
+     * addListenerOnRatingBar : ajoute la fonction à la RatingBar
+     */
+
+    private void addListenerOnRatingBar() {
+        ratingBar = (RatingBar) findViewById(R.id.ratingBarPer_biere);
+        txtRatingValue = (TextView) findViewById(R.id.textView_prog_ratingBarPer_biere);
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                txtRatingValue.setText(String.valueOf(rating) + " / 10");
+                if (jeBois.getVisibility() == View.GONE) {
+                    jeBois.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+    }
+
+    /**
+     * ajouterDCollection : Ajoute la bière dans la collection
+     */
+
     private void ajouterDCollection() {
         EditText commentEdit = (EditText) findViewById(R.id.champ_comment_biere);
         RatingBar notePer = (RatingBar) findViewById(R.id.ratingBarPer_biere);
@@ -115,8 +159,12 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
 
 
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
-        ser.ajoutColl(this.id,idUser,hash,note,comment);
+        ser.ajoutColl(this.id, idUser, hash, note, comment);
     }
+
+    /**
+     * deleteDCollection : Supprime la bière de la collection
+     */
 
     private void deleteDCollection(){
         SharedPreferences log = getSharedPreferences("Login", Context.MODE_PRIVATE);
@@ -126,6 +174,11 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_profilBiere), this);
         ser.deleteColl(idUser, hash, idReview);
     }
+
+    /**
+     * modifBiere : Modifie les affichages des données de la bière par rapport à l'XML
+     * @param rep : réponse JSON du serveur
+     */
 
     private void modifBiere(JSONObject rep){
         TextView name = (TextView) findViewById(R.id.textView_ProfilBiere_Title);
@@ -163,6 +216,11 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         }
     }
 
+    /**
+     * modifBiere : Modifie la note personnellle donnée à la bière
+     * @param review : réponse JSON du serveur
+     */
+
     private void modifDejaCollection(JSONObject review) throws JSONException {
 
         float notePer = (float) review.getDouble("note");
@@ -187,25 +245,5 @@ public class Profil_biere extends ActivityCom implements View.OnClickListener {
         ratingPer.setVisibility(View.GONE);
     }
 
-    @Override
-    public void communication(JSONObject rep) {
-        if (rep.has("beer")){
-            setContentView(R.layout.activity_profil_biere);
-            addListenerOnRatingBar();
-            addListenerButton();
-            modifBiere(rep);
-            recupImage();
-        } else if (rep.has("success")){
-            try {
-                if (rep.getBoolean("success")){
-                    this.sendServer();
-                    idReview = "";
-                } else {
-                    this.messageErreur("Une erreur a été rencontrée! ");
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
 }

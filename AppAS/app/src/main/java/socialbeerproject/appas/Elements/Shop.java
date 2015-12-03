@@ -1,8 +1,10 @@
 package socialbeerproject.appas.Elements;
 
 /**
- * Created by Pierret on 01-12-15.
+ * Classe Shop, cette classe représente un shop en base de données
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
  */
+
 public class Shop {
     private String id;
     private String name;

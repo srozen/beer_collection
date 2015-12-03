@@ -1,8 +1,10 @@
 package socialbeerproject.appas.Elements;
 
 /**
- * Created by Pierret on 01-12-15.
+ * Classe BarShop, cette classe représente un BarShop en base de données
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
  */
+
 public class BarShop {
 
     private String id;

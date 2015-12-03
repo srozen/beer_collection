@@ -20,6 +20,11 @@ import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ImageHTTP;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
+/**
+ * Classe Profil, cette activité permet de montrer le profil d'un utilisateur
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
+
 public class Profil extends ActivityCom implements View.OnClickListener {
 
     private Button chgPass;
@@ -36,17 +41,6 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         this.addListener();
 
         this.demandeProfil();
-    }
-
-    private void addListener(){
-        chgPass = (Button) findViewById(R.id.button_Chg_Pass);
-        chgPass.setOnClickListener(this);
-        chgAvatar = (Button) findViewById(R.id.button_Chg_Avatar);
-        chgAvatar.setOnClickListener(this);
-        addFriend = (Button) findViewById(R.id.button_Friend_Add);
-        addFriend.setOnClickListener(this);
-        back = (Button) findViewById(R.id.button_retour_profil);
-        back.setOnClickListener(this);
     }
 
     @Override
@@ -67,6 +61,35 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void communication(JSONObject rep) {
+        if(rep != null && rep.has("login")){
+            this.modifProfil(rep);
+        } else if (false) { // Réponse ajout ami
+
+        }
+    }
+
+    /**
+     * addListener : ajoute les fonctions aux boutons du profil
+     */
+
+    private void addListener(){
+        chgPass = (Button) findViewById(R.id.button_Chg_Pass);
+        chgPass.setOnClickListener(this);
+        chgAvatar = (Button) findViewById(R.id.button_Chg_Avatar);
+        chgAvatar.setOnClickListener(this);
+        addFriend = (Button) findViewById(R.id.button_Friend_Add);
+        addFriend.setOnClickListener(this);
+        back = (Button) findViewById(R.id.button_retour_profil);
+        back.setOnClickListener(this);
+    }
+
+    /**
+     * messBtnChgMdp : informe l'utilisateur qu'il doit se connecter au site internet pour changer
+     *                 son mot de passe
+     */
+
     private void messBtnChgMdp(){
         AlertDialog alertMdp = new AlertDialog.Builder(this,R.style.MyAlertDialogStyle).create();
 
@@ -82,6 +105,10 @@ public class Profil extends ActivityCom implements View.OnClickListener {
 
         alertMdp.show();
     }
+
+    /**
+     * messBtnChgAvatar : informe l'utilisateur qu'il soit utiliser le système sur le site internet
+     */
 
     private void messBtnChgAvatar(){
         AlertDialog alertAvatar = new AlertDialog.Builder(this,R.style.MyAlertDialogStyle).create();
@@ -99,35 +126,29 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         alertAvatar.show();
     }
 
+    /**
+     * messBtnAjAmi : informe l'utilisateur qu'il doit se connecter au site internet
+     */
+
     private void messBtnAjAmi(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
-        alert.setTitle("Ajouter un ami");
-        alert.setMessage("Pour ajouter un ami, remplissez le champ ci-dessous avec son nom d'utilisateur.");
-        // Set an EditText view to get user input
-        final EditText input = new EditText(this);
-        alert.setView(input);
+        AlertDialog alertAvatar = new AlertDialog.Builder(this,R.style.MyAlertDialogStyle).create();
 
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                requeteAjoutAmi(input.getText().toString());
-            }
-        });
+        alertAvatar.setTitle("Ajouter un ami");
+                alertAvatar.setMessage("onnecter vous sur notre site web : www.beercollection.be");
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.dismiss();
-            }
-        });
+        alertAvatar.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
 
-        alert.show();
+        alertAvatar.show();
     }
 
-    private void requeteAjoutAmi(String name){
-        SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
-        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_titre_profil), this);
-
-        ser.ajoutAmi(name, log.getString("idUser", "0"));
-    }
+    /**
+     * demandeProfil : envoie une demande pour consulter son profil au serveur
+     */
 
     private void demandeProfil(){
         SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
@@ -136,6 +157,11 @@ public class Profil extends ActivityCom implements View.OnClickListener {
             ser.profil(log.getString("idUser", "0"));
         }
     }
+
+    /**
+     * modifProfil : Modifie le profil lors d'une réponse du serveur
+     * @param rep : Réponse du serveur
+     */
 
     private void modifProfil(JSONObject rep){
         TextView username = (TextView) findViewById(R.id.textView_username_profil);
@@ -156,20 +182,23 @@ public class Profil extends ActivityCom implements View.OnClickListener {
         this.demandeGravatar(avatar, mail.getText().toString());
     }
 
+    /**
+     * demandeGravatar : Récupère l'avatar du profil
+     * @param img : ImageView
+     * @param mail : mail user
+     */
+
     private void demandeGravatar(ImageView img, String mail){
         String hash = MD5Util.md5Hex(mail);
         new ImageHTTP(img).execute(ImageHTTP.cheminGravatar + hash + ".jpg?s=200");
     }
 
-    @Override
-    public void communication(JSONObject rep) {
-        if(rep != null && rep.has("login")){
-            this.modifProfil(rep);
-        } else if (false) { // Réponse ajout ami
-
-        }
-    }
-
+    /**
+     * getValuePro : Récupère la valeur progress bar
+     * @param i :
+     * @param i2 :
+     * @return : Value Pro
+     */
     public static int getValuePro(int i, int i2){
         double res = ((double)i/(double)i2)*100;
         return (int)res;
