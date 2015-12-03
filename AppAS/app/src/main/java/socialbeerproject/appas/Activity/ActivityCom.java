@@ -60,7 +60,7 @@ public abstract class ActivityCom extends Activity {
         alertDialog.show();
     }
 
-    public void prinToast(String mess){
+    public void printToast(String mess){
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.linear_toast_layout));
         Toast toast = new Toast(this);
