@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,18 +87,18 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
                 else {
                     // MSG ERREUR - nom d'utilisateur incorrecte
                     String errorMessage = "Whoops - le mot de passe doit être formé de 6 à 40 caractères";
-                    super.prinToast(errorMessage);
+                    super.printToast(errorMessage);
                 }
 
             } else {
                 // MSG ERREUR - nom d'utilisateur incorrecte
                 String errorMessage = "Whoops - le nom d'utilisateur doit être formé de 4 à 50 caractères";
-                super.prinToast(errorMessage);
+                super.printToast(errorMessage);
             }
         } else {
             // MSG ERREUR - mail trop petit
             String errorMessage = "Whoops - l'adresse mail est incorrecte - Réessayez.";
-            super.prinToast(errorMessage);
+            super.printToast(errorMessage);
         }
 
         return work;

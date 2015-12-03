@@ -218,6 +218,15 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
+    public void nouvBiere(String userId){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("nouvBiere", "nouvBiere"));
+
+        params.add(new BasicNameValuePair("idUser", userId));
+
+        this.envoieServeur(params);
+    }
+
     public void ajoutColl(String idBiere, String userId, String hash, String note, String comment){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("ajoutColl", "ajoutColl"));
@@ -300,9 +309,9 @@ public class ServeurCom {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
         params.add(new BasicNameValuePair("envoieIm", "envoieIm"));
+
         params.add(new BasicNameValuePair("idUser", userId));
         params.add(new BasicNameValuePair("img", img));
-
 
         this.envoieServeur(params);
     }

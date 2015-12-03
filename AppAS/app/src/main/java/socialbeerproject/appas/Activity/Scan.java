@@ -1,8 +1,10 @@
 package socialbeerproject.appas.Activity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -16,7 +18,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -49,6 +50,7 @@ public class Scan extends ActivityCom implements View.OnClickListener {
 
     protected OutputStream scanUpload;
 
+    private String idReponse;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,7 +82,7 @@ public class Scan extends ActivityCom implements View.OnClickListener {
             catch(ActivityNotFoundException anfe){
                 //display an error message
                 String errorMessage = "Whoops - votre appareil ne supporte pas l'application";
-                prinToast(errorMessage);
+                printToast(errorMessage);
             }
         }
 
@@ -166,7 +168,7 @@ public class Scan extends ActivityCom implements View.OnClickListener {
         catch(ActivityNotFoundException anfe){
             //display an error message
             String errorMessage = "Whoops - your device doesn't support the crop action!";
-            prinToast(errorMessage);
+            printToast(errorMessage);
         }
     }
 
@@ -188,25 +190,62 @@ public class Scan extends ActivityCom implements View.OnClickListener {
         ser.envoieImage(log.getString("idUser", "0"), encodedString);
     }
 
+    public void afficherBière(){
+        Intent intent = new Intent(this, Profil_biere.class);
+        // Avec en paramètre l'id de la vue de l'activité mère et un fragment.
+        intent.putExtra("id", idReponse);
+        startActivity(intent);
+        this.overridePendingTransition(R.animator.anim_in, R.animator.anim_out);
+    }
+
+    private void dialogAccept (String nameB){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+        alert.setTitle("Résultat");
+        alert.setMessage("Cette bière correspond-elle : " + nameB + " ?");
+
+        alert.setPositiveButton("Acceder au profil", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                afficherBière();
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                demandeAjout();
+                dialog.dismiss();
+            }
+        });
+
+        alert.show();
+    }
+
+    private void demandeAjout(){
+        ServeurCom ser = new ServeurCom((RelativeLayout) findViewById(R.id.rel_scan), this);
+        SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
+        ser.nouvBiere(log.getString("idUser", "0"));
+    }
+
     @Override
     public void communication(JSONObject rep) {
         chargementFini = true;
 
         try {
             if(rep != null){
-                if(rep.getString("checkPhoto") != null){
-                    prinToast("La bière " + rep.getString("checkPhoto") + " a bien été ajouté à votre collection!");
-                }else{
-                    prinToast("Votre bière n'a pas été reconnue.");
+                if(rep.has("idBeer") && rep.getString("idBeer") != null){
+                    idReponse = rep.getString("idBeer");
+                    dialogAccept(rep.getString("name"));
+                } else if (rep.has("success")){
+                    printToast("Votre bière a été ajouté");
+                } else {
+                    printToast("Votre bière n'a pas été reconnue.");
                 }
             } else {
-                prinToast("Aucune réponse du serveur");
+                printToast("Aucune réponse du serveur!");
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            prinToast("Réponse du serveur incorrect");
+            printToast("Réponse du serveur incorrect!");
         }
-
     }
-
 }
