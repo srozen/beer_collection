@@ -101,7 +101,7 @@ public class MenuP extends ListFragment {
                 prin.replaceFragment("BonPlan");
                 break;
             case 7:
-                this.logOut(getActivity());
+                logOut(getActivity());
                 startActivity(new Intent(getActivity(), Login.class));
                 getActivity().finish();
                 break;

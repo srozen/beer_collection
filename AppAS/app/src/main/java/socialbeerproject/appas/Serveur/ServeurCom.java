@@ -22,6 +22,7 @@ import socialbeerproject.appas.Divers.Chargement;
 /**
  * Created by Rémy on 13-10-15.
  * Classe gérant les communications avec l'API serveur (et le chargement)
+ * Chaque fonction permet d'atteindre une API différente
  */
 public class ServeurCom {
 

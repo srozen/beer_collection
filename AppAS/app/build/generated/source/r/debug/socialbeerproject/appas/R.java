@@ -2076,23 +2076,22 @@ containing a value of this type.
         public static final int image_button=0x7f020078;
         public static final int introuvable=0x7f020079;
         public static final int liste_biere_cata_item=0x7f02007a;
-        public static final int liste_biere_coll_item=0x7f02007b;
-        public static final int menu_item=0x7f02007c;
-        public static final int mr_ic_audio_vol=0x7f02007d;
-        public static final int mr_ic_media_route_connecting_mono_dark=0x7f02007e;
-        public static final int mr_ic_media_route_connecting_mono_light=0x7f02007f;
-        public static final int mr_ic_media_route_mono_dark=0x7f020080;
-        public static final int mr_ic_media_route_mono_light=0x7f020081;
-        public static final int mr_ic_pause_dark=0x7f020082;
-        public static final int mr_ic_pause_light=0x7f020083;
-        public static final int mr_ic_play_dark=0x7f020084;
-        public static final int mr_ic_play_light=0x7f020085;
-        public static final int mr_ic_settings_dark=0x7f020086;
-        public static final int mr_ic_settings_light=0x7f020087;
-        public static final int notification_template_icon_bg=0x7f02008b;
-        public static final int powered_by_google_dark=0x7f020088;
-        public static final int powered_by_google_light=0x7f020089;
-        public static final int progress_bar=0x7f02008a;
+        public static final int menu_item=0x7f02007b;
+        public static final int mr_ic_audio_vol=0x7f02007c;
+        public static final int mr_ic_media_route_connecting_mono_dark=0x7f02007d;
+        public static final int mr_ic_media_route_connecting_mono_light=0x7f02007e;
+        public static final int mr_ic_media_route_mono_dark=0x7f02007f;
+        public static final int mr_ic_media_route_mono_light=0x7f020080;
+        public static final int mr_ic_pause_dark=0x7f020081;
+        public static final int mr_ic_pause_light=0x7f020082;
+        public static final int mr_ic_play_dark=0x7f020083;
+        public static final int mr_ic_play_light=0x7f020084;
+        public static final int mr_ic_settings_dark=0x7f020085;
+        public static final int mr_ic_settings_light=0x7f020086;
+        public static final int notification_template_icon_bg=0x7f02008a;
+        public static final int powered_by_google_dark=0x7f020087;
+        public static final int powered_by_google_light=0x7f020088;
+        public static final int progress_bar=0x7f020089;
     }
     public static final class id {
         public static final int Descr=0x7f0f00c6;
@@ -2113,7 +2112,6 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0f0059;
         public static final int action_mode_bar_stub=0x7f0f0058;
         public static final int action_mode_close_button=0x7f0f0041;
-        public static final int action_settings=0x7f0f00f5;
         public static final int activity_chooser_view_content=0x7f0f0042;
         public static final int adjust_height=0x7f0f001e;
         public static final int adjust_width=0x7f0f001f;
@@ -2197,9 +2195,6 @@ containing a value of this type.
         public static final int imgBtn_call_profil=0x7f0f008d;
         public static final int img_avatar_profil=0x7f0f008b;
         public static final int info=0x7f0f00f0;
-        public static final int item_info=0x7f0f00f4;
-        public static final int item_menu=0x7f0f00f3;
-        public static final int item_profil=0x7f0f00f2;
         public static final int line1=0x7f0f00ea;
         public static final int line3=0x7f0f00ee;
         public static final int linear_toast_layout=0x7f0f00b8;
@@ -2406,12 +2401,6 @@ containing a value of this type.
         public static final int select_dialog_multichoice_material=0x7f040034;
         public static final int select_dialog_singlechoice_material=0x7f040035;
         public static final int support_simple_spinner_dropdown_item=0x7f040036;
-    }
-    public static final class menu {
-        public static final int menu_menu=0x7f100000;
-        public static final int menu_phone=0x7f100001;
-        public static final int menu_scan=0x7f100002;
-        public static final int menu_si=0x7f100003;
     }
     public static final class mipmap {
         public static final int chargement=0x7f030000;

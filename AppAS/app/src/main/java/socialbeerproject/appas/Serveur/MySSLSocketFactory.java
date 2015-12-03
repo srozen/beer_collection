@@ -19,6 +19,7 @@ import javax.net.ssl.X509TrustManager;
 
 /**
  * Created by Rémy on 17-11-15.
+ * Créé un socket SSL valide.
  */
 public class MySSLSocketFactory extends SSLSocketFactory {
     SSLContext sslContext = SSLContext.getInstance("TLS");

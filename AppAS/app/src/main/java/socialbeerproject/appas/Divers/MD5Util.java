@@ -2,10 +2,13 @@ package socialbeerproject.appas.Divers;
 
 /**
  * Created by Rémy on 17-11-15.
+ * Utilisé pour récupérer le gravatar des profils (hash MD5)
  */
 import java.io.*;
 import java.security.*;
+
 public class MD5Util {
+
     public static String hex(byte[] array) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < array.length; ++i) {
@@ -14,6 +17,7 @@ public class MD5Util {
         }
         return sb.toString();
     }
+
     public static String md5Hex (String message) {
         try {
             MessageDigest md =

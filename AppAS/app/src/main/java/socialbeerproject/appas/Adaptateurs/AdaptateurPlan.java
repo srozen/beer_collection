@@ -9,11 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-
 import socialbeerproject.appas.Elements.ElementPlan;
 import socialbeerproject.appas.R;
 
-/*
+/**
  * Classe permettant de customizer les éléments du menu principal.
  * Chaque item sera affiché selon elem_menu.xml
  */
@@ -31,19 +30,16 @@ public class AdaptateurPlan extends BaseAdapter {
 
     @Override
     public int getCount() {
-
         return elements.size();
     }
 
     @Override
     public Object getItem(int position) {
-
         return elements.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-
         return elements.indexOf(getItem(position));
     }
 
@@ -72,6 +68,5 @@ public class AdaptateurPlan extends BaseAdapter {
         BP_reference.setText("Référence : " + row_pos.getReference());
 
         return convertView;
-
     }
 }

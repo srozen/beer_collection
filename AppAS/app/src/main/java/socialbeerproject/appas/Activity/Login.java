@@ -22,15 +22,19 @@ public class Login extends ActivityCom implements View.OnClickListener{
     private Button btnSeConnecter = null;
     private String username = null;
 
-    private GPSTracker tracker;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         this.premiereConnexion();
+        this.addListener();
+    }
 
+    /**
+     * Rajoute les listener aux boutons
+     */
+    private void addListener(){
         btnAInsc = (Button) findViewById(R.id.btn_A_Inscription);
         btnAInsc.setOnClickListener(this);
         btnSeConnecter = (Button) findViewById(R.id.btn_SeConnecter);
@@ -52,8 +56,10 @@ public class Login extends ActivityCom implements View.OnClickListener{
         }
     }
 
-    /* Vérifie si c'est la première fois qu'on ouvre l'app, sinon connexion automatique, sinon
-    * Go inscription */
+    /**
+     *  Vérifie si c'est la première fois qu'on ouvre l'app, sinon connexion automatique, sinon
+     *  * Go inscription
+     */
     private void premiereConnexion(){
         SharedPreferences log = getSharedPreferences("Login", MODE_PRIVATE);
         if (log.getString("username","n/a")!="n/a"){
@@ -63,7 +69,9 @@ public class Login extends ActivityCom implements View.OnClickListener{
         }
     }
 
-    /* Lance la connexion */
+    /**
+     *  Lance la connexion si c'est la première fois qu'on se connecte
+     */
     private void launchConnexionFirst(){
         EditText editUser  = (EditText)findViewById(R.id.champ_login);
         EditText editPassword   = (EditText)findViewById(R.id.champ_mdp);
@@ -75,6 +83,12 @@ public class Login extends ActivityCom implements View.OnClickListener{
         ser.connexionOne(editUser.getText().toString(), editPassword.getText().toString());
     }
 
+    /**
+     * Lance une connexion automatique (nécessite des données correctes)
+     * @param id
+     * @param hash
+     * @param username
+     */
     private void launchConnexionAuto(String id,String hash,String username){
         this.username = username;
 
@@ -83,6 +97,10 @@ public class Login extends ActivityCom implements View.OnClickListener{
         ser.connexionTwo(hash, id);
     }
 
+    /**
+     * Traitement des données reçues
+     * @param rep Réponse du serveurCom (Fichier JSON)
+     */
     @Override
     public void communication(JSONObject rep) {
         chargementFini = true;

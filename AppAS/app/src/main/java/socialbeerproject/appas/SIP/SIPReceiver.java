@@ -7,7 +7,6 @@ import android.net.sip.*;
 
 import socialbeerproject.appas.Activity.PhoneA;
 
-
 /**
  * Ecoute si l'application reçoit un appel et l'envoie à Phone.
  */

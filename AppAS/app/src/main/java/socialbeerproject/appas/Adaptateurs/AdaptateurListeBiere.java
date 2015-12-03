@@ -14,7 +14,7 @@ import android.widget.TextView;
 import socialbeerproject.appas.Elements.ElementListeBiere;
 import socialbeerproject.appas.R;
 
-/*
+/**
  * Classe permettant de customizer les éléments de la collection.
  * Chaque item sera affiché selon elem_liste_bieree.xml
  */

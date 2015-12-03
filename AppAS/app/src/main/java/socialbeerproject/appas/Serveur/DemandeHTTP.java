@@ -30,6 +30,7 @@ import java.util.List;
 
 /**
  * Created by Rémy on 14-10-15.
+ * Gère toute les demandes http en asynchrone
  */
 public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObject> {
 

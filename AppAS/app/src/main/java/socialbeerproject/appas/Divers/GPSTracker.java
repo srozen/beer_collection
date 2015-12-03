@@ -11,9 +11,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.util.Log;
 
-/* https://www.youtube.com/watch?v=h7LUNCC0U1U */
+/**
+ *  Service récupérant la localisation de l'utilisateur
+ *
+ *  source : https://www.youtube.com/watch?v=h7LUNCC0U1U
+ */
 
 public class GPSTracker extends Service implements LocationListener{
 

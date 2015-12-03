@@ -13,7 +13,7 @@ import android.widget.TextView;
 import socialbeerproject.appas.Elements.ElementAmitie;
 import socialbeerproject.appas.R;
 
-/*
+/**
  * Classe permettant de customizer les éléments des amitie.
  * Chaque item sera affiché selon elem_amitie.xml
  */

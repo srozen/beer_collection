@@ -145,7 +145,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
                         wLatLng = new LatLng(workFriend.getLatitude(), workFriend.getLongitude());
 
                         int minConvert = workFriend.getDernierCon() / 60;
-                        int secConvert = workFriend.getDernierCon() % 60;;
+                        int secConvert = workFriend.getDernierCon() % 60;
 
                         this.setMarkerFriendsPos(map, workFriend.getLogin(), "Il y a " + Integer.toString(minConvert) + "m" + Integer.toString(secConvert), wLatLng);
                     }
@@ -166,7 +166,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
     public void onMapReady(GoogleMap map) {
         this.setUserPos(map);
 
-        this.map =map;
+        this.map = map;
 
         this.demandeServeur("Bars");
         this.demandeServeur("Shops");
@@ -182,7 +182,7 @@ public class BeerMap extends ActivityCom implements OnMapReadyCallback{
 
     public void setUserPos (GoogleMap map) {
         LatLng userPos = new LatLng(tracker.getLatitude(),tracker.getLongitude());
-        this.map.moveCamera(CameraUpdateFactory.newLatLngZoom(userPos, 15));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(userPos, 15));
 
         map.addMarker(new MarkerOptions()
                 .position(userPos)

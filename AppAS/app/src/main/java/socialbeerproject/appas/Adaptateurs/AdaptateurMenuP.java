@@ -13,7 +13,7 @@ import android.widget.TextView;
 import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
 
-/*
+/**
  * Classe permettant de customizer les éléments du menu principal.
  * Chaque item sera affiché selon elem_menu.xml
  */
