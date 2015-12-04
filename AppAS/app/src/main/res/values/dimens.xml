@@ -1,8 +1,0 @@
-<resources>
-    <dimen name="activity_horizontal_margin">10dp</dimen>
-    <dimen name="activity_vertical_margin">10dp</dimen>
-    <dimen name="paddingLayout">5dp</dimen>
-    <dimen name="titreSize">30sp</dimen>
-    <dimen name="texteSize">20sp</dimen>
-    <dimen name="littleTexteSize">15sp</dimen>
-</resources>
