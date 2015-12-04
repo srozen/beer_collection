@@ -13,7 +13,7 @@ import android.widget.TextView;
 import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
 
-/*
+/**
  * Classe permettant de customizer les éléments du menu principal.
  * Chaque item sera affiché selon elem_menu.xml
  */
@@ -52,7 +52,7 @@ public class AdaptateurMenuP extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.elem_menu, null);
         }
 
-        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.Image);
+        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.image_LB);
         TextView Titre = (TextView) convertView.findViewById(R.id.Titre);
         TextView Descr = (TextView) convertView.findViewById(R.id.Descr);
 

@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linear"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bar_principal"
+        android:orientation="horizontal"
+        android:padding="@dimen/paddingLayout"
+        android:layout_margin="1dp"
+        android:background="@color/ambre">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/paddingLayout"
+            android:text="Menu"
+            style="@style/Titre"
+            android:id="@+id/titre_principal"
+            android:background="@drawable/image_button"/>
+        <ImageButton
+            android:id="@+id/btn_principal"
+            android:background="@drawable/image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_menu"
+            android:visibility="gone"
+            android:layout_alignTop="@+id/titre_principal"
+            android:layout_alignBottom="@+id/titre_principal"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rel_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/bar_principal">
     
-
+    </RelativeLayout>
 </RelativeLayout>

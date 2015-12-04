@@ -11,6 +11,9 @@ import android.widget.RelativeLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import socialbeerproject.appas.R;
 import socialbeerproject.appas.Serveur.ServeurCom;
 
@@ -71,40 +74,94 @@ public class Inscription extends ActivityCom implements View.OnClickListener{
     }
 
     private boolean verifChamp() {
-        /*
-        TODO: Vérification des champs
-         */
-        return true;
+
+        boolean work = false;
+
+        // ON CHECK L'ADRESSE MAIL EN PREMIER
+        if ( (this.mail.length() > 6) && (isEmailValid()) ){
+            // ON CHECK LE NOM UTILISATEUR
+            if (isUserValid()) {
+                // ON CHECK LE MOT DE PASSE
+                if (isPassValid())
+                    work = true;
+                else {
+                    // MSG ERREUR - nom d'utilisateur incorrecte
+                    String errorMessage = "Whoops - le mot de passe doit être formé de 6 à 40 caractères";
+                    super.printToast(errorMessage);
+                }
+
+            } else {
+                // MSG ERREUR - nom d'utilisateur incorrecte
+                String errorMessage = "Whoops - le nom d'utilisateur doit être formé de 4 à 50 caractères";
+                super.printToast(errorMessage);
+            }
+        } else {
+            // MSG ERREUR - mail trop petit
+            String errorMessage = "Whoops - l'adresse mail est incorrecte - Réessayez.";
+            super.printToast(errorMessage);
+        }
+
+        return work;
+    }
+
+    public boolean isPassValid() {
+        return (this.password.length() >= 6) && (this.password.length() <= 40);
+    }
+
+    public boolean isUserValid() {
+        return (this.username.length() >= 4) && (this.username.length() <= 50);
+    }
+
+    public boolean isEmailValid() {
+        String regExpn =
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                        +"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        +"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        +"([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
+
+        CharSequence inputStr = this.mail;
+
+        Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+
+        return matcher.matches();
     }
 
     @Override
     public void communication(JSONObject rep) {
         chargementFini = true;
-        String valInscription = "";
+        String erreurInsc = "";
 
         try {
             if(rep != null){
-                if (rep.getString("checkUser") == "true" && rep.getString("checkMail") == "true"){
-                    valInscription = "true";
-                } else {
-                    if ("checkUser" == "false"){
-                        valInscription = "Username déjà utilisé";
-                    } else if ("checkMail" == "false"){
-                        valInscription = "Mail déjà utilisé";
+                if (rep.getString("checkUser") != "true" && rep.getString("checkMail") != "true") {
+                    if ("checkUser" == "false") {
+                        erreurInsc = "Username déjà utilisé";
+                    } else if ("checkMail" == "false") {
+                        erreurInsc = "Mail déjà utilisé";
+                    } else {
+                        erreurInsc = "Mail et Username déjà utilisé";
                     }
                 }
             } else {
-                valInscription = "Aucune réponse du serveur";
+                erreurInsc = "Aucune réponse du serveur";
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            valInscription = "Réponse du serveur incorrect";
+            erreurInsc = "Réponse du serveur incorrect";
         }
 
-        if(valInscription == "true"){
+        if(erreurInsc.isEmpty()){
+            try {
+                super.setIdUser(rep.getString("id"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             this.connexionValide(username);
         } else {
-            this.messageErreur(valInscription);
+            this.messageErreur(erreurInsc);
         }
     }
 }

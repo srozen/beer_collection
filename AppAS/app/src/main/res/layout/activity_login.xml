@@ -31,8 +31,7 @@
             android:layout_below="@+id/texte_utilisateur"
             android:layout_marginTop="10dp"
             android:inputType="textVisiblePassword|textNoSuggestions"
-            style="@style/ChampsUneLigne">
-        </EditText>
+            style="@style/ChampsUneLigne"/>
 
         <TextView
             android:id="@+id/texte_motDePasse"
@@ -60,8 +59,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/btn_seConnecter"
             android:layout_below="@+id/champ_mdp"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal" />
+            android:layout_centerHorizontal="true" />
 
         <TextView
             style="@style/SimpleTexte"

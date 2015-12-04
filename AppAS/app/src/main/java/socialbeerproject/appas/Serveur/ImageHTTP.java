@@ -5,7 +5,20 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.BufferedHttpEntity;
+
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import static socialbeerproject.appas.Serveur.DemandeHTTP.getNewHttpClient;
 
 /**
  * Created by Rémy on 03-11-15.
@@ -14,8 +27,9 @@ import java.io.InputStream;
  */
 public class ImageHTTP  extends AsyncTask<String, Void, Bitmap> {
 
-    public static String cheminImageBouteille = DemandeHTTP.url + "/images/beer_profile/";
-    public static String cheminImageEtiquette = DemandeHTTP.url + "/images/beer_sticker/";
+    public static String cheminImageBouteille ="http://www.beercollection.be"+ "/images/beer_profile/";
+    public static String cheminImageEtiquette = "http://www.beercollection.be" + "/images/beer_sticker/";
+    public static String cheminGravatar = "http://www.gravatar.com/avatar/";
 
     private ImageView bmImage;
 
@@ -27,8 +41,8 @@ public class ImageHTTP  extends AsyncTask<String, Void, Bitmap> {
         String urlDisplay = urls[0];
         Bitmap mIcon11 = null;
         try {
-            InputStream in = new java.net.URL(urlDisplay).openStream();
-            mIcon11 = BitmapFactory.decodeStream(in);
+            InputStream is = (InputStream) new URL(urlDisplay).getContent();
+            mIcon11 = BitmapFactory.decodeStream(is);
         } catch (Exception e) {
             e.printStackTrace();
         }

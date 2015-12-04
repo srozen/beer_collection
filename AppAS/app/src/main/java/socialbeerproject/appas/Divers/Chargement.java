@@ -21,7 +21,8 @@ public class Chargement {
     /** L'instance statique */
     private static Chargement instance;
 
-    /** Récupère l'instance unique de la class Singleton.
+    /**
+     * Récupère l'instance unique de la class Singleton.
      * Remarque : le constructeur est rendu inaccessible
      */
     public static Chargement getInstance() {
@@ -35,6 +36,11 @@ public class Chargement {
 
     }
 
+    /**
+     * créé et attache l'image à l'activité
+     * @param act Activité
+     * @param rel RelativeLayout qui affichera la bière qui tourne
+     */
     public void attach(Activity act, RelativeLayout rel){
         if (imageCha == null){
             imageCha = new ImageView(act);
@@ -50,18 +56,27 @@ public class Chargement {
         }
     }
 
+    /**
+     * commence l'animation
+     */
     public void start(){
         if (imageCha != null) {
             imageCha.startAnimation(AnimationUtils.loadAnimation(act, R.anim.chargement));
         }
     }
 
+    /**
+     * termine l'animation
+     */
     public void stop(){
         if (imageCha != null) {
             imageCha.clearAnimation();
         }
     }
 
+    /**
+     * Déttache l'image
+     */
     public void dettach(){
         if (imageCha != null) {
             rel.removeView(imageCha);

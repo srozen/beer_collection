@@ -3,24 +3,38 @@ package socialbeerproject.appas.Serveur;
 import android.os.AsyncTask;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.KeyStore;
 import java.util.List;
 
 /**
  * Created by Rémy on 14-10-15.
+ * Gère toute les demandes http en asynchrone
  */
 public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObject> {
 
-    public static String url = "http://46.101.143.168";
+    public static String url = "https://www.beercollection.be";
     public static String cheminLogin = "api_login.json";
     public static String cheminInsc = "api_register.json";
     public static String cheminCata = "api_catalogue.json";
@@ -28,19 +42,20 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
     public static String cheminProfilBeer = "api_beer_profile.json";
     public static String cheminAddBeer="api_add_beer.json";
     public static String cheminDeleteBeer="api_delete_beer.json";
+    public static String cheminProfil = "api_user_profile.json";
+    public static String cheminListeAmi ="api_friendlist.json";
+    public static String cheminBonPLan ="api_deals.json";
+    public static String cheminShop ="api_shops.json";
+    public static String cheminBar = "api_bars.json";
+    public static String cheminFriend = "api_friends_map.json";
+    public static String cheminEnvoieImage = "api_comp.json";
+    public static String cheminNouvBiere = "api_add_catalogue.json";
 
     private ServeurCom ser;
-    private boolean con;
 
     public DemandeHTTP(ServeurCom ser){
         super();
         this.ser = ser;
-    }
-
-    public DemandeHTTP(ServeurCom ser, boolean con){
-        super();
-        this.ser = ser;
-        this.con = con;
     }
 
     @Override
@@ -88,12 +103,13 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
         String newUrl = getNewUrl(params.get(0).getName());
         params.remove(0);
 
-        JSONObject jObj = null;
+        JSONObject jObj;
 
         // Créé une demande HTTP au serveur avec les paramètres en post
-        DefaultHttpClient httpClient = new DefaultHttpClient();
+        //DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpClient httpClient = getNewHttpClient();
         HttpPost httpPost = new HttpPost(newUrl);
-        httpPost.setEntity(new UrlEncodedFormEntity(params));
+        httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF_8"));
         HttpResponse httpResponse = httpClient.execute(httpPost);
 
         String json = this.lecture(httpResponse);
@@ -151,9 +167,60 @@ public class DemandeHTTP extends AsyncTask<List<NameValuePair>, Integer,JSONObje
             case "deleteColl":
                 newUrl += cheminDeleteBeer;
                 break;
+            case "profil":
+                newUrl += cheminProfil;
+                break;
+            case "listeAmi":
+                newUrl += cheminListeAmi;
+                break;
+            case "bonPlan" :
+                newUrl += cheminBonPLan;
+                break;
+            case "Bars" :
+                newUrl += cheminBar;
+                break;
+            case "Shops":
+                newUrl += cheminShop;
+                break;
+            case "Friends" :
+                newUrl += cheminFriend;
+                break;
+            case "envoieIm":
+                newUrl += cheminEnvoieImage;
+                break;
+            case "nouvBiere" :
+                newUrl += cheminNouvBiere;
+                break;
             default:
                 return null;
         }
         return newUrl;
+    }
+
+    public static HttpClient getNewHttpClient() {
+        try {
+            KeyStore trustStore = KeyStore.getInstance(KeyStore
+                    .getDefaultType());
+            trustStore.load(null, null);
+
+            SSLSocketFactory sf = new MySSLSocketFactory(trustStore);
+            sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
+            HttpParams params = new BasicHttpParams();
+            HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+
+            SchemeRegistry registry = new SchemeRegistry();
+            registry.register(new Scheme("http", PlainSocketFactory
+                    .getSocketFactory(), 80));
+            registry.register(new Scheme("https", sf, 443));
+
+            ClientConnectionManager ccm = new ThreadSafeClientConnManager(
+                    params, registry);
+
+            return new DefaultHttpClient(ccm, params);
+        } catch (Exception e) {
+            return new DefaultHttpClient();
+        }
     }
 }

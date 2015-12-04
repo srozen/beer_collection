@@ -11,7 +11,11 @@
         android:layout_height="wrap_content" >
 
         <ImageView
+<<<<<<< HEAD
             android:id="@+id/Image"
+=======
+            android:id="@+id/amitie_img"
+>>>>>>> develop_android
             style="@style/ImageMenu" />
 
         <RelativeLayout android:id="@+id/Text"
@@ -19,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dip"
+<<<<<<< HEAD
             android:layout_toRightOf="@id/Image"
             android:background="@color/mousse"
             android:layout_centerVertical="true">
@@ -32,6 +37,17 @@
                 style="@style/DescrMenu"
                 android:layout_below="@id/Titre"
                 />
+=======
+            android:layout_toRightOf="@id/amitie_img"
+            android:background="@color/mousse"
+            android:layout_centerVertical="true">
+            <TextView
+                android:id="@+id/amitie_nom"
+                style="@style/TitreMenu"
+                android:textStyle="italic"
+                />
+
+>>>>>>> develop_android
         </RelativeLayout>
 
     </RelativeLayout>

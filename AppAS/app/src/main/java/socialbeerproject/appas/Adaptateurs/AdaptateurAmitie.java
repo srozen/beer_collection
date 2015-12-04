@@ -13,7 +13,7 @@ import android.widget.TextView;
 import socialbeerproject.appas.Elements.ElementAmitie;
 import socialbeerproject.appas.R;
 
-/*
+/**
  * Classe permettant de customizer les éléments des amitie.
  * Chaque item sera affiché selon elem_amitie.xml
  */
@@ -56,13 +56,13 @@ public class AdaptateurAmitie extends BaseAdapter {
         }
 
 
-        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.Image);
-        TextView Titre = (TextView) convertView.findViewById(R.id.Nom);
+        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.amitie_img);
+        TextView nomAmi = (TextView) convertView.findViewById(R.id.amitie_nom);
 
         ElementAmitie row_pos = elements.get(position);
 
         imgIcon.setImageResource(row_pos.getIcon());
-        Titre.setText(row_pos.getNom());
+        nomAmi.setText(row_pos.getNom());
 
         return convertView;
     }

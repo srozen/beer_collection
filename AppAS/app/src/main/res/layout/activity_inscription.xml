@@ -40,7 +40,6 @@
             android:layout_below="@+id/texte_utilisateur"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" >
-            <requestFocus />
         </EditText>
 
         <TextView

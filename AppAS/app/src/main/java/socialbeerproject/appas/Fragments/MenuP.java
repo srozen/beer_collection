@@ -1,13 +1,15 @@
 package socialbeerproject.appas.Fragments;
 
-import android.app.FragmentTransaction;
+import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,16 +17,22 @@ import java.util.List;
 import socialbeerproject.appas.Activity.Login;
 import socialbeerproject.appas.Activity.Principal;
 import socialbeerproject.appas.Activity.Profil;
+import socialbeerproject.appas.Activity.Scan;
 import socialbeerproject.appas.Adaptateurs.AdaptateurMenuP;
+import socialbeerproject.appas.BeerMap;
 import socialbeerproject.appas.Elements.ElementMenuP;
 import socialbeerproject.appas.R;
 
+/**
+ * Classe BonPlan, cette classe permet créer le menu sous forme de liste
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
 
 public class MenuP extends ListFragment {
-	
+
     private int Position = 0;
     private ArrayList<String> Item;
-    
+
     AdaptateurMenuP adapter;
     private List<ElementMenuP> element;
 
@@ -43,8 +51,19 @@ public class MenuP extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-    	selectItem(position, v);
+        selectItem(position, v);
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        TextView title = (TextView) getActivity().findViewById(R.id.titre_principal);
+        title.setText("Menu");
+
+        ImageButton imgButton = (ImageButton) getActivity().findViewById(R.id.btn_principal);
+        imgButton.setVisibility(View.GONE);
     }
 
     /**
@@ -52,45 +71,58 @@ public class MenuP extends ListFragment {
      * displaying a fragment in-place in the current UI, or starting a
      * whole new activity in which it is displayed.
      */
+
     void selectItem(int index, View v) {
         Position = index;
 
         getListView().setItemChecked(index, true);
+        Principal prin = (Principal) getActivity();
 
         switch (index) {
             case 0:
-                this.replaceFragment("Scan");
+                startActivity(new Intent(getActivity(), Scan.class));
                 break;
             case 1:
-                this.replaceFragment("Collection");
+                prin.replaceFragment("Collection");
                 break;
             case 2:
-                this.replaceFragment("Catalogue");
+                prin.replaceFragment("Catalogue");
                 break;
             case 3:
                 startActivity(new Intent(getActivity(), Profil.class));
                 break;
             case 4:
+                prin.replaceFragment("Amitie");
                 break;
             case 5:
-
+                startActivity(new Intent(getActivity(), BeerMap.class));
                 break;
             case 6:
-                this.logOut();
+                prin.replaceFragment("BonPlan");
+                break;
+            case 7:
+                logOut(getActivity());
+                startActivity(new Intent(getActivity(), Login.class));
+                getActivity().finish();
                 break;
         }
     }
 
-    void creationMenu(){
+    /**
+     * creationMenu : créé le menu sous forme d'arraylist
+     */
+
+    private void creationMenu(){
         element = new ArrayList<ElementMenuP>();
 
         ElementMenuP e1 = new ElementMenuP("Scan", "Scan ta binouze", R.mipmap.ic_scan);
         ElementMenuP e2 = new ElementMenuP("Collection", "Toute les bières que tu as sifflé", R.mipmap.ic_collection);
         ElementMenuP e3 = new ElementMenuP("Catalogue", "Liste de tous les bières", R.mipmap.ic_catalogue);
         ElementMenuP e4 = new ElementMenuP("Profil", "Paramètres personnels", R.mipmap.ic_profil);
-        ElementMenuP e5 = new ElementMenuP("BeerMap", "Carte des buveurs", R.mipmap.ic_map);
-        ElementMenuP e6 = new ElementMenuP("Bons Plans", "Promo sur les bières", R.mipmap.ic_bon_plan);
-        ElementMenuP e7 = new ElementMenuP("Déconnexion", "Changement de compte?", R.mipmap.ic_deco);
+        ElementMenuP e5 = new ElementMenuP("Amis", "Voir vos amis", R.mipmap.ic_amis);
+        ElementMenuP e6 = new ElementMenuP("BeerMap", "Carte des buveurs", R.mipmap.ic_map);
+        ElementMenuP e7 = new ElementMenuP("Bons Plans", "Promo sur les bières", R.mipmap.ic_bon_plan);
+        ElementMenuP e8 = new ElementMenuP("Déconnexion", "Changement de compte?", R.mipmap.ic_deco);
 
         element.add(e1);
         element.add(e2);
@@ -99,44 +131,23 @@ public class MenuP extends ListFragment {
         element.add(e5);
         element.add(e6);
         element.add(e7);
+        element.add(e8);
 
         adapter = new AdaptateurMenuP(getActivity(), element);
         setListAdapter(adapter);
     }
 
-    private void replaceFragment(String frag){
-        //Remplace un fragment par un autre
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-
-        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-
-        Principal prin = (Principal) getActivity();
-        switch (frag) {
-            case "Scan":
-                ft.replace(R.id.linear, new Scan());
-                break;
-            case "Collection":
-                ft.replace(R.id.linear, prin.collection);
-                break;
-            case "Catalogue":
-                ft.replace(R.id.linear, prin.catalogue);
-                break;
-        }
-
-        ft.addToBackStack(null);
-        ft.commit();
-
-    }
-
-    private void logOut(){
-        SharedPreferences log = getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
+    /**
+     * logOut : Déconnecte l'utilisateur
+     * @param act : Activité dans laquelle le fragment se déroule
+     */
+    public static void logOut(Activity act){
+        SharedPreferences log = act.getSharedPreferences("Login", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = log.edit();
         edit.remove("username");
         edit.remove("hash");
         edit.remove("idUser");
         edit.apply();
-        startActivity(new Intent(getActivity(), Login.class));
-        getActivity().finish();
     }
 }
 

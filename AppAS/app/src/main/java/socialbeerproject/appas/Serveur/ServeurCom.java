@@ -22,6 +22,7 @@ import socialbeerproject.appas.Divers.Chargement;
 /**
  * Created by Rémy on 13-10-15.
  * Classe gérant les communications avec l'API serveur (et le chargement)
+ * Chaque fonction permet d'atteindre une API différente
  */
 public class ServeurCom {
 
@@ -147,7 +148,7 @@ public class ServeurCom {
     }
 
     /**
-     * Fait une demande de sel pour l'inscription
+     *
      * @param hash
      * @param sel
      */
@@ -157,16 +158,24 @@ public class ServeurCom {
 
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("login", username));
-        params.add(new BasicNameValuePair("password",hash));
-        params.add(new BasicNameValuePair("saltUser",sel));
+        params.add(new BasicNameValuePair("password", hash));
+        params.add(new BasicNameValuePair("saltUser", sel));
 
         this.pass = "";
         this.username = "";
         this.email = "";
 
+        act.setHash(hash);
+
         this.envoieServeur(params);
     }
 
+    /**
+     * Fait une demande de sel pour l'inscription
+     * @param username
+     * @param password
+     * @param email
+     */
     public void inscriptionOne(String username, String password, String email){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("inscription", "inscription"));
@@ -191,18 +200,11 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
-    public void amitie(){
-        List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("amitie", "amitie"));
-
-        this.envoieServeur(params);
-    }
-
     public void collection(String userId){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("collection", "collection"));
 
-        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("id", userId));
 
         this.envoieServeur(params);
     }
@@ -213,6 +215,15 @@ public class ServeurCom {
 
         params.add(new BasicNameValuePair("id", idBiere));
         params.add(new BasicNameValuePair("userId", userId));
+
+        this.envoieServeur(params);
+    }
+
+    public void nouvBiere(String userId){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("nouvBiere", "nouvBiere"));
+
+        params.add(new BasicNameValuePair("idUser", userId));
 
         this.envoieServeur(params);
     }
@@ -241,11 +252,69 @@ public class ServeurCom {
         this.envoieServeur(params);
     }
 
+    public void profil(String userId){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("profil","profil"));
+
+        params.add(new BasicNameValuePair("id", userId));
+
+        this.envoieServeur(params);
+    }
+
     public void recuperationImage(String beerId, ImageView imgBout, ImageView imgEtiq){
         String urlBout = ImageHTTP.cheminImageBouteille + beerId +".jpg";
         new ImageHTTP(imgBout).execute(urlBout);
         String urlEtiq = ImageHTTP.cheminImageEtiquette + beerId +".jpg";
         new ImageHTTP(imgEtiq).execute(urlEtiq);
+    }
+
+    public void ajoutAmi(String nomAmi, String userId ) {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("ajoutAmi", "ajoutAmi"));
+
+        params.add(new BasicNameValuePair("id", userId));
+        params.add(new BasicNameValuePair("nomAmi", nomAmi));
+        this.envoieServeur(params);
+
+        // TODO : A IMPLEMENTER COTE SERVEUR
+    }
+
+    public void getBonPlan() {
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("bonPlan", "bonPlan"));
+        this.envoieServeur(params);
+
+
+    }
+
+    public void listeAmi(String userId) {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("listeAmi", "listeAmi"));
+        params.add(new BasicNameValuePair("userId", userId));
+        this.envoieServeur(params);
+
+    }
+
+    public void map(String type, Double latitude, Double longitude, String userId) {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair(type,type));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("latitude",latitude.toString()));
+        params.add(new BasicNameValuePair("longitude",longitude.toString()));
+        this.envoieServeur(params);
+
+    }
+
+    public void envoieImage(String userId, String img){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+        params.add(new BasicNameValuePair("envoieIm", "envoieIm"));
+
+        params.add(new BasicNameValuePair("idUser", userId));
+        params.add(new BasicNameValuePair("img", img));
+
+        this.envoieServeur(params);
     }
 
     private void envoieServeur(List<NameValuePair> params){

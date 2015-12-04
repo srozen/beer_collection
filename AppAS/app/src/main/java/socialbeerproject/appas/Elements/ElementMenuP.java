@@ -1,5 +1,10 @@
 package socialbeerproject.appas.Elements;
 
+/**
+ * Classe ElementMenuP, utilisé pour représenter un item du menu
+ * @author Voet Rémy, Faignaert Florian, Pierret Cyril
+ */
+
 public class ElementMenuP {
 
     private String title;
