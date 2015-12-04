@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel_background_LB"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/liste_biere_cata_item"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:padding="5dp">
+
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rel_elem_collection">
+
+        <ImageView
+            android:id="@+id/image_LB"
+            style="@style/ImageMenu"
+            android:src="@mipmap/ic_introuvable"
+            android:visibility="gone"/>
+
+        <RelativeLayout android:id="@+id/rel_desc_LB"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_toRightOf="@id/image_LB"
+            android:layout_centerVertical="true">
+
+            <View
+                android:id="@+id/view_separation"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textView_nom_LB"
+                style="@style/TitreMenu"
+                android:textStyle="italic"
+                android:text="Leffe Blonde"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/view_separation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/progress_ratingGlo_LB"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@id/view_separation"
+                android:layout_marginLeft="10dp"
+                android:progressDrawable="@drawable/progress_bar"
+                android:progress="50" />
+
+            <TextView
+                android:id="@+id/textView_ratingGlo_LB"
+                android:text="@string/texte_noteGlobal"
+                android:gravity="center"
+                android:layout_alignLeft="@id/progress_ratingGlo_LB"
+                android:layout_alignTop="@id/progress_ratingGlo_LB"
+                android:layout_alignRight="@id/progress_ratingGlo_LB"
+                android:layout_alignBottom="@id/progress_ratingGlo_LB"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <ProgressBar
+                android:id="@+id/progress_ratingPer_LB"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/view_separation"
+                android:progressDrawable="@drawable/progress_bar"
+                android:progress="95" />
+
+            <TextView
+                android:id="@+id/textView_ratingPer_LB"
+                android:text="@string/texte_notePer"
+                android:gravity="center"
+                android:layout_alignLeft="@id/progress_ratingPer_LB"
+                android:layout_alignTop="@id/progress_ratingPer_LB"
+                android:layout_alignRight="@id/progress_ratingPer_LB"
+                android:layout_alignBottom="@id/progress_ratingPer_LB"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

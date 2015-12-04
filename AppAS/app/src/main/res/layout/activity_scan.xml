@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:padding="5dp">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:id="@+id/rel_scan">
+
+        <Button
+            style="@style/GrosBouton"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_retour"
+            android:id="@+id/button_retour_scan" />
+
+        <TextView
+            style="@style/Titre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scan"
+            android:id="@+id/text_Scan"
+            android:layout_gravity="center_horizontal"
+            android:layout_toRightOf="@+id/button_retour_scan" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/intro"
+            android:textStyle="bold"
+            android:id="@+id/textView_scan1"
+            android:layout_margin="20dp"
+            android:layout_below="@+id/button_retour_scan" />
+
+        <Button
+            style="@style/GrosBouton"
+            android:id="@+id/capture_btn"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/capture"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/textView_scan1" />
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/picture"
+            android:layout_below="@+id/capture_btn"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/scan_btn"
+            android:layout_margin="5dp"
+            style="@style/GrosBouton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scan_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/picture" />
+
+    </RelativeLayout>
+</ScrollView>
